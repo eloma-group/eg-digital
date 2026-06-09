@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 const NAVY  = '#08213C'
@@ -10,22 +10,22 @@ const EASE: [number,number,number,number] = [0.16, 1, 0.3, 1]
 
 function fadeUp(delay = 0) {
   return {
-    initial:    { opacity: 0, y: 32 },
-    whileInView:{ opacity: 1, y: 0 },
-    viewport:   { once: true, margin: '-60px' },
-    transition: { duration: 0.8, ease: EASE, delay },
+    initial:     { opacity: 0, y: 32 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport:    { once: true, margin: '-60px' },
+    transition:  { duration: 0.8, ease: EASE, delay },
   }
 }
 
-// ── Shared card primitives ────────────────────
-function MockCard({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
+// ── Card primitives ───────────────────────────────────────────────
+function Card({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
   return (
     <div style={{
       background: '#fff',
       border: '1px solid rgba(8,33,60,0.07)',
-      borderRadius: 18,
+      borderRadius: 16,
       padding: '18px 20px',
-      boxShadow: '0 4px 20px rgba(8,33,60,0.06)',
+      boxShadow: '0 2px 10px rgba(8,33,60,0.05)',
       ...style,
     }}>
       {children}
@@ -33,232 +33,299 @@ function MockCard({ children, style }: { children: ReactNode; style?: React.CSSP
   )
 }
 
-function MockLabel({ children }: { children: ReactNode }) {
+function Label({ children }: { children: ReactNode }) {
   return (
     <div style={{
       fontSize: 10, fontWeight: 700, letterSpacing: '1.5px',
-      textTransform: 'uppercase', color: 'rgba(8,33,60,0.38)',
-      marginBottom: 8,
+      textTransform: 'uppercase', color: 'rgba(8,33,60,0.35)',
+      marginBottom: 7,
     }}>
       {children}
     </div>
   )
 }
 
-function MockVal({ children, color }: { children: ReactNode; color?: string }) {
+function BigNum({ children, color }: { children: ReactNode; color?: string }) {
   return (
-    <div style={{ fontSize: 26, fontWeight: 900, color: color ?? NAVY, letterSpacing: '-0.04em' }}>
+    <div style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.04em', color: color ?? NAVY }}>
       {children}
     </div>
   )
 }
 
-// ── Mockup A: Reviews & Feedback ─────────────
-function MockupReviews() {
-  const bars = [30,50,38,65,52,75,62,88,70,100,84,92]
+// ── Mockup 1 — Microsoft Ecosystem ───────────────────────────────
+function MockupMicrosoft() {
+  const apps = [
+    { name: 'Teams',      bg: '#4b53bc' },
+    { name: 'Outlook',    bg: '#0078d4' },
+    { name: 'SharePoint', bg: '#038387' },
+    { name: 'OneDrive',   bg: '#1490df' },
+    { name: 'Dynamics',   bg: '#002050' },
+    { name: 'Azure',      bg: '#0072c6' },
+  ]
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        <MockCard>
-          <MockLabel>Total Emails Sent</MockLabel>
-          <MockVal>48,231</MockVal>
-          <div style={{ fontSize: 12, color: GREEN, fontWeight: 700, marginTop: 6 }}>↑ 22% this month</div>
-          <div style={{ marginTop: 12, height: 5, background: 'rgba(8,33,60,0.05)', borderRadius: 99, overflow: 'hidden' }}>
-            <div style={{ width: '78%', height: '100%', background: GREEN, borderRadius: 99 }} />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <Card>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+          <Label>Microsoft 365 Ecosystem</Label>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 5,
+            background: 'rgba(60,185,140,0.1)', borderRadius: 99,
+            padding: '4px 10px',
+          }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: GREEN }} />
+            <span style={{ fontSize: 10, fontWeight: 700, color: GREEN }}>All Active</span>
           </div>
-        </MockCard>
-        <MockCard>
-          <MockLabel>Review Count</MockLabel>
-          <MockVal color={GREEN}>3,847</MockVal>
-          <div style={{ display: 'flex', gap: 3, marginTop: 8 }}>
-            {[1,2,3,4,5].map(i => <Star key={i} size={13} fill={GREEN} color={GREEN} />)}
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+          {apps.map(app => (
+            <div key={app.name} style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 7,
+              padding: '12px 6px',
+              background: 'rgba(8,33,60,0.02)', borderRadius: 12,
+              border: '1px solid rgba(8,33,60,0.05)',
+            }}>
+              <div style={{
+                width: 38, height: 38, borderRadius: 10, background: app.bg,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 15, fontWeight: 800, color: '#fff',
+              }}>
+                {app.name[0]}
+              </div>
+              <span style={{ fontSize: 9.5, fontWeight: 700, color: NAVY, textAlign: 'center', lineHeight: 1.2 }}>{app.name}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+        <Card>
+          <Label>Licences Active</Label>
+          <BigNum>247</BigNum>
+          <div style={{ marginTop: 8, height: 4, background: 'rgba(8,33,60,0.06)', borderRadius: 99, overflow: 'hidden' }}>
+            <div style={{ width: '82%', height: '100%', background: GREEN, borderRadius: 99 }} />
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(8,33,60,0.45)', marginTop: 5 }}>Avg 4.9 stars</div>
-        </MockCard>
+          <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.38)', fontWeight: 600, marginTop: 5 }}>82% utilisation</div>
+        </Card>
+        <Card>
+          <Label>Cloud Uptime</Label>
+          <BigNum color={GREEN}>99.9%</BigNum>
+          <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.38)', fontWeight: 600, marginTop: 5 }}>↑ Last 30 days</div>
+        </Card>
       </div>
-      <MockCard>
-        <MockLabel>Review Centre Activity</MockLabel>
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, height: 56 }}>
+    </div>
+  )
+}
+
+// ── Mockup 2 — Dev Project Tracker ───────────────────────────────
+function MockupDev() {
+  const files = [
+    { name: 'Homepage',        note: 'Deployed',     dot: GREEN      },
+    { name: 'Product Pages',   note: 'Deployed',     dot: GREEN      },
+    { name: 'Checkout Flow',   note: 'In Progress',  dot: '#f59e0b'  },
+    { name: 'Admin Panel',     note: 'Queued',       dot: 'rgba(8,33,60,0.2)' },
+  ]
+  const stack = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Shopify']
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <Card>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
+          <div>
+            <Label>Active Build</Label>
+            <div style={{ fontSize: 17, fontWeight: 800, color: NAVY, letterSpacing: '-0.02em' }}>Nova Commerce</div>
+          </div>
+          <div style={{
+            background: `${GREEN}18`, border: `1px solid ${GREEN}40`,
+            borderRadius: 99, padding: '4px 12px',
+            fontSize: 10, fontWeight: 700, color: GREEN,
+          }}>On Track</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+          {files.map(f => (
+            <div key={f.name} style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '8px 10px', background: 'rgba(8,33,60,0.025)', borderRadius: 9,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: f.dot, flexShrink: 0 }} />
+                <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{f.name}</span>
+              </div>
+              <span style={{ fontSize: 10, fontWeight: 700, color: f.dot }}>{f.note}</span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 14, height: 4, background: 'rgba(8,33,60,0.06)', borderRadius: 99, overflow: 'hidden' }}>
+          <div style={{ width: '55%', height: '100%', background: GREEN, borderRadius: 99 }} />
+        </div>
+        <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.4)', fontWeight: 600, marginTop: 5 }}>Build progress — 55% complete</div>
+      </Card>
+
+      <Card>
+        <Label>Tech Stack</Label>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
+          {stack.map(s => (
+            <div key={s} style={{
+              padding: '5px 11px', borderRadius: 99,
+              background: 'rgba(8,33,60,0.05)',
+              fontSize: 11, fontWeight: 700, color: NAVY,
+            }}>{s}</div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  )
+}
+
+// ── Mockup 3 — SEO & Marketing ────────────────────────────────────
+function MockupMarketing() {
+  const bars = [34, 46, 42, 58, 52, 68, 62, 78, 72, 86, 82, 100]
+  const keywords = [
+    { kw: 'Microsoft 365 Sydney',    pos: 1, up: true },
+    { kw: 'IT Solutions Australia',  pos: 3, up: true },
+    { kw: 'Cloud Hosting Provider',  pos: 6, up: false },
+  ]
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <Card>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+          <div>
+            <Label>Organic Traffic Growth</Label>
+            <BigNum>+284%</BigNum>
+            <div style={{ fontSize: 12, color: GREEN, fontWeight: 700, marginTop: 4 }}>Over 12 months</div>
+          </div>
+          {/* Domain authority ring */}
+          <div style={{ position: 'relative', width: 54, height: 54, flexShrink: 0 }}>
+            <svg width="54" height="54" viewBox="0 0 54 54">
+              <circle cx="27" cy="27" r="22" fill="none" stroke="rgba(8,33,60,0.06)" strokeWidth="5" />
+              <circle cx="27" cy="27" r="22" fill="none" stroke={GREEN} strokeWidth="5"
+                strokeDasharray={`${2 * Math.PI * 22 * 0.84} ${2 * Math.PI * 22 * 0.16}`}
+                strokeDashoffset={2 * Math.PI * 22 * 0.25}
+                strokeLinecap="round" />
+            </svg>
+            <div style={{
+              position: 'absolute', inset: 0,
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', justifyContent: 'center',
+            }}>
+              <span style={{ fontSize: 13, fontWeight: 900, color: NAVY, lineHeight: 1 }}>84</span>
+              <span style={{ fontSize: 8, fontWeight: 700, color: 'rgba(8,33,60,0.35)', letterSpacing: '0.5px' }}>DA</span>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 52 }}>
           {bars.map((h, i) => (
             <div key={i} style={{
               flex: 1, height: `${h}%`, borderRadius: '3px 3px 0 0',
-              background: i >= 9 ? GREEN : `rgba(60,185,140,${0.12 + h * 0.005})`,
+              background: i >= 9 ? GREEN : `rgba(60,185,140,${0.1 + h * 0.006})`,
             }} />
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
-          {['Jan','Feb','Mar','Apr','May','Jun'].map(m => (
-            <span key={m} style={{ fontSize: 9, color: 'rgba(8,33,60,0.35)', fontWeight: 600 }}>{m}</span>
+      </Card>
+
+      <Card>
+        <Label>Keyword Rankings</Label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 9, marginTop: 4 }}>
+          {keywords.map(k => (
+            <div key={k.kw} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{
+                width: 26, height: 26, borderRadius: 7, flexShrink: 0,
+                background: k.pos === 1 ? GREEN : 'rgba(8,33,60,0.07)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 11, fontWeight: 800,
+                color: k.pos === 1 ? '#fff' : NAVY,
+              }}>#{k.pos}</div>
+              <span style={{
+                fontSize: 12, fontWeight: 600, color: NAVY,
+                flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+              }}>{k.kw}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: k.up ? GREEN : 'rgba(8,33,60,0.3)', flexShrink: 0 }}>
+                {k.up ? '↑' : '→'}
+              </span>
+            </div>
           ))}
         </div>
-      </MockCard>
+      </Card>
     </div>
   )
 }
 
-// ── Mockup B: Sales Analysis ──────────────────
-function MockupSales() {
-  const vals = [38,52,44,68,58,82,74,90,76,95,84,100]
-  const months = ['J','F','M','A','M','J','J','A','S','O','N','D']
+// ── Mockup 4 — Cyber Security ─────────────────────────────────────
+function MockupSecurity() {
+  const threats = [
+    { name: 'Phishing Attempts',   count: 148, color: '#ef4444' },
+    { name: 'Malware Detected',    count: 23,  color: '#f59e0b' },
+    { name: 'Unauthorised Access', count: 7,   color: GREEN      },
+  ]
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <MockCard>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      {/* Dark protection card */}
+      <Card style={{ background: NAVY, border: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18 }}>
           <div>
-            <MockLabel>Units Sold</MockLabel>
-            <MockVal>24,580</MockVal>
+            <div style={{
+              fontSize: 9, fontWeight: 700, letterSpacing: '1.8px',
+              textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 6,
+            }}>AI Protection Status</div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: '#fff', letterSpacing: '-0.04em' }}>
+              System Protected
+            </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.4)', fontWeight: 600 }}>vs last month</div>
-            <div style={{ fontSize: 22, fontWeight: 900, color: GREEN, letterSpacing: '-0.03em' }}>+34%</div>
-          </div>
+          {/* Shield icon */}
+          <svg width="48" height="56" viewBox="0 0 48 56" fill="none">
+            <path d="M24 2L3 10V28C3 40.5 13 51 24 55C35 51 45 40.5 45 28V10L24 2Z"
+              fill={`${GREEN}22`} stroke={GREEN} strokeWidth="1.5" />
+            <path d="M16 28L22 34L32 22"
+              stroke={GREEN} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 3, height: 64 }}>
-          {vals.map((h, i) => (
-            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+          {[
+            { label: 'Threats Blocked', val: '178' },
+            { label: 'Scans Today',     val: '2.4K' },
+            { label: 'Uptime',          val: '100%' },
+          ].map(s => (
+            <div key={s.label} style={{
+              background: 'rgba(255,255,255,0.06)', borderRadius: 10, padding: '10px 10px',
+            }}>
               <div style={{
-                width: '100%', height: `${h}%`,
-                borderRadius: '3px 3px 0 0',
-                background: i === 11 ? GREEN : `rgba(60,185,140,${0.12 + h * 0.006})`,
-              }} />
-              <span style={{ fontSize: 8, color: 'rgba(8,33,60,0.35)', fontWeight: 600 }}>{months[i]}</span>
+                fontSize: 8, fontWeight: 700, color: 'rgba(255,255,255,0.35)',
+                letterSpacing: '1.2px', textTransform: 'uppercase', marginBottom: 5,
+              }}>{s.label}</div>
+              <div style={{ fontSize: 18, fontWeight: 900, color: '#fff', letterSpacing: '-0.04em' }}>{s.val}</div>
             </div>
           ))}
         </div>
-      </MockCard>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        <MockCard>
-          <MockLabel>Revenue</MockLabel>
-          <MockVal>$128K</MockVal>
-          <div style={{ fontSize: 12, color: GREEN, fontWeight: 700, marginTop: 5 }}>↑ 28% YoY</div>
-        </MockCard>
-        <MockCard>
-          <MockLabel>Inventory Status</MockLabel>
-          {[{ name: 'SKU-A001', pct: 82 }, { name: 'SKU-B042', pct: 55 }, { name: 'SKU-C017', pct: 24 }].map(row => (
-            <div key={row.name} style={{ marginBottom: 8 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, fontWeight: 600, color: NAVY, marginBottom: 3 }}>
-                <span>{row.name}</span><span>{row.pct}%</span>
-              </div>
-              <div style={{ height: 4, background: 'rgba(8,33,60,0.06)', borderRadius: 99, overflow: 'hidden' }}>
-                <div style={{
-                  width: `${row.pct}%`, height: '100%', borderRadius: 99,
-                  background: row.pct > 60 ? GREEN : row.pct > 30 ? '#f59e0b' : '#ef4444',
-                }} />
-              </div>
-            </div>
-          ))}
-        </MockCard>
-      </div>
-    </div>
-  )
-}
+      </Card>
 
-// ── Mockup C: Dashboard ───────────────────────
-function MockupDashboard() {
-  const orders = [
-    { id: '#4821', product: 'Wireless Earbuds', status: 'Shipped',   amount: '$89' },
-    { id: '#4820', product: 'Phone Case',        status: 'Pending',   amount: '$24' },
-    { id: '#4819', product: 'USB-C Hub',          status: 'Delivered', amount: '$59' },
-  ]
-  const statusColor: Record<string,string> = {
-    Shipped: '#3b82f6', Pending: '#f59e0b', Delivered: GREEN,
-  }
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <MockCard>
-        <MockLabel>Recent Orders</MockLabel>
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <tbody>
-            {orders.map(o => (
-              <tr key={o.id} style={{ borderBottom: '1px solid rgba(8,33,60,0.05)' }}>
-                <td style={{ padding: '8px 0', fontSize: 12, fontWeight: 700, color: NAVY }}>{o.id}</td>
-                <td style={{ padding: '8px 4px', fontSize: 12, color: 'rgba(8,33,60,0.6)' }}>{o.product}</td>
-                <td style={{ padding: '8px 0' }}>
-                  <span style={{
-                    fontSize: 10, fontWeight: 700,
-                    color: statusColor[o.status],
-                    background: `${statusColor[o.status]}18`,
-                    borderRadius: 99, padding: '3px 8px',
-                  }}>{o.status}</span>
-                </td>
-                <td style={{ padding: '8px 0', fontSize: 12, fontWeight: 700, color: NAVY, textAlign: 'right' }}>{o.amount}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </MockCard>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        <MockCard>
-          <MockLabel>Email Open Rate</MockLabel>
-          <MockVal>68.4%</MockVal>
-          <div style={{ fontSize: 12, color: GREEN, fontWeight: 700, marginTop: 5 }}>↑ 5.2% vs avg</div>
-        </MockCard>
-        <MockCard style={{ background: NAVY }}>
-          <MockLabel><span style={{ color: 'rgba(255,255,255,0.45)' }}>Flexible Plans</span></MockLabel>
-          <div style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.03em', marginBottom: 4 }}>From $15</div>
-          <div style={{ fontSize: 11, color: GREEN, fontWeight: 700 }}>No credit card</div>
-          <div style={{
-            marginTop: 12, background: GREEN, borderRadius: 99,
-            padding: '8px', textAlign: 'center', fontSize: 12,
-            fontWeight: 700, color: '#fff', cursor: 'pointer',
-          }}>Start Free</div>
-        </MockCard>
-      </div>
-    </div>
-  )
-}
-
-// ── Mockup D: Response Centre ─────────────────
-function MockupResponse() {
-  const messages = [
-    { from: 'customer', text: "Hi, my order hasn't arrived yet — order #4819." },
-    { from: 'agent',    text: "Hi Sarah! Your order is out for delivery today — arriving by 6 PM. 😊" },
-    { from: 'customer', text: "Thank you so much!" },
-  ]
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <MockCard>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-          <MockLabel>Response Centre</MockLabel>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <div style={{ width: 7, height: 7, borderRadius: '50%', background: GREEN }} />
-            <span style={{ fontSize: 10, fontWeight: 700, color: GREEN }}>3 Active</span>
-          </div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
-          {messages.map((m, i) => (
-            <div key={i} style={{ display: 'flex', justifyContent: m.from === 'agent' ? 'flex-end' : 'flex-start' }}>
+      <Card>
+        <Label>Recent Threats — All Blocked</Label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 9, marginTop: 6 }}>
+          {threats.map(t => (
+            <div key={t.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: t.color, flexShrink: 0 }} />
+                <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{t.name}</span>
+              </div>
               <div style={{
-                maxWidth: '82%', padding: '9px 14px',
-                borderRadius: m.from === 'agent' ? '16px 4px 16px 16px' : '4px 16px 16px 16px',
-                background: m.from === 'agent' ? GREEN : 'rgba(8,33,60,0.05)',
-                color: m.from === 'agent' ? '#fff' : NAVY,
-                fontSize: 12, fontWeight: 500, lineHeight: 1.5,
-              }}>
-                {m.text}
-              </div>
+                fontSize: 11, fontWeight: 800, color: NAVY,
+                background: 'rgba(8,33,60,0.05)', borderRadius: 99, padding: '3px 10px',
+              }}>{t.count} blocked</div>
             </div>
           ))}
         </div>
-      </MockCard>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        {[
-          { label: 'Messages Today', val: '247' },
-          { label: 'Avg Response',   val: '< 2min' },
-        ].map(s => (
-          <MockCard key={s.label}>
-            <MockLabel>{s.label}</MockLabel>
-            <MockVal>{s.val}</MockVal>
-          </MockCard>
-        ))}
-      </div>
+      </Card>
     </div>
   )
 }
 
-// ── Generic FeatureBlock ──────────────────────
+// ── FeatureBlock ──────────────────────────────────────────────────
 type FeatureBlockProps = {
   id?: string
+  num: string
   eyebrow: string
   headline: string
   body: string
@@ -268,117 +335,156 @@ type FeatureBlockProps = {
   mockup: ReactNode
 }
 
-function FeatureBlock({ id, eyebrow, headline, body, cta, flip, bg = '#fff', mockup }: FeatureBlockProps) {
+function FeatureBlock({ id, num, eyebrow, headline, body, cta, flip, bg = '#fff', mockup }: FeatureBlockProps) {
   return (
     <section
       id={id}
-      style={{ background: bg, padding: 'clamp(80px,10vw,140px) clamp(24px,4vw,64px)' }}
+      style={{ background: bg, padding: 'clamp(72px,9vw,130px) clamp(24px,4vw,72px)' }}
     >
-      <style>{`
-        .fb-inner {
-          max-width: min(calc(100vw - 48px), 1760px);
-          margin: 0 auto;
-          display: grid; grid-template-columns: 1fr 1fr;
-          align-items: center; gap: clamp(48px,6vw,96px);
-        }
-        .fb-inner.flip { direction: rtl; }
-        .fb-inner.flip > * { direction: ltr; }
-        .fb-eyebrow {
-          font-size: clamp(10px,0.75vw,12px); font-weight: 800;
-          letter-spacing: 2.5px; text-transform: uppercase; color: ${GREEN};
-          margin-bottom: 14px;
-          display: flex; align-items: center; gap: 10px;
-        }
-        .fb-eyebrow::before {
-          content: ''; display: block; width: 28px; height: 2px;
-          background: ${GREEN}; flex-shrink: 0;
-        }
-        .fb-h2 {
-          font-size: clamp(32px,4vw,58px); font-weight: 900; color: ${NAVY};
-          text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.94;
-          margin-bottom: clamp(14px,1.6vw,24px);
-        }
-        .fb-body {
-          font-size: clamp(15px,1.1vw,17px); color: rgba(8,33,60,0.58);
-          line-height: 1.78; margin-bottom: clamp(22px,2.2vw,32px); max-width: 480px;
-        }
-        .fb-cta {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-size: clamp(13px,0.88vw,15px); font-weight: 700;
-          color: ${GREEN}; border-bottom: 2px solid ${GREEN};
-          padding-bottom: 2px; cursor: pointer; transition: gap 0.2s;
-          background: none; border-top: none; border-left: none; border-right: none;
-          font-family: inherit;
-        }
-        .fb-cta:hover { gap: 14px; }
-        @media (max-width: 900px) {
-          .fb-inner, .fb-inner.flip { grid-template-columns: 1fr; direction: ltr; }
-        }
-        @media (max-width: 540px) {
-          .fb-h2 { font-size: clamp(28px,8vw,44px); }
-        }
-      `}</style>
-      <div className={`fb-inner${flip ? ' flip' : ''}`}>
-        <div>
+      <div className={`fb-grid${flip ? ' fb-flip' : ''}`}>
+
+        {/* Text */}
+        <div style={{ position: 'relative' }}>
+          {/* Large ghost number */}
+          <div style={{
+            position: 'absolute', top: -12, left: -6,
+            fontSize: 'clamp(96px, 11vw, 156px)',
+            fontWeight: 900, letterSpacing: '-0.06em', lineHeight: 1,
+            color: 'rgba(8,33,60,0.032)',
+            userSelect: 'none', pointerEvents: 'none',
+          }} aria-hidden="true">{num}</div>
+
           <motion.div className="fb-eyebrow" {...fadeUp(0)}>{eyebrow}</motion.div>
           <motion.h2 className="fb-h2" {...fadeUp(0.08)}>{headline}</motion.h2>
-          <motion.p className="fb-body" {...fadeUp(0.16)}>{body}</motion.p>
-          <motion.div {...fadeUp(0.22)}>
+          <motion.p className="fb-body" {...fadeUp(0.14)}>{body}</motion.p>
+          <motion.div {...fadeUp(0.2)}>
             <button className="fb-cta">{cta} <ArrowRight size={15} /></button>
           </motion.div>
         </div>
+
+        {/* Mockup */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.14 }}
         >
           {mockup}
         </motion.div>
+
       </div>
     </section>
   )
 }
 
-// ── All four feature sections ─────────────────
+// ── Features export ───────────────────────────────────────────────
 export function Features() {
   return (
     <>
+      <style>{`
+        .fb-grid {
+          max-width: min(calc(100vw - 48px), 1760px);
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          gap: clamp(48px, 6vw, 100px);
+        }
+        .fb-flip { direction: rtl; }
+        .fb-flip > * { direction: ltr; }
+
+        .fb-eyebrow {
+          font-size: clamp(10px, 0.72vw, 12px);
+          font-weight: 800; letter-spacing: 2.5px;
+          text-transform: uppercase; color: ${GREEN};
+          margin-bottom: clamp(12px, 1.2vw, 18px);
+          display: flex; align-items: center; gap: 10px;
+          position: relative; z-index: 1;
+        }
+        .fb-eyebrow::before {
+          content: ''; display: block;
+          width: 24px; height: 2px;
+          background: ${GREEN}; flex-shrink: 0;
+        }
+
+        .fb-h2 {
+          font-size: clamp(34px, 4.5vw, 64px);
+          font-weight: 900; color: ${NAVY};
+          text-transform: uppercase;
+          letter-spacing: -0.04em; line-height: 0.94;
+          margin-bottom: clamp(14px, 1.8vw, 24px);
+          position: relative; z-index: 1;
+        }
+
+        .fb-body {
+          font-size: clamp(15px, 1.1vw, 17px);
+          color: rgba(8,33,60,0.54); line-height: 1.8;
+          margin-bottom: clamp(22px, 2.5vw, 36px);
+          max-width: 460px;
+          position: relative; z-index: 1;
+        }
+
+        .fb-cta {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-size: clamp(13px, 0.9vw, 15px); font-weight: 700;
+          color: ${GREEN}; background: none;
+          border: none; border-bottom: 2px solid ${GREEN};
+          padding-bottom: 3px; cursor: pointer;
+          font-family: inherit; transition: gap 0.2s;
+          position: relative; z-index: 1;
+        }
+        .fb-cta:hover { gap: 14px; }
+
+        @media (max-width: 900px) {
+          .fb-grid, .fb-flip { grid-template-columns: 1fr; direction: ltr; }
+        }
+        @media (max-width: 540px) {
+          .fb-h2 { font-size: clamp(28px, 8vw, 44px); }
+        }
+      `}</style>
+
       <FeatureBlock
         id="services"
-        eyebrow="Review Automation"
-        headline="Automate Your Review & Feedback Requests"
-        body="Send perfectly-timed, personalised review requests after every order. Watch your star rating climb while you focus on growing your business — not chasing reviews."
-        cta="Explore Review Tools"
+        num="01"
+        eyebrow="Microsoft Partner"
+        headline="End-to-End Microsoft Solutions"
+        body="As a certified Microsoft partner, we deploy and manage the full suite — 365, Teams, Dynamics CRM, ERP, and Azure — so your team collaborates smarter from day one."
+        cta="Explore Microsoft Services"
         bg="#fff"
-        mockup={<MockupReviews />}
+        mockup={<MockupMicrosoft />}
       />
+
       <FeatureBlock
-        eyebrow="Sales Intelligence"
-        headline="Maximize Sales with Real-Time Product Analysis"
-        body="Track units sold, revenue trends, and inventory health across every SKU. Spot opportunities before competitors do with instant, actionable insights."
-        cta="See Analytics in Action"
+        num="02"
+        eyebrow="Digital Development"
+        headline="Websites, Apps & SaaS Built to Scale"
+        body="From marketing websites to complex SaaS platforms and mobile apps, we engineer digital products that perform — on time, on budget, and built to grow with your business."
+        cta="View Development Services"
         flip
         bg={CREAM}
-        mockup={<MockupSales />}
+        mockup={<MockupDev />}
       />
+
       <FeatureBlock
-        eyebrow="Central Dashboard"
-        headline="Stay Ahead with a Comprehensive Dashboard"
-        body="One unified view of orders, email metrics, pricing performance, and customer health. Everything your team needs — no spreadsheets required."
-        cta="Explore the Dashboard"
+        num="03"
+        eyebrow="Growth & Marketing"
+        headline="SEO & Branding That Drives Results"
+        body="We combine technical SEO, standout branding, and reliable cloud hosting to put your business in front of the right audience — and keep it performing at its peak."
+        cta="Explore Growth Services"
         bg="#fff"
-        mockup={<MockupDashboard />}
+        mockup={<MockupMarketing />}
       />
+
       <FeatureBlock
         id="case-studies"
-        eyebrow="Response Centre"
-        headline="Streamline Communications with the Response Centre"
-        body="Manage every customer message from a single inbox. Smart templates and AI-assisted replies mean faster responses, higher satisfaction scores, and less team burnout."
-        cta="See Response Centre"
+        num="04"
+        eyebrow="Security & Integration"
+        headline="AI Cyber Security & Smart Integrations"
+        body="Protect your business with AI-driven threat detection, proactive monitoring, and seamless system integrations — keeping your data safe and your operations fully connected."
+        cta="View Security Services"
         flip
         bg={CREAM}
-        mockup={<MockupResponse />}
+        mockup={<MockupSecurity />}
       />
     </>
   )
