@@ -1,21 +1,468 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
 
-const LINKS = [
-  { label: 'Home',         id: 'home'       },
-  { label: 'Services',     id: 'services'   },
-  { label: 'Case Studies', id: 'case-studies'},
-  { label: 'Pricing',      id: 'pricing'    },
-  { label: 'Blog',         id: 'blog'       },
+// ─────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────
+const ABOUT_ITEMS = [
+  'Our Journey', 'Our USP', 'Networks & Partners', 'Media', 'Values', 'FAQ',
+]
+const SERVICES_ITEMS = [
+  'Upgrades', 'Cloud Maintenances', 'Server Maintenances', 'Support Services',
+]
+const BLOG_ITEMS = ['Latest Technologies', 'Awareness']
+
+const SOLUTIONS_GROUPS = [
+  {
+    groupLabel: 'Microsoft Products',
+    color: '#2563eb',
+    categories: [
+      { label: 'Microsoft 365',  items: ['Power BI', 'Power Automate', 'Share Point', 'Office 365'] },
+      { label: 'Dynamic 365',    items: ['Sales', 'Customer Service', 'Field Service', 'Finance', 'Supply Chain', 'Small and Medium Business'] },
+      { label: 'CRM',            items: ['Microsoft', 'Salesforce', 'Oracle', 'Zoho'] },
+      { label: 'ERP',            items: ['Sage', 'NetSuite', 'Microsoft', 'Salesforce'] },
+    ],
+  },
+  {
+    groupLabel: 'Development',
+    color: GREEN,
+    categories: [
+      { label: 'Software Development', items: ['Custom Software Development'] },
+      { label: 'App Development',      items: ['Custom App Development'] },
+      { label: 'Website Development',  items: ['Wordpress', 'React & Next', 'Shopify'] },
+    ],
+  },
+  {
+    groupLabel: 'Digital & Marketing',
+    color: '#d97706',
+    categories: [
+      { label: 'Branding',      items: ['Logo Creation', 'Email Signature', 'Visiting Card Designing', 'Website Designing'] },
+      { label: 'Cloud Hosting', items: ['Azure', 'AWS'] },
+      { label: 'SEO Marketing', items: ['Email Marketing', 'Social Media Handling', 'Google Ads', 'Wikipedia Creation', 'Content Writing', 'Organic SEO'] },
+    ],
+  },
+  {
+    groupLabel: 'Security & Integration',
+    color: '#7c3aed',
+    categories: [
+      { label: 'Cyber Security',    items: ['Microsoft Defender XDR', 'Microsoft Entra', 'Microsoft Defender for Cloud', 'Microsoft Purview'] },
+      { label: 'AI Cyber Security', items: ['Microsoft Defender', 'Microsoft Foundry', 'Microsoft 365 Copilot', 'Microsoft Copilot Studio'] },
+      { label: 'Integrations',      items: ['API Integrations', 'Middleware / iPaaS', 'Point-to-Point Integration'] },
+      { label: 'Licenses',          items: ['Non Profit Microsoft Licenses', 'Office 365 Licenses', 'D365 Licenses'] },
+    ],
+  },
 ]
 
+// ─────────────────────────────────────────────
+// PANEL DROPDOWN — full-width, Eloma-style
+// ─────────────────────────────────────────────
+type PanelCol = { header?: string; items: string[] }
+
+function PanelDropdown({
+  eyebrow, heading, desc, cta, columns,
+  onClose, onPanelMouseEnter, onPanelMouseLeave,
+}: {
+  eyebrow: string
+  heading: string
+  desc: string
+  cta: string
+  columns: PanelCol[]
+  onClose: () => void
+  onPanelMouseEnter: () => void
+  onPanelMouseLeave: () => void
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        position: 'fixed',
+        top: 68, left: 0, right: 0,
+        zIndex: 400,
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '0 clamp(24px,4vw,64px)',
+        pointerEvents: 'none',
+      }}
+    >
+      <div
+        onMouseEnter={onPanelMouseEnter}
+        onMouseLeave={onPanelMouseLeave}
+        style={{
+          pointerEvents: 'all',
+          background: '#fff',
+          borderRadius: 18,
+          border: '1px solid rgba(8,33,60,0.09)',
+          boxShadow: '0 4px 6px rgba(8,33,60,0.04), 0 24px 64px rgba(8,33,60,0.14)',
+          width: '100%',
+          maxWidth: 1200,
+          display: 'flex',
+          padding: 'clamp(24px,3vh,40px) clamp(24px,3vw,44px)',
+          gap: 0,
+        }}
+      >
+        {/* Left editorial panel */}
+        <div style={{
+          width: 340,
+          flexShrink: 0,
+          paddingRight: 48,
+          borderRight: '1px solid rgba(8,33,60,0.08)',
+        }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            fontSize: 10, fontWeight: 800, letterSpacing: '2.5px',
+            textTransform: 'uppercase', color: GREEN,
+            marginBottom: 14,
+          }}>
+            <div style={{ width: 20, height: 2, background: GREEN, flexShrink: 0 }} />
+            {eyebrow}
+          </div>
+          <h3 style={{
+            fontSize: 'clamp(18px,1.6vw,24px)', fontWeight: 800, color: NAVY,
+            letterSpacing: '-0.03em', lineHeight: 1.18,
+            marginBottom: 11,
+          }}>{heading}</h3>
+          <p style={{
+            fontSize: 13.5, color: 'rgba(8,33,60,0.48)',
+            lineHeight: 1.72, marginBottom: 22,
+          }}>{desc}</p>
+          <button
+            onClick={onClose}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              background: NAVY, color: '#fff',
+              fontSize: 13, fontWeight: 700,
+              padding: '10px 22px', borderRadius: 100,
+              border: 'none', cursor: 'pointer',
+              fontFamily: 'inherit', minHeight: 42,
+              transition: 'background 0.2s',
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = GREEN }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = NAVY }}
+          >
+            {cta}
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+              <path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        {/* Right: link columns */}
+        <div style={{
+          flex: 1,
+          display: 'grid',
+          gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
+          paddingLeft: 48,
+          gap: 0,
+        }}>
+          {columns.map((col, ci) => (
+            <div
+              key={ci}
+              style={{
+                borderRight: ci < columns.length - 1 ? '1px solid rgba(8,33,60,0.07)' : 'none',
+                paddingRight: ci < columns.length - 1 ? 40 : 0,
+                paddingLeft: ci > 0 ? 40 : 0,
+              }}
+            >
+              {col.header && (
+                <div style={{
+                  fontSize: 9.5, fontWeight: 800, letterSpacing: '2px',
+                  textTransform: 'uppercase', color: 'rgba(8,33,60,0.32)',
+                  paddingBottom: 12, marginBottom: 4,
+                  borderBottom: '1px solid rgba(8,33,60,0.07)',
+                }}>{col.header}</div>
+              )}
+              {col.items.map((item, i) => (
+                <button
+                  key={item}
+                  onClick={onClose}
+                  style={{
+                    display: 'block', width: '100%', textAlign: 'left',
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    fontFamily: 'inherit',
+                    padding: '13px 0',
+                    fontSize: 14.5, fontWeight: 500,
+                    color: 'rgba(8,33,60,0.58)',
+                    borderBottom: i < col.items.length - 1 ? '1px solid rgba(8,33,60,0.07)' : 'none',
+                    minHeight: 46,
+                    transition: 'color 0.15s',
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = NAVY }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'rgba(8,33,60,0.58)' }}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+// ─────────────────────────────────────────────
+// MEGA MENU — Solutions (accordion + hover expand)
+// ─────────────────────────────────────────────
+function MegaMenu({
+  onClose,
+  onPanelMouseEnter,
+  onPanelMouseLeave,
+}: {
+  onClose: () => void
+  onPanelMouseEnter: () => void
+  onPanelMouseLeave: () => void
+}) {
+  // unique key: "groupLabel::catLabel"
+  const [hoveredCat, setHoveredCat] = useState<string | null>(null)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        position: 'fixed',
+        top: 68,
+        left: 0,
+        right: 0,
+        zIndex: 400,
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '0 clamp(24px,4vw,64px)',
+        pointerEvents: 'none',
+      }}
+    >
+      {/* Scrollable inner panel — handlers here so scroll works */}
+      <div
+        onMouseEnter={onPanelMouseEnter}
+        onMouseLeave={onPanelMouseLeave}
+        style={{
+          background: '#fff',
+          borderRadius: 18,
+          border: '1px solid rgba(8,33,60,0.09)',
+          boxShadow: '0 4px 6px rgba(8,33,60,0.04), 0 24px 64px rgba(8,33,60,0.14)',
+          width: '100%',
+          maxWidth: 1200,
+          maxHeight: 'calc(100vh - 86px)',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          pointerEvents: 'all',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+        }}
+      >
+        {SOLUTIONS_GROUPS.map((group, gi) => {
+          const isLast = gi === SOLUTIONS_GROUPS.length - 1
+          return (
+            <div
+              key={group.groupLabel}
+              style={{
+                padding: '20px 18px 24px',
+                borderRight: isLast ? 'none' : '1px solid rgba(8,33,60,0.06)',
+              }}
+            >
+              {/* Group header */}
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 7,
+                marginBottom: 12,
+                paddingBottom: 12,
+                borderBottom: `2px solid ${group.color}22`,
+              }}>
+                <div style={{
+                  width: 8, height: 8, borderRadius: '50%',
+                  background: group.color, flexShrink: 0,
+                }} />
+                <span style={{
+                  fontSize: 10, fontWeight: 800,
+                  color: group.color,
+                  textTransform: 'uppercase',
+                  letterSpacing: '1.3px',
+                }}>{group.groupLabel}</span>
+              </div>
+
+              {/* Categories — each has + accordion on hover */}
+              <div
+                style={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+                onMouseLeave={() => setHoveredCat(null)}
+              >
+                {group.categories.map(cat => {
+                  const key = `${group.groupLabel}::${cat.label}`
+                  const isOpen = hoveredCat === key
+
+                  return (
+                    <div
+                      key={cat.label}
+                      onMouseEnter={() => setHoveredCat(key)}
+                    >
+                      {/* Category row */}
+                      <div style={{
+                        display: 'flex', alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '9px 10px',
+                        borderRadius: 9,
+                        background: isOpen ? `${group.color}0f` : 'transparent',
+                        cursor: 'default',
+                        transition: 'background 0.15s',
+                        gap: 8,
+                        minHeight: 40,
+                      }}>
+                        <span style={{
+                          fontSize: 13, fontWeight: 600,
+                          color: isOpen ? group.color : NAVY,
+                          transition: 'color 0.15s',
+                          lineHeight: 1.3,
+                        }}>
+                          {cat.label}
+                        </span>
+
+                        {/* + / − icon in circle */}
+                        <div style={{
+                          width: 22, height: 22, borderRadius: '50%',
+                          border: `1.5px solid ${isOpen ? group.color : 'rgba(8,33,60,0.18)'}`,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          flexShrink: 0,
+                          transition: 'border-color 0.15s, background 0.15s',
+                          background: isOpen ? group.color : 'transparent',
+                        }}>
+                          <motion.span
+                            animate={{ rotate: isOpen ? 45 : 0 }}
+                            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                            style={{
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              fontSize: 14, fontWeight: 700, lineHeight: 1,
+                              color: isOpen ? '#fff' : 'rgba(8,33,60,0.45)',
+                              userSelect: 'none',
+                            }}
+                          >
+                            +
+                          </motion.span>
+                        </div>
+                      </div>
+
+                      {/* Sub-items — slide in on hover */}
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                            style={{ overflow: 'hidden' }}
+                          >
+                            <div style={{
+                              paddingLeft: 10, paddingRight: 4,
+                              paddingBottom: 6, paddingTop: 4,
+                              display: 'flex', flexDirection: 'column', gap: 1,
+                              borderLeft: `2px solid ${group.color}33`,
+                              marginLeft: 10, marginBottom: 4,
+                            }}>
+                              {cat.items.map(item => (
+                                <button
+                                  key={item}
+                                  onClick={onClose}
+                                  style={{
+                                    background: 'none', border: 'none', cursor: 'pointer',
+                                    textAlign: 'left',
+                                    padding: '5px 8px',
+                                    fontSize: 12.5, fontWeight: 500,
+                                    color: 'rgba(8,33,60,0.58)',
+                                    fontFamily: 'inherit',
+                                    borderRadius: 6,
+                                    display: 'flex', alignItems: 'center', gap: 6,
+                                    minHeight: 30,
+                                    transition: 'color 0.12s, background 0.12s',
+                                  }}
+                                  onMouseEnter={e => {
+                                    const el = e.currentTarget as HTMLButtonElement
+                                    el.style.color = group.color
+                                    el.style.background = `${group.color}10`
+                                  }}
+                                  onMouseLeave={e => {
+                                    const el = e.currentTarget as HTMLButtonElement
+                                    el.style.color = 'rgba(8,33,60,0.58)'
+                                    el.style.background = 'none'
+                                  }}
+                                >
+                                  <div style={{
+                                    width: 4, height: 4, borderRadius: '50%',
+                                    background: group.color, flexShrink: 0, opacity: 0.65,
+                                  }} />
+                                  {item}
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </motion.div>
+  )
+}
+
+// ─────────────────────────────────────────────
+// MOBILE ACCORDION SECTION
+// ─────────────────────────────────────────────
+function MobileSection({
+  label, children, expanded, onToggle,
+}: { label: string; children: React.ReactNode; expanded: boolean; onToggle: () => void }) {
+  return (
+    <div style={{ borderBottom: '1px solid rgba(8,33,60,0.07)', width: '100%' }}>
+      <button
+        onClick={onToggle}
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+          padding: '14px 24px', fontFamily: 'inherit',
+          fontSize: 16, fontWeight: 700, color: NAVY,
+          textAlign: 'left', minHeight: 52,
+        }}
+      >
+        {label}
+        <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <ChevronDown size={16} color="rgba(8,33,60,0.45)" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            style={{ overflow: 'hidden' }}
+          >
+            <div style={{ paddingBottom: 10 }}>{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+// ─────────────────────────────────────────────
+// NAVBAR
+// ─────────────────────────────────────────────
 export function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled,       setScrolled]       = useState(false)
+  const [activeMenu,     setActiveMenu]     = useState<string | null>(null)
+  const [mobileOpen,     setMobileOpen]     = useState(false)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const cb = () => setScrolled(window.scrollY > 20)
@@ -23,158 +470,331 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', cb)
   }, [])
 
-  function scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMobileOpen(false)
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  function openMenu(id: string) {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null }
+    setActiveMenu(id)
   }
+  function scheduleClose() {
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 200)
+  }
+  function cancelClose() {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null }
+  }
+  function closeAll() { setActiveMenu(null) }
+
+  function toggleMobileSection(id: string) {
+    setMobileExpanded(p => p === id ? null : id)
+  }
+
+  const isScrolled = scrolled
 
   return (
     <>
       <style>{`
-        .nav-wrap {
+        .nav-bar {
           position: fixed;
-          top: 16px;
-          left: 50%;
-          transform: translateX(-50%);
+          top: 0; left: 0; right: 0;
           z-index: 300;
-          width: min(calc(100vw - 32px), 1100px);
-          transition: top 0.3s;
+          background: rgba(255,255,255,${isScrolled ? '0.97' : '0.93'});
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(8,33,60,${isScrolled ? '0.09' : '0.05'});
+          box-shadow: ${isScrolled ? '0 4px 28px rgba(8,33,60,0.09)' : 'none'};
+          transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
-        .nav-pill {
-          background: rgba(255,255,255,0.96);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
-          border-radius: 100px;
-          border: 1px solid rgba(8,33,60,0.08);
-          box-shadow: 0 4px 28px rgba(8,33,60,0.10);
-          padding: 10px 16px 10px 20px;
-          display: flex; align-items: center; justify-content: space-between;
-          gap: 12px;
-          transition: box-shadow 0.3s;
-        }
-        .nav-pill.scrolled {
-          box-shadow: 0 8px 40px rgba(8,33,60,0.16);
+        .nav-inner {
+          max-width: 1440px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 clamp(16px, 3vw, 48px);
+          display: flex; align-items: center;
+          height: 68px;
         }
         .nav-logo {
-          display: flex; align-items: center; gap: 8px;
+          display: flex; align-items: center;
           flex-shrink: 0;
+          margin-right: clamp(16px, 2vw, 32px);
         }
-        .nav-logo img { height: 32px; width: auto; }
+        .nav-logo img { height: 34px; width: auto; }
+
+        /* Nav links — centered between logo and right actions */
         .nav-links {
           display: flex; align-items: center;
-          gap: clamp(14px, 2vw, 30px); list-style: none;
+          justify-content: center;       /* ← centers items */
+          gap: 2px;
+          flex: 1;
         }
-        .nav-links button {
+        .nav-link {
           background: none; border: none; cursor: pointer;
-          font-size: clamp(13px, 0.88vw, 14px); font-weight: 600;
-          color: rgba(8,33,60,0.65);
-          transition: color 0.2s;
-          padding: 6px 2px; min-height: 44px;
           font-family: inherit;
+          font-size: clamp(12.5px, 0.85vw, 14px); font-weight: 600;
+          color: rgba(8,33,60,0.6);
+          padding: 8px 11px; min-height: 44px;
+          border-radius: 9px;
+          display: flex; align-items: center; gap: 4px;
+          transition: color 0.18s, background 0.18s;
+          white-space: nowrap;
         }
-        .nav-links button:hover { color: ${NAVY}; }
-        .nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-        .nav-btn-ghost {
-          display: flex; align-items: center; gap: 6px;
-          padding: 10px 18px; border-radius: 100px; min-height: 44px;
-          border: 1.5px solid rgba(8,33,60,0.15);
-          background: transparent;
-          font-size: clamp(12px, 0.85vw, 14px); font-weight: 700;
-          color: ${NAVY}; cursor: pointer; transition: all 0.2s;
-          font-family: inherit; white-space: nowrap;
-        }
-        .nav-btn-ghost:hover { border-color: ${GREEN}; color: ${GREEN}; }
-        .nav-btn-primary {
-          display: flex; align-items: center; gap: 6px;
-          padding: 10px 18px; border-radius: 100px; min-height: 44px;
-          background: ${NAVY}; border: none;
-          font-size: clamp(12px, 0.85vw, 14px); font-weight: 700;
-          color: #fff; cursor: pointer; transition: all 0.22s;
-          font-family: inherit; white-space: nowrap;
-        }
-        .nav-btn-primary:hover { background: ${GREEN}; transform: translateY(-1px); }
-        /* Arrow icon */
-        .nav-arrow {
-          width: 18px; height: 18px;
-          border: 1.5px solid currentColor;
-          border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
+        .nav-link:hover { color: ${NAVY}; background: rgba(8,33,60,0.04); }
+
+        .nav-right {
+          display: flex; align-items: center; gap: 10px;
           flex-shrink: 0;
         }
-        /* Hamburger */
+        .nav-phone {
+          display: flex; align-items: center; gap: 6px;
+          font-size: 13px; font-weight: 700; color: ${GREEN};
+          padding: 8px 10px; border-radius: 8px;
+          white-space: nowrap; text-decoration: none;
+          transition: background 0.18s;
+        }
+        .nav-phone:hover { background: rgba(60,185,140,0.08); }
+        .nav-contact {
+          display: flex; align-items: center;
+          background: ${NAVY}; color: #fff; border: none;
+          font-size: 13px; font-weight: 700;
+          padding: 10px 20px; border-radius: 100px;
+          cursor: pointer; transition: all 0.22s;
+          font-family: inherit; white-space: nowrap; min-height: 44px;
+        }
+        .nav-contact:hover { background: ${GREEN}; transform: translateY(-1px); }
+
         .nav-hamburger {
           display: none; background: none; border: none;
           cursor: pointer; color: ${NAVY}; padding: 8px;
           min-width: 44px; min-height: 44px;
           align-items: center; justify-content: center;
-          border-radius: 100px;
-          border: 1px solid rgba(8,33,60,0.12);
+          border-radius: 10px; border: 1px solid rgba(8,33,60,0.12);
+          margin-left: auto;
         }
-        /* Mobile overlay */
+
+        /* Mobile */
         .nav-mobile {
-          position: fixed; inset: 0; z-index: 299;
-          background: rgba(255,255,255,0.98);
-          backdrop-filter: blur(16px);
+          position: fixed; inset: 0; z-index: 500;
+          background: #fff;
           display: flex; flex-direction: column;
-          align-items: center; justify-content: center;
-          gap: 24px;
+          overflow-y: auto;
+        }
+        .nav-mobile-header {
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 24px; flex-shrink: 0;
+          border-bottom: 1px solid rgba(8,33,60,0.07);
         }
         .nav-mobile-close {
-          position: absolute; top: 20px; right: 20px;
-          background: none; border: none; cursor: pointer;
-          padding: 8px; min-width: 44px; min-height: 44px;
+          background: none; border: 1px solid rgba(8,33,60,0.12);
+          cursor: pointer; padding: 8px; border-radius: 10px;
           display: flex; align-items: center; justify-content: center;
-          color: ${NAVY}; border-radius: 100px; border: 1px solid rgba(8,33,60,0.12);
+          min-width: 44px; min-height: 44px; color: ${NAVY};
         }
-        .nav-mobile button {
-          background: none; border: none; cursor: pointer;
-          font-size: 22px; font-weight: 800; color: rgba(8,33,60,0.8);
-          font-family: inherit; transition: color 0.2s;
+        .nav-mobile-link {
+          display: block; width: 100%; background: none; border: none;
+          cursor: pointer; padding: 14px 24px;
+          font-size: 16px; font-weight: 700; color: ${NAVY};
+          text-align: left; font-family: inherit;
+          border-bottom: 1px solid rgba(8,33,60,0.07); min-height: 52px;
+          transition: color 0.18s;
         }
-        .nav-mobile button:hover { color: ${GREEN}; }
+        .nav-mobile-link:hover { color: ${GREEN}; }
+        .nav-mobile-item {
+          display: block; width: 100%; background: none; border: none;
+          cursor: pointer; padding: 10px 24px 10px 40px;
+          font-size: 14px; font-weight: 500; color: rgba(8,33,60,0.65);
+          text-align: left; font-family: inherit; transition: color 0.15s;
+        }
+        .nav-mobile-item:hover { color: ${GREEN}; }
+        .nav-mobile-footer {
+          padding: 20px 24px 36px;
+          display: flex; flex-direction: column; gap: 10px;
+          border-top: 1px solid rgba(8,33,60,0.07);
+          margin-top: auto;
+        }
 
-        @media (max-width: 900px) { .nav-links { display: none; } }
-        @media (max-width: 640px) {
-          .nav-actions { display: none; }
+        @media (max-width: 1100px) {
+          .nav-links, .nav-right { display: none; }
           .nav-hamburger { display: flex; }
-        }
-        @media (max-width: 480px) {
-          .nav-wrap { top: 12px; }
         }
       `}</style>
 
-      <div className="nav-wrap">
-        <div className={`nav-pill${scrolled ? ' scrolled' : ''}`}>
+      {/* ── Bar ── */}
+      <div className="nav-bar">
+        <div className="nav-inner">
+
           {/* Logo */}
           <div className="nav-logo">
-            <img src="/images/EG Digital Logo White-01.png" alt="EG Digital"
-              style={{ filter: 'invert(1) sepia(1) saturate(2) hue-rotate(175deg) brightness(0.15)' }}
-            />
+            <div style={{
+              background: NAVY,
+              borderRadius: 10,
+              padding: '6px 14px',
+              display: 'flex',
+              alignItems: 'center',
+            }}>
+              <img
+                src="/images/EG Digital Logo White-01.png"
+                alt="EG Digital"
+                style={{ height: 28, width: 'auto', display: 'block' }}
+              />
+            </div>
           </div>
 
-          {/* Links */}
-          <ul className="nav-links">
-            {LINKS.map(l => (
-              <li key={l.id}>
-                <button onClick={() => scrollTo(l.id)}>{l.label}</button>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop links — centred */}
+          <nav className="nav-links" aria-label="Main navigation">
 
-          {/* CTAs */}
-          <div className="nav-actions">
-            <button className="nav-btn-ghost" onClick={() => scrollTo('pricing')}>
-              Try For Free
-              <span className="nav-arrow">
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 6.5L6.5 1.5M6.5 1.5H2.5M6.5 1.5V5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-              </span>
-            </button>
-            <button className="nav-btn-primary">
-              Login
-              <span className="nav-arrow" style={{ borderColor: 'rgba(255,255,255,0.4)' }}>
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 6.5L6.5 1.5M6.5 1.5H2.5M6.5 1.5V5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-              </span>
-            </button>
+            {/* About Us — full-width panel */}
+            <div
+              onMouseEnter={() => openMenu('about')}
+              onMouseLeave={scheduleClose}
+              style={{ position: 'relative' }}
+            >
+              <button
+                className="nav-link"
+                style={{ color: activeMenu === 'about' ? NAVY : undefined }}
+                aria-expanded={activeMenu === 'about'}
+              >
+                About Us
+                <motion.span
+                  animate={{ rotate: activeMenu === 'about' ? 180 : 0 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <ChevronDown size={13} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {activeMenu === 'about' && (
+                  <PanelDropdown
+                    eyebrow="About EG Digital"
+                    heading="Who We Are & How We Lead"
+                    desc="A certified Microsoft partner driving digital transformation for ambitious Australian businesses since 2021."
+                    cta="Explore More"
+                    columns={[{ items: ABOUT_ITEMS }]}
+                    onClose={closeAll}
+                    onPanelMouseEnter={cancelClose}
+                    onPanelMouseLeave={scheduleClose}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Solutions — mega accordion panel */}
+            <div
+              onMouseEnter={() => openMenu('solutions')}
+              onMouseLeave={scheduleClose}
+              style={{ position: 'relative' }}
+            >
+              <button
+                className="nav-link"
+                style={{ color: activeMenu === 'solutions' ? NAVY : undefined }}
+                aria-expanded={activeMenu === 'solutions'}
+              >
+                Solutions
+                <motion.span
+                  animate={{ rotate: activeMenu === 'solutions' ? 180 : 0 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <ChevronDown size={13} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {activeMenu === 'solutions' && (
+                  <MegaMenu
+                    onClose={closeAll}
+                    onPanelMouseEnter={cancelClose}
+                    onPanelMouseLeave={scheduleClose}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Services — full-width panel */}
+            <div
+              onMouseEnter={() => openMenu('services')}
+              onMouseLeave={scheduleClose}
+              style={{ position: 'relative' }}
+            >
+              <button
+                className="nav-link"
+                style={{ color: activeMenu === 'services' ? NAVY : undefined }}
+                aria-expanded={activeMenu === 'services'}
+              >
+                Services
+                <motion.span
+                  animate={{ rotate: activeMenu === 'services' ? 180 : 0 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <ChevronDown size={13} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {activeMenu === 'services' && (
+                  <PanelDropdown
+                    eyebrow="Our Services"
+                    heading="Expert IT & Support Solutions"
+                    desc="From cloud migrations to server management, our team keeps your technology running at peak performance."
+                    cta="View All Services"
+                    columns={[{ items: SERVICES_ITEMS }]}
+                    onClose={closeAll}
+                    onPanelMouseEnter={cancelClose}
+                    onPanelMouseLeave={scheduleClose}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+
+            <button className="nav-link">Industries</button>
+            <button className="nav-link">Career</button>
+
+            {/* Blog — full-width panel */}
+            <div
+              onMouseEnter={() => openMenu('blog')}
+              onMouseLeave={scheduleClose}
+              style={{ position: 'relative' }}
+            >
+              <button
+                className="nav-link"
+                style={{ color: activeMenu === 'blog' ? NAVY : undefined }}
+                aria-expanded={activeMenu === 'blog'}
+              >
+                Blog
+                <motion.span
+                  animate={{ rotate: activeMenu === 'blog' ? 180 : 0 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <ChevronDown size={13} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {activeMenu === 'blog' && (
+                  <PanelDropdown
+                    eyebrow="Latest Insights"
+                    heading="Knowledge & Awareness"
+                    desc="Stay ahead with expert articles on Microsoft, cloud computing, cyber security, and digital transformation trends."
+                    cta="View All Posts"
+                    columns={[{ items: BLOG_ITEMS }]}
+                    onClose={closeAll}
+                    onPanelMouseEnter={cancelClose}
+                    onPanelMouseLeave={scheduleClose}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+
+          </nav>
+
+          {/* Right */}
+          <div className="nav-right">
+            <a className="nav-phone" href="tel:+611800054555">
+              <Phone size={14} />
+              +61 1800 054 555
+            </a>
+            <button className="nav-contact">Contact Us</button>
           </div>
 
           {/* Hamburger */}
@@ -184,20 +804,95 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* ── Mobile overlay ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             className="nav-mobile"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           >
-            <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">
-              <X size={22} />
-            </button>
-            {LINKS.map(l => (
-              <button key={l.id} onClick={() => scrollTo(l.id)}>{l.label}</button>
-            ))}
-            <button className="nav-btn-primary" style={{ marginTop: 8 }}>Login</button>
+            <div className="nav-mobile-header">
+              <div style={{ background: NAVY, borderRadius: 8, padding: '5px 12px', display: 'flex', alignItems: 'center' }}>
+                <img
+                  src="/images/EG Digital Logo White-01.png"
+                  alt="EG Digital"
+                  style={{ height: 26, width: 'auto', display: 'block' }}
+                />
+              </div>
+              <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">
+                <X size={20} />
+              </button>
+            </div>
+
+            <MobileSection label="About Us" expanded={mobileExpanded === 'about'} onToggle={() => toggleMobileSection('about')}>
+              {ABOUT_ITEMS.map(item => (
+                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+              ))}
+            </MobileSection>
+
+            <MobileSection label="Solutions" expanded={mobileExpanded === 'solutions'} onToggle={() => toggleMobileSection('solutions')}>
+              {SOLUTIONS_GROUPS.map(group => (
+                <div key={group.groupLabel}>
+                  <div style={{
+                    padding: '8px 24px 4px 40px',
+                    fontSize: 10.5, fontWeight: 800, color: group.color,
+                    textTransform: 'uppercase', letterSpacing: '1.2px',
+                    borderLeft: `2.5px solid ${group.color}`, marginLeft: 24, paddingLeft: 12, marginTop: 6,
+                  }}>
+                    {group.groupLabel}
+                  </div>
+                  {group.categories.map(cat => (
+                    <button key={cat.label} className="nav-mobile-item"
+                      style={{ fontWeight: 600, color: NAVY }}
+                      onClick={() => setMobileOpen(false)}>
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </MobileSection>
+
+            <MobileSection label="Services" expanded={mobileExpanded === 'services'} onToggle={() => toggleMobileSection('services')}>
+              {SERVICES_ITEMS.map(item => (
+                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+              ))}
+            </MobileSection>
+
+            <button className="nav-mobile-link" onClick={() => setMobileOpen(false)}>Industries</button>
+            <button className="nav-mobile-link" onClick={() => setMobileOpen(false)}>Career</button>
+
+            <MobileSection label="Blog" expanded={mobileExpanded === 'blog'} onToggle={() => toggleMobileSection('blog')}>
+              {BLOG_ITEMS.map(item => (
+                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+              ))}
+            </MobileSection>
+
+            <div className="nav-mobile-footer">
+              <a href="tel:+611800054555" style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                fontSize: 15, fontWeight: 700, color: GREEN, textDecoration: 'none',
+              }}>
+                <Phone size={16} />
+                +61 1800 054 555
+              </a>
+              <a href="mailto:connect@egdigital.com.au" style={{
+                display: 'flex', alignItems: 'center', gap: 8,
+                fontSize: 14, fontWeight: 600, color: 'rgba(8,33,60,0.55)', textDecoration: 'none',
+              }}>
+                connect@egdigital.com.au
+              </a>
+              <button onClick={() => setMobileOpen(false)} style={{
+                background: NAVY, color: '#fff', border: 'none',
+                borderRadius: 100, padding: '14px 24px',
+                fontSize: 15, fontWeight: 700, cursor: 'pointer',
+                fontFamily: 'inherit', minHeight: 52,
+              }}>
+                Contact Us
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
