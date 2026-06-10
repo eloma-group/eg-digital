@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
-const CREAM = '#F3F0EA'
+const CREAM = '#f8f8ff'
 
 const EASE: [number,number,number,number] = [0.16, 1, 0.3, 1]
 

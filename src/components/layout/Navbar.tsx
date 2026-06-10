@@ -16,6 +16,15 @@ const SERVICES_ITEMS = [
 ]
 const BLOG_ITEMS = ['Latest Technologies', 'Awareness']
 
+const INDUSTRIES_COL1 = [
+  'Professional Services', 'IT', 'Startups & SMEs', 'Non Profit Organizations',
+  'Healthcare', 'Banking & Financial Services', 'Manufacturing',
+]
+const INDUSTRIES_COL2 = [
+  'Education', 'Real Estate', 'Logistics & Supply Chain', 'Travel and Tourism',
+  'Agriculture', 'Hospitality', 'Food and Beverage',
+]
+
 const SOLUTIONS_GROUPS = [
   {
     groupLabel: 'Microsoft Products',
@@ -265,7 +274,7 @@ function MegaMenu({
             <div
               key={group.groupLabel}
               style={{
-                padding: '20px 18px 24px',
+                padding: '28px 18px 32px',
                 borderRight: isLast ? 'none' : '1px solid rgba(8,33,60,0.06)',
               }}
             >
@@ -315,7 +324,7 @@ function MegaMenu({
                         minHeight: 40,
                       }}>
                         <span style={{
-                          fontSize: 13, fontWeight: 600,
+                          fontSize: 14, fontWeight: 600,
                           color: isOpen ? group.color : NAVY,
                           transition: 'color 0.15s',
                           lineHeight: 1.3,
@@ -372,7 +381,7 @@ function MegaMenu({
                                     background: 'none', border: 'none', cursor: 'pointer',
                                     textAlign: 'left',
                                     padding: '5px 8px',
-                                    fontSize: 12.5, fontWeight: 500,
+                                    fontSize: 13.5, fontWeight: 500,
                                     color: 'rgba(8,33,60,0.58)',
                                     fontFamily: 'inherit',
                                     borderRadius: 6,
@@ -747,7 +756,45 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            <button className="nav-link">Industries</button>
+            {/* Industries — full-width panel */}
+            <div
+              onMouseEnter={() => openMenu('industries')}
+              onMouseLeave={scheduleClose}
+              style={{ position: 'relative' }}
+            >
+              <button
+                className="nav-link"
+                style={{ color: activeMenu === 'industries' ? NAVY : undefined }}
+                aria-expanded={activeMenu === 'industries'}
+              >
+                Industries
+                <motion.span
+                  animate={{ rotate: activeMenu === 'industries' ? 180 : 0 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <ChevronDown size={13} />
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {activeMenu === 'industries' && (
+                  <PanelDropdown
+                    eyebrow="Industries We Serve"
+                    heading="Solutions Across Every Sector"
+                    desc="From healthcare to hospitality, we deliver tailored digital transformation strategies for every industry."
+                    cta="Explore Industries"
+                    columns={[
+                      { items: INDUSTRIES_COL1 },
+                      { items: INDUSTRIES_COL2 },
+                    ]}
+                    onClose={closeAll}
+                    onPanelMouseEnter={cancelClose}
+                    onPanelMouseLeave={scheduleClose}
+                  />
+                )}
+              </AnimatePresence>
+            </div>
+
             <button className="nav-link">Career</button>
 
             {/* Blog — full-width panel */}
@@ -861,7 +908,12 @@ export function Navbar() {
               ))}
             </MobileSection>
 
-            <button className="nav-mobile-link" onClick={() => setMobileOpen(false)}>Industries</button>
+            <MobileSection label="Industries" expanded={mobileExpanded === 'industries'} onToggle={() => toggleMobileSection('industries')}>
+              {[...INDUSTRIES_COL1, ...INDUSTRIES_COL2].map(item => (
+                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+              ))}
+            </MobileSection>
+
             <button className="nav-mobile-link" onClick={() => setMobileOpen(false)}>Career</button>
 
             <MobileSection label="Blog" expanded={mobileExpanded === 'blog'} onToggle={() => toggleMobileSection('blog')}>
