@@ -916,10 +916,21 @@ export function HeroV4() {
         .hv4-metric-cell:last-child { border-right:none; }
         .hv4-metric-cell:hover { background:rgba(8,33,60,0.02); }
 
-        /* chart mockup card */
-        .hv4-chart-card {
+        /* bottom showcase row */
+        .hv4-bottom {
+          display:grid; grid-template-columns:1.6fr 1fr;
+          gap:clamp(14px,1.6vw,22px);
           width:100%; max-width:min(calc(100vw - 48px), 1200px);
           margin:clamp(36px,4.5vw,64px) auto 0;
+          align-items:stretch;
+        }
+        @media (max-width:860px) {
+          .hv4-bottom { grid-template-columns:1fr; }
+        }
+
+        /* chart mockup card */
+        .hv4-chart-card {
+          width:100%;
           background:#fff; border:1px solid rgba(8,33,60,0.08);
           border-radius:clamp(16px,2vw,24px);
           overflow:hidden;
@@ -927,6 +938,28 @@ export function HeroV4() {
           position:relative; z-index:1;
           animation:hv4-float-up 7s ease-in-out infinite;
           will-change:transform;
+        }
+
+        /* SERP ranking card */
+        .hv4-serp-card {
+          width:100%; background:#fff; border:1px solid rgba(8,33,60,0.08);
+          border-radius:clamp(16px,2vw,24px); overflow:hidden;
+          box-shadow:0 2px 0 rgba(8,33,60,0.04), 0 24px 80px rgba(8,33,60,0.1);
+          position:relative; z-index:1; display:flex; flex-direction:column;
+          animation:hv4-float-up 7.6s ease-in-out infinite 0.4s;
+          will-change:transform;
+        }
+        .hv4-serp-search {
+          display:flex; align-items:center; gap:8px;
+          margin:clamp(16px,2vw,22px) clamp(16px,2vw,22px) 0;
+          background:rgba(8,33,60,0.04); border:1px solid rgba(8,33,60,0.07);
+          border-radius:100px; padding:9px 14px;
+        }
+        .hv4-serp-results { padding:clamp(14px,1.8vw,20px); display:flex; flex-direction:column; gap:clamp(10px,1.4vw,16px); flex:1; }
+        .hv4-serp-row { display:flex; flex-direction:column; gap:3px; }
+        .hv4-serp-row.is-client {
+          border:1px solid ${GREEN}40; background:${GREEN}0d;
+          border-radius:12px; padding:10px 12px; margin:-10px -12px;
         }
         .hv4-chart-header {
           background:rgba(8,33,60,0.02); border-bottom:1px solid rgba(8,33,60,0.06);
@@ -1035,6 +1068,7 @@ export function HeroV4() {
           </motion.div>
         </div>
 
+        <div className="hv4-bottom">
         {/* Analytics chart card */}
         <motion.div
           initial={{ opacity:0, y:48 }}
@@ -1101,6 +1135,60 @@ export function HeroV4() {
           </div>
         </motion.div>
 
+        {/* Google SERP ranking card */}
+        <motion.div
+          initial={{ opacity:0, y:48 }}
+          whileInView={{ opacity:1, y:0 }}
+          viewport={{ once:true, margin:'-40px' }}
+          transition={{ duration:1.1, ease:EASE, delay:0.38 }}
+          className="hv4-serp-card"
+        >
+          <div className="hv4-chart-header">
+            <div style={{ display:'flex', gap:5 }}>
+              {['#ff5f57','#ffbd2e','#28ca41'].map(c => (
+                <div key={c} style={{ width:10, height:10, borderRadius:'50%', background:c }} />
+              ))}
+            </div>
+            <div style={{ flex:1, textAlign:'center' }}>
+              <span style={{ fontSize:11, fontWeight:700, color:'rgba(8,33,60,0.35)', fontFamily:'SF Mono,Consolas,monospace' }}>google.com.au — Search Results</span>
+            </div>
+          </div>
+
+          <div className="hv4-serp-search">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="rgba(8,33,60,0.35)" strokeWidth="2"/><path d="M20 20L16.5 16.5" stroke="rgba(8,33,60,0.35)" strokeWidth="2" strokeLinecap="round"/></svg>
+            <span style={{ fontSize:12, color:'rgba(8,33,60,0.45)', fontWeight:600 }}>ecommerce agency sydney</span>
+          </div>
+
+          <div className="hv4-serp-results">
+            <div className="hv4-serp-row is-client">
+              <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:2 }}>
+                <span style={{ fontSize:9, fontWeight:800, letterSpacing:'1px', color:GREEN, background:`${GREEN}1a`, padding:'2px 8px', borderRadius:100 }}>#1 RANKING</span>
+                <span style={{ fontSize:9, fontWeight:700, color:GREEN }}>▲ +12 positions</span>
+              </div>
+              <span style={{ fontSize:13, fontWeight:800, color:'#1a0dab' }}>Nova Commerce — Premium Online Store</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.5)', lineHeight:1.5 }}>novacommerce.com.au — Shop the new season collection. Free shipping Australia-wide on all orders.</span>
+            </div>
+
+            <div className="hv4-serp-row" style={{ opacity:0.55 }}>
+              <span style={{ fontSize:13, fontWeight:700, color:'#1a0dab' }}>Competitor Store Co.</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>competitorstore.com.au — Online shopping for fashion &amp; homeware.</span>
+            </div>
+
+            <div className="hv4-serp-row" style={{ opacity:0.4 }}>
+              <span style={{ fontSize:13, fontWeight:700, color:'#1a0dab' }}>Generic Marketplace</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>marketplace.com.au — Millions of products, low prices.</span>
+            </div>
+          </div>
+
+          <div className="hv4-chart-footer" style={{ borderTop:'1px solid rgba(8,33,60,0.06)', paddingTop:14 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+              <div style={{ width:10, height:10, borderRadius:2, background:GREEN }} />
+              <span style={{ fontSize:11, fontWeight:600, color:'rgba(8,33,60,0.45)' }}>Position 13 → Position 1 in 6 months</span>
+            </div>
+          </div>
+        </motion.div>
+        </div>
+
       </section>
     </>
   )
@@ -1135,6 +1223,13 @@ export function HeroV5() {
     { icon:'☁', label:'Microsoft Solutions', sub:'365 · Azure · Dynamics', accent:'#0078d4' },
     { icon:'⚙', label:'AI Cybersecurity',    sub:'Defender · Sentinel',  accent:'#ef4444' },
     { icon:'📈', label:'Growth Marketing',    sub:'SEO · Ads · Branding', accent:GREEN },
+  ]
+
+  const ROADMAP = [
+    { n:'01', label:'Discover',     sub:'Audit & Strategy' },
+    { n:'02', label:'Design & Build', sub:'Dev · Cloud Setup' },
+    { n:'03', label:'Launch',       sub:'Deploy & Train' },
+    { n:'04', label:'Grow',         sub:'SEO · Ongoing Support' },
   ]
 
   return (
@@ -1224,6 +1319,37 @@ export function HeroV5() {
 
         @media (max-width:700px) { .hv5-cards { grid-template-columns:1fr 1fr; } }
         @media (max-width:400px) { .hv5-cards { grid-template-columns:1fr; } }
+
+        /* transformation roadmap */
+        .hv5-roadmap {
+          display:flex; justify-content:space-between; align-items:flex-start;
+          width:100%; max-width:min(calc(100vw - 48px), 880px);
+          margin:0 auto; position:relative; z-index:2;
+        }
+        .hv5-roadmap::before {
+          content:''; position:absolute; top:18px; left:9%; right:9%; height:2px;
+          background:linear-gradient(90deg, rgba(8,33,60,0.1), ${GREEN}66 50%, rgba(8,33,60,0.1));
+          z-index:0;
+        }
+        .hv5-roadmap-step {
+          position:relative; z-index:1; flex:1;
+          display:flex; flex-direction:column; align-items:center; gap:9px; text-align:center;
+        }
+        .hv5-roadmap-num {
+          width:36px; height:36px; border-radius:50%;
+          background:#fff; border:2px solid ${NAVY};
+          display:flex; align-items:center; justify-content:center;
+          font-size:13px; font-weight:900; color:${NAVY};
+        }
+        .hv5-roadmap-step:last-child .hv5-roadmap-num { border-color:${GREEN}; color:${GREEN}; }
+        .hv5-roadmap-label { font-size:clamp(11px,0.95vw,14px); font-weight:800; color:${NAVY}; letter-spacing:-0.01em; }
+        .hv5-roadmap-sub { font-size:clamp(9px,0.7vw,11px); color:rgba(8,33,60,0.4); font-weight:600; }
+
+        @media (max-width:700px) {
+          .hv5-roadmap { flex-wrap:wrap; row-gap:24px; }
+          .hv5-roadmap::before { display:none; }
+          .hv5-roadmap-step { flex:0 0 50%; }
+        }
       `}</style>
 
       <section className="hv5-section">
@@ -1295,6 +1421,24 @@ export function HeroV5() {
             <button className="hv5-btn-g">Explore Services</button>
           </motion.div>
         </div>
+
+        {/* Transformation roadmap */}
+        <motion.div
+          className="hv5-roadmap"
+          initial={{ opacity:0, y:24 }}
+          whileInView={{ opacity:1, y:0 }}
+          viewport={{ once:true, margin:'-40px' }}
+          transition={{ duration:0.9, ease:EASE, delay:0.26 }}
+          style={{ marginTop:'clamp(36px,4.5vw,56px)' }}
+        >
+          {ROADMAP.map((s) => (
+            <div key={s.n} className="hv5-roadmap-step">
+              <div className="hv5-roadmap-num">{s.n}</div>
+              <div className="hv5-roadmap-label">{s.label}</div>
+              <div className="hv5-roadmap-sub">{s.sub}</div>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Service cards */}
         <motion.div
@@ -1414,35 +1558,61 @@ export function HeroV6() {
         }
         .hv6-btn-g:hover { border-color:rgba(8,33,60,0.45); }
 
-        /* right panel */
+        /* right panel — image collage */
         .hv6-right {
           position:relative; overflow:hidden; min-height:100svh;
+          display:flex; align-items:stretch;
+          padding:clamp(20px,2.6vw,36px) clamp(20px,2.6vw,36px) clamp(20px,2.6vw,36px) 0;
         }
-        .hv6-right img {
+        .hv6-collage {
+          display:grid; grid-template-rows:1.5fr 1fr;
+          gap:clamp(8px,1vw,14px); width:100%; height:100%;
+        }
+        .hv6-collage-row {
+          display:grid; grid-template-columns:1fr 1fr; gap:inherit;
+        }
+        .hv6-collage-main, .hv6-collage-sm {
+          position:relative; overflow:hidden;
+          border-radius:clamp(14px,1.6vw,22px);
+          background:rgba(8,33,60,0.04);
+        }
+        .hv6-collage-main img, .hv6-collage-sm img {
           width:100%; height:100%; object-fit:cover; display:block;
         }
-        /* gradient fade into left panel */
-        .hv6-right::after {
+        /* gradient fade on main image's left edge into left panel */
+        .hv6-collage-main::after {
           content:''; position:absolute; inset:0;
-          background:linear-gradient(to right, #fff 0%, transparent 18%);
+          background:linear-gradient(to right, rgba(255,255,255,0.5) 0%, transparent 22%);
+          pointer-events:none;
+        }
+        /* caption chip on small images */
+        .hv6-collage-tag {
+          position:absolute; left:10px; bottom:10px; z-index:2;
+          font-size:10px; font-weight:800; letter-spacing:0.6px; text-transform:uppercase;
+          color:#fff; background:rgba(8,33,60,0.55); backdrop-filter:blur(6px);
+          padding:5px 10px; border-radius:100px;
         }
         /* floating stat card on image */
         .hv6-img-card {
-          position:absolute; z-index:2;
+          position:absolute; z-index:3;
           background:#fff; border:1px solid rgba(8,33,60,0.08);
           border-radius:14px; padding:14px 18px;
           box-shadow:0 6px 28px rgba(8,33,60,0.13);
           animation:hv6-float-card 5s ease-in-out infinite;
           will-change:transform;
         }
-        .hv6-img-card-a { top:18%; right:6%; }
-        .hv6-img-card-b { bottom:20%; right:5%; animation-delay:1.5s; }
+        .hv6-img-card-a { top:8%; right:8%; }
+        .hv6-img-card-b { bottom:8%; right:8%; animation-delay:1.5s; }
 
         @media (max-width:880px) {
           .hv6-section { grid-template-columns:1fr; }
-          .hv6-right { min-height:56svh; }
-          .hv6-right::after { background:linear-gradient(to bottom, #fff 0%, transparent 18%); }
+          .hv6-right { min-height:64svh; padding:clamp(16px,3vw,28px); }
           .hv6-watermark { display:none; }
+        }
+        @media (max-width:540px) {
+          .hv6-collage { grid-template-rows:1.3fr 1fr; }
+          .hv6-img-card { padding:10px 14px; }
+          .hv6-img-card-a { top:6%; right:6%; }
         }
       `}</style>
 
@@ -1515,7 +1685,7 @@ export function HeroV6() {
           </div>
         </div>
 
-        {/* Right — full-height image + floating cards */}
+        {/* Right — image collage + floating cards */}
         <motion.div
           initial={{ opacity:0 }}
           whileInView={{ opacity:1 }}
@@ -1523,11 +1693,34 @@ export function HeroV6() {
           transition={{ duration:1.2, ease:EASE, delay:0.1 }}
           className="hv6-right"
         >
-          <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=1080&q=80&fit=crop"
-            alt="EG Digital serves businesses across 14+ industries"
-            loading="lazy" decoding="async"
-          />
+          <div className="hv6-collage">
+            <div className="hv6-collage-main">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&h=900&q=80&fit=crop"
+                alt="EG Digital team workshop with a healthcare client"
+                loading="lazy" decoding="async" width={1000} height={900}
+              />
+              <span className="hv6-collage-tag">Client Workshop</span>
+            </div>
+            <div className="hv6-collage-row">
+              <div className="hv6-collage-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=520&q=80&fit=crop"
+                  alt="Custom dashboard build for a finance client"
+                  loading="lazy" decoding="async" width={600} height={520}
+                />
+                <span className="hv6-collage-tag">Dashboard Build</span>
+              </div>
+              <div className="hv6-collage-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&h=520&q=80&fit=crop"
+                  alt="Strategy session for a retail rollout"
+                  loading="lazy" decoding="async" width={600} height={520}
+                />
+                <span className="hv6-collage-tag">Strategy Session</span>
+              </div>
+            </div>
+          </div>
 
           {/* Floating stat card A */}
           <div className="hv6-img-card hv6-img-card-a">
@@ -1577,7 +1770,7 @@ export function HeroV7() {
     },
     {
       id:'sec', label:'AI Cybersecurity',
-      icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5.5V11C4 15.5 7.5 19.6 12 21C16.5 19.6 20 15.5 20 11V5.5L12 2Z" stroke="#ef4444" strokeWidth="1.8" fill="none"/><path d="M9 12L11 14L15 10" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+      icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#ef4444" strokeWidth="1.8"/><path d="M8 20H16M12 16V20" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/><rect x="9.4" y="8.2" width="5.2" height="4.2" rx="0.8" stroke="#ef4444" strokeWidth="1.6"/><path d="M10.2 8.2V7a1.8 1.8 0 0 1 3.6 0v1.2" stroke="#ef4444" strokeWidth="1.6" strokeLinecap="round"/></svg>,
       items:['MS Defender XDR', 'Zero-Trust Arch', '24/7 Monitoring'],
       stat:'178+ Blocked/day', statColor:'#ef4444',
       color:'#ef4444', pos:{ bottom:'12%', left:'3%' }, anim:'hv7-float-c', dur:'4.8s', delay:'-0.7s',
