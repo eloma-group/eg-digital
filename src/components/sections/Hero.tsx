@@ -1,12 +1,46 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useRef, useCallback } from 'react'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
-const CREAM = '#F3F0EA'
+const CREAM = '#f8f8ff'
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+const SPRING = { stiffness: 55, damping: 20, mass: 1 }
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const smoothX = useSpring(mouseX, SPRING)
+  const smoothY = useSpring(mouseY, SPRING)
+
+  // Back layer — watermark drifts slowest (feels furthest away)
+  const backX  = useTransform(smoothX, v => v * 0.007)
+  const backY  = useTransform(smoothY, v => v * 0.007)
+
+  // Mid layer — arcs drift at medium speed
+  const midX   = useTransform(smoothX, v => v * 0.018)
+  const midY   = useTransform(smoothY, v => v * 0.018)
+
+  // Front layer — heading drifts most (feels closest), stronger horizontal
+  const frontX = useTransform(smoothX, v => v * 0.032)
+  const frontY = useTransform(smoothY, v => v * 0.016)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = sectionRef.current?.getBoundingClientRect()
+    if (!rect) return
+    mouseX.set(e.clientX - (rect.left + rect.width / 2))
+    mouseY.set(e.clientY - (rect.top + rect.height / 2))
+  }, [mouseX, mouseY])
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }, [mouseX, mouseY])
+
   return (
     <>
       <style>{`
@@ -14,6 +48,19 @@ export function Hero() {
           0%   { transform: scale(1);   opacity: 0.75; }
           70%  { transform: scale(2.8); opacity: 0; }
           100% { transform: scale(2.8); opacity: 0; }
+        }
+
+        @keyframes heroGrain {
+          0%   { transform: translate(0,    0);   }
+          10%  { transform: translate(-2%, -3%);  }
+          20%  { transform: translate(3%,   2%);  }
+          30%  { transform: translate(-1%,  4%);  }
+          40%  { transform: translate(4%,  -1%);  }
+          50%  { transform: translate(-3%,  1%);  }
+          60%  { transform: translate(1%,  -4%);  }
+          70%  { transform: translate(-4%,  3%);  }
+          80%  { transform: translate(2%,   1%);  }
+          90%  { transform: translate(-1%, -2%);  }
         }
 
         /* ─── Section ─── */
@@ -27,17 +74,33 @@ export function Hero() {
           padding-top: 68px;
         }
 
-        /* Rich green blooms on cream — prominent, Amzigo-like */
+        /* Rich green blooms on cream */
         .hero-section::before {
           content: '';
-          position: absolute; inset: 0; pointer-events: none;
+          position: absolute; inset: 0; pointer-events: none; z-index: 0;
           background:
             radial-gradient(ellipse 1100px 820px at 108% -8%,  rgba(60,185,140,0.24) 0%, rgba(60,185,140,0.07) 48%, transparent 68%),
             radial-gradient(ellipse  640px 520px at 72%  108%, rgba(60,185,140,0.16) 0%, transparent 60%),
             radial-gradient(ellipse  420px 380px at  -6%  32%, rgba(60,185,140,0.10) 0%, transparent 58%);
         }
 
-        /* Giant background watermark — depth without noise */
+        /* Film grain overlay */
+        .hero-grain-layer {
+          position: absolute;
+          inset: -50%; width: 200%; height: 200%;
+          pointer-events: none; z-index: 3; opacity: 0.032;
+          background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='300' height='300' filter='url(%23g)'/></svg>");
+          background-repeat: repeat;
+          background-size: 200px 200px;
+          animation: heroGrain 0.55s steps(1) infinite;
+          will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-grain-layer { display: none; }
+        }
+
+        /* Giant background watermark — back layer */
         .hero-wm {
           position: absolute;
           font-size: clamp(260px, 42vw, 640px);
@@ -47,11 +110,35 @@ export function Hero() {
           letter-spacing: -0.05em;
           line-height: 1;
           top: 50%; right: -4%;
-          transform: translateY(-50%);
           white-space: nowrap;
           pointer-events: none;
           user-select: none;
           z-index: 0;
+          will-change: transform;
+        }
+
+        /* ─── Decorative arcs — mid layer ─── */
+        .hero-arcs {
+          position: absolute; inset: 0;
+          pointer-events: none; z-index: 1;
+          will-change: transform;
+        }
+        .hero-arc {
+          position: absolute;
+          border-radius: 50%;
+          background: transparent;
+        }
+        .hero-arc-1 {
+          width: clamp(480px, 58vw, 860px);
+          height: clamp(480px, 58vw, 860px);
+          top: -28%; right: -14%;
+          border: 1.5px solid rgba(60,185,140,0.14);
+        }
+        .hero-arc-2 {
+          width: clamp(260px, 30vw, 460px);
+          height: clamp(260px, 30vw, 460px);
+          bottom: -18%; left: -7%;
+          border: 1px solid rgba(60,185,140,0.10);
         }
 
         /* ─── Top meta strip ─── */
@@ -79,16 +166,16 @@ export function Hero() {
           .hero-meta-sm-hide { display: none; }
         }
 
-        /* ─── Heading zone ─── */
+        /* ─── Heading zone — front layer ─── */
         .hero-head {
           position: relative; z-index: 2;
           flex: 1;
           display: flex; flex-direction: column;
           justify-content: center;
           padding: clamp(28px, 5.5vh, 72px) clamp(24px, 4vw, 72px) clamp(18px, 3.5vh, 52px);
+          will-change: transform;
         }
 
-        /* Overflow wrapper = curtain for each line */
         .hero-clip {
           overflow: hidden;
           line-height: 0.88;
@@ -108,7 +195,6 @@ export function Hero() {
         }
         .hero-word-green { color: ${GREEN}; }
 
-        /* Animated rule */
         .hero-rule-row {
           display: flex; align-items: center; gap: 16px;
           margin-top: clamp(20px, 3vw, 44px);
@@ -135,13 +221,11 @@ export function Hero() {
           padding: clamp(20px, 3vh, 36px) clamp(24px, 4vw, 72px);
           border-top: 1px solid rgba(8,33,60,0.08);
         }
-
         .hero-bar-desc {
           font-size: clamp(14px, 1.05vw, 17px);
           color: rgba(8,33,60,0.44); line-height: 1.7;
           font-weight: 500; flex: 1; min-width: 200px;
         }
-
         .hero-cta {
           display: inline-flex; align-items: center; gap: 12px;
           background: ${NAVY}; color: #fff;
@@ -165,10 +249,34 @@ export function Hero() {
 
       `}</style>
 
-      <section className="hero-section" id="home">
+      <section
+        className="hero-section"
+        id="home"
+        ref={sectionRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
 
-        {/* Background watermark */}
-        <div className="hero-wm" aria-hidden="true">EG</div>
+        {/* Grain */}
+        <div className="hero-grain-layer" aria-hidden="true" />
+
+        {/* Back layer — EG watermark, drifts slowest */}
+        <motion.div
+          className="hero-wm"
+          aria-hidden="true"
+          style={{ x: backX, y: backY }}
+          transformTemplate={(_v, t) => `translateY(-50%) ${t}`}
+        >EG</motion.div>
+
+        {/* Mid layer — decorative arcs */}
+        <motion.div
+          className="hero-arcs"
+          aria-hidden="true"
+          style={{ x: midX, y: midY }}
+        >
+          <div className="hero-arc hero-arc-1" />
+          <div className="hero-arc hero-arc-2" />
+        </motion.div>
 
         {/* ── Meta strip ── */}
         <motion.div
@@ -192,8 +300,11 @@ export function Hero() {
           <span className="hero-meta-tag hero-meta-sm-hide">Sydney, Australia</span>
         </motion.div>
 
-        {/* ── Giant heading ── */}
-        <div className="hero-head">
+        {/* ── Giant heading — front layer, drifts most ── */}
+        <motion.div
+          className="hero-head"
+          style={{ x: frontX, y: frontY }}
+        >
 
           <span className="hero-clip">
             <motion.span
@@ -231,7 +342,6 @@ export function Hero() {
             </motion.span>
           </span>
 
-          {/* Rule that draws in from the left */}
           <div className="hero-rule-row">
             <motion.div
               className="hero-rule"
@@ -250,7 +360,7 @@ export function Hero() {
             </motion.span>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* ── CTA bar ── */}
         <motion.div
@@ -260,7 +370,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease: EASE, delay: 0.56 }}
         >
           <p className="hero-bar-desc">
-            Websites, apps & SaaS platforms built for ambitious brands — delivered on time.
+            Websites, apps &amp; SaaS platforms built for ambitious brands — delivered on time.
           </p>
 
           <button

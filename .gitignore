@@ -12,3 +12,4 @@ yarn-error.log*
 Thumbs.db
 .vite/
 node_modules
+HOMEPAGE_SECTIONS.md
