@@ -110,7 +110,7 @@ function PanelDropdown({
           border: '1px solid rgba(8,33,60,0.09)',
           boxShadow: '0 4px 6px rgba(8,33,60,0.04), 0 24px 64px rgba(8,33,60,0.14)',
           width: '100%',
-          maxWidth: 1200,
+          maxWidth: 'min(calc(100vw - 80px), 1760px)',
           display: 'flex',
           padding: 'clamp(24px,3vh,40px) clamp(24px,3vw,44px)',
           gap: 0,
@@ -259,7 +259,7 @@ function MegaMenu({
           border: '1px solid rgba(8,33,60,0.09)',
           boxShadow: '0 4px 6px rgba(8,33,60,0.04), 0 24px 64px rgba(8,33,60,0.14)',
           width: '100%',
-          maxWidth: 1200,
+          maxWidth: 'min(calc(100vw - 80px), 1760px)',
           maxHeight: 'calc(100vh - 86px)',
           overflowY: 'auto',
           overflowX: 'hidden',
@@ -517,13 +517,15 @@ export function Navbar() {
           transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
         .nav-inner {
-          max-width: 1440px;
+          max-width: 1760px;
           width: 100%;
           margin: 0 auto;
           padding: 0 clamp(16px, 3vw, 48px);
           display: flex; align-items: center;
           height: 68px;
         }
+        @media (min-width: 1920px) { .nav-inner { max-width: 1900px; } }
+        @media (min-width: 2560px) { .nav-inner { max-width: 2440px; } }
         .nav-logo {
           display: flex; align-items: center;
           flex-shrink: 0;

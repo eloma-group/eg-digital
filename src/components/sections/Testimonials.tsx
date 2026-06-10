@@ -85,6 +85,8 @@ export function Testimonials() {
         @media (max-width: 900px) {
           .testi-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
         }
+        @media (min-width: 1920px) { .testi-inner { max-width: 1900px; } }
+        @media (min-width: 2560px) { .testi-inner { max-width: 2440px; } }
       `}</style>
 
       <section className="testi-section">

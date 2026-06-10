@@ -222,6 +222,13 @@ export function AboutUs() {
         @media (prefers-reduced-motion: reduce) {
           .ab2-blade-line { transition: none; stroke-dashoffset: 0; }
         }
+        @media (min-width: 1920px) {
+          .ab2-left-content { max-width: 680px; }
+          .ab2-ms-content { left: 63%; width: 32%; }
+        }
+        @media (min-width: 2560px) {
+          .ab2-ms-content { left: 62%; width: 34%; }
+        }
       `}</style>
 
       <section className="ab2-section" id="about" ref={sectionRef}>

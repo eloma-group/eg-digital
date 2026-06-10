@@ -125,7 +125,12 @@ export function HeroV1() {
           white-space:nowrap;
         }
 
-        @media (max-width:900px) { .hv1-inner { grid-template-columns:1fr; } }
+        @media (max-width:900px) {
+          .hv1-inner { grid-template-columns:1fr; }
+          .hv1-devices { display:none; }
+        }
+        @media (min-width:1920px) { .hv1-inner { max-width:1900px; } }
+        @media (min-width:2560px) { .hv1-inner { max-width:2440px; } }
       `}</style>
 
       <section className="hv1-section">
@@ -382,6 +387,8 @@ export function HeroV2() {
         .hv2-card-c { top:42%; right:-6%; animation:hv2-float-a 6.1s ease-in-out infinite 1.6s; }
 
         @media (max-width:900px) { .hv2-inner { grid-template-columns:1fr; } .hv2-card { display:none; } }
+        @media (min-width:1920px) { .hv2-inner { max-width:1900px; } }
+        @media (min-width:2560px) { .hv2-inner { max-width:2440px; } }
       `}</style>
 
       <section className="hv2-section">
@@ -732,6 +739,8 @@ export function HeroV3() {
           .hv3-chip { display:none; }
           .hv3-ms-badge { position:static; transform:none; margin-bottom:12px; }
         }
+        @media (min-width:1920px) { .hv3-inner { max-width:1900px; } }
+        @media (min-width:2560px) { .hv3-inner { max-width:2440px; } }
       `}</style>
 
       <section className="hv3-section">
@@ -927,6 +936,8 @@ export function HeroV4() {
         @media (max-width:860px) {
           .hv4-bottom { grid-template-columns:1fr; }
         }
+        @media (min-width:1920px) { .hv4-bottom { max-width:1440px; } }
+        @media (min-width:2560px) { .hv4-bottom { max-width:1760px; } }
 
         /* chart mockup card */
         .hv4-chart-card {
@@ -1346,9 +1357,12 @@ export function HeroV5() {
         .hv5-roadmap-sub { font-size:clamp(9px,0.7vw,11px); color:rgba(8,33,60,0.4); font-weight:600; }
 
         @media (max-width:700px) {
-          .hv5-roadmap { flex-wrap:wrap; row-gap:24px; }
+          .hv5-roadmap { flex-wrap:wrap; row-gap:24px; column-gap:0; }
           .hv5-roadmap::before { display:none; }
           .hv5-roadmap-step { flex:0 0 50%; }
+        }
+        @media (max-width:400px) {
+          .hv5-roadmap-step { flex:0 0 100%; }
         }
       `}</style>
 
@@ -1393,16 +1407,18 @@ export function HeroV5() {
             </span>
           </motion.div>
 
-          <motion.h2 {...fadeUp(0.07)} style={{
-            fontSize:'clamp(52px,9vw,140px)', fontWeight:900,
-            letterSpacing:'-0.045em', lineHeight:0.88,
-            textTransform:'uppercase', color:NAVY,
-            marginBottom:'clamp(18px,2.2vw,28px)',
-          }}>
-            End-to-End<br />
-            <span style={{ color:GREEN }}>Digital</span><br />
-            Transformation
-          </motion.h2>
+          <div style={{ position:'relative', left:'50%', transform:'translateX(-50%)', width:'max-content', maxWidth:'100vw' }}>
+            <motion.h2 {...fadeUp(0.07)} style={{
+              fontSize:'clamp(48px,8.5vw,132px)', fontWeight:900,
+              letterSpacing:'-0.045em', lineHeight:0.88,
+              textTransform:'uppercase', color:NAVY, textAlign:'center',
+              marginBottom:'clamp(18px,2.2vw,28px)',
+            }}>
+              End-to-End<br />
+              <span style={{ color:GREEN }}>Digital</span><br />
+              Transformation
+            </motion.h2>
+          </div>
 
           <motion.p {...fadeUp(0.16)} style={{
             fontSize:'clamp(15px,1.2vw,19px)', color:'rgba(8,33,60,0.52)',
@@ -1566,7 +1582,8 @@ export function HeroV6() {
         }
         .hv6-collage {
           display:grid; grid-template-rows:1.5fr 1fr;
-          gap:clamp(8px,1vw,14px); width:100%; height:100%;
+          gap:clamp(8px,1vw,14px); width:100%; height:100%; flex:1;
+          min-height:clamp(400px,60svh,900px);
         }
         .hv6-collage-row {
           display:grid; grid-template-columns:1fr 1fr; gap:inherit;

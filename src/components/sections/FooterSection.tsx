@@ -82,6 +82,8 @@ export function FooterSection() {
         @media (max-width: 400px) {
           .footer-top { grid-template-columns: 1fr; }
         }
+        @media (min-width: 1920px) { .footer-inner { max-width: 1900px; } }
+        @media (min-width: 2560px) { .footer-inner { max-width: 2440px; } }
       `}</style>
 
       <footer className="footer-wrap">
@@ -91,7 +93,7 @@ export function FooterSection() {
             <div className="footer-brand">
               <img src="/images/EG Digital Logo White-01.png" alt="EG Digital" style={{ height: 38, width: 'auto' }} />
               <p className="footer-tagline">
-                The essential growth platform for e-commerce brands — reviews, analytics, and communications, all in one place.
+                Your single partner for cloud, development, cybersecurity, and digital growth — built for ambitious Australian businesses.
               </p>
               <div className="footer-socials">
                 {[
@@ -120,7 +122,7 @@ export function FooterSection() {
 
           {/* Bottom bar */}
           <div className="footer-bottom">
-            <span className="footer-copy">© 2025 EG Digital. All rights reserved.</span>
+            <span className="footer-copy">© 2026 EG Digital. All rights reserved.</span>
             <div className="footer-copy-links">
               <button>Privacy</button>
               <button>Terms</button>
