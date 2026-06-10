@@ -441,6 +441,8 @@ export function Features() {
         @media (max-width: 540px) {
           .fb-h2 { font-size: clamp(28px, 8vw, 44px); }
         }
+        @media (min-width: 1920px) { .fb-grid { max-width: 1900px; } }
+        @media (min-width: 2560px) { .fb-grid { max-width: 2440px; } }
       `}</style>
 
       <FeatureBlock
