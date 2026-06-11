@@ -537,7 +537,7 @@ export function Navbar() {
         .nav-links {
           display: flex; align-items: center;
           justify-content: center;       /* ← centers items */
-          gap: 2px;
+          gap: 0;
           flex: 1;
         }
         .nav-link {
@@ -545,9 +545,9 @@ export function Navbar() {
           font-family: inherit;
           font-size: clamp(12.5px, 0.85vw, 14px); font-weight: 600;
           color: rgba(8,33,60,0.6);
-          padding: 8px 11px; min-height: 44px;
+          padding: 8px 14px; min-height: 44px;
           border-radius: 9px;
-          display: flex; align-items: center; gap: 4px;
+          display: flex; align-items: center; gap: 3px;
           transition: color 0.18s, background 0.18s;
           white-space: nowrap;
         }
@@ -637,19 +637,11 @@ export function Navbar() {
 
           {/* Logo */}
           <div className="nav-logo">
-            <div style={{
-              background: NAVY,
-              borderRadius: 10,
-              padding: '6px 14px',
-              display: 'flex',
-              alignItems: 'center',
-            }}>
-              <img
-                src="/images/EG Digital Logo White-01.png"
-                alt="EG Digital"
-                style={{ height: 28, width: 'auto', display: 'block' }}
-              />
-            </div>
+            <img
+              src="/images/EG Digital Logo-01.png"
+              alt="EG Digital"
+              style={{ height: 34, width: 'auto', display: 'block' }}
+            />
           </div>
 
           {/* Desktop links — centred */}
