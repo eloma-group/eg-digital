@@ -20,7 +20,7 @@ function fadeUp(delay = 0) {
 // ── Card primitives ───────────────────────────────────────────────
 function Card({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
   return (
-    <div style={{
+    <div className="fb-card" style={{
       background: '#fff',
       border: '1px solid rgba(8,33,60,0.07)',
       borderRadius: 16,
@@ -434,6 +434,16 @@ export function Features() {
           position: relative; z-index: 1;
         }
         .fb-cta:hover { gap: 14px; }
+
+        .fb-card {
+          transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s, border-color 0.28s;
+          will-change: transform;
+        }
+        .fb-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 18px 44px rgba(8,33,60,0.13);
+          border-color: rgba(60,185,140,0.30);
+        }
 
         @media (max-width: 900px) {
           .fb-grid, .fb-flip { grid-template-columns: 1fr; direction: ltr; }
