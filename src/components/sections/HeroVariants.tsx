@@ -56,7 +56,12 @@ export function HeroV1() {
         .hv1-sv { font-size:clamp(20px,2vw,28px); font-weight:900; color:${NAVY}; letter-spacing:-0.04em; line-height:1; }
         .hv1-sl { font-size:9px; font-weight:800; color:rgba(8,33,60,0.36); text-transform:uppercase; letter-spacing:1.4px; margin-top:3px; }
         .hv1-pills { display:flex; flex-wrap:wrap; gap:6px; }
-        .hv1-pill { padding:5px 13px; border-radius:100px; background:rgba(8,33,60,0.06); border:1px solid rgba(8,33,60,0.09); font-size:11.5px; font-weight:600; color:rgba(8,33,60,0.55); }
+        .hv1-pill { padding:5px 13px; border-radius:100px; background:rgba(8,33,60,0.06); border:1px solid rgba(8,33,60,0.09); font-size:11.5px; font-weight:600; color:rgba(8,33,60,0.55); transition:background .2s,border-color .2s,color .2s,transform .2s; cursor:default; }
+        .hv1-pill:hover { background:rgba(60,185,140,0.12); border-color:rgba(60,185,140,0.32); color:${NAVY}; transform:translateY(-2px); }
+        .hv1-stack-badge { transition:transform .28s cubic-bezier(0.16,1,0.3,1), box-shadow .28s; }
+        .hv1-devices:hover .hv1-stack-badge { transform:translateY(-3px); box-shadow:0 12px 30px rgba(8,33,60,0.18); }
+        .hv1-devices { transition:transform .45s cubic-bezier(0.16,1,0.3,1); }
+        .hv1-devices:hover { transform:translateY(-7px); }
         .hv1-cta-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:clamp(20px,2.5vw,32px); }
         .hv1-btn-p {
           background:${NAVY}; color:#fff; border:none;
@@ -356,7 +361,10 @@ export function HeroV2() {
         .hv2-stat-val { font-size:clamp(22px,2.2vw,32px); font-weight:900; color:#fff; letter-spacing:-0.04em; line-height:1; }
         .hv2-stat-lbl { font-size:10px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:1.3px; text-transform:uppercase; margin-top:4px; }
         .hv2-tags { display:flex; gap:8px; flex-wrap:wrap; }
-        .hv2-tag { padding:6px 14px; border-radius:100px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); }
+        .hv2-tag { padding:6px 14px; border-radius:100px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); transition:background .2s,border-color .2s,color .2s,transform .2s; cursor:default; }
+        .hv2-tag:hover { background:rgba(60,185,140,0.12); border-color:rgba(60,185,140,0.4); color:#fff; transform:translateY(-2px); }
+        .hv2-card { transition:border-color .25s, box-shadow .25s, background .25s; cursor:default; }
+        .hv2-card:hover { border-color:rgba(60,185,140,0.5); background:rgba(12,28,54,0.96); box-shadow:0 16px 44px rgba(0,0,0,0.4); }
         .hv2-cta-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:clamp(22px,2.8vw,34px); }
         .hv2-btn-p {
           background:${GREEN}; color:${NAVY}; border:none;
@@ -699,7 +707,12 @@ export function HeroV3() {
           box-shadow:0 20px 64px rgba(8,33,60,0.14);
           border:1px solid rgba(8,33,60,0.06);
         }
-        .hv3-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+        .hv3-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(0.16,1,0.3,1); }
+        .hv3-photo:hover img { transform:scale(1.05); }
+        .hv3-ms-badge { transition:transform .25s cubic-bezier(0.16,1,0.3,1), box-shadow .25s; }
+        .hv3-ms-badge:hover { transform:translateX(-50%) translateY(-3px); box-shadow:0 10px 30px rgba(8,33,60,0.16); }
+        .hv3-chip { transition:border-color .22s, box-shadow .22s; cursor:default; }
+        .hv3-chip:hover { border-color:rgba(60,185,140,0.45); box-shadow:0 12px 30px rgba(8,33,60,0.18); }
 
         /* MS partner badge — top-center overlap */
         .hv3-ms-badge {
@@ -923,7 +936,14 @@ export function HeroV4() {
           transition:background .2s;
         }
         .hv4-metric-cell:last-child { border-right:none; }
-        .hv4-metric-cell:hover { background:rgba(8,33,60,0.02); }
+        .hv4-metric-cell:hover { background:rgba(60,185,140,0.06); }
+        .hv4-chart-card, .hv4-serp-card { transition:border-color .25s, box-shadow .25s; }
+        .hv4-chart-card:hover, .hv4-serp-card:hover {
+          border-color:rgba(60,185,140,0.32);
+          box-shadow:0 2px 0 rgba(8,33,60,0.04), 0 32px 90px rgba(8,33,60,0.18);
+        }
+        .hv4-serp-row { transition:opacity .2s; }
+        .hv4-serp-card:hover .hv4-serp-row:not(.is-client) { opacity:0.75 !important; }
 
         /* bottom showcase row */
         .hv4-bottom {
@@ -1309,7 +1329,13 @@ export function HeroV5() {
           width:36px; height:36px; border-radius:10px;
           display:flex; align-items:center; justify-content:center;
           font-size:18px; margin-bottom:10px;
+          transition:transform .25s cubic-bezier(0.34,1.56,0.64,1);
         }
+        .hv5-card { transition:border-color .25s, box-shadow .25s; cursor:default; }
+        .hv5-card:hover { border-color:rgba(60,185,140,0.4); box-shadow:0 14px 40px rgba(8,33,60,0.13); }
+        .hv5-card:hover .hv5-card-icon { transform:scale(1.12) rotate(-4deg); }
+        .hv5-roadmap-num { transition:transform .25s cubic-bezier(0.34,1.56,0.64,1), background .2s, color .2s, border-color .2s; }
+        .hv5-roadmap-step:hover .hv5-roadmap-num { transform:scale(1.14); background:${GREEN}; border-color:${GREEN}; color:#fff; }
 
         .hv5-cta-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
         .hv5-btn-p {
@@ -1535,10 +1561,16 @@ export function HeroV6() {
           display:flex; align-items:center; gap:9px;
           padding:9px 12px; border-radius:10px;
           border:1px solid rgba(8,33,60,0.07);
-          background:#fff; transition:border-color .2s, background .2s;
+          background:#fff; transition:border-color .2s, background .2s, transform .2s;
           cursor:default;
         }
-        .hv6-ind-card:hover { border-color:rgba(8,33,60,0.16); background:rgba(8,33,60,0.02); }
+        .hv6-ind-card:hover { border-color:rgba(60,185,140,0.4); background:rgba(60,185,140,0.06); transform:translateX(4px); }
+        .hv6-ind-card:hover .hv6-ind-dot { transform:scale(1.4); }
+        .hv6-ind-dot { transition:transform .2s cubic-bezier(0.34,1.56,0.64,1); }
+        .hv6-collage-main img, .hv6-collage-sm img { transition:transform .55s cubic-bezier(0.16,1,0.3,1); }
+        .hv6-collage-main:hover img, .hv6-collage-sm:hover img { transform:scale(1.06); }
+        .hv6-img-card { transition:border-color .25s, box-shadow .25s; }
+        .hv6-img-card:hover { border-color:rgba(60,185,140,0.4); box-shadow:0 12px 40px rgba(8,33,60,0.2); }
         .hv6-ind-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
         .hv6-ind-name { font-size:clamp(11px,.82vw,13px); font-weight:700; color:${NAVY}; }
         .hv6-more {
@@ -1857,13 +1889,17 @@ export function HeroV7() {
           padding:16px 18px;
           box-shadow:0 8px 36px rgba(8,33,60,0.1);
           width:clamp(170px,18vw,230px);
-          will-change:transform; pointer-events:none; z-index:3;
+          will-change:transform; z-index:3;
+          transition:border-color .25s, box-shadow .25s;
         }
+        .hv7-card:hover { border-color:rgba(60,185,140,0.4); box-shadow:0 18px 54px rgba(8,33,60,0.2); }
         .hv7-card-hd { display:flex; align-items:center; gap:9px; margin-bottom:10px; }
         .hv7-card-ico {
           width:34px; height:34px; border-radius:9px;
           display:flex; align-items:center; justify-content:center; flex-shrink:0;
+          transition:transform .25s cubic-bezier(0.34,1.56,0.64,1);
         }
+        .hv7-card:hover .hv7-card-ico { transform:scale(1.12) rotate(-4deg); }
         .hv7-card-title { font-size:11.5px; font-weight:800; color:${NAVY}; line-height:1.25; }
         .hv7-card-items { display:flex; flex-direction:column; gap:4px; margin-bottom:10px; }
         .hv7-card-item {

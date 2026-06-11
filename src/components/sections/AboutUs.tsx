@@ -45,15 +45,29 @@ export function AboutUs() {
         /* ── NAVY right panel ── */
         .ab2-right {
           position: absolute; inset: 0;
-          background: ${NAVY};
+          background: linear-gradient(150deg, #0b2c50 0%, ${NAVY} 52%, #061a31 100%);
           clip-path: polygon(62% 0, 100% 0, 100% 100%, 38% 100%);
           will-change: transform;
         }
         .ab2-right-bloom {
           position: absolute; top: -14%; right: -4%;
           width: 70%; height: 80%;
-          background: radial-gradient(ellipse, rgba(60,185,140,0.09) 0%, transparent 65%);
+          background: radial-gradient(ellipse, rgba(60,185,140,0.13) 0%, transparent 65%);
           pointer-events: none;
+        }
+        /* fine dot-matrix texture, faded toward edges */
+        .ab2-right-grid {
+          position: absolute; inset: 0; pointer-events: none; opacity: 0.55;
+          background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.4px);
+          background-size: 26px 26px;
+          -webkit-mask-image: radial-gradient(ellipse at 72% 38%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(ellipse at 72% 38%, #000 0%, transparent 72%);
+        }
+        /* subtle film grain for premium texture (static, no repaint) */
+        .ab2-grain {
+          position: absolute; inset: 0; pointer-events: none;
+          opacity: 0.05; mix-blend-mode: overlay;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         /* ── Left content ── */
@@ -120,11 +134,12 @@ export function AboutUs() {
         /* Partner badge */
         .ab2-ms-badge {
           display: inline-flex; align-items: center; gap: 9px;
-          background: rgba(255,255,255,0.07);
-          border: 1px solid rgba(255,255,255,0.14);
+          background: linear-gradient(120deg, rgba(60,185,140,0.14), rgba(255,255,255,0.05));
+          border: 1px solid rgba(60,185,140,0.26);
           border-radius: 100px;
           padding: 7px 14px 7px 10px;
           margin-bottom: clamp(18px, 2.2vw, 28px);
+          box-shadow: 0 6px 22px rgba(60,185,140,0.10);
         }
         .ab2-ms-badge-text {
           font-size: clamp(9px, 0.65vw, 11px); font-weight: 800;
@@ -156,27 +171,38 @@ export function AboutUs() {
         /* Product chip grid */
         .ab2-ms-grid {
           display: grid; grid-template-columns: 1fr 1fr;
-          gap: clamp(7px, 0.8vw, 10px);
+          gap: clamp(8px, 0.85vw, 11px);
         }
         .ab2-ms-chip {
-          display: flex; align-items: center; gap: 8px;
-          background: rgba(255,255,255,0.055);
-          border: 1px solid rgba(255,255,255,0.09);
-          border-radius: 10px;
-          padding: clamp(9px, 1vw, 12px) clamp(10px, 1.2vw, 14px);
-          transition: background 0.2s, border-color 0.2s;
-          cursor: default;
+          display: flex; align-items: center; gap: 10px;
+          background: rgba(255,255,255,0.045);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 12px;
+          padding: clamp(9px, 1vw, 12px) clamp(11px, 1.2vw, 14px);
+          transition: background 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+          cursor: default; will-change: transform;
         }
         .ab2-ms-chip:hover {
           background: rgba(60,185,140,0.10);
-          border-color: rgba(60,185,140,0.28);
+          border-color: rgba(60,185,140,0.32);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 26px rgba(0,0,0,0.28);
         }
-        .ab2-ms-chip-icon {
-          color: ${GREEN}; opacity: 0.85; flex-shrink: 0;
+        .ab2-ms-chip-tile {
+          width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+          display: flex; align-items: center; justify-content: center;
+          background: linear-gradient(135deg, rgba(60,185,140,0.22), rgba(60,185,140,0.05));
+          border: 1px solid rgba(60,185,140,0.22);
+          transition: background 0.22s, border-color 0.22s;
         }
+        .ab2-ms-chip:hover .ab2-ms-chip-tile {
+          background: linear-gradient(135deg, rgba(60,185,140,0.38), rgba(60,185,140,0.12));
+          border-color: rgba(60,185,140,0.42);
+        }
+        .ab2-ms-chip-icon { color: ${GREEN}; flex-shrink: 0; }
         .ab2-ms-chip-label {
           font-size: clamp(10px, 0.72vw, 12px); font-weight: 700;
-          letter-spacing: 0.2px; color: rgba(255,255,255,0.68);
+          letter-spacing: 0.2px; color: rgba(255,255,255,0.72);
           white-space: nowrap;
         }
 
@@ -192,9 +218,21 @@ export function AboutUs() {
           stroke: ${GREEN}; stroke-width: 2;
           stroke-dasharray: 2200; stroke-dashoffset: 2200;
           vector-effect: non-scaling-stroke;
+          filter: drop-shadow(0 0 6px rgba(60,185,140,0.55));
           transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
         }
         .ab2-blade-line.is-drawn { stroke-dashoffset: 0; }
+        .ab2-blade-node {
+          fill: ${GREEN}; opacity: 0;
+          filter: drop-shadow(0 0 8px rgba(60,185,140,0.9));
+        }
+        .ab2-blade-node.is-drawn {
+          animation: ab2NodePulse 2.6s ease-in-out 1.6s infinite;
+        }
+        @keyframes ab2NodePulse {
+          0%, 100% { opacity: 0.45; }
+          50%      { opacity: 1; }
+        }
 
         /* ── Responsive ≤1000px — stack vertically ── */
         @media (max-width: 1000px) {
@@ -254,7 +292,7 @@ export function AboutUs() {
 
             <p className="ab2-body">
               We're a tight-knit team of builders and designers obsessed with shipping
-              great work. Based in Sydney, Australia — built for ambitious brands worldwide.
+              great work. Based in Melbourne, Australia — built for ambitious brands worldwide.
               No bloat, no excuses. Just exceptional digital products, on time, every time.
             </p>
 
@@ -277,7 +315,9 @@ export function AboutUs() {
 
         {/* ── NAVY right panel — Microsoft Partner ── */}
         <div className="ab2-right">
+          <div className="ab2-right-grid" />
           <div className="ab2-right-bloom" />
+          <div className="ab2-grain" />
 
           <div className="ab2-ms-content">
 
@@ -338,7 +378,9 @@ export function AboutUs() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, ease: EASE, delay: 0.50 + i * 0.07 }}
                 >
-                  <Icon size={14} className="ab2-ms-chip-icon" />
+                  <span className="ab2-ms-chip-tile">
+                    <Icon size={15} className="ab2-ms-chip-icon" />
+                  </span>
                   <span className="ab2-ms-chip-label">{label}</span>
                 </motion.div>
               ))}
@@ -353,6 +395,10 @@ export function AboutUs() {
             className={`ab2-blade-line${inView ? ' is-drawn' : ''}`}
             x1="62%" y1="0%"
             x2="38%" y2="100%"
+          />
+          <circle
+            className={`ab2-blade-node${inView ? ' is-drawn' : ''}`}
+            cx="62%" cy="0%" r="4"
           />
         </svg>
 
