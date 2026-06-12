@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, EASE } from './_kit'
+import { PageLayout, Reveal, NAVY, GREEN, EASE } from './_kit'
+import { KineticBanner } from '../sections/JourneyHero'
 
 type Tier = { id: string; label: string; note: string; names: string[] }
 
@@ -63,24 +64,13 @@ export function NetworksPartners() {
       `}</style>
 
       {/* ── Hero ── */}
-      <section className="np-shell" style={{ padding: 'clamp(40px,7vw,100px) clamp(24px,4vw,72px) clamp(40px,5vw,72px)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 28 }}>
-        <Reveal>
-          <Eyebrow>Networks & Partners</Eyebrow>
-          <h1 style={{ fontSize: 'clamp(48px,9vw,136px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.88, color: NAVY, margin: '20px 0 0', textTransform: 'uppercase' }}>
-            The company<br /><span style={{ color: GREEN }}>we keep.</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <div style={{ display: 'flex', gap: 'clamp(22px,2.6vw,44px)' }}>
-            {[['12+', 'Alliances'], ['1', 'Platinum'], ['3', 'Tiers']].map(([v, l]) => (
-              <div key={l}>
-                <div style={{ fontSize: 'clamp(32px,3.4vw,54px)', fontWeight: 900, color: NAVY, letterSpacing: '-0.04em', lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '1.6px', textTransform: 'uppercase', color: 'rgba(8,33,60,0.4)', marginTop: 6 }}>{l}</div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      <KineticBanner
+        eyebrow="Networks & Partners"
+        pre="Certified across"
+        rotate={['Microsoft', 'Azure', 'AWS', 'Salesforce', 'Shopify']}
+        post="and more."
+        stats={[['12+', 'Alliances'], ['1', 'Platinum'], ['3', 'Tiers']]}
+      />
 
       {/* ── Living marquee wall ── */}
       <section className="np-mqwall" aria-label="Partner network" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(8px,1vw,18px)', padding: 'clamp(20px,3vw,48px) 0', borderTop: '1px solid rgba(8,33,60,0.1)', borderBottom: '1px solid rgba(8,33,60,0.1)' }}>

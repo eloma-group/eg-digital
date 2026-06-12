@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, NAVY, GREEN, CREAM, EASE, useIsMobile } from './_kit'
+import { CinematicBanner } from '../sections/JourneyHero'
 
 type Theme = 'light' | 'navy' | 'green'
 type Scene = { n: string; tag: string; lines: string[]; hi: string; body: string; proof: string; theme: Theme }
@@ -133,24 +134,12 @@ export function OurUSP() {
   const mobile = useIsMobile(820)
 
   const Hero = (
-    <section style={{ minHeight: mobile ? '76vh' : '86vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(48px,9vh,120px) clamp(24px,4vw,72px)', maxWidth: 1760, margin: '0 auto' }}>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,13px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: GREEN }}>
-        <span style={{ width: 22, height: 2, background: GREEN }} />What makes us different
-      </motion.div>
-      <h1 style={{ fontSize: 'clamp(52px,10.5vw,136px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.9, color: NAVY, margin: '20px 0 0', textTransform: 'uppercase' }}>
-        {['Same brief.', 'Wildly different', 'outcome.'].map((ln, i) => (
-          <span key={i} style={{ overflow: 'hidden', display: 'block' }}>
-            <motion.span style={{ display: 'block' }} initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.05, ease: EASE, delay: 0.15 + i * 0.12 }}>
-              {i === 2 ? <span style={{ color: GREEN }}>{ln}</span> : ln}
-            </motion.span>
-          </span>
-        ))}
-      </h1>
-      <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
-        style={{ fontSize: 'clamp(15px,1.25vw,19px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: 'clamp(28px,4vh,48px) 0 0', maxWidth: '52ch', fontWeight: 500 }}>
-        Four reasons working with us won’t feel like working with everyone else. Keep scrolling — they stack up.
-      </motion.p>
-    </section>
+    <CinematicBanner
+      eyebrow="What Makes Us Different"
+      word="DIFFERENT"
+      sub="Senior-only teams, Microsoft depth, fixed-price clarity — four reasons working with us never feels like working with everyone else."
+      scrollLabel="Scroll to explore"
+    />
   )
 
   const CTA = (
