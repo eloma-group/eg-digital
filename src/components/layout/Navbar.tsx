@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -72,7 +74,7 @@ const SOLUTIONS_GROUPS = [
 type PanelCol = { header?: string; items: string[] }
 
 function PanelDropdown({
-  eyebrow, heading, desc, cta, columns,
+  eyebrow, heading, desc, cta, columns, linkMap,
   onClose, onPanelMouseEnter, onPanelMouseLeave,
 }: {
   eyebrow: string
@@ -80,10 +82,17 @@ function PanelDropdown({
   desc: string
   cta: string
   columns: PanelCol[]
+  linkMap?: Record<string, string>
   onClose: () => void
   onPanelMouseEnter: () => void
   onPanelMouseLeave: () => void
 }) {
+  const navigate = useNavigate()
+  const selectItem = (item: string) => {
+    const to = linkMap?.[item]
+    if (to) navigate(to)
+    onClose()
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
@@ -190,7 +199,7 @@ function PanelDropdown({
               {col.items.map((item, i) => (
                 <button
                   key={item}
-                  onClick={onClose}
+                  onClick={() => selectItem(item)}
                   style={{
                     display: 'block', width: '100%', textAlign: 'left',
                     background: 'none', border: 'none', cursor: 'pointer',
@@ -467,6 +476,7 @@ function MobileSection({
 // NAVBAR
 // ─────────────────────────────────────────────
 export function Navbar() {
+  const navigate = useNavigate()
   const [scrolled,       setScrolled]       = useState(false)
   const [activeMenu,     setActiveMenu]     = useState<string | null>(null)
   const [mobileOpen,     setMobileOpen]     = useState(false)
@@ -636,7 +646,7 @@ export function Navbar() {
         <div className="nav-inner">
 
           {/* Logo */}
-          <div className="nav-logo">
+          <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <img
               src="/images/EG Digital Logo-01.png"
               alt="EG Digital"
@@ -675,6 +685,7 @@ export function Navbar() {
                     desc="A certified Microsoft partner driving digital transformation for ambitious Australian businesses since 2021."
                     cta="Explore More"
                     columns={[{ items: ABOUT_ITEMS }]}
+                    linkMap={ABOUT_ROUTES}
                     onClose={closeAll}
                     onPanelMouseEnter={cancelClose}
                     onPanelMouseLeave={scheduleClose}
@@ -870,7 +881,7 @@ export function Navbar() {
 
             <MobileSection label="About Us" expanded={mobileExpanded === 'about'} onToggle={() => toggleMobileSection('about')}>
               {ABOUT_ITEMS.map(item => (
-                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+                <button key={item} className="nav-mobile-item" onClick={() => { setMobileOpen(false); const to = ABOUT_ROUTES[item]; if (to) navigate(to) }}>{item}</button>
               ))}
             </MobileSection>
 
