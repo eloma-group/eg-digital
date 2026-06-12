@@ -1,4 +1,6 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -88,17 +90,14 @@ function SectionHeading({ label }: { label: string }) {
   )
 }
 
-function FooterLink({ children }: { children: React.ReactNode }) {
-  return (
-    <a
-      href="#"
-      style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.5)', transition: 'all 0.18s ease', display: 'block', textDecoration: 'none' }}
-      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = '#fff'; el.style.paddingLeft = '5px' }}
-      onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = 'rgba(255,255,255,0.5)'; el.style.paddingLeft = '0' }}
-    >
-      {children}
-    </a>
-  )
+function FooterLink({ children, to }: { children: React.ReactNode; to?: string }) {
+  const style: React.CSSProperties = { fontSize: 13.5, color: 'rgba(255,255,255,0.5)', transition: 'all 0.18s ease', display: 'block', textDecoration: 'none' }
+  const onEnter = (e: React.MouseEvent<HTMLElement>) => { const el = e.currentTarget; el.style.color = '#fff'; el.style.paddingLeft = '5px' }
+  const onLeave = (e: React.MouseEvent<HTMLElement>) => { const el = e.currentTarget; el.style.color = 'rgba(255,255,255,0.5)'; el.style.paddingLeft = '0' }
+  if (to) {
+    return <Link to={to} style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</Link>
+  }
+  return <a href="#" style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>{children}</a>
 }
 
 export function FooterSection() {
@@ -239,7 +238,7 @@ export function FooterSection() {
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13, margin: 0, padding: 0 }}>
                   {col.links.map(item => (
                     <li key={item}>
-                      <FooterLink>{item}</FooterLink>
+                      <FooterLink to={col.heading === 'About Us' ? ABOUT_ROUTES[item] : undefined}>{item}</FooterLink>
                     </li>
                   ))}
                 </ul>
