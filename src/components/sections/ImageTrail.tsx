@@ -26,7 +26,7 @@ const IMAGES: { src: string; alt: string }[] = [
   { src: `https://images.unsplash.com/photo-1573164713988-8665fc963095${Q}`, alt: 'Developer at a multi-screen setup' },
 ]
 
-const THRESHOLD = 90 // px the pointer must travel before the next frame reveals
+const THRESHOLD = 150 // px the pointer must travel before the next frame reveals
 
 export function ImageTrail() {
   const stageRef = useRef<HTMLDivElement>(null)
@@ -69,19 +69,19 @@ export function ImageTrail() {
           scale: 0.42,
           rotation: gsap.utils.random(-14, 14),
         })
-        .set(img, { scale: 1.7, filter: 'brightness(0.82)' })
-        // settle in
+        .set(img, { scale: 1.7, filter: 'brightness(0.42) contrast(1.08) saturate(0.92)' })
+        // settle in (kept deliberately dark so the white headline stays legible)
         .to(cell, { scale: 1, duration: 0.55, ease: 'expo.out' }, 0)
-        .to(img, { scale: 1, filter: 'brightness(1)', duration: 0.7, ease: 'expo.out' }, 0)
+        .to(img, { scale: 1, filter: 'brightness(0.58) contrast(1.08) saturate(0.92)', duration: 0.7, ease: 'expo.out' }, 0)
         // drift + fade away
         .to(cell, {
           opacity: 0,
           scale: 0.78,
           y: y + 56,
-          duration: 0.7,
+          duration: 0.55,
           ease: 'power2.in',
-        }, 0.62)
-        .to(img, { scale: 1.18, duration: 0.7, ease: 'power2.in' }, 0.62)
+        }, 0.42)
+        .to(img, { scale: 1.18, duration: 0.55, ease: 'power2.in' }, 0.42)
     }
 
     const onMove = (e: PointerEvent) => {
@@ -116,6 +116,9 @@ export function ImageTrail() {
         .it-section { position: relative; overflow: hidden; background: ${NAVY};
           padding: clamp(80px,12vw,180px) clamp(24px,4vw,64px); }
         .it-stage { position: absolute; inset: 0; z-index: 1; touch-action: none; }
+        /* Dark scrim behind the headline so it reads over any image that drifts past */
+        .it-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+          background: radial-gradient(ellipse 55% 60% at 50% 50%, rgba(8,33,60,0.78) 0%, rgba(8,33,60,0.45) 45%, transparent 75%); }
         .it-cell { position: absolute; top: 0; left: 0; width: clamp(140px,13vw,230px);
           aspect-ratio: 5 / 6; margin: calc(clamp(140px,13vw,230px) / -2) 0 0 calc(clamp(140px,13vw,230px) / -2);
           border-radius: 14px; overflow: hidden; opacity: 0; pointer-events: none;
@@ -156,6 +159,9 @@ export function ImageTrail() {
           </div>
         ))}
       </div>
+
+      {/* Dark scrim layer keeps the headline legible over passing imagery */}
+      <div className="it-scrim" aria-hidden="true" />
 
       <div className="it-inner">
         <div className="it-eyebrow">

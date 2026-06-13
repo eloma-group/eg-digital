@@ -1,66 +1,117 @@
-import { motion } from 'framer-motion'
-import { PageLayout, Reveal, NAVY, GREEN, EASE } from './_kit'
+import { BadgeCheck, Wallet, Headphones } from 'lucide-react'
+import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM } from './_kit'
 import { KineticBanner } from '../sections/JourneyHero'
 
-type Tier = { id: string; label: string; note: string; names: string[] }
+type Tier = 'Cloud' | 'Technology' | 'Community'
+type Partner = { name: string; mark: string; tier: Tier; accent: string }
 
-const TIERS: Tier[] = [
-  { id: 'cloud', label: 'Cloud', note: 'Infrastructure partners', names: ['Amazon Web Services', 'Google Cloud', 'Microsoft Azure'] },
-  { id: 'technology', label: 'Technology', note: 'Platforms we build on', names: ['Salesforce', 'Zoho', 'Shopify', 'Sage', 'NetSuite', 'Oracle'] },
-  { id: 'community', label: 'Community', note: 'Networks & accreditation', names: ['Microsoft for Nonprofits', 'AWS Activate', 'Australian Business Network', 'Tech Council AU'] },
+/* Monogram tiles (not brand logos — premium, on-brand, no guessed SVGs). */
+const PARTNERS: Partner[] = [
+  { name: 'Amazon Web Services', mark: 'AWS', tier: 'Cloud', accent: '#ff9900' },
+  { name: 'Google Cloud', mark: 'GC', tier: 'Cloud', accent: '#4285f4' },
+  { name: 'Microsoft Azure', mark: 'AZ', tier: 'Cloud', accent: '#0078d4' },
+  { name: 'Salesforce', mark: 'SF', tier: 'Technology', accent: '#00a1e0' },
+  { name: 'Shopify', mark: 'SH', tier: 'Technology', accent: '#95bf47' },
+  { name: 'Oracle', mark: 'OR', tier: 'Technology', accent: '#f80000' },
+  { name: 'NetSuite', mark: 'NS', tier: 'Technology', accent: '#1f6bba' },
+  { name: 'Zoho', mark: 'ZO', tier: 'Technology', accent: '#e42527' },
+  { name: 'Sage', mark: 'SG', tier: 'Technology', accent: '#00a651' },
+  { name: 'Tech Council AU', mark: 'TC', tier: 'Community', accent: '#7c3aed' },
+  { name: 'AWS Activate', mark: 'AA', tier: 'Community', accent: '#ff9900' },
+  { name: 'MS for Nonprofits', mark: 'MN', tier: 'Community', accent: GREEN },
+  { name: 'Aus. Business Network', mark: 'AB', tier: 'Community', accent: '#0d2e52' },
 ]
 
-/* Marquee rows — top row solid navy, middle outlined, bottom solid. */
-const ROW_A = ['Microsoft', 'Amazon Web Services', 'Google Cloud', 'Salesforce', 'Azure', 'Power Platform']
-const ROW_B = ['Dynamics 365', 'Zoho', 'Shopify', 'Oracle', 'NetSuite', 'Sage']
-const ROW_C = ['Tech Council AU', 'AWS Activate', 'Microsoft for Nonprofits', 'Australian Business Network']
+const CERTS = ['Dynamics 365', 'Azure', 'Power Platform']
 
-function MarqueeRow({ items, dir, outline }: { items: string[]; dir: 'l' | 'r'; outline?: boolean }) {
-  const loop = [...items, ...items]
-  return (
-    <div className="np-mqtrack">
-      <div className={`np-mq np-mq--${dir}`}>
-        {loop.map((name, i) => (
-          <span key={i} className="np-mqitem">
-            <span
-              className="np-mqtext"
-              style={outline
-                ? { color: 'transparent', WebkitTextStroke: `1.5px rgba(8,33,60,0.5)` }
-                : { color: NAVY }}
-            >{name}</span>
-            <span className="np-mqdot" aria-hidden="true" />
-          </span>
-        ))}
-      </div>
-    </div>
-  )
+const BENEFITS = [
+  { icon: BadgeCheck, title: 'Certified Expertise', body: 'Our team holds current certifications across every platform we deploy — so you get specialists, not generalists guessing their way through your stack.' },
+  { icon: Wallet, title: 'Better Licensing', body: 'As an accredited partner we unlock partner-tier and nonprofit licensing — and we pass those savings straight through to you.' },
+  { icon: Headphones, title: 'Priority Support', body: 'Direct partner escalation channels mean your critical issues move to the front of the queue — resolved fast, not parked.' },
+]
+
+const TIER_META: Record<Tier, string> = {
+  Cloud: '#0078d4',
+  Technology: GREEN,
+  Community: '#7c3aed',
 }
 
 export function NetworksPartners() {
   return (
     <PageLayout>
       <style>{`
-        .np-shell { max-width: 1760px; margin: 0 auto; padding: 0 clamp(24px,4vw,72px); }
+        .np-shell { max-width: min(calc(100vw - 96px),1760px); margin: 0 auto; padding: 0 clamp(24px,4vw,64px); }
         @media (min-width: 1920px) { .np-shell { max-width: 1900px; } }
+        @media (min-width: 2560px) { .np-shell { max-width: 2440px; } }
 
-        /* marquee */
-        .np-mqtrack { overflow: hidden; width: 100%; }
-        .np-mq { display: flex; align-items: center; width: max-content; will-change: transform; }
-        .np-mq--l { animation: np-ml 38s linear infinite; }
-        .np-mq--r { animation: np-mr 44s linear infinite; }
-        @keyframes np-ml { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes np-mr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-        .np-mqwall:hover .np-mq { animation-play-state: paused; }
-        .np-mqitem { display: inline-flex; align-items: center; gap: clamp(28px,3.5vw,64px); padding-right: clamp(28px,3.5vw,64px); }
-        .np-mqtext { font-size: clamp(34px,6vw,92px); font-weight: 900; letter-spacing: -0.045em;
-          text-transform: uppercase; line-height: 1; white-space: nowrap; }
-        .np-mqdot { width: clamp(8px,0.9vw,13px); height: clamp(8px,0.9vw,13px); border-radius: 50%;
-          background: ${GREEN}; flex-shrink: 0; }
-        @media (prefers-reduced-motion: reduce) { .np-mq { animation: none !important; } }
+        .np-section { padding: clamp(56px,8vw,120px) 0; }
+        .np-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+          flex-wrap: wrap; margin-bottom: clamp(28px,4vw,52px); }
+        .np-h2 { font-size: clamp(36px,5.5vw,88px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9;
+          text-transform: uppercase; color: ${NAVY}; margin: 14px 0 0; }
+        .np-legend { display: flex; gap: 18px; flex-wrap: wrap; }
+        .np-legend-item { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800;
+          letter-spacing: 1.4px; text-transform: uppercase; color: rgba(8,33,60,0.5); }
+        .np-legend-item span { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
-        /* tier legend */
-        .np-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px,2.4vw,40px); }
-        @media (max-width: 900px) { .np-tiers { grid-template-columns: 1fr; } }
+        /* ── Bento grid ── */
+        .np-bento { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(12px,1.4vw,20px);
+          grid-auto-rows: clamp(150px,15vw,212px); }
+        .np-feat { grid-column: span 2; grid-row: span 2; }
+        @media (max-width: 1000px) { .np-bento { grid-template-columns: repeat(3,1fr); } }
+        @media (max-width: 680px) { .np-bento { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 420px) {
+          .np-bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
+          .np-feat, .np-cell { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
+        .np-cell, .np-feat { min-width: 0; }
+
+        /* Partner tile */
+        .np-tile { height: 100%; min-height: 150px; box-sizing: border-box; display: flex; flex-direction: column;
+          justify-content: space-between; gap: 12px; background: #fff; border: 1px solid rgba(8,33,60,0.08);
+          border-radius: 20px; padding: clamp(18px,1.6vw,26px); box-shadow: 0 4px 22px rgba(8,33,60,0.05);
+          transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s, border-color 0.28s; will-change: transform; }
+        .np-tile:hover { transform: translateY(-6px); border-color: rgba(60,185,140,0.5);
+          box-shadow: 0 24px 54px rgba(8,33,60,0.13); }
+        .np-mark { width: clamp(46px,3.4vw,58px); height: clamp(46px,3.4vw,58px); border-radius: 14px;
+          display: flex; align-items: center; justify-content: center; font-size: clamp(15px,1.2vw,19px);
+          font-weight: 900; letter-spacing: -0.02em; transition: transform 0.28s; }
+        .np-tile:hover .np-mark { transform: scale(1.08) rotate(-3deg); }
+        .np-tname { font-size: clamp(15px,1.15vw,18px); font-weight: 800; letter-spacing: -0.02em; color: ${NAVY}; line-height: 1.2; }
+        .np-ttier { font-size: 10.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 6px; }
+
+        /* Featured platinum cell */
+        .np-featcard { position: relative; overflow: hidden; height: 100%; box-sizing: border-box;
+          background: ${NAVY}; border-radius: 24px; padding: clamp(28px,3vw,52px);
+          display: flex; flex-direction: column; justify-content: space-between; gap: 22px;
+          box-shadow: 0 30px 70px -28px rgba(8,33,60,0.6); }
+        .np-glow { position: absolute; top: -28%; right: -12%; width: clamp(260px,30vw,480px); height: clamp(260px,30vw,480px);
+          border-radius: 50%; background: radial-gradient(circle, rgba(60,185,140,0.30), transparent 70%);
+          pointer-events: none; animation: np-pulse 7s ease-in-out infinite; }
+        @keyframes np-pulse { 0%,100% { opacity: 0.65; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+        .np-plat { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: clamp(10px,0.8vw,12px);
+          font-weight: 800; letter-spacing: 2.8px; text-transform: uppercase; color: ${GREEN}; }
+        .np-feat-h { position: relative; font-size: clamp(40px,5.5vw,92px); font-weight: 900; letter-spacing: -0.05em;
+          line-height: 0.9; text-transform: uppercase; color: #fff; margin: 0; }
+        .np-feat-p { position: relative; font-size: clamp(14px,1.1vw,17px); line-height: 1.75; color: rgba(255,255,255,0.66);
+          margin: 0; max-width: 46ch; font-weight: 500; }
+        .np-chips { position: relative; display: flex; flex-wrap: wrap; gap: 9px; }
+        .np-chip { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.85); padding: 7px 14px; border-radius: 100px;
+          border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+
+        /* ── Benefits ── */
+        .np-benes { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,2vw,28px); }
+        @media (max-width: 900px) { .np-benes { grid-template-columns: 1fr; } }
+        .np-bene { background: #fff; border: 1px solid rgba(8,33,60,0.08); border-radius: 22px;
+          padding: clamp(26px,2.6vw,40px); box-shadow: 0 4px 24px rgba(8,33,60,0.05);
+          transition: transform 0.25s, box-shadow 0.25s; will-change: transform; }
+        .np-bene:hover { transform: translateY(-5px); box-shadow: 0 22px 52px rgba(8,33,60,0.12); }
+        .np-bene-ic { width: 54px; height: 54px; border-radius: 15px; background: rgba(60,185,140,0.12);
+          display: flex; align-items: center; justify-content: center; color: ${GREEN}; margin-bottom: 22px; }
+        .np-bene-h { font-size: clamp(20px,1.8vw,26px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; color: ${NAVY}; margin: 0 0 12px; }
+        .np-bene-b { font-size: clamp(14px,1.05vw,16px); line-height: 1.75; color: rgba(8,33,60,0.6); margin: 0; }
+
+        @media (prefers-reduced-motion: reduce) { .np-glow { animation: none !important; } }
       `}</style>
 
       {/* ── Hero ── */}
@@ -72,63 +123,87 @@ export function NetworksPartners() {
         stats={[['12+', 'Alliances'], ['1', 'Platinum'], ['3', 'Tiers']]}
       />
 
-      {/* ── Living marquee wall ── */}
-      <section className="np-mqwall" aria-label="Partner network" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(8px,1vw,18px)', padding: 'clamp(20px,3vw,48px) 0', borderTop: '1px solid rgba(8,33,60,0.1)', borderBottom: '1px solid rgba(8,33,60,0.1)' }}>
-        <MarqueeRow items={ROW_A} dir="l" />
-        <MarqueeRow items={ROW_B} dir="r" outline />
-        <MarqueeRow items={ROW_C} dir="l" />
-      </section>
-
-      {/* ── Platinum spotlight ── */}
-      <section className="np-shell" style={{ padding: 'clamp(56px,8vw,120px) clamp(24px,4vw,72px)' }}>
-        <Reveal>
-          <div style={{ position: 'relative', overflow: 'hidden', background: NAVY, borderRadius: 22, padding: 'clamp(36px,5vw,80px)', display: 'flex', flexDirection: 'column', gap: 'clamp(24px,3vw,44px)' }}>
-            <div aria-hidden="true" style={{ position: 'absolute', top: '-30%', right: '-6%', width: 'clamp(260px,34vw,520px)', height: 'clamp(260px,34vw,520px)', borderRadius: '50%', background: `radial-gradient(circle, rgba(60,185,140,0.22), transparent 70%)`, pointerEvents: 'none' }} />
-            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 11 }}>
-              <span style={{ fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase', color: GREEN }}>Platinum</span>
-              <span style={{ width: 26, height: 2, background: GREEN }} />
-              <span style={{ fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.4px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Strategic alliance</span>
-            </div>
-            <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 28 }}>
-              <h2 style={{ fontSize: 'clamp(40px,6vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.92, color: '#fff', margin: 0, textTransform: 'uppercase' }}>Microsoft<br /><span style={{ color: GREEN }}>Partner.</span></h2>
-              <p style={{ fontSize: 'clamp(15px,1.2vw,18px)', lineHeight: 1.8, color: 'rgba(255,255,255,0.66)', margin: 0, maxWidth: '40ch', fontWeight: 500 }}>
-                Certified across Dynamics 365, Azure and the Power Platform — the full Microsoft cloud, delivered alongside our own custom build practice.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ── Tier legend ── */}
-      <section className="np-shell" style={{ padding: '0 clamp(24px,4vw,72px) clamp(64px,9vw,140px)' }}>
-        <Reveal>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 'clamp(28px,3vw,48px)', paddingBottom: 18, borderBottom: '1px solid rgba(8,33,60,0.12)' }}>
-            <h3 style={{ fontSize: 'clamp(22px,2.4vw,36px)', fontWeight: 900, letterSpacing: '-0.04em', color: NAVY, margin: 0, textTransform: 'uppercase' }}>By tier</h3>
-            <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '1.6px', textTransform: 'uppercase', color: 'rgba(8,33,60,0.38)' }}>Who we work with</span>
-          </div>
-        </Reveal>
-
-        <div className="np-tiers">
-          {TIERS.map((t, ti) => (
-            <motion.div
-              key={t.id}
-              initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-70px' }} transition={{ duration: 0.7, ease: EASE, delay: ti * 0.08 }}
-            >
-              <div style={{ fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: GREEN, marginBottom: 6 }}>{t.label}</div>
-              <div style={{ fontSize: 12.5, fontWeight: 600, color: 'rgba(8,33,60,0.42)', marginBottom: 18 }}>{t.note}</div>
-              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column' }}>
-                {t.names.map(n => (
-                  <li key={n} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 0', borderTop: '1px solid rgba(8,33,60,0.1)' }}>
-                    <span style={{ width: 7, height: 7, borderRadius: 2, background: 'rgba(8,33,60,0.22)', flexShrink: 0 }} />
-                    <span style={{ fontSize: 'clamp(16px,1.4vw,21px)', fontWeight: 800, letterSpacing: '-0.02em', color: NAVY }}>{n}</span>
-                  </li>
+      {/* ── Alliance bento ── */}
+      <section className="np-section" style={{ background: CREAM }}>
+        <div className="np-shell">
+          <Reveal>
+            <div className="np-head">
+              <div>
+                <Eyebrow>Our Alliance</Eyebrow>
+                <h2 className="np-h2">The companies<br />behind the work.</h2>
+              </div>
+              <div className="np-legend">
+                {(Object.keys(TIER_META) as Tier[]).map(t => (
+                  <span key={t} className="np-legend-item">
+                    <span style={{ background: TIER_META[t] }} />{t}
+                  </span>
                 ))}
-              </ul>
-            </motion.div>
-          ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="np-bento">
+            {/* Featured platinum partner */}
+            <Reveal className="np-feat">
+              <div className="np-featcard">
+                <div className="np-glow" aria-hidden="true" />
+                <div className="np-plat"><BadgeCheck size={16} /> Platinum Partner</div>
+                <h3 className="np-feat-h">Microsoft</h3>
+                <p className="np-feat-p">
+                  Our deepest alliance. Certified across Dynamics 365, Azure and the Power Platform —
+                  the full Microsoft cloud, delivered alongside our own custom build practice.
+                </p>
+                <div className="np-chips">
+                  {CERTS.map(c => <span key={c} className="np-chip">{c}</span>)}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Partner tiles */}
+            {PARTNERS.map((p, i) => (
+              <Reveal key={p.name} className="np-cell" delay={Math.min(i * 0.04, 0.4)}>
+                <div className="np-tile">
+                  <div className="np-mark" style={{ background: `${p.accent}1a`, color: p.accent }}>{p.mark}</div>
+                  <div>
+                    <div className="np-tname">{p.name}</div>
+                    <div className="np-ttier" style={{ color: TIER_META[p.tier] }}>{p.tier}</div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* ── What partnership means ── */}
+      <section className="np-section">
+        <div className="np-shell">
+          <Reveal>
+            <div className="np-head">
+              <div>
+                <Eyebrow>Why It Matters</Eyebrow>
+                <h2 className="np-h2">What our partnerships<br />mean for <span style={{ color: GREEN }}>you.</span></h2>
+              </div>
+            </div>
+          </Reveal>
+          <div className="np-benes">
+            {BENEFITS.map((b, i) => {
+              const Ic = b.icon
+              return (
+                <Reveal key={b.title} delay={i * 0.08}>
+                  <div className="np-bene">
+                    <div className="np-bene-ic"><Ic size={26} /></div>
+                    <h3 className="np-bene-h">{b.title}</h3>
+                    <p className="np-bene-b">{b.body}</p>
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <PageCTA eyebrow="Let's Build Together" heading="Put our network" highlight="to work." button="Start a conversation" />
     </PageLayout>
   )
 }

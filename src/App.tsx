@@ -7,14 +7,42 @@ import { NetworksPartners } from './components/pages/NetworksPartners'
 import { Media } from './components/pages/Media'
 import { Values } from './components/pages/Values'
 import { FAQ } from './components/pages/FAQ'
+import { Contact } from './components/pages/Contact'
+import { Solutions } from './components/pages/Solutions'
+import { Services } from './components/pages/Services'
+import { Industries } from './components/pages/Industries'
+import { Blog } from './components/pages/Blog'
+import { Career } from './components/pages/Career'
 
-// Reset scroll (and the global Lenis instance) on every route change.
+// Reset scroll (and the global Lenis instance) on every route change, or scroll
+// to a #section anchor when the URL carries a hash.
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
     const lenis = (window as unknown as {
-      __lenis?: { scrollTo: (t: number, o?: object) => void; resize: () => void }
+      __lenis?: { scrollTo: (t: number | string | HTMLElement, o?: object) => void; resize: () => void }
     }).__lenis
+
+    // ── Hash navigation: land on the target section (offset for fixed Navbar) ──
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1))
+      let tries = 0
+      const settle = () => {
+        lenis?.resize()
+        const el = document.getElementById(id)
+        if (el) {
+          if (lenis) lenis.scrollTo(el, { offset: -84 })
+          else el.scrollIntoView()
+          return
+        }
+        // Element may not be laid out yet on a fresh page mount — retry briefly.
+        if (++tries < 20) requestAnimationFrame(settle)
+      }
+      requestAnimationFrame(settle)
+      return
+    }
+
+    // ── Plain route change: reset to top ──
     if (lenis) lenis.scrollTo(0, { immediate: true })
     else window.scrollTo(0, 0)
 
@@ -31,7 +59,7 @@ function ScrollToTop() {
     requestAnimationFrame(tick)
     const t = window.setTimeout(() => lenis.resize(), 300)
     return () => window.clearTimeout(t)
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 
@@ -47,6 +75,12 @@ function App() {
         <Route path="/about/media" element={<Media />} />
         <Route path="/about/values" element={<Values />} />
         <Route path="/about/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
     </>
   )
