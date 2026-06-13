@@ -82,7 +82,7 @@ export function OurJourney() {
           text-transform: uppercase; color: rgba(8,33,60,0.4); font-variant-numeric: tabular-nums; }
         .jr-reel-row { display: flex; align-items: center; height: clamp(96px,15.5vw,256px);
           font-size: clamp(78px,13vw,252px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85;
-          color: ${NAVY}; font-variant-numeric: tabular-nums; white-space: nowrap; }
+          color: #08213C66; font-variant-numeric: tabular-nums; white-space: nowrap; }
         .jr-reel-window { height: clamp(96px,15.5vw,256px); overflow: hidden; }
         .jr-reel-wrap { display: flex; align-items: center; gap: clamp(16px,2vw,36px); min-width: 0; }
         .jr-rail { width: 3px; height: clamp(96px,15.5vw,256px); background: rgba(8,33,60,0.1); border-radius: 99px; position: relative; flex-shrink: 0; }
@@ -152,8 +152,8 @@ export function OurJourney() {
           <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 30px', textTransform: 'uppercase' }}>
             Let's write <span style={{ color: GREEN }}>yours.</span>
           </h2>
-          <button onClick={() => navigate('/about/our-usp')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: GREEN, color: NAVY, border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
-            See what makes us different
+          <button onClick={() => navigate('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: GREEN, color: NAVY, border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
+            Start a conversation
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={NAVY} strokeWidth="1.8" strokeLinecap="round" /></svg>
           </button>
         </motion.div>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
+import { SOLUTION_SECTIONS, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -16,7 +17,15 @@ const ABOUT_ITEMS = [
 const SERVICES_ITEMS = [
   'Upgrades', 'Cloud Maintenances', 'Server Maintenances', 'Support Services',
 ]
+// Maps each Services item to its in-page anchor on the Services page.
+const SERVICES_LINK_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(SERVICE_SECTIONS).map(([label, id]) => [label, `/services#${id}`]),
+)
 const BLOG_ITEMS = ['Latest Technologies', 'Awareness']
+// Every blog option routes to the Blog page (no per-section anchors).
+const BLOG_LINK_MAP: Record<string, string> = Object.fromEntries(
+  BLOG_ITEMS.map(item => [item, '/blog']),
+)
 
 const INDUSTRIES_COL1 = [
   'Professional Services', 'IT', 'Startups & SMEs', 'Non Profit Organizations',
@@ -26,6 +35,10 @@ const INDUSTRIES_COL2 = [
   'Education', 'Real Estate', 'Logistics & Supply Chain', 'Travel and Tourism',
   'Agriculture', 'Hospitality', 'Food and Beverage',
 ]
+// Every industry option routes to the Industries page (no per-section anchors).
+const INDUSTRIES_LINK_MAP: Record<string, string> = Object.fromEntries(
+  [...INDUSTRIES_COL1, ...INDUSTRIES_COL2].map(item => [item, '/industries']),
+)
 
 const SOLUTIONS_GROUPS = [
   {
@@ -74,13 +87,14 @@ const SOLUTIONS_GROUPS = [
 type PanelCol = { header?: string; items: string[] }
 
 function PanelDropdown({
-  eyebrow, heading, desc, cta, columns, linkMap,
+  eyebrow, heading, desc, cta, ctaTo, columns, linkMap,
   onClose, onPanelMouseEnter, onPanelMouseLeave,
 }: {
   eyebrow: string
   heading: string
   desc: string
   cta: string
+  ctaTo?: string
   columns: PanelCol[]
   linkMap?: Record<string, string>
   onClose: () => void
@@ -91,6 +105,10 @@ function PanelDropdown({
   const selectItem = (item: string) => {
     const to = linkMap?.[item]
     if (to) navigate(to)
+    onClose()
+  }
+  const onCta = () => {
+    if (ctaTo) navigate(ctaTo)
     onClose()
   }
   return (
@@ -151,7 +169,7 @@ function PanelDropdown({
             lineHeight: 1.72, marginBottom: 22,
           }}>{desc}</p>
           <button
-            onClick={onClose}
+            onClick={onCta}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               background: NAVY, color: '#fff',
@@ -239,6 +257,12 @@ function MegaMenu({
 }) {
   // unique key: "groupLabel::catLabel"
   const [hoveredCat, setHoveredCat] = useState<string | null>(null)
+  const navigate = useNavigate()
+  const goToSection = (groupLabel: string) => {
+    const id = SOLUTION_SECTIONS[groupLabel]
+    if (id) navigate(`/solutions#${id}`)
+    onClose()
+  }
 
   return (
     <motion.div
@@ -287,13 +311,17 @@ function MegaMenu({
                 borderRight: isLast ? 'none' : '1px solid rgba(8,33,60,0.06)',
               }}
             >
-              {/* Group header */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: 7,
-                marginBottom: 12,
-                paddingBottom: 12,
-                borderBottom: `2px solid ${group.color}22`,
-              }}>
+              {/* Group header — links to the matching Solutions section */}
+              <button
+                onClick={() => goToSection(group.groupLabel)}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 7, width: '100%',
+                  marginBottom: 12, paddingBottom: 12,
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontFamily: 'inherit', textAlign: 'left',
+                  borderBottom: `2px solid ${group.color}22`,
+                }}
+              >
                 <div style={{
                   width: 8, height: 8, borderRadius: '50%',
                   background: group.color, flexShrink: 0,
@@ -304,7 +332,7 @@ function MegaMenu({
                   textTransform: 'uppercase',
                   letterSpacing: '1.3px',
                 }}>{group.groupLabel}</span>
-              </div>
+              </button>
 
               {/* Categories — each has + accordion on hover */}
               <div
@@ -385,7 +413,7 @@ function MegaMenu({
                               {cat.items.map(item => (
                                 <button
                                   key={item}
-                                  onClick={onClose}
+                                  onClick={() => goToSection(group.groupLabel)}
                                   style={{
                                     background: 'none', border: 'none', cursor: 'pointer',
                                     textAlign: 'left',
@@ -704,6 +732,7 @@ export function Navbar() {
                 className="nav-link"
                 style={{ color: activeMenu === 'solutions' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'solutions'}
+                onClick={() => { navigate('/solutions'); closeAll() }}
               >
                 Solutions
                 <motion.span
@@ -735,6 +764,7 @@ export function Navbar() {
                 className="nav-link"
                 style={{ color: activeMenu === 'services' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'services'}
+                onClick={() => { navigate('/services'); closeAll() }}
               >
                 Services
                 <motion.span
@@ -752,7 +782,9 @@ export function Navbar() {
                     heading="Expert IT & Support Solutions"
                     desc="From cloud migrations to server management, our team keeps your technology running at peak performance."
                     cta="View All Services"
+                    ctaTo="/services"
                     columns={[{ items: SERVICES_ITEMS }]}
+                    linkMap={SERVICES_LINK_MAP}
                     onClose={closeAll}
                     onPanelMouseEnter={cancelClose}
                     onPanelMouseLeave={scheduleClose}
@@ -771,6 +803,7 @@ export function Navbar() {
                 className="nav-link"
                 style={{ color: activeMenu === 'industries' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'industries'}
+                onClick={() => { navigate('/industries'); closeAll() }}
               >
                 Industries
                 <motion.span
@@ -788,10 +821,12 @@ export function Navbar() {
                     heading="Solutions Across Every Sector"
                     desc="From healthcare to hospitality, we deliver tailored digital transformation strategies for every industry."
                     cta="Explore Industries"
+                    ctaTo="/industries"
                     columns={[
                       { items: INDUSTRIES_COL1 },
                       { items: INDUSTRIES_COL2 },
                     ]}
+                    linkMap={INDUSTRIES_LINK_MAP}
                     onClose={closeAll}
                     onPanelMouseEnter={cancelClose}
                     onPanelMouseLeave={scheduleClose}
@@ -800,7 +835,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            <button className="nav-link">Career</button>
+            <button className="nav-link" onClick={() => { navigate('/career'); closeAll() }}>Career</button>
 
             {/* Blog — full-width panel */}
             <div
@@ -812,6 +847,7 @@ export function Navbar() {
                 className="nav-link"
                 style={{ color: activeMenu === 'blog' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'blog'}
+                onClick={() => { navigate('/blog'); closeAll() }}
               >
                 Blog
                 <motion.span
@@ -829,7 +865,9 @@ export function Navbar() {
                     heading="Knowledge & Awareness"
                     desc="Stay ahead with expert articles on Microsoft, cloud computing, cyber security, and digital transformation trends."
                     cta="View All Posts"
+                    ctaTo="/blog"
                     columns={[{ items: BLOG_ITEMS }]}
+                    linkMap={BLOG_LINK_MAP}
                     onClose={closeAll}
                     onPanelMouseEnter={cancelClose}
                     onPanelMouseLeave={scheduleClose}
@@ -846,7 +884,7 @@ export function Navbar() {
               <Phone size={14} />
               +61 1800 054 555
             </a>
-            <button className="nav-contact">Contact Us</button>
+            <button className="nav-contact" onClick={() => navigate('/contact')}>Contact Us</button>
           </div>
 
           {/* Hamburger */}
@@ -899,7 +937,7 @@ export function Navbar() {
                   {group.categories.map(cat => (
                     <button key={cat.label} className="nav-mobile-item"
                       style={{ fontWeight: 600, color: NAVY }}
-                      onClick={() => setMobileOpen(false)}>
+                      onClick={() => { setMobileOpen(false); const id = SOLUTION_SECTIONS[group.groupLabel]; if (id) navigate(`/solutions#${id}`) }}>
                       {cat.label}
                     </button>
                   ))}
@@ -909,21 +947,21 @@ export function Navbar() {
 
             <MobileSection label="Services" expanded={mobileExpanded === 'services'} onToggle={() => toggleMobileSection('services')}>
               {SERVICES_ITEMS.map(item => (
-                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+                <button key={item} className="nav-mobile-item" onClick={() => { setMobileOpen(false); const id = SERVICE_SECTIONS[item]; if (id) navigate(`/services#${id}`) }}>{item}</button>
               ))}
             </MobileSection>
 
             <MobileSection label="Industries" expanded={mobileExpanded === 'industries'} onToggle={() => toggleMobileSection('industries')}>
               {[...INDUSTRIES_COL1, ...INDUSTRIES_COL2].map(item => (
-                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+                <button key={item} className="nav-mobile-item" onClick={() => { setMobileOpen(false); navigate('/industries') }}>{item}</button>
               ))}
             </MobileSection>
 
-            <button className="nav-mobile-link" onClick={() => setMobileOpen(false)}>Career</button>
+            <button className="nav-mobile-link" onClick={() => { setMobileOpen(false); navigate('/career') }}>Career</button>
 
             <MobileSection label="Blog" expanded={mobileExpanded === 'blog'} onToggle={() => toggleMobileSection('blog')}>
               {BLOG_ITEMS.map(item => (
-                <button key={item} className="nav-mobile-item" onClick={() => setMobileOpen(false)}>{item}</button>
+                <button key={item} className="nav-mobile-item" onClick={() => { setMobileOpen(false); navigate('/blog') }}>{item}</button>
               ))}
             </MobileSection>
 
@@ -941,7 +979,7 @@ export function Navbar() {
               }}>
                 connect@egdigital.com.au
               </a>
-              <button onClick={() => setMobileOpen(false)} style={{
+              <button onClick={() => { setMobileOpen(false); navigate('/contact') }} style={{
                 background: NAVY, color: '#fff', border: 'none',
                 borderRadius: 100, padding: '14px 24px',
                 fontSize: 15, fontWeight: 700, cursor: 'pointer',

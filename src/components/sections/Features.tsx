@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import type { ReactNode } from 'react'
 
 const NAVY  = '#08213C'
@@ -330,12 +331,14 @@ type FeatureBlockProps = {
   headline: string
   body: string
   cta: string
+  to: string
   flip?: boolean
   bg?: string
   mockup: ReactNode
 }
 
-function FeatureBlock({ id, num, eyebrow, headline, body, cta, flip, bg = '#fff', mockup }: FeatureBlockProps) {
+function FeatureBlock({ id, num, eyebrow, headline, body, cta, to, flip, bg = '#fff', mockup }: FeatureBlockProps) {
+  const navigate = useNavigate()
   return (
     <section
       id={id}
@@ -358,7 +361,7 @@ function FeatureBlock({ id, num, eyebrow, headline, body, cta, flip, bg = '#fff'
           <motion.h2 className="fb-h2" {...fadeUp(0.08)}>{headline}</motion.h2>
           <motion.p className="fb-body" {...fadeUp(0.14)}>{body}</motion.p>
           <motion.div {...fadeUp(0.2)}>
-            <button className="fb-cta">{cta} <ArrowRight size={15} /></button>
+            <button className="fb-cta" onClick={() => navigate(to)}>{cta} <ArrowRight size={15} /></button>
           </motion.div>
         </div>
 
@@ -462,6 +465,7 @@ export function Features() {
         headline="End-to-End Microsoft Solutions"
         body="As a certified Microsoft partner, we deploy and manage the full suite — 365, Teams, Dynamics CRM, ERP, and Azure — so your team collaborates smarter from day one."
         cta="Explore Microsoft Services"
+        to="/solutions"
         bg="#fff"
         mockup={<MockupMicrosoft />}
       />
@@ -472,6 +476,7 @@ export function Features() {
         headline="Websites, Apps & SaaS Built to Scale"
         body="From marketing websites to complex SaaS platforms and mobile apps, we engineer digital products that perform — on time, on budget, and built to grow with your business."
         cta="View Development Services"
+        to="/services"
         flip
         bg={CREAM}
         mockup={<MockupDev />}
@@ -483,6 +488,7 @@ export function Features() {
         headline="SEO & Branding That Drives Results"
         body="We combine technical SEO, standout branding, and reliable cloud hosting to put your business in front of the right audience — and keep it performing at its peak."
         cta="Explore Growth Services"
+        to="/solutions"
         bg="#fff"
         mockup={<MockupMarketing />}
       />
@@ -494,6 +500,7 @@ export function Features() {
         headline="AI Cyber Security & Smart Integrations"
         body="Protect your business with AI-driven threat detection, proactive monitoring, and seamless system integrations — keeping your data safe and your operations fully connected."
         cta="View Security Services"
+        to="/solutions"
         flip
         bg={CREAM}
         mockup={<MockupSecurity />}

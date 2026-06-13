@@ -151,8 +151,8 @@ export function OurUSP() {
         <h2 style={{ fontSize: 'clamp(38px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: NAVY, margin: '0 0 30px', textTransform: 'uppercase' }}>
           Ready to feel<br />the <span style={{ color: GREEN }}>difference?</span>
         </h2>
-        <button onClick={() => navigate('/about/networks-partners')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: NAVY, color: '#fff', border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
-          See who we partner with
+        <button onClick={() => navigate('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: NAVY, color: '#fff', border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
+          Get in touch
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" /></svg>
         </button>
       </motion.div>

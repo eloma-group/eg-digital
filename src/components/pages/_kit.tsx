@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import type { ReactNode, CSSProperties } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Navbar } from '../layout/Navbar'
 import { FooterSection } from '../sections/FooterSection'
 
@@ -51,6 +52,45 @@ export function Eyebrow({ children, light = false }: { children: ReactNode; ligh
         {children}
       </span>
     </div>
+  )
+}
+
+/* Shared closing CTA — navy band that always routes to /contact (overridable).
+   Used by every standalone page so the call-to-action is consistent. */
+export function PageCTA({
+  eyebrow = 'Get In Touch',
+  heading,
+  highlight,
+  button = 'Start a Conversation',
+  to = '/contact',
+}: {
+  eyebrow?: string
+  heading: ReactNode
+  highlight?: string
+  button?: string
+  to?: string
+}) {
+  const navigate = useNavigate()
+  return (
+    <section style={{ background: NAVY, padding: 'clamp(64px,10vw,140px) clamp(24px,4vw,72px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 60% 70% at 50% 0%, rgba(60,185,140,0.16), transparent 60%)` }} />
+      <motion.div
+        initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: EASE }}
+        style={{ position: 'relative', zIndex: 1, maxWidth: 1100, margin: '0 auto' }}
+      >
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>
+          <span style={{ width: 22, height: 2, background: GREEN }} />{eyebrow}
+        </div>
+        <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 30px', textTransform: 'uppercase' }}>
+          {heading}{highlight && <> <span style={{ color: GREEN }}>{highlight}</span></>}
+        </h2>
+        <button onClick={() => navigate(to)} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: GREEN, color: NAVY, border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
+          {button}
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={NAVY} strokeWidth="1.8" strokeLinecap="round" /></svg>
+        </button>
+      </motion.div>
+    </section>
   )
 }
 

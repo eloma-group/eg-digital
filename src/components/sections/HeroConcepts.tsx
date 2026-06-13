@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -71,6 +72,7 @@ function Words() {
 }
 
 function CtaRow() {
+  const navigate = useNavigate()
   return (
     <motion.div
       className="hc-bar"
@@ -82,7 +84,7 @@ function CtaRow() {
       </p>
       <button
         className="hc-cta"
-        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => navigate('/contact')}
       >
         Start a Project
         <span className="hc-cta-ring">

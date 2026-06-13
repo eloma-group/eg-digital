@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -18,6 +19,7 @@ function fadeUp(delay = 0) {
 // Theme: Web, App & Software Development — shows the actual product we build
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV1() {
+  const navigate = useNavigate()
   const BARS = [35, 55, 42, 70, 58, 80, 68, 92]
   return (
     <>
@@ -169,11 +171,11 @@ export function HeroV1() {
             </motion.p>
 
             <motion.div {...fadeUp(0.19)} className="hv1-cta-row">
-              <button className="hv1-btn-p">
+              <button className="hv1-btn-p" onClick={() => navigate('/contact')}>
                 Start a Project
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
               </button>
-              <button className="hv1-btn-g">View Our Work</button>
+              <button className="hv1-btn-g" onClick={() => navigate('/services')}>View Our Work</button>
             </motion.div>
 
             <motion.div {...fadeUp(0.24)} className="hv1-stat-strip">
@@ -315,6 +317,7 @@ export function HeroV1() {
 // Theme: Cybersecurity & IT Support — shows protected office network
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV2() {
+  const navigate = useNavigate()
   return (
     <>
       <style>{`
@@ -434,11 +437,11 @@ export function HeroV2() {
             </motion.p>
 
             <motion.div {...fadeUp(0.2)} className="hv2-cta-row">
-              <button className="hv2-btn-p">
+              <button className="hv2-btn-p" onClick={() => navigate('/contact')}>
                 Get Protected
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={NAVY} strokeWidth="1.6" strokeLinecap="round"/></svg>
               </button>
-              <button className="hv2-btn-g">Free Security Audit</button>
+              <button className="hv2-btn-g" onClick={() => navigate('/contact')}>Free Security Audit</button>
             </motion.div>
 
             <motion.div {...fadeUp(0.25)} className="hv2-stat-row">
@@ -633,6 +636,7 @@ export function HeroV2() {
 // Theme: Microsoft Cloud Solutions (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV3() {
+  const navigate = useNavigate()
   const MS_CHIPS = [
     { label:'Microsoft 365', sub:'Productivity Suite',   color:'#0078d4', icon:'365', pos:'top-left'    },
     { label:'Teams',         sub:'Real-time Collab',     color:'#4b53bc', icon:'T',   pos:'top-right'   },
@@ -795,11 +799,11 @@ export function HeroV3() {
             </motion.p>
 
             <motion.div {...fadeUp(0.2)} className="hv3-cta-row">
-              <button className="hv3-btn-p">
+              <button className="hv3-btn-p" onClick={() => navigate('/solutions')}>
                 Explore Microsoft Services
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
               </button>
-              <button className="hv3-btn-g">Get a Quote</button>
+              <button className="hv3-btn-g" onClick={() => navigate('/contact')}>Get a Quote</button>
             </motion.div>
 
             <motion.div {...fadeUp(0.25)} className="hv3-stat-row">
@@ -869,6 +873,7 @@ export function HeroV3() {
 // Theme: SEO & Digital Marketing Growth (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV4() {
+  const navigate = useNavigate()
   const BARS = [22, 38, 30, 55, 48, 72, 64, 88, 78, 95, 85, 100]
   const METRICS = [
     { val:'+284%', lbl:'Organic Traffic', color:GREEN },
@@ -1081,11 +1086,11 @@ export function HeroV4() {
           </motion.p>
 
           <motion.div {...fadeUp(0.2)} className="hv4-cta-row" style={{ marginBottom:0 }}>
-            <button className="hv4-btn-p">
+            <button className="hv4-btn-p" onClick={() => navigate('/solutions')}>
               Boost My Rankings
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
             </button>
-            <button className="hv4-btn-g">Free SEO Audit</button>
+            <button className="hv4-btn-g" onClick={() => navigate('/contact')}>Free SEO Audit</button>
           </motion.div>
 
           {/* Metric strip */}
@@ -1231,6 +1236,7 @@ export function HeroV4() {
 // Theme: End-to-End Digital Transformation (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV5() {
+  const navigate = useNavigate()
   const nodes = [
     { cx:80,  cy:120, r:3.0 }, { cx:220, cy:60,  r:2.0 },
     { cx:380, cy:140, r:3.5 }, { cx:540, cy:80,  r:2.0 },
@@ -1456,11 +1462,11 @@ export function HeroV5() {
           </motion.p>
 
           <motion.div {...fadeUp(0.22)} className="hv5-cta-row">
-            <button className="hv5-btn-p">
+            <button className="hv5-btn-p" onClick={() => navigate('/contact')}>
               Book a Discovery Call
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
             </button>
-            <button className="hv5-btn-g">Explore Services</button>
+            <button className="hv5-btn-g" onClick={() => navigate('/services')}>Explore Services</button>
           </motion.div>
         </div>
 
@@ -1512,6 +1518,7 @@ export function HeroV5() {
 // Theme: Industries We Serve (light background, premium)
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV6() {
+  const navigate = useNavigate()
   const INDUSTRIES = [
     { name:'Healthcare',          accent:'#ef4444' },
     { name:'Banking & Finance',   accent:'#0078d4' },
@@ -1725,11 +1732,11 @@ export function HeroV6() {
             </motion.div>
 
             <motion.div {...fadeUp(0.28)} className="hv6-cta-row">
-              <button className="hv6-btn-p">
+              <button className="hv6-btn-p" onClick={() => navigate('/industries')}>
                 Find Your Industry
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
               </button>
-              <button className="hv6-btn-g">Our Case Studies</button>
+              <button className="hv6-btn-g" onClick={() => navigate('/blog')}>Our Case Studies</button>
             </motion.div>
           </div>
         </div>
@@ -1802,6 +1809,7 @@ export function HeroV6() {
 // Theme: All four service pillars united (light background, premium)
 // ─────────────────────────────────────────────────────────────────────────────
 export function HeroV7() {
+  const navigate = useNavigate()
   const cards = [
     {
       id:'ms', label:'Microsoft Solutions',
@@ -2018,11 +2026,11 @@ export function HeroV7() {
           </motion.div>
 
           <motion.div {...fadeUp(0.32)} className="hv7-cta-row">
-            <button className="hv7-btn-p">
+            <button className="hv7-btn-p" onClick={() => navigate('/services')}>
               Start Your Journey
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/></svg>
             </button>
-            <button className="hv7-btn-g">Contact Us</button>
+            <button className="hv7-btn-g" onClick={() => navigate('/contact')}>Contact Us</button>
           </motion.div>
         </div>
 

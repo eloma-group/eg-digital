@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -9,6 +10,7 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 const SPRING = { stiffness: 55, damping: 20, mass: 1 }
 
 export function Hero() {
+  const navigate = useNavigate()
   const sectionRef = useRef<HTMLElement>(null)
 
   const mouseX = useMotionValue(0)
@@ -375,7 +377,7 @@ export function Hero() {
 
           <button
             className="hero-cta"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => navigate('/contact')}
           >
             Start a Project
             <span className="hero-cta-ring">

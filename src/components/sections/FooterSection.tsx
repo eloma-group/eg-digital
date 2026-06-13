@@ -1,6 +1,17 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
+import { solutionsHref, servicesHref } from '../../lib/sectionRoutes'
+
+// Resolve a footer link's destination from its column heading.
+function resolveTo(heading: string, item: string): string | undefined {
+  if (heading === 'About Us') return ABOUT_ROUTES[item]
+  if (heading === 'Solutions') return solutionsHref(item)
+  if (heading === 'Services') return servicesHref(item)
+  if (heading === 'Industries') return '/industries'
+  if (heading === 'Company') return item === 'Career' ? '/career' : '/blog'
+  return undefined
+}
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -238,7 +249,7 @@ export function FooterSection() {
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 13, margin: 0, padding: 0 }}>
                   {col.links.map(item => (
                     <li key={item}>
-                      <FooterLink to={col.heading === 'About Us' ? ABOUT_ROUTES[item] : undefined}>{item}</FooterLink>
+                      <FooterLink to={resolveTo(col.heading, item)}>{item}</FooterLink>
                     </li>
                   ))}
                 </ul>
