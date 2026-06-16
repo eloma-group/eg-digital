@@ -143,7 +143,7 @@ export function FooterSection() {
             {/* ── Brand column ── */}
             <div>
               <a href="#" style={{ display: 'inline-block', lineHeight: 0, marginBottom: 20 }}>
-                <img src="/images/EG Digital Logo White-01.png" alt="EG Digital" style={{ height: 42, width: 'auto' }} />
+                <img src="/images/Egdigital-white.png" alt="EG Digital" style={{ height: 54, width: 'auto' }} />
               </a>
 
               <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28 }}>

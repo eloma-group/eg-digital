@@ -401,7 +401,7 @@ export function SplashScreen() {
             transition={{ duration: 1, ease: EASE, delay: 0.05 }}
           >
             <img
-              src="/images/EG Digital Logo White-01.png"
+              src="/images/Egdigital-white.png"
               alt="EG Digital"
               className="sp-logo-img"
             />

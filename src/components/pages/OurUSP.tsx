@@ -135,7 +135,7 @@ export function OurUSP() {
 
   const Hero = (
     <CinematicBanner
-      eyebrow="What Makes Us Different"
+      eyebrow="What Makes Us"
       word="DIFFERENT"
       sub="Senior-only teams, Microsoft depth, fixed-price clarity — four reasons working with us never feels like working with everyone else."
       scrollLabel="Scroll to explore"

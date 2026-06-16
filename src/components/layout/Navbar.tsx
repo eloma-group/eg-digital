@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -506,6 +506,7 @@ function MobileSection({
 export function Navbar() {
   const navigate = useNavigate()
   const [scrolled,       setScrolled]       = useState(false)
+  const [overHero,       setOverHero]       = useState(false)
   const [activeMenu,     setActiveMenu]     = useState<string | null>(null)
   const [mobileOpen,     setMobileOpen]     = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
@@ -515,6 +516,28 @@ export function Navbar() {
     const cb = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', cb, { passive: true })
     return () => window.removeEventListener('scroll', cb)
+  }, [])
+
+  // Transparent header while a hero section (tagged with data-nav-overlap)
+  // sits under the fixed header band, so the hero design shows through it.
+  // useLayoutEffect runs before paint so the homepage opens transparent
+  // (no solid → transparent flash).
+  useLayoutEffect(() => {
+    const check = () => {
+      let over = false
+      document.querySelectorAll('[data-nav-overlap]').forEach(el => {
+        const r = el.getBoundingClientRect()
+        if (r.top < 68 && r.bottom > 0) over = true
+      })
+      setOverHero(over)
+    }
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    window.addEventListener('resize', check)
+    return () => {
+      window.removeEventListener('scroll', check)
+      window.removeEventListener('resize', check)
+    }
   }, [])
 
   useEffect(() => {
@@ -539,6 +562,9 @@ export function Navbar() {
   }
 
   const isScrolled = scrolled
+  // Float transparent over the hero zone, but go solid whenever a dropdown
+  // or the mobile menu is open so those panels stay readable.
+  const transparent = overHero && !activeMenu && !mobileOpen
 
   return (
     <>
@@ -547,11 +573,11 @@ export function Navbar() {
           position: fixed;
           top: 0; left: 0; right: 0;
           z-index: 300;
-          background: rgba(255,255,255,${isScrolled ? '0.97' : '0.93'});
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(8,33,60,${isScrolled ? '0.09' : '0.05'});
-          box-shadow: ${isScrolled ? '0 4px 28px rgba(8,33,60,0.09)' : 'none'};
+          background: ${transparent ? 'transparent' : `rgba(255,255,255,${isScrolled ? '0.97' : '0.93'})`};
+          backdrop-filter: ${transparent ? 'none' : 'blur(20px)'};
+          -webkit-backdrop-filter: ${transparent ? 'none' : 'blur(20px)'};
+          border-bottom: 1px solid ${transparent ? 'transparent' : `rgba(8,33,60,${isScrolled ? '0.09' : '0.05'})`};
+          box-shadow: ${transparent ? 'none' : (isScrolled ? '0 4px 28px rgba(8,33,60,0.09)' : 'none')};
           transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
         .nav-inner {
@@ -569,7 +595,7 @@ export function Navbar() {
           flex-shrink: 0;
           margin-right: clamp(16px, 2vw, 32px);
         }
-        .nav-logo img { height: 34px; width: auto; }
+        .nav-logo img { height: 44px; width: auto; }
 
         /* Nav links — centered between logo and right actions */
         .nav-links {
@@ -676,9 +702,9 @@ export function Navbar() {
           {/* Logo */}
           <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <img
-              src="/images/EG Digital Logo-01.png"
+              src="/images/Egdigital-blue.png"
               alt="EG Digital"
-              style={{ height: 34, width: 'auto', display: 'block' }}
+              style={{ height: 44, width: 'auto', display: 'block' }}
             />
           </div>
 
@@ -907,7 +933,7 @@ export function Navbar() {
             <div className="nav-mobile-header">
               <div style={{ background: NAVY, borderRadius: 8, padding: '5px 12px', display: 'flex', alignItems: 'center' }}>
                 <img
-                  src="/images/EG Digital Logo White-01.png"
+                  src="/images/Egdigital-white.png"
                   alt="EG Digital"
                   style={{ height: 26, width: 'auto', display: 'block' }}
                 />
