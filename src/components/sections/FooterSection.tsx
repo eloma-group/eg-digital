@@ -201,7 +201,7 @@ export function FooterSection() {
                   </span>
                   <div style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.2)' }} />
                   <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, letterSpacing: '0.5px' }}>
-                    12 693 138 733
+                    76 693 175 012
                   </span>
                 </div>
 
@@ -217,7 +217,7 @@ export function FooterSection() {
                   </span>
                   <div style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.2)' }} />
                   <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
-                    EG Digital Pty Ltd (Unit of Eloma Group)
+                    EG Digital Australia Pty Ltd (Unit of Eloma Group)
                   </span>
                 </div>
               </div>

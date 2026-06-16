@@ -86,16 +86,33 @@ export function MicrosoftSection() {
         .hv3-stat-v { font-size:clamp(20px,2vw,28px); font-weight:900; color:${NAVY}; letter-spacing:-0.04em; line-height:1; }
         .hv3-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; letter-spacing:1.2px; margin-top:3px; }
 
-        /* right — photo + chips */
+        /* right — Microsoft logo stage + chips */
         .hv3-right { position:relative; padding:28px 32px 28px 8px; }
-        .hv3-photo {
+        .hv3-stage {
           border-radius:clamp(18px,2vw,26px); overflow:hidden;
           aspect-ratio:4/3;
           box-shadow:0 20px 64px rgba(8,33,60,0.14);
           border:1px solid rgba(8,33,60,0.06);
+          background:
+            radial-gradient(120% 110% at 82% 8%, rgba(0,114,196,0.10), transparent 60%),
+            linear-gradient(165deg, #ffffff, #eef1f5);
+          display:flex; align-items:center; justify-content:center;
         }
-        .hv3-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(0.16,1,0.3,1); }
-        .hv3-photo:hover img { transform:scale(1.05); }
+        /* Microsoft — floating 3D tile cube in the 4 brand colours */
+        .hv3-ms-scene { perspective:640px; }
+        .hv3-ms-grid {
+          display:grid; grid-template-columns:1fr 1fr; gap:clamp(12px,1.8vw,20px);
+          width:clamp(170px,23vw,270px); height:clamp(170px,23vw,270px);
+          transform-style:preserve-3d; animation:hv3-ms-spin 11s ease-in-out infinite; will-change:transform;
+        }
+        @keyframes hv3-ms-spin { 0%,100%{transform:rotateX(22deg) rotateY(-26deg);} 50%{transform:rotateX(-16deg) rotateY(26deg);} }
+        .hv3-ms-tile { border-radius:clamp(12px,1.6vw,18px); will-change:transform; animation:hv3-ms-pop 4s ease-in-out infinite; }
+        .hv3-ms-tile:nth-child(1) { background:#f25022; box-shadow:0 10px 20px -8px rgba(242,80,34,0.6); }
+        .hv3-ms-tile:nth-child(2) { background:#7fba00; box-shadow:0 10px 20px -8px rgba(127,186,0,0.6); }
+        .hv3-ms-tile:nth-child(3) { background:#00a4ef; box-shadow:0 10px 20px -8px rgba(0,164,239,0.6); }
+        .hv3-ms-tile:nth-child(4) { background:#ffb900; box-shadow:0 10px 20px -8px rgba(255,185,0,0.6); }
+        @keyframes hv3-ms-pop { 0%,100%{transform:translateZ(0);} 50%{transform:translateZ(30px);} }
+        @media (prefers-reduced-motion: reduce) { .hv3-ms-grid, .hv3-ms-tile { animation:none; } }
         .hv3-ms-badge { transition:transform .25s cubic-bezier(0.16,1,0.3,1), box-shadow .25s; }
         .hv3-ms-badge:hover { transform:translateX(-50%) translateY(-3px); box-shadow:0 10px 30px rgba(8,33,60,0.16); }
         .hv3-chip { transition:border-color .22s, box-shadow .22s; cursor:default; }
@@ -214,13 +231,16 @@ export function MicrosoftSection() {
               <span style={{ fontSize:11, fontWeight:800, color:NAVY, letterSpacing:'0.3px' }}>Microsoft Solutions Partner</span>
             </div>
 
-            {/* Photo */}
-            <div className="hv3-photo">
-              <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&h=675&q=80&fit=crop"
-                alt="Team working on Microsoft cloud solutions"
-                loading="lazy" decoding="async"
-              />
+            {/* Microsoft 3D tile logo */}
+            <div className="hv3-stage">
+              <div className="hv3-ms-scene">
+                <div className="hv3-ms-grid">
+                  <span className="hv3-ms-tile" style={{ animationDelay:'0s' }} />
+                  <span className="hv3-ms-tile" style={{ animationDelay:'0.5s' }} />
+                  <span className="hv3-ms-tile" style={{ animationDelay:'1s' }} />
+                  <span className="hv3-ms-tile" style={{ animationDelay:'1.5s' }} />
+                </div>
+              </div>
             </div>
 
             {/* Floating product chips */}

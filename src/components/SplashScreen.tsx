@@ -474,13 +474,13 @@ export function SplashScreen() {
             {/* Contacts */}
             <div className="sp-contacts">
 
-              <a href="tel:+611800054555" className="sp-contact-link">
+              <a href="tel:1800054555" className="sp-contact-link">
                 <div className="sp-icon-ring">
                   <Phone size={15} color={GREEN} strokeWidth={2.5} />
                 </div>
                 <div>
                   <div className="sp-contact-meta">Phone</div>
-                  <div className="sp-contact-val">+61 1800 054 555</div>
+                  <div className="sp-contact-val">1800 054 555</div>
                 </div>
               </a>
 

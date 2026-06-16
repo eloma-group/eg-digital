@@ -906,9 +906,9 @@ export function Navbar() {
 
           {/* Right */}
           <div className="nav-right">
-            <a className="nav-phone" href="tel:+611800054555">
+            <a className="nav-phone" href="tel:1800054555">
               <Phone size={14} />
-              +61 1800 054 555
+              1800 054 555
             </a>
             <button className="nav-contact" onClick={() => navigate('/contact')}>Contact Us</button>
           </div>
@@ -992,12 +992,12 @@ export function Navbar() {
             </MobileSection>
 
             <div className="nav-mobile-footer">
-              <a href="tel:+611800054555" style={{
+              <a href="tel:1800054555" style={{
                 display: 'flex', alignItems: 'center', gap: 8,
                 fontSize: 15, fontWeight: 700, color: GREEN, textDecoration: 'none',
               }}>
                 <Phone size={16} />
-                +61 1800 054 555
+                1800 054 555
               </a>
               <a href="mailto:connect@egdigital.com.au" style={{
                 display: 'flex', alignItems: 'center', gap: 8,
