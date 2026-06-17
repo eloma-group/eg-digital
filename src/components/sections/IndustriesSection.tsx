@@ -253,8 +253,8 @@ export function IndustriesSection() {
           <div className="hv6-collage">
             <div className="hv6-collage-main">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&h=900&q=80&fit=crop"
-                alt="EG Digital team workshop with a healthcare client"
+                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1000&h=900&q=80&fit=crop"
+                alt="EG Digital team workshop with a client"
                 loading="lazy" decoding="async" width={1000} height={900}
               />
               <span className="hv6-collage-tag">Client Workshop</span>
