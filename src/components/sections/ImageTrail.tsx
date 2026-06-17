@@ -168,7 +168,7 @@ export function ImageTrail() {
           <span style={{ width: 22, height: 2, background: GREEN }} />
           The Work Behind The Years
         </div>
-        <h2 className="it-h2">Six years, <em>hundreds</em> of builds.</h2>
+        <h2 className="it-h2">2 years. <em>Many</em> projects. Unwavering quality.</h2>
         <p className="it-sub">
           Websites, apps, SaaS platforms, cloud and security — every milestone above is
           a wall of shipped work. Move your cursor to leaf through it.

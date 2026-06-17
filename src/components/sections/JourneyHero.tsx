@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAVY = '#08213C'
@@ -106,17 +106,17 @@ export function JourneyHero() {
       <Style />
       <section className="jh jh-a">
         <div className="jh-a-top">
-          <span className="jh-eyebrow"><b />Chapter 01 — The Spark</span>
-          <span className="jh-eyebrow jh-eyebrow--muted">Est. 2021</span>
+          <span className="jh-eyebrow"><b />Our Journey — Since 2013</span>
+          <span className="jh-eyebrow jh-eyebrow--muted">EG Digital · Est. 2025</span>
         </div>
 
         <div className="jh-a-mid">
           <h1 className="jh-a-h1">
-            <span className="jh-clip"><motion.span className="jh-line" initial={{ y: '115%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.1 }}>From one desk</motion.span></span>
-            <span className="jh-clip"><motion.span className="jh-line" initial={{ y: '115%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.22 }}>to a <em>studio.</em></motion.span></span>
+            <span className="jh-clip"><motion.span className="jh-line" initial={{ y: '115%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.1 }}>Over a decade,</motion.span></span>
+            <span className="jh-clip"><motion.span className="jh-line" initial={{ y: '115%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.22 }}>one <em>vision.</em></motion.span></span>
           </h1>
           <motion.p className="jh-a-sub" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 0.55 }}>
-            Six years, one conviction — that ambitious businesses deserve technology delivered on time.
+            Over a decade of learning, one clear vision — helping businesses grow through digital innovation.
           </motion.p>
         </div>
 
@@ -134,7 +134,6 @@ export function JourneyHero() {
 export function CinematicBanner({
   eyebrow, word, sub, scrollLabel = 'Scroll to explore',
 }: { eyebrow: string; word: string; sub: string; scrollLabel?: string }) {
-  const maskId = useId().replace(/:/g, '')
   return (
     <>
       <Style />
@@ -144,19 +143,10 @@ export function CinematicBanner({
         </motion.span>
 
         <motion.div className="jh-b-clip" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}>
-          <video autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-            <source src="/images/EG%20Digital%20Homepage%20Video.mp4" type="video/mp4" />
-          </video>
           <svg className="jh-b-svg" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid meet" aria-label={word}>
-            <defs>
-              <mask id={maskId}>
-                <rect width="1200" height="280" fill="#fff" />
-                <text x="600" y="146" textAnchor="middle" dominantBaseline="central"
-                  fontFamily={SERIF} fontWeight="900" fontSize="252"
-                  textLength="1150" lengthAdjust="spacingAndGlyphs" fill="#000">{word}</text>
-              </mask>
-            </defs>
-            <rect width="1200" height="280" fill={NAVY} mask={`url(#${maskId})`} />
+            <text x="600" y="146" textAnchor="middle" dominantBaseline="central"
+              fontFamily={SERIF} fontWeight="900" fontSize="252"
+              textLength="1150" lengthAdjust="spacingAndGlyphs" fill="#fff">{word}</text>
           </svg>
         </motion.div>
 

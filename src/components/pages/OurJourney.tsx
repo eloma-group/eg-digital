@@ -8,12 +8,13 @@ import { JourneyHero } from '../sections/JourneyHero'
 type M = { year: string; tag: string; head: string; hi: string; body: string; stat: string; statLabel: string }
 
 const MILESTONES: M[] = [
-  { year: '2021', tag: 'The Spark', head: 'One desk, one conviction', hi: 'conviction', body: 'EG Digital begins in Melbourne with a single belief — ambitious businesses deserve technology delivered on time, without the agency runaround.', stat: '01', statLabel: 'Studio founded' },
-  { year: '2022', tag: 'Microsoft Partner', head: 'Enterprise tech, in reach', hi: 'reach', body: 'We become a certified Microsoft partner, bringing Dynamics 365, Power Platform and Azure capability to startups and SMEs for the first time.', stat: '5', statLabel: 'Certifications' },
-  { year: '2023', tag: 'The Squad', head: 'A senior team takes shape', hi: 'team', body: 'Engineers, designers and cloud specialists join. We pass thirty shipped projects across seven industries — and keep hitting every date.', stat: '30+', statLabel: 'Projects shipped' },
-  { year: '2024', tag: 'Full Stack', head: 'One partner for everything', hi: 'everything', body: 'We expand into managed cloud, cyber security and AI-assisted operations — becoming a true single partner for the entire digital stack.', stat: '4', statLabel: 'New practices' },
-  { year: '2025', tag: 'Momentum', head: 'Fifty products and counting', hi: 'Fifty', body: 'From SaaS platforms to e-commerce, we cross fifty shipped products and open dedicated support and maintenance practices.', stat: '50+', statLabel: 'Products live' },
-  { year: '2026', tag: 'Today', head: 'Only just getting started', hi: 'started', body: 'We build websites, apps and SaaS for ambitious brands across Australia — and the next chapter is yours to write with us.', stat: '∞', statLabel: 'The next chapter' },
+  { year: '2013', tag: 'The Spark', head: 'The passion for digital began', hi: 'digital', body: 'As businesses started moving online, it became clear a digital presence was no longer optional. Working closely with brands revealed how they connect with customers through technology, marketing and design — laying the foundation for everything ahead.', stat: '01', statLabel: 'Where it began' },
+  { year: '2014', tag: 'Learning', head: 'Learning the digital landscape', hi: 'landscape', body: 'Exposure to fast-changing digital environments built a deeper understanding of websites, online marketing, branding and customer engagement. Businesses needed more than a presence — they needed strategies that delivered real results.', stat: '02', statLabel: 'Foundations laid' },
+  { year: '2016', tag: 'Insight', head: 'Understanding business challenges', hi: 'business', body: 'Working across different industries revealed common challenges — limited visibility, inconsistent branding and difficulty generating quality leads. The belief grew that digital solutions must be practical, measurable and focused on growth.', stat: '03', statLabel: 'Industries studied' },
+  { year: '2018', tag: 'Hands-on', head: 'Gaining real-world experience', hi: 'real-world', body: 'Hands-on involvement in website development, branding, content and marketing campaigns sharpened the craft. Understanding what works — and what doesn’t — shaped a customer-focused approach built around meaningful outcomes.', stat: '04', statLabel: 'Experience earned' },
+  { year: '2020', tag: 'The Vision', head: 'A vision started taking shape', hi: 'vision', body: 'Years of experience and continuous learning led to a clear vision — helping businesses grow through smart digital solutions. Not just providing services, but becoming a trusted partner that delivers long-term value.', stat: '05', statLabel: 'A clear purpose' },
+  { year: '2025', tag: 'EG Digital is Born', head: 'EG Digital was born', hi: 'born', body: 'As a subsidiary of Eloma Group, EG Digital launched with a vision to help businesses grow through innovative digital solutions — achieving a key milestone the same year by becoming a Microsoft Partner and licensing provider.', stat: 'Microsoft', statLabel: 'Certified Partner' },
+  { year: '2026', tag: 'Today', head: 'Rapid growth & recognition', hi: 'growth', body: 'Within a short period we delivered projects for clients across multiple industries, building a reputation for quality, creativity and reliability. With a growing portfolio, we move forward with confidence and purpose.', stat: '∞', statLabel: 'The next chapter' },
 ]
 
 const Y = MILESTONES.map(m => m.year)
@@ -149,9 +150,12 @@ export function OurJourney() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>
             <span style={{ width: 22, height: 2, background: GREEN }} />The Next Chapter
           </div>
-          <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 30px', textTransform: 'uppercase' }}>
+          <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 24px', textTransform: 'uppercase' }}>
             Let's write <span style={{ color: GREEN }}>yours.</span>
           </h2>
+          <p style={{ fontSize: 'clamp(13px,1vw,16px)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', margin: '0 0 30px' }}>
+            2 Years · Many Projects · Unwavering quality
+          </p>
           <button onClick={() => navigate('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: GREEN, color: NAVY, border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>
             Start a conversation
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={NAVY} strokeWidth="1.8" strokeLinecap="round" /></svg>

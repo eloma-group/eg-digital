@@ -1,0 +1,43 @@
+# ───────────────────────────────────────────────────────────────
+# EG Digital — SPA (React Router / BrowserRouter) config for Apache
+# ───────────────────────────────────────────────────────────────
+
+# Send every request that is NOT a real file or folder to index.html,
+# so client-side routing handles deep links and page refreshes.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files / directories as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else → the app shell.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Make sure assets are served with the right MIME types.
+<IfModule mod_mime.c>
+  AddType application/javascript   js mjs
+  AddType text/css                 css
+  AddType image/svg+xml            svg
+  AddType application/json         json webmanifest
+  AddType font/woff2               woff2
+  AddType video/mp4                mp4
+</IfModule>
+
+# Compress text assets.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache fingerprinted assets forever; always revalidate the HTML shell.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|mjs|woff2|png|jpe?g|webp|gif|svg|mp4|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

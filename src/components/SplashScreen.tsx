@@ -94,7 +94,7 @@ export function SplashScreen() {
         }
 
         .sp-logo-img {
-          width: clamp(110px, 13vw, 190px);
+          width: clamp(96px, 11vw, 150px);
           height: auto;
           display: block;
         }
@@ -340,7 +340,7 @@ export function SplashScreen() {
         /* Mobile S: 320–374px */
         @media (max-width: 374px) {
           .sp-headline  { font-size: clamp(38px, 11vw, 50px); }
-          .sp-logo-img  { width: clamp(100px, 28vw, 130px); }
+          .sp-logo-img  { width: clamp(88px, 24vw, 116px); }
           .sp-count-num { font-size: clamp(16px, 5vw, 22px); }
           .sp-count-box { min-width: clamp(38px, 11vw, 48px); padding: 5px 6px; }
           .sp-wrap      { padding: clamp(14px, 4vw, 18px); }
@@ -401,7 +401,7 @@ export function SplashScreen() {
             transition={{ duration: 1, ease: EASE, delay: 0.05 }}
           >
             <img
-              src="/images/Egdigital-white.png"
+              src="/images/Egdigital-02.png"
               alt="EG Digital"
               className="sp-logo-img"
             />

@@ -91,6 +91,12 @@ export function DevelopmentSection() {
         .hv1-screen {
           background:#fff; border-radius:7px 7px 0 0;
           overflow:hidden; aspect-ratio:16/10;
+          position:relative; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        /* glass sheen for a real-screen reflection */
+        .hv1-glare {
+          position:absolute; inset:0; z-index:6; pointer-events:none; border-radius:7px 7px 0 0;
+          background:linear-gradient(118deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.06) 17%, rgba(255,255,255,0) 38%);
         }
         .hv1-camera { width:6px; height:6px; border-radius:50%; background:#999; margin:4px auto 0; }
         .hv1-laptop-base {
@@ -193,30 +199,123 @@ export function DevelopmentSection() {
               <div className="hv1-screen">
                 <div style={{ background:'#fff', height:'100%', display:'flex', flexDirection:'column' }}>
                   {/* Browser chrome */}
-                  <div style={{ background:'#f0f0ec', borderBottom:'1px solid rgba(0,0,0,0.07)', padding:'5px 8px', display:'flex', alignItems:'center', gap:5, flexShrink:0 }}>
-                    {['#ff5f57','#ffbd2e','#28ca41'].map(c=><div key={c} style={{ width:7, height:7, borderRadius:'50%', background:c }} />)}
-                    <div style={{ flex:1, background:'#fff', borderRadius:4, padding:'2px 8px', fontSize:8, color:'rgba(0,0,0,0.35)', fontFamily:'monospace', border:'1px solid rgba(0,0,0,0.08)', whiteSpace:'nowrap', overflow:'hidden' }}>
-                      nova-commerce.com.au
+                  <div style={{ background:'linear-gradient(180deg,#ededea,#e3e3df)', borderBottom:'1px solid rgba(0,0,0,0.09)', padding:'6px 9px', display:'flex', alignItems:'center', gap:7, flexShrink:0 }}>
+                    <div style={{ display:'flex', gap:5 }}>
+                      {['#ff5f57','#ffbd2e','#28ca41'].map(c=><div key={c} style={{ width:8, height:8, borderRadius:'50%', background:c }} />)}
+                    </div>
+                    <div style={{ display:'flex', gap:7, marginLeft:4, color:'rgba(0,0,0,0.3)' }}>
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M5 1.5 2.5 4 5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M3 1.5 5.5 4 3 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </div>
+                    <div style={{ flex:1, background:'#fff', borderRadius:5, padding:'3px 9px', fontSize:8, color:'rgba(0,0,0,0.42)', fontFamily:'ui-monospace,monospace', border:'1px solid rgba(0,0,0,0.07)', whiteSpace:'nowrap', overflow:'hidden', display:'flex', alignItems:'center', gap:5 }}>
+                      <span style={{ width:6, height:6, borderRadius:'50%', border:`1px solid ${GREEN}`, flexShrink:0 }} />
+                      app.novacommerce.com.au/analytics
                     </div>
                   </div>
-                  {/* Nav */}
-                  <div style={{ padding:'5px 10px', display:'flex', justifyContent:'space-between', alignItems:'center', borderBottom:'1px solid rgba(8,33,60,0.05)', flexShrink:0 }}>
-                    <div style={{ display:'flex', alignItems:'center', gap:4 }}>
-                      <div style={{ width:10, height:10, background:GREEN, borderRadius:2 }} />
-                      <div style={{ width:44, height:5, background:NAVY, borderRadius:2, opacity:.7 }} />
+                  {/* App shell — fully hand-built flat dashboard UI (sidebar + content) */}
+                  <div style={{ flex:1, minHeight:0, display:'flex', background:'#eef2f8' }}>
+                    {/* Sidebar */}
+                    <div style={{ width:'13%', minWidth:34, maxWidth:56, background:NAVY, display:'flex', flexDirection:'column', alignItems:'center', padding:'8px 0', gap:7 }}>
+                      <div style={{ width:14, height:14, background:GREEN, borderRadius:4, marginBottom:4 }} />
+                      {[0,1,2,3,4].map(i=>(
+                        <div key={i} style={{ width:'56%', height:5, borderRadius:2, background:i===0?GREEN:'rgba(255,255,255,0.16)' }} />
+                      ))}
+                      <div style={{ marginTop:'auto', width:13, height:13, borderRadius:'50%', background:'rgba(255,255,255,0.18)' }} />
                     </div>
-                    <div style={{ display:'flex', gap:8 }}>
-                      {[28,28,28,52].map((w,i)=><div key={i} style={{ width:w, height:5, background:i===3?NAVY:'rgba(8,33,60,0.15)', borderRadius:i===3?100:2, opacity:i===3?.8:.7 }} />)}
+
+                    {/* Main content */}
+                    <div style={{ flex:1, minWidth:0, display:'flex', flexDirection:'column', padding:'9px 10px', gap:7 }}>
+                      {/* Page header */}
+                      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0 }}>
+                        <div>
+                          <div style={{ fontSize:11, fontWeight:900, color:NAVY, letterSpacing:'-0.02em', lineHeight:1 }}>Analytics Overview</div>
+                          <div style={{ fontSize:6.5, color:'rgba(8,33,60,0.4)', marginTop:2, fontWeight:600 }}>Last 6 months · Jan – Jun</div>
+                        </div>
+                        <div style={{ display:'flex', gap:5, alignItems:'center' }}>
+                          <div style={{ width:38, height:11, borderRadius:100, background:'#fff', border:'1px solid rgba(8,33,60,0.1)' }} />
+                          <div style={{ width:11, height:11, borderRadius:'50%', background:`linear-gradient(135deg,${GREEN},${NAVY})` }} />
+                        </div>
+                      </div>
+
+                      {/* KPI cards */}
+                      <div style={{ display:'flex', gap:6, flexShrink:0 }}>
+                        {[
+                          { l:'Revenue', v:'$24.8k', d:'+18.4%', up:true },
+                          { l:'Orders', v:'1,204', d:'+6.2%', up:true },
+                          { l:'Users', v:'8,450', d:'+12%', up:true },
+                          { l:'Conv. Rate', v:'3.6%', d:'-0.4%', up:false },
+                        ].map(k=>(
+                          <div key={k.l} style={{ flex:1, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'6px 7px' }}>
+                            <div style={{ fontSize:6, color:'rgba(8,33,60,0.45)', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.4px' }}>{k.l}</div>
+                            <div style={{ fontSize:12, fontWeight:900, color:NAVY, letterSpacing:'-0.03em', lineHeight:1.1, marginTop:2 }}>{k.v}</div>
+                            <div style={{ fontSize:6, fontWeight:700, color:k.up?GREEN:'#d9706f', marginTop:2 }}>{k.up?'↑':'↓'} {k.d}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Charts row */}
+                      <div style={{ flex:1, minHeight:0, display:'flex', gap:6 }}>
+                        {/* Area / line chart */}
+                        <div style={{ flex:1.7, minWidth:0, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'7px 8px', display:'flex', flexDirection:'column' }}>
+                          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0 }}>
+                            <div style={{ fontSize:7, fontWeight:800, color:NAVY }}>Revenue trend</div>
+                            <div style={{ display:'flex', gap:5, alignItems:'center' }}>
+                              <span style={{ fontSize:5.5, color:'rgba(8,33,60,0.45)', display:'inline-flex', alignItems:'center', gap:2 }}><span style={{ width:5, height:5, borderRadius:'50%', background:GREEN }} />2024</span>
+                              <span style={{ fontSize:5.5, color:'rgba(8,33,60,0.45)', display:'inline-flex', alignItems:'center', gap:2 }}><span style={{ width:5, height:5, borderRadius:'50%', background:'rgba(8,33,60,0.3)' }} />2023</span>
+                            </div>
+                          </div>
+                          <svg viewBox="0 0 100 42" preserveAspectRatio="none" style={{ flex:1, width:'100%', minHeight:0, marginTop:4 }}>
+                            <defs>
+                              <linearGradient id="hv1area" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor={GREEN} stopOpacity="0.28" />
+                                <stop offset="100%" stopColor={GREEN} stopOpacity="0" />
+                              </linearGradient>
+                            </defs>
+                            {[10,20,30].map(y=><line key={y} x1="0" y1={y} x2="100" y2={y} stroke="rgba(8,33,60,0.06)" strokeWidth="0.4" />)}
+                            <path d="M0,32 L16,26 L32,29 L48,17 L64,21 L80,9 L100,5 L100,42 L0,42 Z" fill="url(#hv1area)" />
+                            <path d="M0,32 L16,26 L32,29 L48,17 L64,21 L80,9 L100,5" fill="none" stroke={GREEN} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M0,36 L16,34 L32,35 L48,30 L64,32 L80,27 L100,24" fill="none" stroke="rgba(8,33,60,0.28)" strokeWidth="1" strokeDasharray="2 2" strokeLinecap="round" />
+                          </svg>
+                        </div>
+
+                        {/* Donut */}
+                        <div style={{ flex:1, minWidth:0, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'7px 8px', display:'flex', flexDirection:'column' }}>
+                          <div style={{ fontSize:7, fontWeight:800, color:NAVY, flexShrink:0 }}>Traffic source</div>
+                          <div style={{ flex:1, minHeight:0, display:'flex', alignItems:'center', justifyContent:'center', gap:7 }}>
+                            <div style={{ width:'46%', aspectRatio:'1', borderRadius:'50%', background:`conic-gradient(${GREEN} 0 45%, ${NAVY} 45% 70%, #c7d2e0 70% 100%)`, position:'relative', flexShrink:0 }}>
+                              <div style={{ position:'absolute', inset:'27%', borderRadius:'50%', background:'#fff', display:'flex', alignItems:'center', justifyContent:'center', fontSize:7, fontWeight:900, color:NAVY }}>45%</div>
+                            </div>
+                            <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
+                              {[['Organic',GREEN],['Direct',NAVY],['Social','#c7d2e0']].map(([l,c])=>(
+                                <div key={l as string} style={{ display:'flex', alignItems:'center', gap:3, fontSize:5.5, color:'rgba(8,33,60,0.55)', fontWeight:600 }}>
+                                  <span style={{ width:5, height:5, borderRadius:'50%', background:c as string }} />{l}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom: bar chart + recent orders */}
+                      <div style={{ flexShrink:0, display:'flex', gap:6 }}>
+                        <div style={{ flex:1.7, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', padding:'6px 8px', display:'flex', alignItems:'flex-end', gap:3, height:30 }}>
+                          {BARS.map((h,i)=>(
+                            <div key={i} style={{ flex:1, height:`${h}%`, borderRadius:'2px 2px 0 0', background:i===BARS.length-1?GREEN:'rgba(8,33,60,0.12)' }} />
+                          ))}
+                        </div>
+                        <div style={{ flex:1, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', padding:'5px 7px', display:'flex', flexDirection:'column', justifyContent:'center', gap:4 }}>
+                          {[['#1042','Paid',GREEN],['#1041','Pending','#d8a13b']].map(([id,st,c])=>(
+                            <div key={id as string} style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+                              <span style={{ fontSize:6, color:'rgba(8,33,60,0.6)', fontWeight:700 }}>Order {id}</span>
+                              <span style={{ fontSize:5, fontWeight:800, color:c as string, background:`${c}22`, padding:'1px 4px', borderRadius:100 }}>{st}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  {/* Dashboard screenshot fills the rest of the screen */}
-                  <img
-                    src="/images/Dashboard.png"
-                    alt="Analytics dashboard built by EG Digital"
-                    loading="lazy" decoding="async"
-                    style={{ flex:1, width:'100%', minHeight:0, objectFit:'cover', objectPosition:'center top', display:'block' }}
-                  />
                 </div>
+                <div className="hv1-glare" />
               </div>
             </div>
             <div className="hv1-laptop-base">

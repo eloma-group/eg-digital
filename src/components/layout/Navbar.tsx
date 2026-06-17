@@ -702,9 +702,9 @@ export function Navbar() {
           {/* Logo */}
           <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <img
-              src="/images/Egdigital-blue.png"
+              src="/images/Egdigital-01.png"
               alt="EG Digital"
-              style={{ height: 44, width: 'auto', display: 'block' }}
+              style={{ height: 54, width: 'auto', display: 'block' }}
             />
           </div>
 
@@ -933,9 +933,9 @@ export function Navbar() {
             <div className="nav-mobile-header">
               <div style={{ background: NAVY, borderRadius: 8, padding: '5px 12px', display: 'flex', alignItems: 'center' }}>
                 <img
-                  src="/images/Egdigital-white.png"
+                  src="/images/Egdigital-02.png"
                   alt="EG Digital"
-                  style={{ height: 26, width: 'auto', display: 'block' }}
+                  style={{ height: 38, width: 'auto', display: 'block' }}
                 />
               </div>
               <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">
