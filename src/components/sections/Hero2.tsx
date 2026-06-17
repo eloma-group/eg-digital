@@ -34,7 +34,7 @@ function Words() {
           transition={{ duration: 1.0, ease: EASE, delay: 0.58 }} style={{ transformOrigin: 'left center' }} />
         <motion.span className="hc-rule-txt" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.76 }}>
-          Building ambitious brands since 2021
+          Building ambitious brands since 2025
         </motion.span>
       </div>
     </>
