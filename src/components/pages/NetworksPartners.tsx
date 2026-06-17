@@ -5,7 +5,7 @@ import { KineticBanner } from '../sections/JourneyHero'
 type Tier = 'Cloud' | 'Technology' | 'Community'
 type Partner = { name: string; mark: string; tier: Tier; accent: string }
 
-/* Monogram tiles (not brand logos — premium, on-brand, no guessed SVGs). */
+/* Monogram tiles (not brand logos - premium, on-brand, no guessed SVGs). */
 const PARTNERS: Partner[] = [
   { name: 'Amazon Web Services', mark: 'AWS', tier: 'Cloud', accent: '#ff9900' },
   { name: 'Google Cloud', mark: 'GC', tier: 'Cloud', accent: '#4285f4' },
@@ -25,9 +25,9 @@ const PARTNERS: Partner[] = [
 const CERTS = ['Dynamics 365', 'Azure', 'Power Platform']
 
 const BENEFITS = [
-  { icon: BadgeCheck, title: 'Certified Expertise', body: 'Our team holds current certifications across every platform we deploy — so you get specialists, not generalists guessing their way through your stack.' },
-  { icon: Wallet, title: 'Better Licensing', body: 'As an accredited partner we unlock partner-tier and nonprofit licensing — and we pass those savings straight through to you.' },
-  { icon: Headphones, title: 'Priority Support', body: 'Direct partner escalation channels mean your critical issues move to the front of the queue — resolved fast, not parked.' },
+  { icon: BadgeCheck, title: 'Certified Expertise', body: 'Our team holds current certifications across every platform we deploy - so you get specialists, not generalists guessing their way through your stack.' },
+  { icon: Wallet, title: 'Better Licensing', body: 'As an accredited partner we unlock partner-tier and nonprofit licensing - and we pass those savings straight through to you.' },
+  { icon: Headphones, title: 'Priority Support', body: 'Direct partner escalation channels mean your critical issues move to the front of the queue - resolved fast, not parked.' },
 ]
 
 const TIER_META: Record<Tier, string> = {
@@ -150,7 +150,7 @@ export function NetworksPartners() {
                 <div className="np-plat"><BadgeCheck size={16} /> Platinum Partner</div>
                 <h3 className="np-feat-h">Microsoft</h3>
                 <p className="np-feat-p">
-                  Our deepest alliance. Certified across Dynamics 365, Azure and the Power Platform —
+                  Our deepest alliance. Certified across Dynamics 365, Azure and the Power Platform -
                   the full Microsoft cloud, delivered alongside our own custom build practice.
                 </p>
                 <div className="np-chips">

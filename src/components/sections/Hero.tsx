@@ -19,15 +19,15 @@ export function Hero() {
   const smoothX = useSpring(mouseX, SPRING)
   const smoothY = useSpring(mouseY, SPRING)
 
-  // Back layer — watermark drifts slowest (feels furthest away)
+  // Back layer - watermark drifts slowest (feels furthest away)
   const backX  = useTransform(smoothX, v => v * 0.007)
   const backY  = useTransform(smoothY, v => v * 0.007)
 
-  // Mid layer — arcs drift at medium speed
+  // Mid layer - arcs drift at medium speed
   const midX   = useTransform(smoothX, v => v * 0.018)
   const midY   = useTransform(smoothY, v => v * 0.018)
 
-  // Front layer — heading drifts most (feels closest), stronger horizontal
+  // Front layer - heading drifts most (feels closest), stronger horizontal
   const frontX = useTransform(smoothX, v => v * 0.032)
   const frontY = useTransform(smoothY, v => v * 0.016)
 
@@ -102,7 +102,7 @@ export function Hero() {
           .hero-grain-layer { display: none; }
         }
 
-        /* Giant background watermark — back layer */
+        /* Giant background watermark - back layer */
         .hero-wm {
           position: absolute;
           font-size: clamp(260px, 42vw, 640px);
@@ -119,7 +119,7 @@ export function Hero() {
           will-change: transform;
         }
 
-        /* ─── Decorative arcs — mid layer ─── */
+        /* ─── Decorative arcs - mid layer ─── */
         .hero-arcs {
           position: absolute; inset: 0;
           pointer-events: none; z-index: 1;
@@ -168,7 +168,7 @@ export function Hero() {
           .hero-meta-sm-hide { display: none; }
         }
 
-        /* ─── Heading zone — front layer ─── */
+        /* ─── Heading zone - front layer ─── */
         .hero-head {
           position: relative; z-index: 2;
           flex: 1;
@@ -262,7 +262,7 @@ export function Hero() {
         {/* Grain */}
         <div className="hero-grain-layer" aria-hidden="true" />
 
-        {/* Back layer — EG watermark, drifts slowest */}
+        {/* Back layer - EG watermark, drifts slowest */}
         <motion.div
           className="hero-wm"
           aria-hidden="true"
@@ -270,7 +270,7 @@ export function Hero() {
           transformTemplate={(_v, t) => `translateY(-50%) ${t}`}
         >EG</motion.div>
 
-        {/* Mid layer — decorative arcs */}
+        {/* Mid layer - decorative arcs */}
         <motion.div
           className="hero-arcs"
           aria-hidden="true"
@@ -302,7 +302,7 @@ export function Hero() {
           <span className="hero-meta-tag hero-meta-sm-hide">Sydney, Australia</span>
         </motion.div>
 
-        {/* ── Giant heading — front layer, drifts most ── */}
+        {/* ── Giant heading - front layer, drifts most ── */}
         <motion.div
           className="hero-head"
           style={{ x: frontX, y: frontY }}
@@ -372,7 +372,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease: EASE, delay: 0.56 }}
         >
           <p className="hero-bar-desc">
-            Websites, apps &amp; SaaS platforms built for ambitious brands — delivered on time.
+            Websites, apps &amp; SaaS platforms built for ambitious brands - delivered on time.
           </p>
 
           <button

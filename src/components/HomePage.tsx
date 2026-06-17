@@ -1,5 +1,4 @@
 import { Navbar }        from './layout/Navbar'
-import { Hero1 }         from './sections/Hero1'
 import { Hero2 }         from './sections/Hero2'
 import { DevelopmentSection }    from './sections/DevelopmentSection'
 import { SecuritySection }       from './sections/SecuritySection'
@@ -16,7 +15,6 @@ export function HomePage() {
   return (
     <div style={{ overflowX: 'hidden', fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
-      <Hero1 />
       <Hero2 />
       <DevelopmentSection />
       <SecuritySection />

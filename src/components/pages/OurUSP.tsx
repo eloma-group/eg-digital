@@ -11,7 +11,7 @@ const SCENES: Scene[] = [
   {
     n: '01', tag: 'Business-first thinking', theme: 'light',
     lines: ['We think like', 'business owners.'], hi: 'business owners.',
-    body: 'We don’t just create websites or run campaigns — we look at the bigger picture. Every decision is made with your business goals, customer journey and growth opportunities in mind, so our work delivers real value beyond just aesthetics.',
+    body: 'We don’t just create websites or run campaigns - we look at the bigger picture. Every decision is made with your business goals, customer journey and growth opportunities in mind, so our work delivers real value beyond just aesthetics.',
     proof: 'Growth-focused decisions',
   },
   {
@@ -23,7 +23,7 @@ const SCENES: Scene[] = [
   {
     n: '03', tag: 'Design that performs', theme: 'green',
     lines: ['Creativity', 'with a purpose.'], hi: 'purpose.',
-    body: 'Great design should do more than look good. Our creative approach focuses on building trust, improving user experience and encouraging customer action — helping your brand make a lasting impact in a crowded digital space.',
+    body: 'Great design should do more than look good. Our creative approach focuses on building trust, improving user experience and encouraging customer action - helping your brand make a lasting impact in a crowded digital space.',
     proof: 'Built to convert',
   },
   {
@@ -117,7 +117,7 @@ function CardFace({ s, mobile }: { s: Scene; mobile: boolean }) {
   )
 }
 
-/* One pinned card in the stack — scales back + dims as the next deals over it. */
+/* One pinned card in the stack - scales back + dims as the next deals over it. */
 function StackCard({ s, i }: { s: Scene; i: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const last = i === N - 1
@@ -143,7 +143,7 @@ export function OurUSP() {
     <CinematicBanner
       eyebrow="What Makes Us"
       word="DIFFERENT"
-      sub="We believe great digital solutions should be simple, effective and focused on growth — combining creativity, strategy and technology to help businesses stand out, connect with customers and achieve lasting success."
+      sub="We believe great digital solutions should be simple, effective and focused on growth - combining creativity, strategy and technology to help businesses stand out, connect with customers and achieve lasting success."
       scrollLabel="Scroll to explore"
     />
   )

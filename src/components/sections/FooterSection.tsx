@@ -146,7 +146,7 @@ export function FooterSection() {
               </a>
 
               <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28 }}>
-                Your single partner for cloud, development, cybersecurity, and digital growth —
+                Your single partner for cloud, development, cybersecurity, and digital growth -
                 built for ambitious Australian businesses.
               </p>
 

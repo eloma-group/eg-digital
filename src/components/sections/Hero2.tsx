@@ -50,7 +50,7 @@ function CtaRow() {
       transition={{ duration: 0.9, ease: EASE, delay: 0.56 }}
     >
       <p className="hc-bar-desc">
-        Websites, apps &amp; SaaS platforms built for ambitious brands — delivered on time.
+        Websites, apps &amp; SaaS platforms built for ambitious brands - delivered on time.
       </p>
       <button
         className="hc-cta"
@@ -127,7 +127,7 @@ const SHARED_CSS = `
 `
 
 /* ════════════════════════════════════════════════════════════════════
-   HERO 2 — Image hero with diagonal reveal (Tokyo skyline + Fuji).
+   HERO 2 - Image hero with diagonal reveal (Tokyo skyline + Fuji).
    Mirrors Hero 1 exactly, but reveals /images/hero-image.png on the
    right side. Compositor-only ken-burns zoom.
    ════════════════════════════════════════════════════════════════════ */
@@ -137,13 +137,47 @@ export function Hero2() {
     <>
       <style>{`
         ${SHARED_CSS}
-        @keyframes hcImg2Zoom { from { transform: scale(1); } to { transform: scale(1.07); } }
-        /* full-bleed image — no diagonal mask */
+        /* slow ken-burns: zoom + gentle diagonal drift (compositor-only) */
+        @keyframes hcImg2Zoom {
+          from { transform: scale(1.04) translate3d(0, 0, 0); }
+          to   { transform: scale(1.1) translate3d(-1.6%, -1%, 0); }
+        }
+        /* atmospheric layer that drifts across the sky like moving clouds */
+        @keyframes hcImg2Clouds {
+          0%   { transform: translate3d(-11%, 0, 0); }
+          100% { transform: translate3d(11%, 0, 0); }
+        }
+        /* second, slower + opposite-direction layer for parallax depth */
+        @keyframes hcImg2Clouds2 {
+          0%   { transform: translate3d(9%, 1%, 0); }
+          100% { transform: translate3d(-9%, -1%, 0); }
+        }
+        /* full-bleed image - no diagonal mask */
         .hcImg2-stage {
           position: absolute; inset: 0; z-index: 0; pointer-events: none;
           background-size: cover; background-position: center; background-repeat: no-repeat;
           transform-origin: center;
-          animation: hcImg2Zoom 26s ease-in-out infinite alternate;
+          animation: hcImg2Zoom 30s ease-in-out infinite alternate;
+          will-change: transform;
+        }
+        .hcImg2-clouds {
+          position: absolute; inset: -10% -16%; z-index: 1; pointer-events: none;
+          background:
+            radial-gradient(40% 30% at 22% 26%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%),
+            radial-gradient(34% 26% at 62% 18%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 62%),
+            radial-gradient(46% 32% at 84% 34%, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0) 64%);
+          opacity: 0.9;
+          animation: hcImg2Clouds 26s ease-in-out infinite alternate;
+          will-change: transform;
+        }
+        /* slower, larger wisps behind the front layer → parallax */
+        .hcImg2-clouds2 {
+          position: absolute; inset: -12% -18%; z-index: 1; pointer-events: none;
+          background:
+            radial-gradient(52% 40% at 40% 14%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 64%),
+            radial-gradient(60% 44% at 74% 24%, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0) 66%);
+          opacity: 0.75;
+          animation: hcImg2Clouds2 46s ease-in-out infinite alternate;
           will-change: transform;
         }
         /* left scrim keeps the navy headline legible over the photo */
@@ -153,7 +187,11 @@ export function Hero2() {
             linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 22%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.25) 58%, rgba(255,255,255,0) 76%),
             linear-gradient(0deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 32%);
         }
-        @media (prefers-reduced-motion: reduce) { .hcImg2-stage { animation: none; } }
+        @media (prefers-reduced-motion: reduce) {
+          .hcImg2-stage, .hcImg2-clouds, .hcImg2-clouds2 { animation: none; }
+          .hcImg2-clouds { opacity: 0.4; }
+          .hcImg2-clouds2 { opacity: 0.3; }
+        }
         @media (max-width: 767px) {
           .hcImg2-scrim {
             background:
@@ -172,6 +210,8 @@ export function Hero2() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.3, ease: EASE }}
         />
+        <div className="hcImg2-clouds2" aria-hidden="true" />
+        <div className="hcImg2-clouds" aria-hidden="true" />
         <div className="hcImg2-scrim" aria-hidden="true" />
 
         <div className="hc-head"><Words /></div>

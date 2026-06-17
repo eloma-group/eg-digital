@@ -51,7 +51,7 @@ function ConceptLabel({ n, title, note, light }: { n: string; title: string; not
   )
 }
 
-/* ═════════════════ CONCEPT 00 — Explorer (search + filter) ═════════════════ */
+/* ═════════════════ CONCEPT 00 - Explorer (search + filter) ═════════════════ */
 function ExplorerConcept() {
   const [query, setQuery] = useState('')
   const [field, setField] = useState<Field | 'All'>('All')
@@ -107,7 +107,7 @@ function ExplorerConcept() {
   )
 }
 
-/* ═════════════════ CONCEPT 01 — Periodic table ═════════════════ */
+/* ═════════════════ CONCEPT 01 - Periodic table ═════════════════ */
 function PeriodicConcept() {
   const [i, setI] = useState(0)
   const a = INDUSTRIES[i]; const c = FIELD_COLOR[a.field]
@@ -140,7 +140,7 @@ function PeriodicConcept() {
   )
 }
 
-/* ═════════════════ CONCEPT 02 — Isometric sector map ═════════════════ */
+/* ═════════════════ CONCEPT 02 - Isometric sector map ═════════════════ */
 function IsoConcept() {
   const [i, setI] = useState(0)
   const a = INDUSTRIES[i]; const c = FIELD_COLOR[a.field]
@@ -170,7 +170,7 @@ function IsoConcept() {
   )
 }
 
-/* ═════════════════ CONCEPT 03 — Living tile wall ═════════════════ */
+/* ═════════════════ CONCEPT 03 - Living tile wall ═════════════════ */
 const WALL_COLS = [[0, 3, 6, 9, 12], [1, 4, 7, 10, 13], [2, 5, 8, 11]]
 const WALL_ANIM = ['wall-up 34s', 'wall-down 28s', 'wall-up 40s']
 function WallConcept() {
@@ -195,7 +195,7 @@ function WallConcept() {
   )
 }
 
-/* ═════════════════ CONCEPT 04 — Field tabs + spotlight ═════════════════ */
+/* ═════════════════ CONCEPT 04 - Field tabs + spotlight ═════════════════ */
 function TabsConcept() {
   const [f, setF] = useState<Field>(FIELDS[0].label)
   const items = INDUSTRIES.filter(i => i.field === f)
@@ -359,22 +359,22 @@ export function Industries() {
           <Eyebrow>Industries</Eyebrow>
           <h1 className="in-h1">Built for<br />your <span>world.</span></h1>
           <p className="in-intro">
-            Four directions for this page, shown below — pick the one you like and I'll keep it and
+            Four directions for this page, shown below - pick the one you like and I'll keep it and
             drop the rest. Same fourteen sectors throughout.
           </p>
         </Reveal>
       </section>
 
       <section className="in-sec" style={{ background: '#fff' }}>
-        <div className="in-shell"><ConceptLabel n="00" title="Explorer (current)" note="A live directory — search by name and filter by field; the grid reflows as you go." /><ExplorerConcept /></div>
+        <div className="in-shell"><ConceptLabel n="00" title="Explorer (current)" note="A live directory - search by name and filter by field; the grid reflows as you go." /><ExplorerConcept /></div>
       </section>
 
       <section className="in-sec" style={{ background: CREAM }}>
-        <div className="in-shell"><ConceptLabel n="01" title="Periodic Table" note="Sectors as elements — number, symbol, name, colour-coded by field. Hover a tile to load its readout." /><PeriodicConcept /></div>
+        <div className="in-shell"><ConceptLabel n="01" title="Periodic Table" note="Sectors as elements - number, symbol, name, colour-coded by field. Hover a tile to load its readout." /><PeriodicConcept /></div>
       </section>
 
       <section className="in-sec" style={{ background: '#fff' }}>
-        <div className="in-shell"><ConceptLabel n="02" title="Isometric Sector Map" note="Raised 3D blocks on a tilted plane. Hover a block — it lifts and its detail appears below." /><IsoConcept /></div>
+        <div className="in-shell"><ConceptLabel n="02" title="Isometric Sector Map" note="Raised 3D blocks on a tilted plane. Hover a block - it lifts and its detail appears below." /><IsoConcept /></div>
       </section>
 
       <section className="in-sec" style={{ background: CREAM }}>
@@ -382,7 +382,7 @@ export function Industries() {
       </section>
 
       <section className="in-sec" style={{ background: '#fff' }}>
-        <div className="in-shell"><ConceptLabel n="04" title="Field Tabs + Spotlight" note="The four fields as tabs — pick one and its sectors animate in beside a big field marker." /><TabsConcept /></div>
+        <div className="in-shell"><ConceptLabel n="04" title="Field Tabs + Spotlight" note="The four fields as tabs - pick one and its sectors animate in beside a big field marker." /><TabsConcept /></div>
       </section>
 
       <PageCTA eyebrow="Your Sector, Our Expertise" heading="Don't see" highlight="yours?" button="Let's talk" />

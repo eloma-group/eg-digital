@@ -10,7 +10,7 @@ export const GREEN = '#3CB98C'
 export const CREAM = '#f8f8ff'
 export const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-/* Page shell — fixed Navbar on top, Footer at the bottom, brand font + no
+/* Page shell - fixed Navbar on top, Footer at the bottom, brand font + no
    horizontal scroll. Every About subpage renders inside this. */
 export function PageLayout({ children }: { children: ReactNode }) {
   return (
@@ -55,7 +55,7 @@ export function Eyebrow({ children, light = false }: { children: ReactNode; ligh
   )
 }
 
-/* Shared closing CTA — navy band that always routes to /contact (overridable).
+/* Shared closing CTA - navy band that always routes to /contact (overridable).
    Used by every standalone page so the call-to-action is consistent. */
 export function PageCTA({
   eyebrow = 'Get In Touch',

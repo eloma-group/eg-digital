@@ -15,7 +15,7 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MICROSOFT SECTION — Left text + Image with Microsoft product overlay
+// MICROSOFT SECTION - Left text + Image with Microsoft product overlay
 // Theme: Microsoft Cloud Solutions (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function MicrosoftSection() {
@@ -86,7 +86,7 @@ export function MicrosoftSection() {
         .hv3-stat-v { font-size:clamp(20px,2vw,28px); font-weight:900; color:${NAVY}; letter-spacing:-0.04em; line-height:1; }
         .hv3-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; letter-spacing:1.2px; margin-top:3px; }
 
-        /* right — photo + chips */
+        /* right - photo + chips */
         .hv3-right { position:relative; padding:28px 32px 28px 8px; }
         .hv3-photo {
           border-radius:clamp(18px,2vw,26px); overflow:hidden;
@@ -101,7 +101,7 @@ export function MicrosoftSection() {
         .hv3-chip { transition:border-color .22s, box-shadow .22s; cursor:default; }
         .hv3-chip:hover { border-color:rgba(60,185,140,0.45); box-shadow:0 12px 30px rgba(8,33,60,0.18); }
 
-        /* MS partner badge — top-center overlap */
+        /* MS partner badge - top-center overlap */
         .hv3-ms-badge {
           position:absolute; top:8px; left:50%; transform:translateX(-50%);
           background:#fff; border:1px solid rgba(8,33,60,0.08);
@@ -177,8 +177,8 @@ export function MicrosoftSection() {
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(8,33,60,0.52)',
               lineHeight:1.82, maxWidth:460, marginBottom:'clamp(24px,2.8vw,40px)',
             }}>
-              As a certified Microsoft Partner, we deploy and manage the full ecosystem —
-              365, Dynamics, Teams, and Azure — so your team collaborates smarter from day one.
+              As a certified Microsoft Partner, we deploy and manage the full ecosystem -
+              365, Dynamics, Teams, and Azure - so your team collaborates smarter from day one.
             </motion.p>
 
             <motion.div {...fadeUp(0.2)} className="hv3-cta-row">
@@ -196,7 +196,7 @@ export function MicrosoftSection() {
             </motion.div>
           </div>
 
-          {/* Right — Photo + floating chips */}
+          {/* Right - Photo + floating chips */}
           <motion.div
             initial={{ opacity:0, x:40 }}
             whileInView={{ opacity:1, x:0 }}

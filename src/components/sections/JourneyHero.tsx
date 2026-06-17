@@ -44,7 +44,7 @@ const HERO_CSS = `
   .jh-ledger .num { font-size: clamp(26px,2.8vw,42px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: ${NAVY}; font-variant-numeric: tabular-nums; }
   .jh-ledger .lbl { font-size: clamp(10px,0.8vw,12px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(8,33,60,0.42); }
 
-  /* ── A — Editorial ── */
+  /* ── A - Editorial ── */
   .jh-a { background: ${CREAM}; justify-content: space-between; }
   .jh-a::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background: radial-gradient(50% 50% at 78% 14%, rgba(60,185,140,0.10), transparent 60%); }
@@ -58,7 +58,7 @@ const HERO_CSS = `
     color: rgba(8,33,60,0.55); margin: clamp(28px,3vw,44px) 0 0; max-width: 620px; }
   .jh-a-bot { display: flex; align-items: center; justify-content: space-between; padding-top: clamp(20px,3vh,32px); border-top: 1px solid rgba(8,33,60,0.1); }
 
-  /* ── B — Cinematic ── */
+  /* ── B - Cinematic ── */
   .jh-b { background: ${NAVY}; align-items: center; text-align: center; justify-content: center; gap: clamp(28px,4vh,52px); }
   .jh-b::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background: radial-gradient(60% 60% at 50% 0%, rgba(60,185,140,0.16), transparent 60%); }
@@ -70,7 +70,7 @@ const HERO_CSS = `
     color: rgba(255,255,255,0.62); margin: 0; max-width: 660px; }
   .jh-b-bot { margin-top: clamp(4px,2vh,16px); }
 
-  /* ── C — Kinetic ── */
+  /* ── C - Kinetic ── */
   .jh-c { background: ${CREAM}; justify-content: center; gap: clamp(30px,5vh,60px); }
   .jh-c::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background: radial-gradient(46% 50% at 14% 86%, rgba(60,185,140,0.10), transparent 60%); }
@@ -106,7 +106,7 @@ export function JourneyHero() {
       <Style />
       <section className="jh jh-a">
         <div className="jh-a-top">
-          <span className="jh-eyebrow"><b />Our Journey — Since 2013</span>
+          <span className="jh-eyebrow"><b />Our Journey - Since 2013</span>
           <span className="jh-eyebrow jh-eyebrow--muted">EG Digital · Est. 2025</span>
         </div>
 
@@ -116,7 +116,7 @@ export function JourneyHero() {
             <span className="jh-clip"><motion.span className="jh-line" initial={{ y: '115%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.22 }}>one <em>vision.</em></motion.span></span>
           </h1>
           <motion.p className="jh-a-sub" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 0.55 }}>
-            Over a decade of learning, one clear vision — helping businesses grow through digital innovation.
+            Over a decade of learning, one clear vision - helping businesses grow through digital innovation.
           </motion.p>
         </div>
 

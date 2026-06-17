@@ -10,7 +10,7 @@ const QUICK = [
   { icon: Phone, label: 'Call us',  value: '1800 054 555',            href: 'tel:1800054555' },
   { icon: Mail,  label: 'Email us', value: 'connect@egdigital.com.au', href: 'mailto:connect@egdigital.com.au' },
   { icon: Clock, label: 'Hours',    value: 'Mon–Fri · 9–6 AEST',       href: undefined },
-  { icon: MapPin,label: 'Head office', value: 'Sydney, Australia',     href: mapsUrl('60 Martin Place, Sydney 2000') },
+  { icon: MapPin,label: 'Head office', value: 'Melbourne, Victoria, Australia', href: 'https://www.google.com/maps/search/?api=1&query=71+Gipps+Street+Collingwood+Melbourne+VIC+3066' },
 ]
 
 const SERVICES = [
@@ -20,12 +20,12 @@ const SERVICES = [
 
 // What-happens-next steps shown beside the form.
 const STEPS = [
-  { t: 'We read your brief', d: 'A real person — not a bot — reviews what you send within hours.' },
+  { t: 'We read your brief', d: 'A real person - not a bot - reviews what you send within hours.' },
   { t: 'We scope & quote', d: 'You get a clear, honest plan and a fixed quote within one business day.' },
-  { t: 'We kick off', d: 'Approve it and we start building — on time, on budget, no jargon.' },
+  { t: 'We kick off', d: 'Approve it and we start building - on time, on budget, no jargon.' },
 ]
 
-// Office locations — each row opens the address in Google Maps in a new tab.
+// Office locations - each row opens the address in Google Maps in a new tab.
 const AU_LOCATIONS = [
   { name: 'Sydney',    address: '60 Martin Place, Sydney 2000' },
   { name: 'Melbourne', address: '71 Gipps Street, Collingwood, Melbourne, VIC 3066' },
@@ -169,7 +169,7 @@ export function Contact() {
           transition: transform 0.2s, box-shadow 0.2s; }
         .ct-loc-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(60,185,140,0.35); }
 
-        /* right — tabbed directory */
+        /* right - tabbed directory */
         .ct-tabs { display: inline-flex; gap: 4px; padding: 5px; border-radius: 100px;
           background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); margin-bottom: clamp(20px,2.4vw,30px); }
         .ct-tab { appearance: none; border: none; cursor: pointer; font-family: inherit;
@@ -203,7 +203,7 @@ export function Contact() {
           <Eyebrow>Contact</Eyebrow>
           <h1 className="ct-h1">Let's build<br />something <span>great.</span></h1>
           <p className="ct-intro">
-            Tell us about your project, your timeline and your goals — we'll come back within one
+            Tell us about your project, your timeline and your goals - we'll come back within one
             business day with a clear, honest next step. No pressure, no jargon.
           </p>
         </Reveal>
@@ -312,7 +312,7 @@ export function Contact() {
                 <Eyebrow light>Our Offices</Eyebrow>
                 <h2 className="ct-loc-h2">One team,<br /><span>worldwide.</span></h2>
                 <p className="ct-loc-sub">
-                  Headquartered in Sydney with offices and partners across the globe — wherever you
+                  Headquartered in Melbourne with offices and partners across the globe - wherever you
                   are, there's a team accountable for your project.
                 </p>
                 <div className="ct-loc-stats">
@@ -330,7 +330,7 @@ export function Contact() {
               </div>
             </Reveal>
 
-            {/* Right — tabbed directory */}
+            {/* Right - tabbed directory */}
             <Reveal delay={0.1}>
               <div>
                 <div className="ct-tabs" role="tablist">

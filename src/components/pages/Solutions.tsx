@@ -12,7 +12,7 @@ type Group = {
 const GROUPS: Group[] = [
   {
     label: 'Microsoft Products', color: '#2563eb', icon: Boxes, kind: 'ms',
-    blurb: 'Certified deployment and management across the full Microsoft ecosystem — built to make your team collaborate smarter from day one.',
+    blurb: 'Certified deployment and management across the full Microsoft ecosystem - built to make your team collaborate smarter from day one.',
     categories: [
       { label: 'Microsoft 365', items: ['Power BI', 'Power Automate', 'SharePoint', 'Office 365'] },
       { label: 'Dynamics 365', items: ['Sales', 'Customer Service', 'Field Service', 'Finance', 'Supply Chain'] },
@@ -22,7 +22,7 @@ const GROUPS: Group[] = [
   },
   {
     label: 'Development', color: GREEN, icon: Code2, kind: 'dev',
-    blurb: 'Websites, apps and software engineered to perform — on time, on budget, and built to scale with your business.',
+    blurb: 'Websites, apps and software engineered to perform - on time, on budget, and built to scale with your business.',
     categories: [
       { label: 'Software Development', items: ['Custom Software Development'] },
       { label: 'App Development', items: ['Custom App Development'] },
@@ -161,7 +161,7 @@ export function Solutions() {
           display: flex; align-items: center; justify-content: center;
           box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 16px 36px -22px rgba(8,33,60,0.4); }
 
-        /* Microsoft — floating 3D tile cube */
+        /* Microsoft - floating 3D tile cube */
         .ps-ms-scene { perspective: 640px; }
         .ps-ms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 124px; height: 124px;
           transform-style: preserve-3d; animation: ps-ms-spin 11s ease-in-out infinite; will-change: transform; }
@@ -174,7 +174,7 @@ export function Solutions() {
         .ps-ms-tile:nth-child(4) { background: color-mix(in srgb, var(--c) 88%, #fff); }
         @keyframes ps-ms-pop { 0%,100% { transform: translateZ(0); } 50% { transform: translateZ(30px); } }
 
-        /* Development — tilted code terminal that types */
+        /* Development - tilted code terminal that types */
         .ps-dev-win { width: 74%; max-width: 244px; border-radius: 13px; overflow: hidden; background: ${NAVY};
           transform: perspective(780px) rotateY(-15deg) rotateX(7deg); will-change: transform;
           box-shadow: 0 30px 54px -24px rgba(8,33,60,0.65); animation: ps-dev-tilt 9s ease-in-out infinite; }
@@ -195,7 +195,7 @@ export function Solutions() {
         .ps-dev-caret { width: 8px; height: 14px; border-radius: 1px; background: var(--c); animation: ps-blink 1s steps(1) infinite; }
         @keyframes ps-blink { 0%,50% { opacity: 1; } 50.01%,100% { opacity: 0; } }
 
-        /* Digital & Marketing — broadcast rings + growing bars */
+        /* Digital & Marketing - broadcast rings + growing bars */
         .ps-mkt { position: relative; width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center; }
         .ps-ring { position: absolute; top: 32%; left: 50%; width: 46px; height: 46px; border-radius: 50%;
           border: 2px solid var(--c); transform: translate(-50%,-50%) scale(0.4); opacity: 0; will-change: transform, opacity;
@@ -207,7 +207,7 @@ export function Solutions() {
           background: linear-gradient(180deg, var(--c), color-mix(in srgb, var(--c) 45%, #fff)); animation: ps-grow 3s ease-in-out infinite; }
         @keyframes ps-grow { 0%,100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
 
-        /* Security & Integration — shield with radar sweep + pinging nodes */
+        /* Security & Integration - shield with radar sweep + pinging nodes */
         .ps-sec { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
         .ps-shield { position: relative; width: 108px; height: 128px; overflow: hidden;
           clip-path: polygon(50% 0, 100% 18%, 100% 58%, 50% 100%, 0 58%, 0 18%);
@@ -275,7 +275,7 @@ export function Solutions() {
           <Eyebrow>Solutions</Eyebrow>
           <h1 className="sol-h1">One partner.<br />Every <span>solution.</span></h1>
           <p className="sol-intro">
-            From Microsoft and custom development to marketing, cloud and AI cyber security —
+            From Microsoft and custom development to marketing, cloud and AI cyber security -
             EG Digital covers the entire digital stack, so you never have to juggle a dozen vendors.
           </p>
           <div className="sol-jump">

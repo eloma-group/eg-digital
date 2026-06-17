@@ -4,7 +4,7 @@ import gsap from 'gsap'
 const NAVY = '#08213C'
 const GREEN = '#3CB98C'
 
-/* Curated work imagery — websites, apps, SaaS, cloud, teamwork, design.
+/* Curated work imagery - websites, apps, SaaS, cloud, teamwork, design.
    Stable Unsplash photo IDs, sized & cropped for a light DOM payload. */
 const Q = '?auto=format&fit=crop&w=620&h=760&q=70'
 const IMAGES: { src: string; alt: string }[] = [
@@ -36,7 +36,7 @@ export function ImageTrail() {
     const stage = stageRef.current
     if (!stage) return
 
-    // Respect reduced motion — trail stays dormant.
+    // Respect reduced motion - trail stays dormant.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     // Pointer trail is a desktop-pointer affordance; skip on touch.
     if (window.matchMedia('(hover: none)').matches) return
@@ -147,7 +147,7 @@ export function ImageTrail() {
         @media (max-width: 900px) { .it-stage { display: none; } }
       `}</style>
 
-      {/* Trail stage — captures pointer movement and hosts recycled image cells */}
+      {/* Trail stage - captures pointer movement and hosts recycled image cells */}
       <div className="it-stage" ref={stageRef} aria-hidden="true">
         {IMAGES.map((im, i) => (
           <div
@@ -170,7 +170,7 @@ export function ImageTrail() {
         </div>
         <h2 className="it-h2">2 years. <em>Many</em> projects. Unwavering quality.</h2>
         <p className="it-sub">
-          Websites, apps, SaaS platforms, cloud and security — every milestone above is
+          Websites, apps, SaaS platforms, cloud and security - every milestone above is
           a wall of shipped work. Move your cursor to leaf through it.
         </p>
         <div className="it-hint"><span />Move to reveal</div>

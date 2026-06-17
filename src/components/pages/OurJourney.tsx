@@ -8,12 +8,12 @@ import { JourneyHero } from '../sections/JourneyHero'
 type M = { year: string; tag: string; head: string; hi: string; body: string; stat: string; statLabel: string }
 
 const MILESTONES: M[] = [
-  { year: '2013', tag: 'The Spark', head: 'The passion for digital began', hi: 'digital', body: 'As businesses started moving online, it became clear a digital presence was no longer optional. Working closely with brands revealed how they connect with customers through technology, marketing and design — laying the foundation for everything ahead.', stat: '01', statLabel: 'Where it began' },
-  { year: '2014', tag: 'Learning', head: 'Learning the digital landscape', hi: 'landscape', body: 'Exposure to fast-changing digital environments built a deeper understanding of websites, online marketing, branding and customer engagement. Businesses needed more than a presence — they needed strategies that delivered real results.', stat: '02', statLabel: 'Foundations laid' },
-  { year: '2016', tag: 'Insight', head: 'Understanding business challenges', hi: 'business', body: 'Working across different industries revealed common challenges — limited visibility, inconsistent branding and difficulty generating quality leads. The belief grew that digital solutions must be practical, measurable and focused on growth.', stat: '03', statLabel: 'Industries studied' },
-  { year: '2018', tag: 'Hands-on', head: 'Gaining real-world experience', hi: 'real-world', body: 'Hands-on involvement in website development, branding, content and marketing campaigns sharpened the craft. Understanding what works — and what doesn’t — shaped a customer-focused approach built around meaningful outcomes.', stat: '04', statLabel: 'Experience earned' },
-  { year: '2020', tag: 'The Vision', head: 'A vision started taking shape', hi: 'vision', body: 'Years of experience and continuous learning led to a clear vision — helping businesses grow through smart digital solutions. Not just providing services, but becoming a trusted partner that delivers long-term value.', stat: '05', statLabel: 'A clear purpose' },
-  { year: '2025', tag: 'EG Digital is Born', head: 'EG Digital was born', hi: 'born', body: 'As a subsidiary of Eloma Group, EG Digital launched with a vision to help businesses grow through innovative digital solutions — achieving a key milestone the same year by becoming a Microsoft Partner and licensing provider.', stat: 'Microsoft', statLabel: 'Certified Partner' },
+  { year: '2013', tag: 'The Spark', head: 'The passion for digital began', hi: 'digital', body: 'As businesses started moving online, it became clear a digital presence was no longer optional. Working closely with brands revealed how they connect with customers through technology, marketing and design - laying the foundation for everything ahead.', stat: '01', statLabel: 'Where it began' },
+  { year: '2014', tag: 'Learning', head: 'Learning the digital landscape', hi: 'landscape', body: 'Exposure to fast-changing digital environments built a deeper understanding of websites, online marketing, branding and customer engagement. Businesses needed more than a presence - they needed strategies that delivered real results.', stat: '02', statLabel: 'Foundations laid' },
+  { year: '2016', tag: 'Insight', head: 'Understanding business challenges', hi: 'business', body: 'Working across different industries revealed common challenges - limited visibility, inconsistent branding and difficulty generating quality leads. The belief grew that digital solutions must be practical, measurable and focused on growth.', stat: '03', statLabel: 'Industries studied' },
+  { year: '2018', tag: 'Hands-on', head: 'Gaining real-world experience', hi: 'real-world', body: 'Hands-on involvement in website development, branding, content and marketing campaigns sharpened the craft. Understanding what works - and what doesn’t - shaped a customer-focused approach built around meaningful outcomes.', stat: '04', statLabel: 'Experience earned' },
+  { year: '2020', tag: 'The Vision', head: 'A vision started taking shape', hi: 'vision', body: 'Years of experience and continuous learning led to a clear vision - helping businesses grow through smart digital solutions. Not just providing services, but becoming a trusted partner that delivers long-term value.', stat: '05', statLabel: 'A clear purpose' },
+  { year: '2025', tag: 'EG Digital is Born', head: 'EG Digital was born', hi: 'born', body: 'As a subsidiary of Eloma Group, EG Digital launched with a vision to help businesses grow through innovative digital solutions - achieving a key milestone the same year by becoming a Microsoft Partner and licensing provider.', stat: 'Microsoft', statLabel: 'Certified Partner' },
   { year: '2026', tag: 'Today', head: 'Rapid growth & recognition', hi: 'growth', body: 'Within a short period we delivered projects for clients across multiple industries, building a reputation for quality, creativity and reliability. With a growing portfolio, we move forward with confidence and purpose.', stat: '∞', statLabel: 'The next chapter' },
 ]
 
@@ -46,7 +46,7 @@ function Milestone({ m }: { m: M }) {
       <motion.div style={{ opacity, y }}>
         <div className="jr-block-tag">
           <span style={{ width: 22, height: 2, background: GREEN }} />
-          {m.year} — {m.tag}
+          {m.year} - {m.tag}
         </div>
         <h2 className="jr-block-head">{renderHead(m.head, m.hi)}</h2>
         <p className="jr-block-body">{m.body}</p>
@@ -76,7 +76,7 @@ export function OurJourney() {
         .jr-timeline { display: grid; grid-template-columns: 42% 58%;
           max-width: min(calc(100vw - 120px), 2400px); margin: 0 auto; padding: 0 clamp(24px,4vw,64px); }
 
-        /* Left — sticky year stage */
+        /* Left - sticky year stage */
         .jr-stage { position: sticky; top: 0; align-self: start; height: 100svh;
           display: flex; flex-direction: column; justify-content: center; gap: 28px; }
         .jr-stage-idx { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 2.5px;
@@ -89,7 +89,7 @@ export function OurJourney() {
         .jr-rail { width: 3px; height: clamp(96px,15.5vw,256px); background: rgba(8,33,60,0.1); border-radius: 99px; position: relative; flex-shrink: 0; }
         .jr-rail-fill { position: absolute; inset: 0; background: ${GREEN}; border-radius: 99px; transform-origin: top center; will-change: transform; }
 
-        /* Right — milestone stream */
+        /* Right - milestone stream */
         .jr-block { min-height: 90svh; display: flex; flex-direction: column; justify-content: center;
           padding: clamp(40px,8vh,90px) 0 clamp(40px,8vh,90px) clamp(28px,4vw,80px); }
         .jr-block-tag { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(11px,0.85vw,13px);

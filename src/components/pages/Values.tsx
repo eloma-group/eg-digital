@@ -5,12 +5,12 @@ import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, EASE } from './_kit'
 type Value = { n: string; word: string; def: string }
 
 const VALUES: Value[] = [
-  { n: '01', word: 'Honest by default', def: 'We quote what it really costs and say what we really think — no padded estimates, no vanishing scope, no surprises on the invoice.' },
+  { n: '01', word: 'Honest by default', def: 'We quote what it really costs and say what we really think - no padded estimates, no vanishing scope, no surprises on the invoice.' },
   { n: '02', word: 'Momentum', def: 'Speed is a feature. We move in tight, visible milestones so progress is always something you can see, not something you’re promised.' },
   { n: '03', word: 'Craft', def: 'Pixels, performance and architecture all matter. We sweat the details users never name but always feel.' },
   { n: '04', word: 'Ownership', def: 'We treat your deadline, your budget and your reputation as our own. One accountable team, start to finish.' },
   { n: '05', word: 'Partnership', def: 'We’re a partner, not a vendor. The best work happens when we’re in the room thinking with you, not just for you.' },
-  { n: '06', word: 'Curiosity', def: 'We stay close to what’s next — AI, cloud, security — so your stack is ready for next year’s problems, not last year’s.' },
+  { n: '06', word: 'Curiosity', def: 'We stay close to what’s next - AI, cloud, security - so your stack is ready for next year’s problems, not last year’s.' },
   { n: '07', word: 'Built to outlast us', def: 'Clean code, clear docs and managed support mean what we deliver keeps working long after launch day.' },
 ]
 
@@ -80,7 +80,7 @@ export function Values() {
             What we<br />stand <span style={{ color: GREEN }}>for.</span>
           </h1>
           <p style={{ maxWidth: 600, fontSize: 'clamp(15px,1.25vw,19px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.58)', margin: '22px 0 0' }}>
-            Seven principles that decide how we work, who we hire and what we ship. Read them top to bottom — they come into focus as you go.
+            Seven principles that decide how we work, who we hire and what we ship. Read them top to bottom - they come into focus as you go.
           </p>
         </Reveal>
       </section>
