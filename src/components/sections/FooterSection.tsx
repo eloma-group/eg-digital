@@ -142,7 +142,7 @@ export function FooterSection() {
             {/* ── Brand column ── */}
             <div>
               <a href="#" style={{ display: 'inline-block', lineHeight: 0, marginBottom: 20 }}>
-                <img src="/images/Egdigital-02.png" alt="EG Digital" style={{ height: 66, width: 'auto' }} />
+                <img src="/images/Egdigital-02.png" alt="EG Digital" style={{ height: 80, width: 'auto' }} />
               </a>
 
               <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28 }}>
@@ -275,7 +275,7 @@ export function FooterSection() {
               © 2026 EG Digital Australia Pty Ltd. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px,2vw,24px)', flexWrap: 'wrap' }}>
-              {['Privacy Policy', 'Terms of Use', 'Cookie Policy'].map(link => (
+              {['Privacy Policy', 'Terms of Use'].map(link => (
                 <a key={link} href="#" style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', transition: 'color 0.15s ease', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.28)' }}
