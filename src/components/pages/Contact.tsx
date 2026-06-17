@@ -5,6 +5,10 @@ import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM } from './_kit'
 
 const mapsUrl = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`
 
+// Web3Forms access key — generate it at https://web3forms.com using connect@egdigital.com.au
+// (the inbox that receives submissions is the email the key was created with).
+const WEB3FORMS_ACCESS_KEY = '9c344480-20a7-4e4d-9b52-95c93302b253'
+
 // Quick-contact bar in the hero.
 const QUICK = [
   { icon: Phone, label: 'Call us',  value: '1800 054 555',            href: 'tel:1800054555' },
@@ -64,13 +68,39 @@ function OfficeRow({ index, name, address }: { index: number; name: string; addr
 
 export function Contact() {
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const [region, setRegion] = useState<'au' | 'intl'>('au')
 
   const offices = region === 'au' ? AU_LOCATIONS : INTL_LOCATIONS
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSent(true)
+    setError('')
+    setSending(true)
+
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+    formData.append('subject', 'New enquiry from EG Digital website')
+    formData.append('from_name', 'EG Digital Website')
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        setSent(true)
+      } else {
+        setError(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -261,6 +291,8 @@ export function Contact() {
               ) : (
                 <form onSubmit={onSubmit}>
                   <h2 className="ct-form-h">Start a project</h2>
+                  {/* honeypot — hidden from users, catches spam bots */}
+                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
                   <div className="ct-row2">
                     <div className="ct-field">
                       <label htmlFor="ct-name">Name</label>
@@ -292,7 +324,14 @@ export function Contact() {
                     <label htmlFor="ct-msg">Tell us more</label>
                     <textarea id="ct-msg" name="message" rows={4} placeholder="A few lines about your project, timeline and budget." />
                   </div>
-                  <button type="submit" className="ct-submit">Send message</button>
+                  {error && (
+                    <p style={{ color: '#d9706f', fontSize: 13.5, fontWeight: 600, margin: '0 0 14px', lineHeight: 1.5 }}>
+                      {error}
+                    </p>
+                  )}
+                  <button type="submit" className="ct-submit" disabled={sending} style={sending ? { opacity: 0.65, cursor: 'wait' } : undefined}>
+                    {sending ? 'Sending…' : 'Send message'}
+                  </button>
                 </form>
               )}
             </div>

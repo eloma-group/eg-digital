@@ -190,7 +190,7 @@ export function MicrosoftSection() {
             </motion.div>
 
             <motion.div {...fadeUp(0.25)} className="hv3-stat-row">
-              {[{ v:'50+', l:'Deployments' }, { v:'6', l:'MS Products' }, { v:'5★', l:'Client Rating' }].map(s => (
+              {[{ v:'25+', l:'Deployments' }, { v:'6', l:'MS Products' }, { v:'4.2★', l:'Client Rating' }].map(s => (
                 <div key={s.l}><div className="hv3-stat-v">{s.v}</div><div className="hv3-stat-l">{s.l}</div></div>
               ))}
             </motion.div>

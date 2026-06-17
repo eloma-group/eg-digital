@@ -227,7 +227,7 @@ export function ServicesSection() {
             display:'flex', justifyContent:'center', gap:'clamp(20px,3vw,40px)',
             marginBottom:'clamp(28px,3.5vw,48px)',
           }}>
-            {[{ v:'50+', l:'Projects' }, { v:'14', l:'Industries' }, { v:'5★', l:'Rating' }].map(s => (
+            {[{ v:'25+', l:'Projects' }, { v:'14', l:'Industries' }, { v:'4.2★', l:'Rating' }].map(s => (
               <div key={s.l} style={{ textAlign:'center' }}>
                 <div style={{ fontSize:'clamp(20px,2vw,28px)', fontWeight:900, color:NAVY, letterSpacing:'-0.04em', lineHeight:1 }}>{s.v}</div>
                 <div style={{ fontSize:10, fontWeight:700, color:'rgba(8,33,60,0.36)', textTransform:'uppercase', letterSpacing:'1.2px', marginTop:3 }}>{s.l}</div>

@@ -211,7 +211,7 @@ export function IndustriesSection() {
 
             {/* Stat row */}
             <motion.div {...fadeUp(0.18)} className="hv6-stat-row">
-              {[{ v:'14', l:'Industries' }, { v:'50+', l:'Projects' }, { v:'5yr', l:'Experience' }].map(s => (
+              {[{ v:'14', l:'Industries' }, { v:'25+', l:'Projects' }, { v:'2yr', l:'Experience' }].map(s => (
                 <div key={s.l}>
                   <div className="hv6-stat-v">{s.v}</div>
                   <div className="hv6-stat-l">{s.l}</div>

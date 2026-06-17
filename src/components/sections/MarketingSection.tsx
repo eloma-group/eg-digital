@@ -22,9 +22,9 @@ export function MarketingSection() {
   const navigate = useNavigate()
   const BARS = [22, 38, 30, 55, 48, 72, 64, 88, 78, 95, 85, 100]
   const METRICS = [
-    { val:'+284%', lbl:'Organic Traffic', color:GREEN },
+    { val:'+150%', lbl:'Organic Traffic', color:GREEN },
     { val:'#1',    lbl:'Google Rankings', color:NAVY  },
-    { val:'DA 84', lbl:'Domain Authority', color:NAVY },
+    { val:'DA 6', lbl:'Domain Authority', color:NAVY },
     { val:'14',    lbl:'Industries Served', color:NAVY },
   ]
 

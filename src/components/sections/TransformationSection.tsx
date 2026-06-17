@@ -217,7 +217,7 @@ export function TransformationSection() {
               letterSpacing:'2.5px', textTransform:'uppercase', color:GREEN,
             }}>
               <span style={{ width:22, height:2, background:GREEN, borderRadius:1 }} />
-              EG Digital · Sydney, Australia · Est. 2021
+              EG Digital · Melbourne, Australia · Est. 2025
               <span style={{ width:22, height:2, background:GREEN, borderRadius:1 }} />
             </span>
           </motion.div>
