@@ -9,28 +9,34 @@ type Scene = { n: string; tag: string; lines: string[]; hi: string; body: string
 
 const SCENES: Scene[] = [
   {
-    n: '01', tag: 'Senior-only team', theme: 'light',
-    lines: ['The people who', 'pitch you build it.'], hi: 'build it.',
-    body: 'Every line of code and pixel of design is handled by senior specialists. No hand-off to whoever happens to be free — the team you choose is the team you get.',
-    proof: 'Zero juniors on delivery',
+    n: '01', tag: 'Business-first thinking', theme: 'light',
+    lines: ['We think like', 'business owners.'], hi: 'business owners.',
+    body: 'We don’t just create websites or run campaigns — we look at the bigger picture. Every decision is made with your business goals, customer journey and growth opportunities in mind, so our work delivers real value beyond just aesthetics.',
+    proof: 'Growth-focused decisions',
   },
   {
-    n: '02', tag: 'Enterprise tech, startup speed', theme: 'navy',
-    lines: ['Microsoft depth.', 'Startup velocity.'], hi: 'velocity.',
-    body: 'A certified Microsoft partner that still ships fast — Dynamics, Azure and Power Platform muscle without the six-month procurement-and-waterfall slog.',
-    proof: '4–8 week typical build',
+    n: '02', tag: 'Tailored, never templated', theme: 'navy',
+    lines: ['Solutions built', 'around your', 'business.'], hi: 'around your',
+    body: 'No two businesses are the same, which is why we avoid one-size-fits-all solutions. Whether it’s branding, website development, SEO or marketing, every strategy is tailored to your industry, audience and objectives.',
+    proof: 'No one-size-fits-all',
   },
   {
-    n: '03', tag: 'Fixed-price clarity', theme: 'green',
-    lines: ['We quote it.', 'We hit it.', 'Every time.'], hi: 'We hit it.',
-    body: 'Honest fixed-price quotes against defined milestones, with weekly visibility. The number we give is the number you pay — the date we promise is the date we deliver.',
-    proof: 'Fixed price, fixed date',
+    n: '03', tag: 'Design that performs', theme: 'green',
+    lines: ['Creativity', 'with a purpose.'], hi: 'purpose.',
+    body: 'Great design should do more than look good. Our creative approach focuses on building trust, improving user experience and encouraging customer action — helping your brand make a lasting impact in a crowded digital space.',
+    proof: 'Built to convert',
   },
   {
-    n: '04', tag: 'Built to outlast us', theme: 'navy',
-    lines: ['Built to keep', 'working long', 'after we leave.'], hi: 'keep',
-    body: 'Clean architecture, documented systems and managed support mean what we build keeps performing — whether or not we’re still in the room.',
-    proof: 'Documented & supported',
+    n: '04', tag: 'In it for the long run', theme: 'navy',
+    lines: ['A long-term', 'digital partner.'], hi: 'digital partner.',
+    body: 'We aim to build lasting relationships, not just complete projects. As your business grows, we continue to provide guidance, support and digital solutions that evolve with your changing needs and ambitions.',
+    proof: 'Partners, not projects',
+  },
+  {
+    n: '05', tag: 'Always accountable', theme: 'green',
+    lines: ['Fast, reliable', '& accountable.'], hi: '& accountable.',
+    body: 'Businesses move quickly, and so do we. With clear communication, transparent processes and a commitment to meeting deadlines, you can count on us to deliver quality work without unnecessary delays or complications.',
+    proof: 'On time, every time',
   },
 ]
 
@@ -137,7 +143,7 @@ export function OurUSP() {
     <CinematicBanner
       eyebrow="What Makes Us"
       word="DIFFERENT"
-      sub="Senior-only teams, Microsoft depth, fixed-price clarity — four reasons working with us never feels like working with everyone else."
+      sub="We believe great digital solutions should be simple, effective and focused on growth — combining creativity, strategy and technology to help businesses stand out, connect with customers and achieve lasting success."
       scrollLabel="Scroll to explore"
     />
   )

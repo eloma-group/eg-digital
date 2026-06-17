@@ -127,54 +127,52 @@ const SHARED_CSS = `
 `
 
 /* ════════════════════════════════════════════════════════════════════
-   HERO 2 — Video hero with diagonal reveal.
-   Same diagonal transparent→visible ramp as Hero 1, but the right side
-   plays the EG Digital homepage video. Compositor-only ken-burns zoom;
-   muted + looped autoplay so it never blocks paint or interaction.
+   HERO 2 — Image hero with diagonal reveal (Tokyo skyline + Fuji).
+   Mirrors Hero 1 exactly, but reveals /images/hero-image.png on the
+   right side. Compositor-only ken-burns zoom.
    ════════════════════════════════════════════════════════════════════ */
 export function Hero2() {
+  const src = '/images/hero-image.png'
   return (
     <>
       <style>{`
         ${SHARED_CSS}
-        @keyframes hcVidZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
-        .hcVid-stage { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-        .hcVid-el {
-          position: absolute; inset: 0; width: 100%; height: 100%;
-          object-fit: cover; object-position: center right;
-          transform-origin: 100% 0%;
-          animation: hcVidZoom 24s ease-in-out infinite alternate;
+        @keyframes hcImg2Zoom { from { transform: scale(1); } to { transform: scale(1.07); } }
+        /* full-bleed image — no diagonal mask */
+        .hcImg2-stage {
+          position: absolute; inset: 0; z-index: 0; pointer-events: none;
+          background-size: cover; background-position: center; background-repeat: no-repeat;
+          transform-origin: center;
+          animation: hcImg2Zoom 26s ease-in-out infinite alternate;
           will-change: transform;
-          /* diagonal: invisible lower-left (text) → fully visible top-right */
-          -webkit-mask: linear-gradient(118deg, transparent 0%, transparent 32%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 72%, #000 90%);
-                  mask: linear-gradient(118deg, transparent 0%, transparent 32%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.92) 72%, #000 90%);
         }
-        .hcVid-fade {
+        /* left scrim keeps the navy headline legible over the photo */
+        .hcImg2-scrim {
           position: absolute; inset: 0; z-index: 1; pointer-events: none;
-          background: linear-gradient(118deg, ${CREAM} 0%, ${CREAM} 40%, rgba(255,255,255,0) 62%);
+          background:
+            linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 22%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.25) 58%, rgba(255,255,255,0) 76%),
+            linear-gradient(0deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 32%);
         }
-        @media (prefers-reduced-motion: reduce) { .hcVid-el { animation: none; } }
+        @media (prefers-reduced-motion: reduce) { .hcImg2-stage { animation: none; } }
         @media (max-width: 767px) {
-          .hcVid-el {
-            -webkit-mask: linear-gradient(118deg, transparent 0%, transparent 56%, rgba(0,0,0,0.6) 80%, #000 100%);
-                    mask: linear-gradient(118deg, transparent 0%, transparent 56%, rgba(0,0,0,0.6) 80%, #000 100%);
-            opacity: 0.6;
+          .hcImg2-scrim {
+            background:
+              linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 45%, rgba(255,255,255,0.5) 75%, rgba(255,255,255,0.1) 100%),
+              linear-gradient(0deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 36%);
           }
-          .hcVid-fade { background: linear-gradient(118deg, ${CREAM} 0%, ${CREAM} 50%, rgba(255,255,255,0) 78%); }
         }
       `}</style>
 
       <section className="hc-section" data-nav-overlap>
-        <div className="hcVid-stage" aria-hidden="true">
-          <video
-            className="hcVid-el"
-            autoPlay muted loop playsInline preload="auto"
-            ref={el => { if (el) { el.muted = true; el.play().catch(() => {}) } }}
-          >
-            <source src="/images/EG%20Digital%20Homepage%20Video.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="hcVid-fade" aria-hidden="true" />
+        <motion.div
+          className="hcImg2-stage"
+          aria-hidden="true"
+          style={{ backgroundImage: `url(${src})` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.3, ease: EASE }}
+        />
+        <div className="hcImg2-scrim" aria-hidden="true" />
 
         <div className="hc-head"><Words /></div>
         <CtaRow />
