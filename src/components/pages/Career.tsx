@@ -13,18 +13,18 @@ const STATS = [
   { to: 50, decimals: 0, suffix: '+', label: 'Products shipped' },
 ]
 const VOICES = [
-  { quote: 'The best work of my career — real ownership, zero busywork.', name: 'Aria', role: 'Senior Engineer', color: '#2563eb' },
+  { quote: 'The best work of my career - real ownership, zero busywork.', name: 'Aria', role: 'Senior Engineer', color: '#2563eb' },
   { quote: 'Senior people, a sane pace, and we actually ship. A rare combination.', name: 'Marco', role: 'Product Designer', color: '#7c3aed' },
   { quote: "Remote done right. I'm trusted with outcomes, never clock-watched.", name: 'Lena', role: 'DevOps Engineer', color: GREEN },
 ]
 const BENEFITS = [
   '$3,000 annual learning budget', 'Certifications paid in full',
-  'Async-first — very few meetings', 'Top-tier hardware, your choice',
+  'Async-first - very few meetings', 'Top-tier hardware, your choice',
   'Paid trial task before any offer', 'No cover letters, ever',
   'Senior-only delivery team', 'Real ownership from week one',
 ]
 const STORY = [
-  { time: '09:00', k: 'Stand-up', b: 'A quick async check-in — no status theatre, just what’s shipping today.', c: GREEN },
+  { time: '09:00', k: 'Stand-up', b: 'A quick async check-in - no status theatre, just what’s shipping today.', c: GREEN },
   { time: '11:00', k: 'Deep work', b: 'Long, protected focus blocks. Notifications off, craft on.', c: '#2563eb' },
   { time: '15:00', k: 'Ship it', b: 'Tight, reversible releases. Real work to real users, daily.', c: '#d97706' },
   { time: '17:00', k: 'We’ve got you', b: 'Support and each other. We close the loop before we log off.', c: '#7c3aed' },
@@ -38,7 +38,7 @@ const ROLES = [
   { title: 'Digital Marketing Specialist', team: 'Growth', type: 'Full-time · Remote', summary: 'SEO, paid and content that actually moves the numbers.' },
   { title: 'Cyber Security Analyst', team: 'Security', type: 'Full-time · Remote', summary: 'Microsoft Defender, monitoring and zero-trust hardening.' },
 ]
-const applyHref = (t: string) => `mailto:connect@egdigital.com.au?subject=${encodeURIComponent('Application — ' + t)}`
+const applyHref = (t: string) => `mailto:connect@egdigital.com.au?subject=${encodeURIComponent('Application - ' + t)}`
 
 /* ── Helpers ── */
 function CountUp({ to, decimals = 0, suffix = '' }: { to: number; decimals?: number; suffix?: string }) {
@@ -107,7 +107,7 @@ function ConceptLabel({ n, title, note }: { n: string; title: string; note: stri
   )
 }
 
-/* ═══════════ CONCEPT 01 — Studio product-page ═══════════ */
+/* ═══════════ CONCEPT 01 - Studio product-page ═══════════ */
 function ProductPage() {
   const [v, setV] = useState(0)
   const voice = VOICES[v]
@@ -150,11 +150,11 @@ function ProductPage() {
   )
 }
 
-/* ═══════════ CONCEPT 02 — Build-studio notebook ═══════════ */
+/* ═══════════ CONCEPT 02 - Build-studio notebook ═══════════ */
 function Notebook() {
   return (
     <div className="nb">
-      <div className="nb-annot">// open roles — apply with your work, not a form</div>
+      <div className="nb-annot">// open roles - apply with your work, not a form</div>
       <div className="nb-notes">
         {ROLES.map((r, i) => {
           const c = TEAM_COLOR[r.team]
@@ -174,7 +174,7 @@ function Notebook() {
   )
 }
 
-/* ═══════════ CONCEPT 03 — Departures board ═══════════ */
+/* ═══════════ CONCEPT 03 - Departures board ═══════════ */
 function Departures() {
   return (
     <div className="db">
@@ -195,7 +195,7 @@ function Departures() {
   )
 }
 
-/* ═══════════ CONCEPT 04 — Scroll story ═══════════ */
+/* ═══════════ CONCEPT 04 - Scroll story ═══════════ */
 function ScrollStory() {
   return (
     <div className="ss">
@@ -336,14 +336,14 @@ export function Career() {
           <div className="cr-badge"><span className="pulse" />We're hiring · {ROLES.length} open roles</div>
           <h1 className="cr-h1">Come build<br />the future <span>with us.</span></h1>
           <p className="cr-intro">
-            Four directions for this page, shown below — pick the one you like and I'll keep it and drop
+            Four directions for this page, shown below - pick the one you like and I'll keep it and drop
             the rest. A senior, remote-first team that ships work it's proud of.
           </p>
         </Reveal>
       </section>
 
       <section className="cr-sec" style={{ background: '#fff' }}>
-        <div className="cr-shell"><ConceptLabel n="01" title="Studio Product-Page" note="Counts-up momentum stats, a rotating employee voice, and the real specifics with green checks — the 2025 best-practice play." /><ProductPage /></div>
+        <div className="cr-shell"><ConceptLabel n="01" title="Studio Product-Page" note="Counts-up momentum stats, a rotating employee voice, and the real specifics with green checks - the 2025 best-practice play." /><ProductPage /></div>
       </section>
 
       <section className="cr-sec" style={{ background: CREAM }}>
@@ -351,11 +351,11 @@ export function Career() {
       </section>
 
       <section className="cr-sec" style={{ background: '#fff' }}>
-        <div className="cr-shell"><ConceptLabel n="03" title="Departures Board" note="Open roles as a live split-flap departures board — titles and team codes decode into place on scroll." /><Departures /></div>
+        <div className="cr-shell"><ConceptLabel n="03" title="Departures Board" note="Open roles as a live split-flap departures board - titles and team codes decode into place on scroll." /><Departures /></div>
       </section>
 
       <section className="cr-sec" style={{ background: CREAM }}>
-        <div className="cr-shell"><ConceptLabel n="04" title="A Day at EG (scroll story)" note="A narrative timeline of a real day — stand-up to sign-off — with a colour-shifting spine. Builds momentum to the roles." /><ScrollStory /></div>
+        <div className="cr-shell"><ConceptLabel n="04" title="A Day at EG (scroll story)" note="A narrative timeline of a real day - stand-up to sign-off - with a colour-shifting spine. Builds momentum to the roles." /><ScrollStory /></div>
       </section>
 
       {/* ── Shared roles board ── */}

@@ -82,7 +82,7 @@ const SOLUTIONS_GROUPS = [
 ]
 
 // ─────────────────────────────────────────────
-// PANEL DROPDOWN — full-width, Eloma-style
+// PANEL DROPDOWN - full-width, Eloma-style
 // ─────────────────────────────────────────────
 type PanelCol = { header?: string; items: string[] }
 
@@ -244,7 +244,7 @@ function PanelDropdown({
 }
 
 // ─────────────────────────────────────────────
-// MEGA MENU — Solutions (accordion + hover expand)
+// MEGA MENU - Solutions (accordion + hover expand)
 // ─────────────────────────────────────────────
 function MegaMenu({
   onClose,
@@ -282,7 +282,7 @@ function MegaMenu({
         pointerEvents: 'none',
       }}
     >
-      {/* Scrollable inner panel — handlers here so scroll works */}
+      {/* Scrollable inner panel - handlers here so scroll works */}
       <div
         onMouseEnter={onPanelMouseEnter}
         onMouseLeave={onPanelMouseLeave}
@@ -311,7 +311,7 @@ function MegaMenu({
                 borderRight: isLast ? 'none' : '1px solid rgba(8,33,60,0.06)',
               }}
             >
-              {/* Group header — links to the matching Solutions section */}
+              {/* Group header - links to the matching Solutions section */}
               <button
                 onClick={() => goToSection(group.groupLabel)}
                 style={{
@@ -334,7 +334,7 @@ function MegaMenu({
                 }}>{group.groupLabel}</span>
               </button>
 
-              {/* Categories — each has + accordion on hover */}
+              {/* Categories - each has + accordion on hover */}
               <div
                 style={{ display: 'flex', flexDirection: 'column', gap: 2 }}
                 onMouseLeave={() => setHoveredCat(null)}
@@ -393,7 +393,7 @@ function MegaMenu({
                         </div>
                       </div>
 
-                      {/* Sub-items — slide in on hover */}
+                      {/* Sub-items - slide in on hover */}
                       <AnimatePresence initial={false}>
                         {isOpen && (
                           <motion.div
@@ -597,7 +597,7 @@ export function Navbar() {
         }
         .nav-logo img { height: 44px; width: auto; }
 
-        /* Nav links — centered between logo and right actions */
+        /* Nav links - centered between logo and right actions */
         .nav-links {
           display: flex; align-items: center;
           justify-content: center;       /* ← centers items */
@@ -708,10 +708,10 @@ export function Navbar() {
             />
           </div>
 
-          {/* Desktop links — centred */}
+          {/* Desktop links - centred */}
           <nav className="nav-links" aria-label="Main navigation">
 
-            {/* About Us — full-width panel */}
+            {/* About Us - full-width panel */}
             <div
               onMouseEnter={() => openMenu('about')}
               onMouseLeave={scheduleClose}
@@ -748,7 +748,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Solutions — mega accordion panel */}
+            {/* Solutions - mega accordion panel */}
             <div
               onMouseEnter={() => openMenu('solutions')}
               onMouseLeave={scheduleClose}
@@ -780,7 +780,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Services — full-width panel */}
+            {/* Services - full-width panel */}
             <div
               onMouseEnter={() => openMenu('services')}
               onMouseLeave={scheduleClose}
@@ -819,7 +819,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Industries — full-width panel */}
+            {/* Industries - full-width panel */}
             <div
               onMouseEnter={() => openMenu('industries')}
               onMouseLeave={scheduleClose}
@@ -863,7 +863,7 @@ export function Navbar() {
 
             <button className="nav-link" onClick={() => { navigate('/career'); closeAll() }}>Career</button>
 
-            {/* Blog — full-width panel */}
+            {/* Blog - full-width panel */}
             <div
               onMouseEnter={() => openMenu('blog')}
               onMouseLeave={scheduleClose}

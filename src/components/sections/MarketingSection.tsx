@@ -15,7 +15,7 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MARKETING SECTION — Center-aligned text + bottom analytics mockup
+// MARKETING SECTION - Center-aligned text + bottom analytics mockup
 // Theme: SEO & Digital Marketing Growth (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function MarketingSection() {
@@ -50,7 +50,7 @@ export function MarketingSection() {
           padding:clamp(90px,11vh,140px) clamp(24px,4vw,64px) clamp(48px,6vw,80px);
           position:relative; overflow:hidden;
         }
-        /* dot grid — bottom half */
+        /* dot grid - bottom half */
         .hv4-section::after {
           content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
           background-image:radial-gradient(circle, rgba(8,33,60,0.055) 1px, transparent 1px);
@@ -226,7 +226,7 @@ export function MarketingSection() {
             fontSize:'clamp(15px,1.2vw,19px)', color:'rgba(8,33,60,0.52)',
             lineHeight:1.82, maxWidth:580, margin:'0 auto clamp(28px,3vw,44px)',
           }}>
-            Technical SEO, standout branding, and precision paid media —
+            Technical SEO, standout branding, and precision paid media -
             we put your business in front of the right audience and keep it
             performing at its peak.
           </motion.p>
@@ -259,7 +259,7 @@ export function MarketingSection() {
           transition={{ duration:1.1, ease:EASE, delay:0.28 }}
           className="hv4-chart-card"
         >
-          {/* Card header — browser chrome style */}
+          {/* Card header - browser chrome style */}
           <div className="hv4-chart-header">
             <div style={{ display:'flex', gap:5 }}>
               {['#ff5f57','#ffbd2e','#28ca41'].map(c => (
@@ -267,7 +267,7 @@ export function MarketingSection() {
               ))}
             </div>
             <div style={{ flex:1, textAlign:'center' }}>
-              <span style={{ fontSize:11, fontWeight:700, color:'rgba(8,33,60,0.35)', fontFamily:'SF Mono,Consolas,monospace' }}>analytics.egdigital.com.au — Organic Traffic · Last 12 months</span>
+              <span style={{ fontSize:11, fontWeight:700, color:'rgba(8,33,60,0.35)', fontFamily:'SF Mono,Consolas,monospace' }}>analytics.egdigital.com.au - Organic Traffic · Last 12 months</span>
             </div>
             <div style={{ display:'flex', alignItems:'center', gap:6, background:`${GREEN}14`, border:`1px solid ${GREEN}30`, borderRadius:100, padding:'4px 12px' }}>
               <svg width="8" height="8" viewBox="0 0 8 8"><path d="M1 7L3.5 3L5.5 5L7 1" stroke={GREEN} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -332,7 +332,7 @@ export function MarketingSection() {
               ))}
             </div>
             <div style={{ flex:1, textAlign:'center' }}>
-              <span style={{ fontSize:11, fontWeight:700, color:'rgba(8,33,60,0.35)', fontFamily:'SF Mono,Consolas,monospace' }}>google.com.au — Search Results</span>
+              <span style={{ fontSize:11, fontWeight:700, color:'rgba(8,33,60,0.35)', fontFamily:'SF Mono,Consolas,monospace' }}>google.com.au - Search Results</span>
             </div>
           </div>
 
@@ -347,18 +347,18 @@ export function MarketingSection() {
                 <span style={{ fontSize:9, fontWeight:800, letterSpacing:'1px', color:GREEN, background:`${GREEN}1a`, padding:'2px 8px', borderRadius:100 }}>#1 RANKING</span>
                 <span style={{ fontSize:9, fontWeight:700, color:GREEN }}>▲ +12 positions</span>
               </div>
-              <span style={{ fontSize:13, fontWeight:800, color:'#1a0dab' }}>Nova Commerce — Premium Online Store</span>
-              <span style={{ fontSize:11, color:'rgba(8,33,60,0.5)', lineHeight:1.5 }}>novacommerce.com.au — Shop the new season collection. Free shipping Australia-wide on all orders.</span>
+              <span style={{ fontSize:13, fontWeight:800, color:'#1a0dab' }}>Nova Commerce - Premium Online Store</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.5)', lineHeight:1.5 }}>novacommerce.com.au - Shop the new season collection. Free shipping Australia-wide on all orders.</span>
             </div>
 
             <div className="hv4-serp-row" style={{ opacity:0.55 }}>
               <span style={{ fontSize:13, fontWeight:700, color:'#1a0dab' }}>Competitor Store Co.</span>
-              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>competitorstore.com.au — Online shopping for fashion &amp; homeware.</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>competitorstore.com.au - Online shopping for fashion &amp; homeware.</span>
             </div>
 
             <div className="hv4-serp-row" style={{ opacity:0.4 }}>
               <span style={{ fontSize:13, fontWeight:700, color:'#1a0dab' }}>Generic Marketplace</span>
-              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>marketplace.com.au — Millions of products, low prices.</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.42)', lineHeight:1.5 }}>marketplace.com.au - Millions of products, low prices.</span>
             </div>
           </div>
 

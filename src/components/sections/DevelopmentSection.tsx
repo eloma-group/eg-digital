@@ -15,8 +15,8 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DEVELOPMENT SECTION — Left editorial + Right CSS device-mockup composition
-// Theme: Web, App & Software Development — shows the actual product we build
+// DEVELOPMENT SECTION - Left editorial + Right CSS device-mockup composition
+// Theme: Web, App & Software Development - shows the actual product we build
 // ─────────────────────────────────────────────────────────────────────────────
 export function DevelopmentSection() {
   const navigate = useNavigate()
@@ -79,7 +79,7 @@ export function DevelopmentSection() {
         }
         .hv1-btn-g:hover { border-color:rgba(8,33,60,0.45); }
 
-        /* right — device composition */
+        /* right - device composition */
         .hv1-devices { position:relative; }
 
         /* laptop shell */
@@ -160,7 +160,7 @@ export function DevelopmentSection() {
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(8,33,60,0.52)',
               lineHeight:1.82, maxWidth:440, marginBottom:'clamp(22px,2.8vw,36px)',
             }}>
-              Marketing sites, SaaS platforms, mobile apps, and e-commerce stores —
+              Marketing sites, SaaS platforms, mobile apps, and e-commerce stores -
               engineered on time, on budget, built to scale.
             </motion.p>
 
@@ -185,7 +185,7 @@ export function DevelopmentSection() {
             </motion.div>
           </div>
 
-          {/* Right — CSS device mockup */}
+          {/* Right - CSS device mockup */}
           <motion.div
             initial={{ opacity:0, x:40 }}
             whileInView={{ opacity:1, x:0 }}
@@ -197,120 +197,167 @@ export function DevelopmentSection() {
             <div className="hv1-laptop-lid">
               <div className="hv1-camera" />
               <div className="hv1-screen">
-                <div style={{ background:'#fff', height:'100%', display:'flex', flexDirection:'column' }}>
-                  {/* Browser chrome */}
-                  <div style={{ background:'linear-gradient(180deg,#ededea,#e3e3df)', borderBottom:'1px solid rgba(0,0,0,0.09)', padding:'6px 9px', display:'flex', alignItems:'center', gap:7, flexShrink:0 }}>
+                <div style={{ background:'#0a1322', height:'100%', display:'flex', flexDirection:'column' }}>
+                  {/* Browser chrome - dark */}
+                  <div style={{ background:'linear-gradient(180deg,#101c2e,#0c1626)', borderBottom:'1px solid rgba(255,255,255,0.06)', padding:'6px 9px', display:'flex', alignItems:'center', gap:7, flexShrink:0 }}>
                     <div style={{ display:'flex', gap:5 }}>
                       {['#ff5f57','#ffbd2e','#28ca41'].map(c=><div key={c} style={{ width:8, height:8, borderRadius:'50%', background:c }} />)}
                     </div>
-                    <div style={{ display:'flex', gap:7, marginLeft:4, color:'rgba(0,0,0,0.3)' }}>
+                    <div style={{ display:'flex', gap:7, marginLeft:4, color:'rgba(255,255,255,0.28)' }}>
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M5 1.5 2.5 4 5 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M3 1.5 5.5 4 3 6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </div>
-                    <div style={{ flex:1, background:'#fff', borderRadius:5, padding:'3px 9px', fontSize:8, color:'rgba(0,0,0,0.42)', fontFamily:'ui-monospace,monospace', border:'1px solid rgba(0,0,0,0.07)', whiteSpace:'nowrap', overflow:'hidden', display:'flex', alignItems:'center', gap:5 }}>
-                      <span style={{ width:6, height:6, borderRadius:'50%', border:`1px solid ${GREEN}`, flexShrink:0 }} />
-                      app.novacommerce.com.au/analytics
+                    <div style={{ flex:1, background:'rgba(255,255,255,0.05)', borderRadius:5, padding:'3px 9px', fontSize:8, color:'rgba(255,255,255,0.5)', fontFamily:'ui-monospace,monospace', border:'1px solid rgba(255,255,255,0.07)', whiteSpace:'nowrap', overflow:'hidden', display:'flex', alignItems:'center', gap:5 }}>
+                      <svg width="7" height="7" viewBox="0 0 8 8" fill="none" style={{ flexShrink:0 }}><path d="M2 3.6V2.7a2 2 0 0 1 4 0v0.9M1.6 3.6h4.8v3H1.6z" stroke={GREEN} strokeWidth="0.8" strokeLinejoin="round"/></svg>
+                      app.novapay.io/dashboard
                     </div>
                   </div>
-                  {/* App shell — fully hand-built flat dashboard UI (sidebar + content) */}
-                  <div style={{ flex:1, minHeight:0, display:'flex', background:'#eef2f8' }}>
+                  {/* App shell - dark glass fintech dashboard (NovaPay) */}
+                  <div style={{ flex:1, minHeight:0, display:'flex', position:'relative', background:'radial-gradient(120% 90% at 85% -10%, #143a52 0%, #0b1a2e 42%, #081322 100%)' }}>
+                    {/* ambient glow */}
+                    <div style={{ position:'absolute', top:-20, right:'18%', width:90, height:90, borderRadius:'50%', background:`radial-gradient(circle,${GREEN}33,transparent 70%)`, pointerEvents:'none' }} />
+
                     {/* Sidebar */}
-                    <div style={{ width:'13%', minWidth:34, maxWidth:56, background:NAVY, display:'flex', flexDirection:'column', alignItems:'center', padding:'8px 0', gap:7 }}>
-                      <div style={{ width:14, height:14, background:GREEN, borderRadius:4, marginBottom:4 }} />
+                    <div style={{ width:'13%', minWidth:36, maxWidth:58, borderRight:'1px solid rgba(255,255,255,0.06)', display:'flex', flexDirection:'column', alignItems:'center', padding:'8px 0 7px', gap:7, position:'relative', zIndex:1 }}>
+                      <div style={{ width:15, height:15, background:`linear-gradient(135deg,${GREEN},#2d8e6c)`, borderRadius:5, marginBottom:5, boxShadow:`0 2px 10px ${GREEN}66` }} />
                       {[0,1,2,3,4].map(i=>(
-                        <div key={i} style={{ width:'56%', height:5, borderRadius:2, background:i===0?GREEN:'rgba(255,255,255,0.16)' }} />
+                        <div key={i} style={{ width:17, height:17, borderRadius:5, display:'flex', alignItems:'center', justifyContent:'center', background:i===0?'rgba(60,185,140,0.16)':'transparent', border:i===0?`1px solid ${GREEN}44`:'1px solid transparent' }}>
+                          <span style={{ width:7, height:7, borderRadius:2, border:`1.2px solid ${i===0?GREEN:'rgba(255,255,255,0.28)'}` }} />
+                        </div>
                       ))}
-                      <div style={{ marginTop:'auto', width:13, height:13, borderRadius:'50%', background:'rgba(255,255,255,0.18)' }} />
+                      <div style={{ marginTop:'auto', width:14, height:14, borderRadius:'50%', background:`linear-gradient(135deg,${GREEN},#1b6f53)`, border:'1px solid rgba(255,255,255,0.2)' }} />
                     </div>
 
                     {/* Main content */}
-                    <div style={{ flex:1, minWidth:0, display:'flex', flexDirection:'column', padding:'9px 10px', gap:7 }}>
-                      {/* Page header */}
+                    <div style={{ flex:1, minWidth:0, display:'flex', flexDirection:'column', padding:'8px 9px', gap:6, position:'relative', zIndex:1 }}>
+                      {/* Header */}
                       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0 }}>
                         <div>
-                          <div style={{ fontSize:11, fontWeight:900, color:NAVY, letterSpacing:'-0.02em', lineHeight:1 }}>Analytics Overview</div>
-                          <div style={{ fontSize:6.5, color:'rgba(8,33,60,0.4)', marginTop:2, fontWeight:600 }}>Last 6 months · Jan – Jun</div>
+                          <div style={{ fontSize:11, fontWeight:900, color:'#fff', letterSpacing:'-0.03em', lineHeight:1 }}>Wallet Overview</div>
+                          <div style={{ fontSize:6.5, color:'rgba(255,255,255,0.4)', marginTop:2.5, fontWeight:600 }}>Welcome back, Alex Morgan</div>
                         </div>
                         <div style={{ display:'flex', gap:5, alignItems:'center' }}>
-                          <div style={{ width:38, height:11, borderRadius:100, background:'#fff', border:'1px solid rgba(8,33,60,0.1)' }} />
-                          <div style={{ width:11, height:11, borderRadius:'50%', background:`linear-gradient(135deg,${GREEN},${NAVY})` }} />
+                          <div style={{ width:46, height:13, borderRadius:100, background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.09)', display:'flex', alignItems:'center', gap:3, padding:'0 5px' }}>
+                            <span style={{ width:4, height:4, borderRadius:'50%', border:'1px solid rgba(255,255,255,0.4)' }} />
+                            <span style={{ flex:1, height:2, borderRadius:2, background:'rgba(255,255,255,0.12)' }} />
+                          </div>
+                          <div style={{ position:'relative', width:13, height:13, borderRadius:'50%', background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.09)' }}>
+                            <span style={{ position:'absolute', top:-1, right:-1, width:4, height:4, borderRadius:'50%', background:GREEN, border:'1px solid #0a1322' }} />
+                          </div>
+                          <div style={{ width:13, height:13, borderRadius:'50%', background:`linear-gradient(135deg,${GREEN},#0c3b6b)`, border:'1px solid rgba(255,255,255,0.25)' }} />
                         </div>
                       </div>
 
-                      {/* KPI cards */}
+                      {/* Top row: balance glass card + virtual payment card */}
                       <div style={{ display:'flex', gap:6, flexShrink:0 }}>
-                        {[
-                          { l:'Revenue', v:'$24.8k', d:'+18.4%', up:true },
-                          { l:'Orders', v:'1,204', d:'+6.2%', up:true },
-                          { l:'Users', v:'8,450', d:'+12%', up:true },
-                          { l:'Conv. Rate', v:'3.6%', d:'-0.4%', up:false },
-                        ].map(k=>(
-                          <div key={k.l} style={{ flex:1, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'6px 7px' }}>
-                            <div style={{ fontSize:6, color:'rgba(8,33,60,0.45)', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.4px' }}>{k.l}</div>
-                            <div style={{ fontSize:12, fontWeight:900, color:NAVY, letterSpacing:'-0.03em', lineHeight:1.1, marginTop:2 }}>{k.v}</div>
-                            <div style={{ fontSize:6, fontWeight:700, color:k.up?GREEN:'#d9706f', marginTop:2 }}>{k.up?'↑':'↓'} {k.d}</div>
+                        {/* Balance card */}
+                        <div style={{ flex:1.45, minWidth:0, borderRadius:9, padding:'9px 10px', position:'relative', overflow:'hidden', background:'linear-gradient(135deg,rgba(60,185,140,0.16),rgba(255,255,255,0.04))', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 6px 18px rgba(0,0,0,0.3)' }}>
+                          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
+                            <div>
+                              <div style={{ fontSize:6, color:'rgba(255,255,255,0.5)', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.6px' }}>Available Balance</div>
+                              <div style={{ fontSize:17, fontWeight:900, color:'#fff', letterSpacing:'-0.045em', lineHeight:1.05, marginTop:3 }}>$48,250<span style={{ fontSize:9, color:'rgba(255,255,255,0.5)' }}>.00</span></div>
+                              <div style={{ display:'inline-flex', alignItems:'center', gap:2, fontSize:6, fontWeight:800, color:GREEN, marginTop:3, background:'rgba(60,185,140,0.18)', padding:'1.5px 5px', borderRadius:100 }}>↑ 12.5% this month</div>
+                            </div>
+                            <span style={{ display:'inline-flex', alignItems:'center', gap:2, fontSize:5.5, fontWeight:700, color:'rgba(255,255,255,0.6)' }}>
+                              <span style={{ width:4, height:4, borderRadius:'50%', background:GREEN, boxShadow:`0 0 0 2px ${GREEN}40` }} />Live
+                            </span>
                           </div>
-                        ))}
+                          {/* action chips */}
+                          <div style={{ display:'flex', gap:4, marginTop:6 }}>
+                            {[['Send',true],['Request',false],['Top up',false]].map(([t,act])=>(
+                              <span key={t as string} style={{ fontSize:5.5, fontWeight:800, padding:'2.5px 7px', borderRadius:100, color:act?'#06231a':'rgba(255,255,255,0.7)', background:act?GREEN:'rgba(255,255,255,0.07)', border:act?'none':'1px solid rgba(255,255,255,0.1)' }}>{t}</span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Virtual payment card */}
+                        <div style={{ flex:1, minWidth:0, borderRadius:9, padding:'8px 9px', position:'relative', overflow:'hidden', background:`linear-gradient(135deg,${NAVY} 0%,#0c3b6b 70%,#11543f 140%)`, border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 6px 18px rgba(0,0,0,0.34)', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+                          <div style={{ position:'absolute', bottom:-18, left:-12, width:50, height:50, borderRadius:'50%', background:`radial-gradient(circle,${GREEN}44,transparent 70%)`, pointerEvents:'none' }} />
+                          <div style={{ position:'relative', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+                            <span style={{ fontSize:6, fontWeight:900, color:'#fff', letterSpacing:'0.5px' }}>NOVA<span style={{ color:GREEN }}>PAY</span></span>
+                            <div style={{ width:11, height:8, borderRadius:2, background:'linear-gradient(135deg,#f5d77f,#caa64a)' }} />
+                          </div>
+                          <div style={{ position:'relative', fontSize:7, fontWeight:700, color:'rgba(255,255,255,0.85)', letterSpacing:'1.5px', fontFamily:'ui-monospace,monospace' }}>••••&nbsp;••••&nbsp;••••&nbsp;4921</div>
+                          <div style={{ position:'relative', display:'flex', justifyContent:'space-between', alignItems:'flex-end' }}>
+                            <span style={{ fontSize:5, color:'rgba(255,255,255,0.55)', fontWeight:700, letterSpacing:'0.3px' }}>A. MORGAN</span>
+                            <div style={{ display:'flex' }}>
+                              <span style={{ width:8, height:8, borderRadius:'50%', background:'#eb5b34', opacity:0.9 }} />
+                              <span style={{ width:8, height:8, borderRadius:'50%', background:'#f5a623', marginLeft:-3, opacity:0.85 }} />
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Charts row */}
+                      {/* Chart row: cashflow chart + transactions */}
                       <div style={{ flex:1, minHeight:0, display:'flex', gap:6 }}>
-                        {/* Area / line chart */}
-                        <div style={{ flex:1.7, minWidth:0, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'7px 8px', display:'flex', flexDirection:'column' }}>
+                        {/* Cashflow chart */}
+                        <div style={{ flex:1.75, minWidth:0, borderRadius:8, background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', padding:'7px 8px', display:'flex', flexDirection:'column' }}>
                           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0 }}>
-                            <div style={{ fontSize:7, fontWeight:800, color:NAVY }}>Revenue trend</div>
-                            <div style={{ display:'flex', gap:5, alignItems:'center' }}>
-                              <span style={{ fontSize:5.5, color:'rgba(8,33,60,0.45)', display:'inline-flex', alignItems:'center', gap:2 }}><span style={{ width:5, height:5, borderRadius:'50%', background:GREEN }} />2024</span>
-                              <span style={{ fontSize:5.5, color:'rgba(8,33,60,0.45)', display:'inline-flex', alignItems:'center', gap:2 }}><span style={{ width:5, height:5, borderRadius:'50%', background:'rgba(8,33,60,0.3)' }} />2023</span>
+                            <div style={{ fontSize:7, fontWeight:800, color:'#fff' }}>Cash flow</div>
+                            <div style={{ display:'flex', gap:3 }}>
+                              {['1W','1M','1Y'].map((t,i)=>(
+                                <span key={t} style={{ fontSize:5, fontWeight:800, padding:'1.5px 5px', borderRadius:100, color:i===1?'#06231a':'rgba(255,255,255,0.45)', background:i===1?GREEN:'rgba(255,255,255,0.06)' }}>{t}</span>
+                              ))}
                             </div>
                           </div>
                           <svg viewBox="0 0 100 42" preserveAspectRatio="none" style={{ flex:1, width:'100%', minHeight:0, marginTop:4 }}>
                             <defs>
                               <linearGradient id="hv1area" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor={GREEN} stopOpacity="0.28" />
+                                <stop offset="0%" stopColor={GREEN} stopOpacity="0.34" />
                                 <stop offset="100%" stopColor={GREEN} stopOpacity="0" />
                               </linearGradient>
+                              <filter id="hv1glow" x="-20%" y="-40%" width="140%" height="180%">
+                                <feGaussianBlur stdDeviation="1.4" result="b" />
+                                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                              </filter>
                             </defs>
-                            {[10,20,30].map(y=><line key={y} x1="0" y1={y} x2="100" y2={y} stroke="rgba(8,33,60,0.06)" strokeWidth="0.4" />)}
+                            {[10,20,30].map(y=><line key={y} x1="0" y1={y} x2="100" y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.4" />)}
                             <path d="M0,32 L16,26 L32,29 L48,17 L64,21 L80,9 L100,5 L100,42 L0,42 Z" fill="url(#hv1area)" />
-                            <path d="M0,32 L16,26 L32,29 L48,17 L64,21 L80,9 L100,5" fill="none" stroke={GREEN} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M0,36 L16,34 L32,35 L48,30 L64,32 L80,27 L100,24" fill="none" stroke="rgba(8,33,60,0.28)" strokeWidth="1" strokeDasharray="2 2" strokeLinecap="round" />
+                            <path d="M0,32 L16,26 L32,29 L48,17 L64,21 L80,9 L100,5" fill="none" stroke={GREEN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" filter="url(#hv1glow)" />
+                            <path d="M0,36 L16,34 L32,35 L48,30 L64,32 L80,27 L100,24" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="1" strokeDasharray="2 2" strokeLinecap="round" />
+                            <circle cx="80" cy="9" r="1.8" fill="#0b1a2e" stroke={GREEN} strokeWidth="1.3" />
                           </svg>
                         </div>
 
-                        {/* Donut */}
-                        <div style={{ flex:1, minWidth:0, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', boxShadow:'0 1px 2px rgba(8,33,60,0.04)', padding:'7px 8px', display:'flex', flexDirection:'column' }}>
-                          <div style={{ fontSize:7, fontWeight:800, color:NAVY, flexShrink:0 }}>Traffic source</div>
-                          <div style={{ flex:1, minHeight:0, display:'flex', alignItems:'center', justifyContent:'center', gap:7 }}>
-                            <div style={{ width:'46%', aspectRatio:'1', borderRadius:'50%', background:`conic-gradient(${GREEN} 0 45%, ${NAVY} 45% 70%, #c7d2e0 70% 100%)`, position:'relative', flexShrink:0 }}>
-                              <div style={{ position:'absolute', inset:'27%', borderRadius:'50%', background:'#fff', display:'flex', alignItems:'center', justifyContent:'center', fontSize:7, fontWeight:900, color:NAVY }}>45%</div>
+                        {/* Transactions list */}
+                        <div style={{ flex:1, minWidth:0, borderRadius:8, background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', padding:'7px 8px', display:'flex', flexDirection:'column', gap:4 }}>
+                          <div style={{ fontSize:7, fontWeight:800, color:'#fff', flexShrink:0 }}>Transactions</div>
+                          {[
+                            { n:'Spotify', s:'Subscription', a:'-$9.99', c:'#eb5b34' },
+                            { n:'Stripe', s:'Payout', a:'+$1,240', c:GREEN },
+                            { n:'Figma', s:'Software', a:'-$15.00', c:'#a855f7' },
+                          ].map(t=>(
+                            <div key={t.n} style={{ display:'flex', alignItems:'center', gap:5 }}>
+                              <span style={{ width:11, height:11, borderRadius:4, flexShrink:0, background:`${t.c}22`, border:`1px solid ${t.c}55`, display:'flex', alignItems:'center', justifyContent:'center' }}>
+                                <span style={{ width:4, height:4, borderRadius:'50%', background:t.c }} />
+                              </span>
+                              <div style={{ minWidth:0, flex:1 }}>
+                                <div style={{ fontSize:6, fontWeight:800, color:'rgba(255,255,255,0.85)', lineHeight:1 }}>{t.n}</div>
+                                <div style={{ fontSize:5, color:'rgba(255,255,255,0.35)', marginTop:1.5, fontWeight:600 }}>{t.s}</div>
+                              </div>
+                              <span style={{ fontSize:6, fontWeight:800, color:t.a.startsWith('+')?GREEN:'rgba(255,255,255,0.7)', flexShrink:0 }}>{t.a}</span>
                             </div>
-                            <div style={{ display:'flex', flexDirection:'column', gap:4 }}>
-                              {[['Organic',GREEN],['Direct',NAVY],['Social','#c7d2e0']].map(([l,c])=>(
-                                <div key={l as string} style={{ display:'flex', alignItems:'center', gap:3, fontSize:5.5, color:'rgba(8,33,60,0.55)', fontWeight:600 }}>
-                                  <span style={{ width:5, height:5, borderRadius:'50%', background:c as string }} />{l}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       </div>
 
-                      {/* Bottom: bar chart + recent orders */}
+                      {/* Bottom: mini stat chips */}
                       <div style={{ flexShrink:0, display:'flex', gap:6 }}>
-                        <div style={{ flex:1.7, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', padding:'6px 8px', display:'flex', alignItems:'flex-end', gap:3, height:30 }}>
-                          {BARS.map((h,i)=>(
-                            <div key={i} style={{ flex:1, height:`${h}%`, borderRadius:'2px 2px 0 0', background:i===BARS.length-1?GREEN:'rgba(8,33,60,0.12)' }} />
-                          ))}
-                        </div>
-                        <div style={{ flex:1, background:'#fff', borderRadius:6, border:'1px solid rgba(8,33,60,0.06)', padding:'5px 7px', display:'flex', flexDirection:'column', justifyContent:'center', gap:4 }}>
-                          {[['#1042','Paid',GREEN],['#1041','Pending','#d8a13b']].map(([id,st,c])=>(
-                            <div key={id as string} style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-                              <span style={{ fontSize:6, color:'rgba(8,33,60,0.6)', fontWeight:700 }}>Order {id}</span>
-                              <span style={{ fontSize:5, fontWeight:800, color:c as string, background:`${c}22`, padding:'1px 4px', borderRadius:100 }}>{st}</span>
+                        {[
+                          { l:'Income', v:'$12.4k', up:true, spark:'M0,8 L12,7 L24,8 L36,4 L48,5 L60,2' },
+                          { l:'Spending', v:'$5.8k', up:false, spark:'M0,3 L12,4 L24,3 L36,6 L48,5 L60,7' },
+                          { l:'Savings', v:'$6.6k', up:true, spark:'M0,7 L12,6 L24,7 L36,4 L48,3 L60,2' },
+                        ].map(k=>(
+                          <div key={k.l} style={{ flex:1, minWidth:0, borderRadius:7, background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', padding:'5px 7px', display:'flex', alignItems:'center', justifyContent:'space-between', gap:5 }}>
+                            <div style={{ minWidth:0 }}>
+                              <div style={{ fontSize:5, color:'rgba(255,255,255,0.4)', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.4px' }}>{k.l}</div>
+                              <div style={{ fontSize:9.5, fontWeight:900, color:'#fff', letterSpacing:'-0.03em', lineHeight:1.1, marginTop:1 }}>{k.v}</div>
                             </div>
-                          ))}
-                        </div>
+                            <svg viewBox="0 0 60 10" preserveAspectRatio="none" style={{ width:28, height:13, flexShrink:0 }}>
+                              <path d={k.spark} fill="none" stroke={k.up?GREEN:'#d9706f'} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+                            </svg>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

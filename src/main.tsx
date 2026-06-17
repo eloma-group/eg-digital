@@ -22,7 +22,7 @@ requestAnimationFrame(raf)
 ;(window as unknown as Record<string, unknown>).__lenis = lenis
 
 // Keep Lenis' scroll limit in sync when late layout shifts grow the page
-// (async image loads, web-font swap, etc.) — otherwise wheel scroll clamps
+// (async image loads, web-font swap, etc.) - otherwise wheel scroll clamps
 // short of the real bottom even though the native scrollbar can reach it.
 const resync = () => lenis.resize()
 
@@ -34,7 +34,7 @@ if (typeof ResizeObserver !== 'undefined') {
   ro.observe(document.body)
 }
 
-// Any image finishing later can change height — re-measure on each load.
+// Any image finishing later can change height - re-measure on each load.
 window.addEventListener(
   'load',
   () => {

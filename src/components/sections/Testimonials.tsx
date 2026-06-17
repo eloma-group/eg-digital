@@ -67,7 +67,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     tempId: 8,
-    testimonial: 'The scalability is impressive — it has grown with our business seamlessly as we expanded across three markets.',
+    testimonial: 'The scalability is impressive - it has grown with our business seamlessly as we expanded across three markets.',
     by: 'Hannah Cole',
     avatar: GREEN,
   },

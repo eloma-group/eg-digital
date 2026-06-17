@@ -54,7 +54,7 @@ function BigNum({ children, color }: { children: ReactNode; color?: string }) {
   )
 }
 
-// ── Mockup 1 — Microsoft Ecosystem ───────────────────────────────
+// ── Mockup 1 - Microsoft Ecosystem ───────────────────────────────
 function MockupMicrosoft() {
   const apps = [
     { name: 'Teams',      bg: '#4b53bc' },
@@ -118,7 +118,7 @@ function MockupMicrosoft() {
   )
 }
 
-// ── Mockup 2 — Dev Project Tracker ───────────────────────────────
+// ── Mockup 2 - Dev Project Tracker ───────────────────────────────
 function MockupDev() {
   const files = [
     { name: 'Homepage',        note: 'Deployed',     dot: GREEN      },
@@ -160,7 +160,7 @@ function MockupDev() {
         <div style={{ marginTop: 14, height: 4, background: 'rgba(8,33,60,0.06)', borderRadius: 99, overflow: 'hidden' }}>
           <div style={{ width: '55%', height: '100%', background: GREEN, borderRadius: 99 }} />
         </div>
-        <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.4)', fontWeight: 600, marginTop: 5 }}>Build progress — 55% complete</div>
+        <div style={{ fontSize: 10, color: 'rgba(8,33,60,0.4)', fontWeight: 600, marginTop: 5 }}>Build progress - 55% complete</div>
       </Card>
 
       <Card>
@@ -179,7 +179,7 @@ function MockupDev() {
   )
 }
 
-// ── Mockup 3 — SEO & Marketing ────────────────────────────────────
+// ── Mockup 3 - SEO & Marketing ────────────────────────────────────
 function MockupMarketing() {
   const bars = [34, 46, 42, 58, 52, 68, 62, 78, 72, 86, 82, 100]
   const keywords = [
@@ -253,7 +253,7 @@ function MockupMarketing() {
   )
 }
 
-// ── Mockup 4 — Cyber Security ─────────────────────────────────────
+// ── Mockup 4 - Cyber Security ─────────────────────────────────────
 function MockupSecurity() {
   const threats = [
     { name: 'Phishing Attempts',   count: 148, color: '#ef4444' },
@@ -303,7 +303,7 @@ function MockupSecurity() {
       </Card>
 
       <Card>
-        <Label>Recent Threats — All Blocked</Label>
+        <Label>Recent Threats - All Blocked</Label>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 9, marginTop: 6 }}>
           {threats.map(t => (
             <div key={t.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -463,7 +463,7 @@ export function Features() {
         num="01"
         eyebrow="Microsoft Partner"
         headline="End-to-End Microsoft Solutions"
-        body="As a certified Microsoft partner, we deploy and manage the full suite — 365, Teams, Dynamics CRM, ERP, and Azure — so your team collaborates smarter from day one."
+        body="As a certified Microsoft partner, we deploy and manage the full suite - 365, Teams, Dynamics CRM, ERP, and Azure - so your team collaborates smarter from day one."
         cta="Explore Microsoft Services"
         to="/solutions"
         bg="#fff"
@@ -474,7 +474,7 @@ export function Features() {
         num="02"
         eyebrow="Digital Development"
         headline="Websites, Apps & SaaS Built to Scale"
-        body="From marketing websites to complex SaaS platforms and mobile apps, we engineer digital products that perform — on time, on budget, and built to grow with your business."
+        body="From marketing websites to complex SaaS platforms and mobile apps, we engineer digital products that perform - on time, on budget, and built to grow with your business."
         cta="View Development Services"
         to="/services"
         flip
@@ -486,7 +486,7 @@ export function Features() {
         num="03"
         eyebrow="Growth & Marketing"
         headline="SEO & Branding That Drives Results"
-        body="We combine technical SEO, standout branding, and reliable cloud hosting to put your business in front of the right audience — and keep it performing at its peak."
+        body="We combine technical SEO, standout branding, and reliable cloud hosting to put your business in front of the right audience - and keep it performing at its peak."
         cta="Explore Growth Services"
         to="/solutions"
         bg="#fff"
@@ -498,7 +498,7 @@ export function Features() {
         num="04"
         eyebrow="Security & Integration"
         headline="AI Cyber Security & Smart Integrations"
-        body="Protect your business with AI-driven threat detection, proactive monitoring, and seamless system integrations — keeping your data safe and your operations fully connected."
+        body="Protect your business with AI-driven threat detection, proactive monitoring, and seamless system integrations - keeping your data safe and your operations fully connected."
         cta="View Security Services"
         to="/solutions"
         flip

@@ -8,7 +8,7 @@ const GROUPS: Group[] = [
   {
     id: 'general', label: 'General',
     items: [
-      { q: 'What does EG Digital do?', a: 'We design and build websites, apps and SaaS platforms — and back them with cloud, security and managed support. One partner for the full digital stack.' },
+      { q: 'What does EG Digital do?', a: 'We design and build websites, apps and SaaS platforms - and back them with cloud, security and managed support. One partner for the full digital stack.' },
       { q: 'Where are you based?', a: 'We’re a Melbourne-based studio at 71 Gipps Street, Collingwood, working with ambitious businesses right across Australia.' },
       { q: 'Are you a certified Microsoft partner?', a: 'Yes. We deliver Dynamics 365, Power Platform and Azure as a certified partner, alongside our own custom development practice.' },
     ],
@@ -18,20 +18,20 @@ const GROUPS: Group[] = [
     items: [
       { q: 'How does a project start?', a: 'With a conversation. We scope your goals, map the work into fixed milestones, and give you an honest quote and timeline before anything is signed.' },
       { q: 'How long does a typical build take?', a: 'Most websites land in 4–8 weeks; apps and SaaS platforms run longer. Either way you get a milestone schedule up front and weekly visibility on progress.' },
-      { q: 'How involved will we be?', a: 'As involved as you want. You get a single point of contact, weekly check-ins and a shared board — no chasing, no black box.' },
+      { q: 'How involved will we be?', a: 'As involved as you want. You get a single point of contact, weekly check-ins and a shared board - no chasing, no black box.' },
     ],
   },
   {
     id: 'pricing', label: 'Pricing',
     items: [
       { q: 'How do you price projects?', a: 'Fixed-scope projects are quoted as fixed price against defined milestones. Ongoing work runs on a transparent monthly retainer. We quote what it really costs.' },
-      { q: 'Do you offer ongoing support?', a: 'Yes — managed support, cloud maintenance and server maintenance plans keep what we build running at peak performance after launch.' },
+      { q: 'Do you offer ongoing support?', a: 'Yes - managed support, cloud maintenance and server maintenance plans keep what we build running at peak performance after launch.' },
     ],
   },
   {
     id: 'engagement', label: 'Engagement',
     items: [
-      { q: 'Do you work with startups and SMEs?', a: 'Absolutely — it’s our core. You get enterprise-grade capability without the enterprise timeline or overhead.' },
+      { q: 'Do you work with startups and SMEs?', a: 'Absolutely - it’s our core. You get enterprise-grade capability without the enterprise timeline or overhead.' },
       { q: 'What if we already have an in-house team?', a: 'We slot in. Whether you need extra delivery capacity, specialist Microsoft skills or a full build, we shape the engagement around your team.' },
       { q: 'Do you sign NDAs?', a: 'Always, when needed. Your ideas, data and reputation are treated as our own from the first conversation.' },
     ],

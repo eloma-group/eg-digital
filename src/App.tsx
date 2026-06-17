@@ -35,7 +35,7 @@ function ScrollToTop() {
           else el.scrollIntoView()
           return
         }
-        // Element may not be laid out yet on a fresh page mount — retry briefly.
+        // Element may not be laid out yet on a fresh page mount - retry briefly.
         if (++tries < 20) requestAnimationFrame(settle)
       }
       requestAnimationFrame(settle)

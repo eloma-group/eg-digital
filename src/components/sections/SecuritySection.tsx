@@ -15,8 +15,8 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SECURITY SECTION — Left editorial + Right SVG network topology illustration
-// Theme: Cybersecurity & IT Support — shows protected office network
+// SECURITY SECTION - Left editorial + Right SVG network topology illustration
+// Theme: Cybersecurity & IT Support - shows protected office network
 // ─────────────────────────────────────────────────────────────────────────────
 export function SecuritySection() {
   const navigate = useNavigate()
@@ -87,7 +87,7 @@ export function SecuritySection() {
         }
         .hv2-btn-g:hover { border-color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.09); }
 
-        /* right — network illustration */
+        /* right - network illustration */
         .hv2-network { position:relative; }
         .hv2-conn { stroke:rgba(60,185,140,0.22); stroke-width:1; stroke-dasharray:8 5; animation:hv2-conn-dash 4s linear infinite; }
         .hv2-card {
@@ -134,8 +134,8 @@ export function SecuritySection() {
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(255,255,255,0.5)',
               lineHeight:1.82, maxWidth:480, marginBottom:'clamp(24px,2.8vw,40px)',
             }}>
-              AI-driven threat detection, zero-trust architecture, and 24/7 proactive monitoring —
-              powered by Microsoft Defender and Sentinel — keeping your business safe around the clock.
+              AI-driven threat detection, zero-trust architecture, and 24/7 proactive monitoring -
+              powered by Microsoft Defender and Sentinel - keeping your business safe around the clock.
             </motion.p>
 
             <motion.div {...fadeUp(0.2)} className="hv2-cta-row">
@@ -159,7 +159,7 @@ export function SecuritySection() {
             </motion.div>
           </div>
 
-          {/* Right — SVG network topology illustration */}
+          {/* Right - SVG network topology illustration */}
           <motion.div
             initial={{ opacity:0, x:40 }}
             whileInView={{ opacity:1, x:0 }}
@@ -178,7 +178,7 @@ export function SecuritySection() {
               {/* Hub glow */}
               <circle cx="220" cy="200" r="80" fill="url(#hv2-hub-grad)"/>
 
-              {/* Connection lines — hub(220,200) to each device */}
+              {/* Connection lines - hub(220,200) to each device */}
               <line x1="220" y1="200" x2="220" y2="66" className="hv2-conn"/>
               <line x1="220" y1="200" x2="82"  y2="96" className="hv2-conn" style={{ animationDelay:'0.8s' }}/>
               <line x1="220" y1="200" x2="69"  y2="294" className="hv2-conn" style={{ animationDelay:'1.6s' }}/>

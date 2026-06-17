@@ -15,7 +15,7 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// INDUSTRIES SECTION — Left content + right full-height image
+// INDUSTRIES SECTION - Left content + right full-height image
 // Theme: Industries We Serve (light background, premium)
 // ─────────────────────────────────────────────────────────────────────────────
 export function IndustriesSection() {
@@ -114,7 +114,7 @@ export function IndustriesSection() {
         }
         .hv6-btn-g:hover { border-color:rgba(8,33,60,0.45); }
 
-        /* right panel — image collage */
+        /* right panel - image collage */
         .hv6-right {
           position:relative; overflow:hidden; min-height:100svh;
           display:flex; align-items:stretch;
@@ -242,7 +242,7 @@ export function IndustriesSection() {
           </div>
         </div>
 
-        {/* Right — image collage + floating cards */}
+        {/* Right - image collage + floating cards */}
         <motion.div
           initial={{ opacity:0 }}
           whileInView={{ opacity:1 }}

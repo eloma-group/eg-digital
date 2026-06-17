@@ -6,13 +6,13 @@ type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest
 
 const FEATURED: Post = {
   title: 'How we took an e-commerce brand from 4.1 to 4.9 stars in 90 days',
-  excerpt: 'A deep dive into the review automation, analytics and response workflows we built — and the measurable revenue lift that followed.',
+  excerpt: 'A deep dive into the review automation, analytics and response workflows we built - and the measurable revenue lift that followed.',
   category: 'Case Studies', read: '8 min read', date: 'June 2026',
 }
 
 const POSTS: Post[] = [
   { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026' },
-  { title: 'Migrating a manufacturer to Dynamics 365 — with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026' },
+  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026' },
   { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026' },
   { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026' },
   { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026' },

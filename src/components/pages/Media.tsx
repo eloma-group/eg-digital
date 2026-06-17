@@ -15,13 +15,13 @@ const CARDS: Card[] = [
   { type: 'cover', cat: 'Press', outlet: 'AusTech Daily', date: 'Mar 2026', title: 'EG Digital named one of Melbourne’s fastest-growing studios', grad: `linear-gradient(135deg, ${NAVY}, #16406e)` },
   { type: 'quote', cat: 'Press', outlet: 'StartupSmart', date: 'Feb 2026', quote: '“A rare agency that ships enterprise-grade work at startup speed.”' },
   { type: 'outlet', cat: 'Press', outlet: 'The Australian', date: 'Jan 2026', label: 'As featured in' },
-  { type: 'cover', cat: 'Awards', outlet: 'Awwwards', date: 'Dec 2025', title: 'Site of the Day for the Lumio SaaS platform', grad: `linear-gradient(135deg, ${GREEN}, #1f8e69)` },
-  { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Nov 2025', title: 'Why we quote honestly — and how fixed milestones keep us accountable' },
-  { type: 'quote', cat: 'Awards', outlet: 'CSS Design Awards', date: 'Oct 2025', quote: '“Best UI Design — a masterclass in editorial restraint.”' },
+  { type: 'cover', cat: 'Awards', outlet: 'Awards', date: 'Dec 2025', title: 'Site of the Day for the Lumio SaaS platform', grad: `linear-gradient(135deg, ${GREEN}, #1f8e69)` },
+  { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Nov 2025', title: 'Why we quote honestly - and how fixed milestones keep us accountable' },
+  { type: 'quote', cat: 'Awards', outlet: 'CSS Design Awards', date: 'Oct 2025', quote: '“Best UI Design - a masterclass in editorial restraint.”' },
   { type: 'cover', cat: 'Articles', outlet: 'EG Journal', date: 'Sep 2025', title: 'Shipping Dynamics 365 for SMEs without the six-month timeline', grad: `linear-gradient(135deg, #16406e, ${GREEN})` },
   { type: 'outlet', cat: 'Press', outlet: 'SmartCompany', date: 'Aug 2025', label: 'As seen in' },
   { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Jul 2025', title: 'The single-partner model: one team from first call to launch' },
-  { type: 'quote', cat: 'Awards', outlet: 'The Webby Awards', date: 'Jun 2025', quote: '“Honoree — Best Visual Design, Aesthetic.”' },
+  { type: 'quote', cat: 'Awards', outlet: 'The Webby Awards', date: 'Jun 2025', quote: '“Honoree - Best Visual Design, Aesthetic.”' },
 ]
 
 function PressCard({ c }: { c: Card }) {
@@ -123,7 +123,7 @@ export function Media() {
                 The studio shipping enterprise work at startup speed
               </h2>
               <p style={{ fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: 0, maxWidth: 520 }}>
-                A deep-dive into how EG Digital became one of Melbourne’s fastest-growing digital studios — and why the single-partner model is winning.
+                A deep-dive into how EG Digital became one of Melbourne’s fastest-growing digital studios - and why the single-partner model is winning.
               </p>
             </div>
           </div>

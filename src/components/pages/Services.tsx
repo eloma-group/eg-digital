@@ -16,7 +16,7 @@ const SERVICES: Service[] = [
   {
     label: 'Upgrades', short: 'Upgrades', icon: RefreshCw, kind: 'upg', color: GREEN,
     lead: 'Modernise without the downtime.',
-    body: 'We move legacy systems onto current, supported frameworks — carefully phased so your business keeps running while it happens. No big-bang risk, no data loss.',
+    body: 'We move legacy systems onto current, supported frameworks - carefully phased so your business keeps running while it happens. No big-bang risk, no data loss.',
     caps: [
       { title: 'Framework migrations', detail: 'Move to current, supported stacks before end-of-life bites.' },
       { title: 'Legacy modernisation', detail: 'Refactor brittle systems into maintainable, documented code.' },
@@ -29,7 +29,7 @@ const SERVICES: Service[] = [
   {
     label: 'Cloud Maintenances', short: 'Cloud', icon: Cloud, kind: 'cloud', color: '#0078d4',
     lead: 'A cloud that stays fast and lean.',
-    body: 'Proactive monitoring, scaling and optimisation across Azure and AWS. We keep your cloud secure and performant — and stop surprise bills before they land.',
+    body: 'Proactive monitoring, scaling and optimisation across Azure and AWS. We keep your cloud secure and performant - and stop surprise bills before they land.',
     caps: [
       { title: 'Azure & AWS management', detail: 'Day-to-day operation of your cloud, fully handled.' },
       { title: 'Auto-scaling', detail: 'Capacity that flexes with demand, automatically.' },
@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
   {
     label: 'Server Maintenances', short: 'Server', icon: Server, kind: 'srv', color: '#6366f1',
     lead: 'Infrastructure that just stays up.',
-    body: 'Patching, backups, uptime monitoring and performance tuning that keep your servers rock solid — so your team never thinks about the box under the hood.',
+    body: 'Patching, backups, uptime monitoring and performance tuning that keep your servers rock solid - so your team never thinks about the box under the hood.',
     caps: [
       { title: 'Scheduled patching', detail: 'OS and software kept current on a predictable cadence.' },
       { title: 'Automated backups', detail: 'Nightly backups with regular, verified restore drills.' },
@@ -55,7 +55,7 @@ const SERVICES: Service[] = [
   {
     label: 'Support Services', short: 'Support', icon: Headphones, kind: 'sup', color: '#d97706',
     lead: 'Real people who know your stack.',
-    body: 'Responsive, senior-led support with clear SLAs. When something needs attention, you reach an engineer who already understands your setup — not a script.',
+    body: 'Responsive, senior-led support with clear SLAs. When something needs attention, you reach an engineer who already understands your setup - not a script.',
     caps: [
       { title: 'Measurable SLAs', detail: 'Response and resolution targets agreed in writing.' },
       { title: 'Senior-led support', detail: 'Reach an engineer who knows your stack, not a script.' },
@@ -119,7 +119,7 @@ function ConceptLabel({ n, title, note, light }: { n: string; title: string; not
   )
 }
 
-/* ═════════════════ CONCEPT 1 — Ops control-room (dark) ═════════════════ */
+/* ═════════════════ CONCEPT 1 - Ops control-room (dark) ═════════════════ */
 function ControlRoom() {
   const [i, setI] = useState(0)
   const s = SERVICES[i]
@@ -160,7 +160,7 @@ function ControlRoom() {
   )
 }
 
-/* ═════════════════ CONCEPT 2 — Orbit system (light) ═════════════════ */
+/* ═════════════════ CONCEPT 2 - Orbit system (light) ═════════════════ */
 const ORBIT_POS = [
   { top: '4%', left: '50%' }, { top: '50%', left: '94%' },
   { top: '96%', left: '50%' }, { top: '50%', left: '6%' },
@@ -199,7 +199,7 @@ function OrbitSystem() {
   )
 }
 
-/* ═════════════════ CONCEPT 3 — Editorial hover-index (cream) ═════════════════ */
+/* ═════════════════ CONCEPT 3 - Editorial hover-index (cream) ═════════════════ */
 function HoverIndex() {
   const [i, setI] = useState(0)
   const s = SERVICES[i]
@@ -227,7 +227,7 @@ function HoverIndex() {
   )
 }
 
-/* ═════════════════ CONCEPT 4 — Cinematic filmstrip ═════════════════ */
+/* ═════════════════ CONCEPT 4 - Cinematic filmstrip ═════════════════ */
 function Filmstrip() {
   const track = useRef<HTMLDivElement>(null)
   const [i, setI] = useState(0)
@@ -426,21 +426,21 @@ export function Services() {
           <Eyebrow>Services</Eyebrow>
           <h1 className="sv-h1">Built, shipped<br />&amp; <span>looked after.</span></h1>
           <p className="sv-intro">
-            Four directions for this page, shown below — pick the one you like and I'll keep it
+            Four directions for this page, shown below - pick the one you like and I'll keep it
             and drop the rest. Each uses the same four services and live animations.
           </p>
         </Reveal>
       </section>
 
-      {/* Concept 1 — Control room (light) */}
+      {/* Concept 1 - Control room (light) */}
       <section className="sv-sec" style={{ background: '#fff' }}>
         <div className="sv-shell">
-          <ConceptLabel n="01" title="Ops Control-Room" note="A live 'mission control' — each service is a status module with real-time metrics and its animation as a monitor." />
+          <ConceptLabel n="01" title="Ops Control-Room" note="A live 'mission control' - each service is a status module with real-time metrics and its animation as a monitor." />
           <ControlRoom />
         </div>
       </section>
 
-      {/* Concept 2 — Orbit */}
+      {/* Concept 2 - Orbit */}
       <section className="sv-sec" style={{ background: CREAM }}>
         <div className="sv-shell">
           <ConceptLabel n="02" title="Orbit System" note="Services orbit a central always-on hub. Hover or click a node to dock open its detail." />
@@ -448,18 +448,18 @@ export function Services() {
         </div>
       </section>
 
-      {/* Concept 3 — Editorial hover-index */}
+      {/* Concept 3 - Editorial hover-index */}
       <section className="sv-sec" style={{ background: '#fff' }}>
         <div className="sv-shell">
-          <ConceptLabel n="03" title="Editorial Hover-Index" note="A minimal typographic index — hover a line and its visual + capabilities reveal beside it." />
+          <ConceptLabel n="03" title="Editorial Hover-Index" note="A minimal typographic index - hover a line and its visual + capabilities reveal beside it." />
           <HoverIndex />
         </div>
       </section>
 
-      {/* Concept 4 — Cinematic filmstrip */}
+      {/* Concept 4 - Cinematic filmstrip */}
       <section className="sv-sec" style={{ background: CREAM }}>
         <div className="sv-shell">
-          <ConceptLabel n="04" title="Cinematic Filmstrip" note="A horizontal, swipeable showcase reel — drag, use the arrows, or tap the progress bar." />
+          <ConceptLabel n="04" title="Cinematic Filmstrip" note="A horizontal, swipeable showcase reel - drag, use the arrows, or tap the progress bar." />
           <Filmstrip />
         </div>
       </section>

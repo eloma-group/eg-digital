@@ -15,7 +15,7 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TRANSFORMATION SECTION — Full animated network BG + centered text
+// TRANSFORMATION SECTION - Full animated network BG + centered text
 // Theme: End-to-End Digital Transformation (light background)
 // ─────────────────────────────────────────────────────────────────────────────
 export function TransformationSection() {
@@ -77,7 +77,7 @@ export function TransformationSection() {
           position:absolute; inset:0; width:100%; height:100%;
           pointer-events:none; z-index:0;
         }
-        /* radial fog in center — keeps text readable over network */
+        /* radial fog in center - keeps text readable over network */
         .hv5-fog {
           position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
           width:clamp(480px,70vw,900px); height:clamp(360px,50vh,640px);
@@ -240,7 +240,7 @@ export function TransformationSection() {
             lineHeight:1.82, maxWidth:640, margin:'0 auto clamp(28px,3.2vw,48px)',
           }}>
             Microsoft licensing, custom development, AI cybersecurity, and digital marketing
-            — all delivered by one expert team, built for Australian businesses ready
+            - all delivered by one expert team, built for Australian businesses ready
             to lead their industry.
           </motion.p>
 

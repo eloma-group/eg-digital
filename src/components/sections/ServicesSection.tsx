@@ -15,7 +15,7 @@ function fadeUp(delay = 0) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SERVICES SECTION — Center content + 4 floating service cards
+// SERVICES SECTION - Center content + 4 floating service cards
 // Theme: All four service pillars united (light background, premium)
 // ─────────────────────────────────────────────────────────────────────────────
 export function ServicesSection() {
@@ -218,7 +218,7 @@ export function ServicesSection() {
             fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(8,33,60,0.52)',
             lineHeight:1.82, maxWidth:540, margin:'0 auto clamp(28px,3.2vw,48px)',
           }}>
-            Stop managing six vendors. EG Digital is your single point of accountability —
+            Stop managing six vendors. EG Digital is your single point of accountability -
             from cloud infrastructure to custom software, cybersecurity to organic growth.
           </motion.p>
 
