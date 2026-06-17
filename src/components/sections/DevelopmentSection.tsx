@@ -142,7 +142,7 @@ export function DevelopmentSection() {
               <span className="hv1-dot-pulse" />
               <span style={{ fontSize:11, fontWeight:800, letterSpacing:'2px', textTransform:'uppercase', color:GREEN }}>Taking New Projects</span>
               <span style={{ width:1, height:14, background:'rgba(8,33,60,0.12)', flexShrink:0 }} />
-              <span style={{ fontSize:11, fontWeight:600, color:'rgba(8,33,60,0.4)', textTransform:'uppercase', letterSpacing:'1px' }}>Sydney · Est. 2021</span>
+              <span style={{ fontSize:11, fontWeight:600, color:'rgba(8,33,60,0.4)', textTransform:'uppercase', letterSpacing:'1px' }}>Melbourne · Est. 2025</span>
             </motion.div>
 
             <motion.h2 {...fadeUp(0.07)} style={{
@@ -173,7 +173,7 @@ export function DevelopmentSection() {
             </motion.div>
 
             <motion.div {...fadeUp(0.24)} className="hv1-stat-strip">
-              {[{ v:'50+', l:'Projects' }, { v:'100%', l:'On-Time Delivery' }, { v:'5★', l:'Client Rating' }].map(s => (
+              {[{ v:'25+', l:'Projects' }, { v:'100%', l:'On-Time Delivery' }, { v:'4.2★', l:'Client Rating' }].map(s => (
                 <div key={s.l}><div className="hv1-sv">{s.v}</div><div className="hv1-sl">{s.l}</div></div>
               ))}
             </motion.div>
