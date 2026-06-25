@@ -70,12 +70,14 @@ function CtaRow() {
 
 const CSS = `
   .h3-section {
-    background: linear-gradient(135deg,
-      #c4ead9 0%,
-      #e0f4ec 22%,
-      #ffffff 50%,
-      #dde9fb 74%,
-      #c3dbfa 100%);
+    background:
+      linear-gradient(180deg, #ffffff 0%, #ffffff 26%, rgba(255,255,255,0) 70%),
+      linear-gradient(105deg,
+        #dcebfb 0%,
+        #eef5fd 28%,
+        #ffffff 50%,
+        #f6fbf9 72%,
+        #e7f5ef 100%);
     min-height: 100svh;
     display: flex; flex-direction: column;
     position: relative; overflow: hidden;
@@ -86,12 +88,12 @@ const CSS = `
   .h3-amb { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .h3-amb::before, .h3-amb::after { content: ''; position: absolute; border-radius: 50%; filter: blur(60px); }
   .h3-amb::before {
-    width: 42vw; height: 42vw; right: 2vw; top: 6%;
-    background: radial-gradient(circle, rgba(60,185,140,0.28) 0%, rgba(60,185,140,0) 70%);
+    width: 40vw; height: 40vw; right: 2vw; top: 34%;
+    background: radial-gradient(circle, rgba(60,185,140,0.10) 0%, rgba(60,185,140,0) 70%);
   }
   .h3-amb::after {
-    width: 34vw; height: 34vw; right: 8vw; bottom: 4%;
-    background: radial-gradient(circle, rgba(92,200,255,0.26) 0%, rgba(92,200,255,0) 70%);
+    width: 34vw; height: 34vw; left: 0; bottom: 6%;
+    background: radial-gradient(circle, rgba(92,200,255,0.15) 0%, rgba(92,200,255,0) 70%);
   }
 
   /* ── robot occupies the right side, behind the content ──
@@ -172,7 +174,7 @@ const CSS = `
   @media (max-width: 980px) {
     .h3-robot { position: relative; top: auto; right: auto; bottom: auto; transform: none; aspect-ratio: auto; width: 100%; height: 44vh; order: -1; }
     .h3-head { align-items: flex-start; padding: clamp(20px, 4vh, 40px) clamp(24px, 5vw, 48px) clamp(24px, 4vh, 40px); }
-    .h3-amb::before { width: 84vw; height: 84vw; right: -18vw; top: -4%; }
+    .h3-amb::before { width: 84vw; height: 84vw; right: -18vw; top: 34%; }
     .h3-amb::after { display: none; }
   }
 
