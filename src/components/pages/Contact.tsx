@@ -233,8 +233,8 @@ export function Contact() {
           <Eyebrow>Contact</Eyebrow>
           <h1 className="ct-h1">Let's build<br />something <span>great.</span></h1>
           <p className="ct-intro">
-            Tell us about your project, your timeline and your goals - we'll come back within one
-            business day with a clear, honest next step. No pressure, no jargon.
+            Tell us about your project, your timeline and your goals - we'll come back within
+            few hours with a clear, honest next step. No pressure, no jargon.
           </p>
         </Reveal>
         <Reveal delay={0.1}>

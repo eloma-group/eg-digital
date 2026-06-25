@@ -23,7 +23,12 @@ const MAPS_URL =
 // Mirrors the header navigation (Navbar.tsx)
 const COLS: { heading: string; links: string[] }[] = [
   { heading: 'About Us',   links: ['Our Journey','Our USP','Networks & Partners','Media','Values','FAQ'] },
-  { heading: 'Solutions',  links: ['Microsoft Products','Development','Digital & Marketing','Security & Integration'] },
+  { heading: 'Solutions',  links: [
+      'Microsoft 365','Dynamic 365',
+      'Software Development','App Development','Website Development','CRM','ERP',
+      'Branding','Cloud Hosting','SEO Marketing',
+      'Cyber Security','AI Cyber Security','Integrations','Licenses',
+    ] },
   { heading: 'Services',   links: ['Upgrades','Cloud Maintenances','Server Maintenances','Support Services'] },
   { heading: 'Industries', links: [
       'Professional Services','IT','Startups & SMEs','Non Profit Organizations','Healthcare',
@@ -142,7 +147,7 @@ export function FooterSection() {
             {/* ── Brand column ── */}
             <div>
               <a href="#" style={{ display: 'inline-block', lineHeight: 0, marginBottom: 20 }}>
-                <img src="/images/Egdigital-02.png" alt="EG Digital" style={{ height: 80, width: 'auto' }} />
+                <img src="/images/Egdigital-logo-white.png" alt="EG Digital" style={{ height: 60, width: 'auto' }} />
               </a>
 
               <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28 }}>

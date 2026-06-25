@@ -16,7 +16,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
   return (
     <div style={{ overflowX: 'clip', background: CREAM, fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
-      <main style={{ paddingTop: 68 }}>{children}</main>
+      <main style={{ paddingTop: 76 }}>{children}</main>
       <FooterSection />
     </div>
   )

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { IntroSplash } from './components/IntroSplash'
 import { HomePage } from './components/HomePage'
 import { OurJourney } from './components/pages/OurJourney'
 import { OurUSP } from './components/pages/OurUSP'
@@ -9,6 +10,10 @@ import { Values } from './components/pages/Values'
 import { FAQ } from './components/pages/FAQ'
 import { Contact } from './components/pages/Contact'
 import { Solutions } from './components/pages/Solutions'
+import { MicrosoftProducts } from './components/pages/solutions/MicrosoftProducts'
+import { DevelopmentSolution } from './components/pages/solutions/Development'
+import { DigitalMarketingSolution } from './components/pages/solutions/DigitalMarketing'
+import { SecurityIntegrationSolution } from './components/pages/solutions/SecurityIntegration'
 import { Services } from './components/pages/Services'
 import { Industries } from './components/pages/Industries'
 import { Blog } from './components/pages/Blog'
@@ -31,7 +36,7 @@ function ScrollToTop() {
         lenis?.resize()
         const el = document.getElementById(id)
         if (el) {
-          if (lenis) lenis.scrollTo(el, { offset: -84 })
+          if (lenis) lenis.scrollTo(el, { offset: -92 })
           else el.scrollIntoView()
           return
         }
@@ -66,6 +71,7 @@ function ScrollToTop() {
 function App() {
   return (
     <>
+      <IntroSplash />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -77,6 +83,10 @@ function App() {
         <Route path="/about/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/solutions" element={<Solutions />} />
+        <Route path="/solutions/microsoft-products" element={<MicrosoftProducts />} />
+        <Route path="/solutions/development" element={<DevelopmentSolution />} />
+        <Route path="/solutions/digital-marketing" element={<DigitalMarketingSolution />} />
+        <Route path="/solutions/security-integration" element={<SecurityIntegrationSolution />} />
         <Route path="/services" element={<Services />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />

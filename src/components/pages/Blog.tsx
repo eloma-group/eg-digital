@@ -1,22 +1,27 @@
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM } from './_kit'
+import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 
-type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest Technologies' | 'Awareness'; read: string; date: string }
+type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest Technologies' | 'Awareness'; read: string; date: string; img: string }
+
+// Topic-matched random photo (LoremFlickr) - `lock` keeps each card's image
+// stable across re-renders / filtering so it never reshuffles or flickers.
+const photo = (keywords: string, seed: number, w = 640, h = 400) =>
+  `https://loremflickr.com/${w}/${h}/${keywords}?lock=${seed}`
 
 const FEATURED: Post = {
   title: 'How we took an e-commerce brand from 4.1 to 4.9 stars in 90 days',
   excerpt: 'A deep dive into the review automation, analytics and response workflows we built - and the measurable revenue lift that followed.',
-  category: 'Case Studies', read: '8 min read', date: 'June 2026',
+  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'ecommerce,shopping,analytics',
 }
 
 const POSTS: Post[] = [
-  { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026' },
-  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026' },
-  { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026' },
-  { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026' },
-  { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026' },
-  { title: 'Why your business needs a zero-trust security model now', excerpt: 'The shift from perimeter defence to identity-first security, explained.', category: 'Awareness', read: '5 min read', date: 'Apr 2026' },
+  { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026', img: 'server,cloud,datacenter' },
+  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026', img: 'manufacturing,factory,industry' },
+  { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026', img: 'artificial-intelligence,laptop,technology' },
+  { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026', img: 'programming,code,developer' },
+  { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026', img: 'cybersecurity,hacker,laptop' },
+  { title: 'Why your business needs a zero-trust security model now', excerpt: 'The shift from perimeter defence to identity-first security, explained.', category: 'Awareness', read: '5 min read', date: 'Apr 2026', img: 'security,network,lock' },
 ]
 
 const FILTERS = ['All', 'Case Studies', 'Latest Technologies', 'Awareness'] as const
@@ -48,9 +53,8 @@ export function Blog() {
           line-height: 1.02; color: #fff; margin: 0 0 18px; text-transform: uppercase; }
         .bl-feat-ex { font-size: clamp(15px,1.15vw,18px); line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 24px; }
         .bl-feat-meta { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.4px; }
-        .bl-feat-art { aspect-ratio: 4/3; border-radius: 18px; background:
-          radial-gradient(circle at 30% 30%, rgba(60,185,140,0.5), transparent 60%),
-          linear-gradient(135deg, #0d2e52, #08213C); border: 1px solid rgba(255,255,255,0.1); }
+        .bl-feat-art { aspect-ratio: 4/3; width: 100%; object-fit: cover; display: block;
+          border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: #0d2e52; }
 
         .bl-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(24px,3vw,40px); }
         .bl-filter { font-family: inherit; font-size: 13px; font-weight: 800; letter-spacing: 0.4px;
@@ -68,8 +72,10 @@ export function Blog() {
           transition: transform 0.25s, box-shadow 0.25s; will-change: transform; }
         .bl-card:hover { transform: translateY(-6px); box-shadow: 0 22px 52px rgba(8,33,60,0.12); }
         .bl-card:hover .bl-card-ar { transform: rotate(0deg) translate(2px,-2px); }
-        .bl-card-img { aspect-ratio: 16/10; background:
-          linear-gradient(135deg, rgba(60,185,140,0.16), rgba(8,33,60,0.06)); }
+        .bl-card-imgwrap { aspect-ratio: 16/10; overflow: hidden; background: #eef1f4; }
+        .bl-card-img { width: 100%; height: 100%; object-fit: cover; display: block;
+          transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
+        .bl-card:hover .bl-card-img { transform: scale(1.05); }
         .bl-card-body { padding: clamp(20px,2vw,28px); display: flex; flex-direction: column; flex: 1; }
         .bl-card-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 12px; }
         .bl-card-title { font-size: clamp(17px,1.3vw,21px); font-weight: 800; letter-spacing: -0.02em;
@@ -100,11 +106,11 @@ export function Blog() {
               <p className="bl-feat-ex">{FEATURED.excerpt}</p>
               <div className="bl-feat-meta">{FEATURED.date} · {FEATURED.read}</div>
             </div>
-            <div className="bl-feat-art" aria-hidden="true" />
+            <img className="bl-feat-art" src={photo(FEATURED.img, 0, 800, 600)} alt="" loading="lazy" decoding="async" width={800} height={600} />
           </article>
         </Reveal>
 
-        <div className="bl-filters">
+        <div id="work" className="bl-filters" style={{ scrollMarginTop: 96 }}>
           {FILTERS.map(f => (
             <button
               key={f}
@@ -120,7 +126,9 @@ export function Blog() {
           {visible.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 0.06}>
               <article className="bl-card">
-                <div className="bl-card-img" style={{ background: i % 2 ? `linear-gradient(135deg, ${CREAM}, rgba(8,33,60,0.06))` : undefined }} aria-hidden="true" />
+                <div className="bl-card-imgwrap">
+                  <img className="bl-card-img" src={photo(p.img, i + 1)} alt="" loading="lazy" decoding="async" width={640} height={400} />
+                </div>
                 <div className="bl-card-body">
                   <div className="bl-card-cat">{p.category}</div>
                   <h3 className="bl-card-title">{p.title}</h3>
