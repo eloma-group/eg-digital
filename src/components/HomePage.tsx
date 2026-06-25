@@ -1,6 +1,6 @@
 import { Navbar }        from './layout/Navbar'
-import { Hero2 }         from './sections/Hero2'
-import { DevelopmentSection }    from './sections/DevelopmentSection'
+import { Hero3 }         from './sections/Hero3'
+import { DevKineticSection }     from './sections/DevKineticSection'
 import { SecuritySection }       from './sections/SecuritySection'
 import { MicrosoftSection }      from './sections/MicrosoftSection'
 import { MarketingSection }      from './sections/MarketingSection'
@@ -13,10 +13,10 @@ import { FooterSection } from './sections/FooterSection'
 
 export function HomePage() {
   return (
-    <div style={{ overflowX: 'hidden', fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
+    <div style={{ overflowX: 'clip', fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
-      <Hero2 />
-      <DevelopmentSection />
+      <Hero3 />
+      <DevKineticSection />
       <SecuritySection />
       <MicrosoftSection />
       <MarketingSection />

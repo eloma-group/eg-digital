@@ -131,7 +131,7 @@ export function Media() {
       </section>
 
       {/* ── Filter bar ── */}
-      <div style={{ position: 'sticky', top: 68, zIndex: 50, background: `${CREAM}f2`, backdropFilter: 'blur(8px)', borderTop: '1px solid rgba(8,33,60,0.08)', borderBottom: '1px solid rgba(8,33,60,0.08)' }}>
+      <div style={{ position: 'sticky', top: 76, zIndex: 50, background: `${CREAM}f2`, backdropFilter: 'blur(8px)', borderTop: '1px solid rgba(8,33,60,0.08)', borderBottom: '1px solid rgba(8,33,60,0.08)' }}>
         <div style={{ maxWidth: 1760, margin: '0 auto', padding: '14px clamp(24px,4vw,72px)', display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           {FILTERS.map(f => {
             const on = filter === f

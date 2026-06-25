@@ -11,7 +11,7 @@ const SCENES: Scene[] = [
   {
     n: '01', tag: 'Business-first thinking', theme: 'light',
     lines: ['We think like', 'business owners.'], hi: 'business owners.',
-    body: 'We don’t just create websites or run campaigns - we look at the bigger picture. Every decision is made with your business goals, customer journey and growth opportunities in mind, so our work delivers real value beyond just aesthetics.',
+    body: 'We don’t just create websites or run campaigns - we look at the bigger picture. Every decision is made with your business goals, customer journey and growth opportunities in mind, ensuring our work delivers real value beyond just aesthetics.',
     proof: 'Growth-focused decisions',
   },
   {
@@ -143,7 +143,7 @@ export function OurUSP() {
     <CinematicBanner
       eyebrow="What Makes Us"
       word="DIFFERENT"
-      sub="We believe great digital solutions should be simple, effective and focused on growth - combining creativity, strategy and technology to help businesses stand out, connect with customers and achieve lasting success."
+      sub="We believe great digital solutions should be simple, effective and focused on business growth - combining creativity, strategy and technology to help businesses stand out, connect with customers and achieve lasting success."
       scrollLabel="Scroll to explore"
     />
   )

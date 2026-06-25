@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
-import { SOLUTION_SECTIONS, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
+import { SOLUTION_ROUTES, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -47,8 +47,6 @@ const SOLUTIONS_GROUPS = [
     categories: [
       { label: 'Microsoft 365',  items: ['Power BI', 'Power Automate', 'Share Point', 'Office 365'] },
       { label: 'Dynamic 365',    items: ['Sales', 'Customer Service', 'Field Service', 'Finance', 'Supply Chain', 'Small and Medium Business'] },
-      { label: 'CRM',            items: ['Microsoft', 'Salesforce', 'Oracle', 'Zoho'] },
-      { label: 'ERP',            items: ['Sage', 'NetSuite', 'Microsoft', 'Salesforce'] },
     ],
   },
   {
@@ -58,6 +56,8 @@ const SOLUTIONS_GROUPS = [
       { label: 'Software Development', items: ['Custom Software Development'] },
       { label: 'App Development',      items: ['Custom App Development'] },
       { label: 'Website Development',  items: ['Wordpress', 'React & Next', 'Shopify'] },
+      { label: 'CRM',                  items: ['Microsoft', 'Salesforce', 'Oracle', 'Zoho'] },
+      { label: 'ERP',                  items: ['Sage', 'NetSuite', 'Microsoft', 'Salesforce'] },
     ],
   },
   {
@@ -119,7 +119,7 @@ function PanelDropdown({
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'fixed',
-        top: 68, left: 0, right: 0,
+        top: 76, left: 0, right: 0,
         zIndex: 400,
         display: 'flex',
         justifyContent: 'center',
@@ -259,8 +259,8 @@ function MegaMenu({
   const [hoveredCat, setHoveredCat] = useState<string | null>(null)
   const navigate = useNavigate()
   const goToSection = (groupLabel: string) => {
-    const id = SOLUTION_SECTIONS[groupLabel]
-    if (id) navigate(`/solutions#${id}`)
+    const to = SOLUTION_ROUTES[groupLabel]
+    if (to) navigate(to)
     onClose()
   }
 
@@ -272,7 +272,7 @@ function MegaMenu({
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'fixed',
-        top: 68,
+        top: 76,
         left: 0,
         right: 0,
         zIndex: 400,
@@ -293,7 +293,7 @@ function MegaMenu({
           boxShadow: '0 4px 6px rgba(8,33,60,0.04), 0 24px 64px rgba(8,33,60,0.14)',
           width: '100%',
           maxWidth: 'min(calc(100vw - 80px), 1760px)',
-          maxHeight: 'calc(100vh - 86px)',
+          maxHeight: 'calc(100vh - 94px)',
           overflowY: 'auto',
           overflowX: 'hidden',
           pointerEvents: 'all',
@@ -527,7 +527,7 @@ export function Navbar() {
       let over = false
       document.querySelectorAll('[data-nav-overlap]').forEach(el => {
         const r = el.getBoundingClientRect()
-        if (r.top < 68 && r.bottom > 0) over = true
+        if (r.top < 76 && r.bottom > 0) over = true
       })
       setOverHero(over)
     }
@@ -586,7 +586,7 @@ export function Navbar() {
           margin: 0 auto;
           padding: 0 clamp(16px, 3vw, 48px);
           display: flex; align-items: center;
-          height: 68px;
+          height: 76px;
         }
         @media (min-width: 1920px) { .nav-inner { max-width: 1900px; } }
         @media (min-width: 2560px) { .nav-inner { max-width: 2440px; } }
@@ -702,9 +702,9 @@ export function Navbar() {
           {/* Logo */}
           <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <img
-              src="/images/Egdigital-01.png"
+              src="/images/Egdigital-logo.png"
               alt="EG Digital"
-              style={{ height: 54, width: 'auto', display: 'block' }}
+              style={{ height: 36, width: 'auto', display: 'block' }}
             />
           </div>
 
@@ -933,9 +933,9 @@ export function Navbar() {
             <div className="nav-mobile-header">
               <div style={{ background: NAVY, borderRadius: 8, padding: '5px 12px', display: 'flex', alignItems: 'center' }}>
                 <img
-                  src="/images/Egdigital-02.png"
+                  src="/images/Egdigital-logo-white.png"
                   alt="EG Digital"
-                  style={{ height: 38, width: 'auto', display: 'block' }}
+                  style={{ height: 28, width: 'auto', display: 'block' }}
                 />
               </div>
               <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">
@@ -963,7 +963,7 @@ export function Navbar() {
                   {group.categories.map(cat => (
                     <button key={cat.label} className="nav-mobile-item"
                       style={{ fontWeight: 600, color: NAVY }}
-                      onClick={() => { setMobileOpen(false); const id = SOLUTION_SECTIONS[group.groupLabel]; if (id) navigate(`/solutions#${id}`) }}>
+                      onClick={() => { setMobileOpen(false); const to = SOLUTION_ROUTES[group.groupLabel]; if (to) navigate(to) }}>
                       {cat.label}
                     </button>
                   ))}
