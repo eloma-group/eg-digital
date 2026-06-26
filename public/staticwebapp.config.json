@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemas.azureedge.net/staticwebapp.config.json",
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/images/*",
+      "*.{css,js,mjs,json,webmanifest,txt,xml,map}",
+      "*.{png,jpg,jpeg,gif,svg,ico,webp,avif}",
+      "*.{woff,woff2,ttf,otf,eot}",
+      "*.{mp4,webm,mp3,wav}"
+    ]
+  },
+  "mimeTypes": {
+    ".webmanifest": "application/manifest+json",
+    ".woff2": "font/woff2",
+    ".mp4": "video/mp4",
+    ".json": "application/json"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
+  }
+}

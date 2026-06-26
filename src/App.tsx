@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { IntroSplash } from './components/IntroSplash'
 import { HomePage } from './components/HomePage'
 import { OurJourney } from './components/pages/OurJourney'
@@ -91,6 +91,8 @@ function App() {
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />
+        {/* Any unknown path falls back to the homepage. */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   )
