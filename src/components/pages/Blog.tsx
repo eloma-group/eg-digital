@@ -1,33 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 
 type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest Technologies' | 'Awareness'; read: string; date: string; img: string }
 
-// Topic-matched random photo (LoremFlickr) - `lock` keeps each card's image
-// stable across re-renders / filtering so it never reshuffles or flickers.
-const photo = (keywords: string, seed: number, w = 640, h = 400) =>
-  `https://loremflickr.com/${w}/${h}/${keywords}?lock=${seed}`
+// Hand-picked, content-matched Unsplash photos. `img` holds the Unsplash photo
+// id and this builds a stable, cropped CDN URL at the requested size - so each
+// card always shows the same relevant image (no reshuffle / flicker).
+const photo = (id: string, _seed: number, w = 640, h = 400) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
 const FEATURED: Post = {
   title: 'How we took an e-commerce brand from 4.1 to 4.9 stars in 90 days',
   excerpt: 'A deep dive into the review automation, analytics and response workflows we built - and the measurable revenue lift that followed.',
-  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'ecommerce,shopping,analytics',
+  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'photo-1539278383962-a7774385fa02',
 }
 
 const POSTS: Post[] = [
-  { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026', img: 'server,cloud,datacenter' },
-  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026', img: 'manufacturing,factory,industry' },
-  { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026', img: 'artificial-intelligence,laptop,technology' },
-  { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026', img: 'programming,code,developer' },
-  { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026', img: 'cybersecurity,hacker,laptop' },
-  { title: 'Why your business needs a zero-trust security model now', excerpt: 'The shift from perimeter defence to identity-first security, explained.', category: 'Awareness', read: '5 min read', date: 'Apr 2026', img: 'security,network,lock' },
+  { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026', img: 'photo-1551288049-bebda4e38f71' },
+  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026', img: 'photo-1717386255773-1e3037c81788' },
+  { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026', img: 'photo-1684369175833-4b445ad6bfb5' },
+  { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026', img: 'photo-1461749280684-dccba630e2f6' },
+  { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026', img: 'photo-1562813733-b31f71025d54' },
+  { title: 'Why your business needs a zero-trust security model now', excerpt: 'The shift from perimeter defence to identity-first security, explained.', category: 'Awareness', read: '5 min read', date: 'Apr 2026', img: 'photo-1614064641938-3bbee52942c7' },
 ]
 
 const FILTERS = ['All', 'Case Studies', 'Latest Technologies', 'Awareness'] as const
 
+// Footer links use ?category=<slug> to open the Blog with that filter applied.
+const CATEGORY_SLUGS: Record<string, (typeof FILTERS)[number]> = {
+  'case-studies': 'Case Studies',
+  'latest-technologies': 'Latest Technologies',
+  'awareness': 'Awareness',
+}
+const filterFromSearch = (search: string): (typeof FILTERS)[number] =>
+  CATEGORY_SLUGS[new URLSearchParams(search).get('category') ?? ''] ?? 'All'
+
 export function Blog() {
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]>('All')
+  const { search } = useLocation()
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]>(() => filterFromSearch(search))
+  // Keep the active filter in sync when arriving via a footer category link.
+  useEffect(() => { setFilter(filterFromSearch(search)) }, [search])
   const visible = filter === 'All' ? POSTS : POSTS.filter(p => p.category === filter)
 
   return (
