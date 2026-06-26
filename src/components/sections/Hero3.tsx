@@ -1,4 +1,4 @@
-import { lazy, Suspense, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,6 +10,36 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 /* Heavy Spline runtime is split out + lazy-loaded so it never blocks paint.
    Foreground robot = the Hero2 robot, layered over the section gradient. */
 const RobotCanvas = lazy(() => import('./SplineRobot'))
+
+/* The Spline runtime + scene is several MB. The hero sits at the top of the
+   page so it is "in view" immediately - if we mounted the robot right away it
+   would download all of that on first paint and make the whole site feel slow
+   to load. Instead we wait until the browser is idle (or load + a short beat),
+   so the page becomes interactive first and the robot streams in just after. */
+function useDeferredMount() {
+  const [ready, setReady] = useState(false)
+  useEffect(() => {
+    let idle: number | undefined
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const start = () => {
+      const ric = (window as typeof window & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number
+      }).requestIdleCallback
+      if (ric) idle = ric(() => setReady(true), { timeout: 2500 })
+      else timer = setTimeout(() => setReady(true), 1500)
+    }
+    // Wait for the initial load to settle before kicking off the idle wait.
+    if (document.readyState === 'complete') start()
+    else { window.addEventListener('load', start, { once: true }) }
+    return () => {
+      window.removeEventListener('load', start)
+      const cic = (window as typeof window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback
+      if (idle !== undefined && cic) cic(idle)
+      if (timer) clearTimeout(timer)
+    }
+  }, [])
+  return ready
+}
 
 function Words() {
   return (
@@ -209,6 +239,7 @@ export function Hero3() {
   // free. The generous margin keeps them alive through small scrolls near the top.
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { margin: '400px 0px 400px 0px' })
+  const deferReady = useDeferredMount()
 
   return (
     <>
@@ -219,13 +250,15 @@ export function Hero3() {
 
         <div className="h3-robot">
           <div className="h3-stage" aria-hidden="true">
-            {inView ? (
+            {inView && deferReady ? (
               <div className="h3-fg-robot">
                 <Suspense fallback={<div className="h3-fallback"><span /></div>}>
                   <RobotCanvas />
                 </Suspense>
               </div>
-            ) : null}
+            ) : (
+              <div className="h3-fallback"><span /></div>
+            )}
           </div>
           <motion.div
             className="h3-robot-cap"
