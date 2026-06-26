@@ -21,13 +21,13 @@ const COL: Record<string, string> = { kw: '#c084fc', fn: '#5cc8ff', st: GREEN, p
 const STATS: [string, string][] = [['25+', 'Products shipped'], ['100%', 'On-time delivery'], ['4.2★', 'Client rating']]
 
 const CAPS = [
-  { no: '01', visual: 'code', title: 'Software Development',
+  { no: '01', visual: 'code', anchor: 'saas', title: 'Software Development',
     desc: 'Custom software built around your specific requirements - streamlining operations, improving productivity and driving greater efficiency.',
     items: ['Custom Business Apps', 'Enterprise Software', 'CRM & ERP', 'Workflow Automation', 'Process Management', 'APIs & Integrations'] },
-  { no: '02', visual: 'app', title: 'Mobile App Development',
+  { no: '02', visual: 'app', anchor: 'app', title: 'Mobile App Development',
     desc: 'Intuitive, high-performance mobile apps that deliver seamless experiences and keep you connected with your audience anywhere.',
     items: ['iOS', 'Android', 'Cross-Platform', 'Enterprise Apps', 'Engagement Apps', 'Maintenance & Support'] },
-  { no: '03', visual: 'web', title: 'Website Development',
+  { no: '03', visual: 'web', anchor: 'web', title: 'Website Development',
     desc: 'More than an online presence - fast, secure and visually striking sites designed to convert visitors into customers.',
     items: ['WordPress', 'React & Next.js', 'Shopify'] },
 ]
@@ -327,7 +327,7 @@ export function DevelopmentSolution() {
           <div className="dvp-rows">
             {CAPS.map((c, i) => (
               <Reveal key={c.no}>
-                <div className={`dvp-row${i % 2 ? ' rev' : ''}`}>
+                <div id={c.anchor} className={`dvp-row${i % 2 ? ' rev' : ''}`} style={{ scrollMarginTop: 90 }}>
                   <div className="dvp-text">
                     <span className="dvp-rno">{c.no}</span>
                     <h3 className="dvp-rt">{c.title}</h3>
@@ -343,7 +343,7 @@ export function DevelopmentSolution() {
       </section>
 
       {/* ── Website platforms ── */}
-      <section className="dvp-sec" style={{ paddingTop: 0 }}>
+      <section id="ecommerce" className="dvp-sec" style={{ paddingTop: 0, scrollMarginTop: 90 }}>
         <div className="dvp-shell">
           <Reveal>
             <Eyebrow>Website platforms</Eyebrow>

@@ -30,6 +30,7 @@ type Scene = {
   line1: string
   line2: string
   link: string
+  to: string                      // route the Explore link navigates to
   accent: string
   cards: CardDef[]
 }
@@ -47,11 +48,11 @@ function Surface({ children, w, pad = 16, accent }: { children: React.ReactNode;
 
 function Metric({ label, value, sub, accent }: { label: string; value: string; sub: string; accent: string }) {
   return (
-    <div style={{ background: `linear-gradient(150deg, ${accent}, ${accent}cc)`, borderRadius: 20, padding: 22, width: 204, color: '#fff', boxShadow: `0 14px 30px ${accent}44` }}>
-      <div style={{ fontSize: 12.5, fontWeight: 700, opacity: 0.85, letterSpacing: '0.4px' }}>{label}</div>
-      <div style={{ fontSize: 48, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1, margin: '10px 0 5px' }}>{value}</div>
-      <div style={{ fontSize: 12.5, fontWeight: 600, opacity: 0.85, display: 'flex', alignItems: 'center', gap: 5 }}>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>{sub}
+    <div style={{ background: `linear-gradient(150deg, ${accent}, ${accent}cc)`, borderRadius: 26, padding: 32, width: 296, color: '#fff', boxShadow: `0 16px 36px ${accent}44` }}>
+      <div style={{ fontSize: 16, fontWeight: 700, opacity: 0.85, letterSpacing: '0.4px' }}>{label}</div>
+      <div style={{ fontSize: 70, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1, margin: '14px 0 7px' }}>{value}</div>
+      <div style={{ fontSize: 16, fontWeight: 600, opacity: 0.85, display: 'flex', alignItems: 'center', gap: 7 }}>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>{sub}
       </div>
     </div>
   )
@@ -105,9 +106,9 @@ function Photo({ src, alt, w, h, badge }: { src: string; alt: string; w: number;
 
 function Pill({ text, accent }: { text: string; accent: string }) {
   return (
-    <div style={{ background: `linear-gradient(135deg, ${accent}, ${accent}bb)`, color: '#fff', borderRadius: 16, padding: '17px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, minWidth: 238, boxShadow: `0 14px 30px ${accent}38` }}>
-      <span style={{ fontSize: 15, fontWeight: 800 }}>{text}</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+    <div style={{ background: `linear-gradient(135deg, ${accent}, ${accent}bb)`, color: '#fff', borderRadius: 20, padding: '24px 34px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 28, minWidth: 342, boxShadow: `0 16px 36px ${accent}38` }}>
+      <span style={{ fontSize: 21, fontWeight: 800 }}>{text}</span>
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </div>
   )
 }
@@ -124,59 +125,59 @@ function Header({ label, score, accent }: { label: string; score: string; accent
 // ── scene definitions ────────────────────────────────────────────────────────
 const SCENES: Scene[] = [
   {
-    id: 'web', label: 'Web Platforms', accent: GREEN, link: 'Explore Web Development',
+    id: 'web', label: 'Web Platforms', accent: GREEN, link: 'Explore Web Development', to: '/solutions/development#web',
     line1: 'Maximise Your Reach with',
     line2: 'Lightning-Fast Web Platforms',
     cards: [
       { pos: { top: 'calc(104px + 4%)', left: '2%' }, from: { x: -120, y: -40 }, node: (
-        <Surface w={256} accent={GREEN}><Header label="Core Web Vitals" score="Pass" accent={GREEN} /><Bars accent={GREEN} />
+        <Surface w={368} accent={GREEN}><Header label="Core Web Vitals" score="Pass" accent={GREEN} /><Bars accent={GREEN} />
           <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 8, fontWeight: 600 }}>LCP 1.1s · CLS 0.01</div></Surface>
       ) },
       { pos: { top: 'calc(104px + 2%)', right: '4%' }, from: { x: 120, y: -60 }, far: true, node: (
-        <Photo src="/images/dev/web-dev.jpg" alt="Developer building a web platform" w={320} h={210}
+        <Photo src="/images/dev/web-dev.jpg" alt="Developer building a web platform" w={460} h={300}
           badge={<div style={{ position: 'absolute', bottom: 12, left: 12 }}><span style={{ background: GREEN, color: '#fff', fontSize: 11, fontWeight: 800, padding: '6px 12px', borderRadius: 100 }}>99 Lighthouse</span></div>} /> ) },
       { pos: { bottom: '6%', left: '5%' }, from: { x: -100, y: 80 }, far: true, node: (
         <Metric label="Page Speed" value="98" sub="+34% conversions" accent={GREEN} /> ) },
       { pos: { bottom: '8%', right: '3%' }, from: { x: 110, y: 70 }, node: (
-        <Surface w={264}><Header label="Traffic Today" score="Live" accent={GREEN} />
+        <Surface w={380}><Header label="Traffic Today" score="Live" accent={GREEN} />
           <Rows rows={[['Organic', '12.4k'], ['Direct', '6.1k'], ['Referral', '2.8k']]} accent={GREEN} /></Surface>
       ) },
     ],
   },
   {
-    id: 'app', label: 'Mobile Apps', accent: VIOLET, link: 'Explore App Development',
+    id: 'app', label: 'Mobile Apps', accent: VIOLET, link: 'Explore App Development', to: '/solutions/development#app',
     line1: 'Engage Users Anywhere with',
     line2: 'Native-Feel Mobile Apps',
     cards: [
       { pos: { top: 'calc(104px + 3%)', right: '4%' }, from: { x: 130, y: -50 }, node: (
-        <Photo src="/images/dev/mobile.jpg" alt="Mobile app on a smartphone" w={228} h={284}
+        <Photo src="/images/dev/mobile.jpg" alt="Mobile app on a smartphone" w={328} h={408}
           badge={<div style={{ position: 'absolute', top: 12, left: 12 }}><span style={{ background: VIOLET, color: '#fff', fontSize: 11, fontWeight: 800, padding: '6px 12px', borderRadius: 100 }}>iOS · Android</span></div>} /> ) },
       { pos: { top: 'calc(104px + 6%)', left: '3%' }, from: { x: -120, y: -30 }, node: (
-        <Surface w={254} accent={VIOLET}><div style={{ fontSize: 12, fontWeight: 800, color: 'var(--txt)', marginBottom: 8 }}>App Store Rating</div>
-          <div style={{ fontSize: 46, fontWeight: 900, color: VIOLET, letterSpacing: '-0.04em', lineHeight: 1 }}>4.9</div>
-          <div style={{ marginTop: 6, color: GOLD, letterSpacing: 2, fontSize: 14 }}>★★★★★</div>
-          <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 6, fontWeight: 600 }}>12,480 reviews</div></Surface>
+        <Surface w={366} accent={VIOLET}><div style={{ fontSize: 16, fontWeight: 800, color: 'var(--txt)', marginBottom: 8 }}>App Store Rating</div>
+          <div style={{ fontSize: 66, fontWeight: 900, color: VIOLET, letterSpacing: '-0.04em', lineHeight: 1 }}>4.9</div>
+          <div style={{ marginTop: 7, color: GOLD, letterSpacing: 2, fontSize: 17 }}>★★★★★</div>
+          <div style={{ fontSize: 12.5, color: 'var(--muted)', marginTop: 7, fontWeight: 600 }}>12,480 reviews</div></Surface>
       ) },
       { pos: { bottom: '7%', left: '6%' }, from: { x: -90, y: 80 }, far: true, node: (
         <Metric label="Daily Active Users" value="48k" sub="+21% retention" accent={VIOLET} /> ) },
       { pos: { bottom: '9%', right: '5%' }, from: { x: 110, y: 70 }, far: true, node: (
-        <Surface w={252}><Header label="Push Engagement" score="68%" accent={VIOLET} /><Line accent={VIOLET} /></Surface> ) },
+        <Surface w={364}><Header label="Push Engagement" score="68%" accent={VIOLET} /><Line accent={VIOLET} /></Surface> ) },
     ],
   },
   {
-    id: 'saas', label: 'SaaS Products', accent: BLUE, link: 'Explore SaaS Engineering',
+    id: 'saas', label: 'SaaS Products', accent: BLUE, link: 'Explore SaaS Engineering', to: '/solutions/development#saas',
     line1: 'Scale Without Limits using',
     line2: 'Multi-Tenant SaaS Platforms',
     cards: [
       { pos: { top: 'calc(104px + 4%)', left: '3%' }, from: { x: -130, y: -40 }, far: true, node: (
-        <Surface w={274} accent={BLUE}><Header label="MRR" score="+18%" accent={BLUE} /><Line accent={BLUE} />
+        <Surface w={394} accent={BLUE}><Header label="MRR" score="+18%" accent={BLUE} /><Line accent={BLUE} />
           <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 8, fontWeight: 600 }}>$214,820 this month</div></Surface>
       ) },
       { pos: { top: 'calc(104px + 2%)', right: '4%' }, from: { x: 120, y: -55 }, node: (
-        <Photo src="/images/dev/team-saas.jpg" alt="Team building a SaaS platform" w={314} h={208}
+        <Photo src="/images/dev/team-saas.jpg" alt="Team building a SaaS platform" w={450} h={298}
           badge={<div style={{ position: 'absolute', bottom: 12, left: 12 }}><span style={{ background: BLUE, color: '#fff', fontSize: 11, fontWeight: 800, padding: '6px 12px', borderRadius: 100 }}>99.99% uptime</span></div>} /> ) },
       { pos: { bottom: '6%', left: '6%' }, from: { x: -100, y: 80 }, node: (
-        <Surface w={270}><Header label="Workspaces" score="Live" accent={BLUE} />
+        <Surface w={388}><Header label="Workspaces" score="Live" accent={BLUE} />
           <Rows rows={[['Enterprise', '128'], ['Growth', '642'], ['Starter', '2,910']]} accent={BLUE} /></Surface>
       ) },
       { pos: { bottom: '9%', right: '4%' }, from: { x: 110, y: 70 }, far: true, node: (
@@ -184,17 +185,17 @@ const SCENES: Scene[] = [
     ],
   },
   {
-    id: 'ecom', label: 'E-Commerce', accent: CORAL, link: 'Explore E-Commerce',
+    id: 'ecom', label: 'E-Commerce', accent: CORAL, link: 'Explore E-Commerce', to: '/solutions/development#ecommerce',
     line1: 'Convert More Shoppers with',
     line2: 'High-Performance Storefronts',
     cards: [
       { pos: { top: 'calc(104px + 3%)', right: '4%' }, from: { x: 120, y: -50 }, node: (
-        <Photo src="/images/dev/ecommerce.jpg" alt="Customer checking out in store" w={320} h={210}
+        <Photo src="/images/dev/ecommerce.jpg" alt="Customer checking out in store" w={460} h={300}
           badge={<div style={{ position: 'absolute', bottom: 12, left: 12 }}><span style={{ background: CORAL, color: '#fff', fontSize: 11, fontWeight: 800, padding: '6px 12px', borderRadius: 100 }}>Headless</span></div>} /> ) },
       { pos: { top: 'calc(104px + 5%)', left: '3%' }, from: { x: -120, y: -30 }, node: (
         <Metric label="Conversion Rate" value="4.8%" sub="+62% vs theme" accent={CORAL} /> ) },
       { pos: { bottom: '7%', left: '6%' }, from: { x: -95, y: 80 }, far: true, node: (
-        <Surface w={264} accent={CORAL}><Header label="Revenue" score="Today" accent={CORAL} /><Bars accent={CORAL} />
+        <Surface w={380} accent={CORAL}><Header label="Revenue" score="Today" accent={CORAL} /><Bars accent={CORAL} />
           <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 8, fontWeight: 600 }}>$48,210 · 1,204 orders</div></Surface>
       ) },
       { pos: { bottom: '9%', right: '5%' }, from: { x: 110, y: 70 }, far: true, node: (
@@ -222,6 +223,7 @@ const revealVariants: Variants = {
 // Shared by the desktop cross-fade layers and the mobile stacked blocks so the
 // content/design stays identical in both modes.
 function SceneInner({ scene }: { scene: Scene }) {
+  const navigate = useNavigate()
   return (
     <div className="dvk-stage">
       <div className="dvk-headwrap">
@@ -233,10 +235,10 @@ function SceneInner({ scene }: { scene: Scene }) {
             <span className="dvk-l1">{scene.line1}</span>
             <span className="dvk-l2" style={{ ['--acc' as string]: scene.accent } as React.CSSProperties}>{scene.line2}</span>
           </h3>
-          <span className="dvk-link" style={{ color: scene.accent }}>
+          <button type="button" className="dvk-link" style={{ color: scene.accent }} onClick={() => navigate(scene.to)}>
             {scene.link}
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </span>
+          </button>
         </div>
       </div>
       {scene.cards.map((c, idx) => (
@@ -407,7 +409,9 @@ export function DevKineticSection() {
         .dvk-l2 { font-size:clamp(28px,4.2vw,54px); background:linear-gradient(110deg, var(--acc), var(--txt));
           -webkit-background-clip:text; background-clip:text; color:transparent; }
         .dvk-link { display:inline-flex; align-items:center; gap:6px; margin-top:18px; font-size:14px; font-weight:800;
-          letter-spacing:.2px; }
+          letter-spacing:.2px; pointer-events:auto; cursor:pointer; background:none; border:none; padding:8px 4px;
+          min-height:44px; font-family:inherit; transition:gap .2s,opacity .2s; }
+        .dvk-link:hover { gap:10px; opacity:.82; }
 
         .dvk-card { position:absolute; z-index:3; will-change:transform,opacity; }
 
