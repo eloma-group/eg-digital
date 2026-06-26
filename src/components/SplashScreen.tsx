@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Mail } from 'lucide-react'
+import { LogoBuild } from './LogoBuild'
 
 const GREEN = '#3CB98C'
 
@@ -94,7 +95,7 @@ export function SplashScreen() {
         }
 
         .sp-logo-img {
-          width: clamp(96px, 11vw, 150px);
+          width: clamp(168px, 18vw, 280px);
           height: auto;
           display: block;
         }
@@ -340,7 +341,7 @@ export function SplashScreen() {
         /* Mobile S: 320–374px */
         @media (max-width: 374px) {
           .sp-headline  { font-size: clamp(38px, 11vw, 50px); }
-          .sp-logo-img  { width: clamp(88px, 24vw, 116px); }
+          .sp-logo-img  { width: clamp(150px, 44vw, 200px); }
           .sp-count-num { font-size: clamp(16px, 5vw, 22px); }
           .sp-count-box { min-width: clamp(38px, 11vw, 48px); padding: 5px 6px; }
           .sp-wrap      { padding: clamp(14px, 4vw, 18px); }
@@ -393,18 +394,14 @@ export function SplashScreen() {
         {/* Content column */}
         <div className="sp-wrap">
 
-          {/* TOP - logo */}
+          {/* TOP - animated logo build */}
           <motion.div
             className="sp-logo-row"
-            initial={{ opacity: 0, x: -24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: EASE, delay: 0.05 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease: EASE, delay: 0.05 }}
           >
-            <img
-              src="/images/Egdigital-02.png"
-              alt="EG Digital"
-              className="sp-logo-img"
-            />
+            <LogoBuild className="sp-logo-img" />
           </motion.div>
 
           {/* MIDDLE - headline */}
