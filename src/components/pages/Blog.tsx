@@ -14,7 +14,7 @@ const photo = (id: string, _seed: number, w = 640, h = 400) =>
 const FEATURED: Post = {
   title: 'How we took an e-commerce brand from 4.1 to 4.9 stars in 90 days',
   excerpt: 'A deep dive into the review automation, analytics and response workflows we built - and the measurable revenue lift that followed.',
-  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'photo-1539278383962-a7774385fa02',
+  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'photo-1608222351212-18fe0ec7b13b',
 }
 
 const POSTS: Post[] = [
