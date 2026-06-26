@@ -1,23 +1,27 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { IntroSplash } from './components/IntroSplash'
-import { HomePage } from './components/HomePage'
-import { OurJourney } from './components/pages/OurJourney'
-import { OurUSP } from './components/pages/OurUSP'
-import { NetworksPartners } from './components/pages/NetworksPartners'
-import { Media } from './components/pages/Media'
-import { Values } from './components/pages/Values'
-import { FAQ } from './components/pages/FAQ'
-import { Contact } from './components/pages/Contact'
-import { Solutions } from './components/pages/Solutions'
-import { MicrosoftProducts } from './components/pages/solutions/MicrosoftProducts'
-import { DevelopmentSolution } from './components/pages/solutions/Development'
-import { DigitalMarketingSolution } from './components/pages/solutions/DigitalMarketing'
-import { SecurityIntegrationSolution } from './components/pages/solutions/SecurityIntegration'
-import { Services } from './components/pages/Services'
-import { Industries } from './components/pages/Industries'
-import { Blog } from './components/pages/Blog'
-import { Career } from './components/pages/Career'
+
+// Every page is code-split so opening one route never downloads the others.
+// This keeps the initial bundle tiny - the homepage no longer ships the blog,
+// solutions, services, etc. The named exports are mapped to a default for lazy().
+const HomePage                     = lazy(() => import('./components/HomePage').then(m => ({ default: m.HomePage })))
+const OurJourney                   = lazy(() => import('./components/pages/OurJourney').then(m => ({ default: m.OurJourney })))
+const OurUSP                       = lazy(() => import('./components/pages/OurUSP').then(m => ({ default: m.OurUSP })))
+const NetworksPartners             = lazy(() => import('./components/pages/NetworksPartners').then(m => ({ default: m.NetworksPartners })))
+const Media                        = lazy(() => import('./components/pages/Media').then(m => ({ default: m.Media })))
+const Values                       = lazy(() => import('./components/pages/Values').then(m => ({ default: m.Values })))
+const FAQ                          = lazy(() => import('./components/pages/FAQ').then(m => ({ default: m.FAQ })))
+const Contact                      = lazy(() => import('./components/pages/Contact').then(m => ({ default: m.Contact })))
+const Solutions                    = lazy(() => import('./components/pages/Solutions').then(m => ({ default: m.Solutions })))
+const MicrosoftProducts            = lazy(() => import('./components/pages/solutions/MicrosoftProducts').then(m => ({ default: m.MicrosoftProducts })))
+const DevelopmentSolution          = lazy(() => import('./components/pages/solutions/Development').then(m => ({ default: m.DevelopmentSolution })))
+const DigitalMarketingSolution     = lazy(() => import('./components/pages/solutions/DigitalMarketing').then(m => ({ default: m.DigitalMarketingSolution })))
+const SecurityIntegrationSolution  = lazy(() => import('./components/pages/solutions/SecurityIntegration').then(m => ({ default: m.SecurityIntegrationSolution })))
+const Services                     = lazy(() => import('./components/pages/Services').then(m => ({ default: m.Services })))
+const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
+const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
+const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
 
 // Reset scroll (and the global Lenis instance) on every route change, or scroll
 // to a #section anchor when the URL carries a hash.
@@ -73,6 +77,7 @@ function App() {
     <>
       <IntroSplash />
       <ScrollToTop />
+      <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about/our-journey" element={<OurJourney />} />
@@ -94,6 +99,7 @@ function App() {
         {/* Any unknown path falls back to the homepage. */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
     </>
   )
 }

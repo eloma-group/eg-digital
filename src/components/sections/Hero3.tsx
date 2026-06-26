@@ -19,6 +19,13 @@ const RobotCanvas = lazy(() => import('./SplineRobot'))
 function useDeferredMount() {
   const [ready, setReady] = useState(false)
   useEffect(() => {
+    // On slow connections or data-saver, never load the multi-MB 3D scene -
+    // the lightweight placeholder stays and the page stays fast.
+    const conn = (navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string }
+    }).connection
+    if (conn && (conn.saveData || /(^|-)(2g|slow-2g)$/.test(conn.effectiveType || ''))) return
+
     let idle: number | undefined
     let timer: ReturnType<typeof setTimeout> | undefined
     const start = () => {
