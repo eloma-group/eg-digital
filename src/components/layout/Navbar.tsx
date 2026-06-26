@@ -595,7 +595,7 @@ export function Navbar() {
           flex-shrink: 0;
           margin-right: clamp(16px, 2vw, 32px);
         }
-        .nav-logo img { height: 44px; width: auto; }
+        .nav-logo img { height: 46px; width: auto; }
 
         /* Nav links - centered between logo and right actions */
         .nav-links {
@@ -704,7 +704,7 @@ export function Navbar() {
             <img
               src="/images/Egdigital-logo.png"
               alt="EG Digital"
-              style={{ height: 36, width: 'auto', display: 'block' }}
+              style={{ height: 46, width: 'auto', display: 'block' }}
             />
           </div>
 
@@ -935,7 +935,7 @@ export function Navbar() {
                 <img
                   src="/images/Egdigital-logo-white.png"
                   alt="EG Digital"
-                  style={{ height: 28, width: 'auto', display: 'block' }}
+                  style={{ height: 34, width: 'auto', display: 'block' }}
                 />
               </div>
               <button className="nav-mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close">

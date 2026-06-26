@@ -23,28 +23,28 @@ export function ServicesSection() {
   const cards = [
     {
       id:'ms', label:'Microsoft Solutions',
-      icon:<div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:2.5, width:22, height:22 }}>{['#f25022','#7fba00','#00a4ef','#ffb900'].map(c=><span key={c} style={{ display:'block', background:c, borderRadius:1.5 }}/>)}</div>,
+      icon:<div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:3.5, width:34, height:34 }}>{['#f25022','#7fba00','#00a4ef','#ffb900'].map(c=><span key={c} style={{ display:'block', background:c, borderRadius:2.5 }}/>)}</div>,
       items:['Microsoft 365', 'Dynamics CRM', 'Azure Cloud'],
       stat:'22 Clients', statColor:'#0078d4',
       color:'#0078d4', pos:{ top:'10%', left:'3%' }, anim:'hv7-float-a', dur:'4.4s', delay:'0s',
     },
     {
       id:'dev', label:'Digital Development',
-      icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 9L4 12L8 15M16 9L20 12L16 15M13 6L11 18" stroke={GREEN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+      icon:<svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M8 9L4 12L8 15M16 9L20 12L16 15M13 6L11 18" stroke={GREEN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
       items:['Web & App Build', 'Custom Software', 'Shopify / React'],
       stat:'50+ Delivered', statColor:GREEN,
       color:GREEN, pos:{ top:'8%', right:'3%' }, anim:'hv7-float-b', dur:'5.2s', delay:'-1.4s',
     },
     {
       id:'sec', label:'AI Cybersecurity',
-      icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#ef4444" strokeWidth="1.8"/><path d="M8 20H16M12 16V20" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/><rect x="9.4" y="8.2" width="5.2" height="4.2" rx="0.8" stroke="#ef4444" strokeWidth="1.6"/><path d="M10.2 8.2V7a1.8 1.8 0 0 1 3.6 0v1.2" stroke="#ef4444" strokeWidth="1.6" strokeLinecap="round"/></svg>,
+      icon:<svg width="34" height="34" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#ef4444" strokeWidth="1.8"/><path d="M8 20H16M12 16V20" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/><rect x="9.4" y="8.2" width="5.2" height="4.2" rx="0.8" stroke="#ef4444" strokeWidth="1.6"/><path d="M10.2 8.2V7a1.8 1.8 0 0 1 3.6 0v1.2" stroke="#ef4444" strokeWidth="1.6" strokeLinecap="round"/></svg>,
       items:['MS Defender XDR', 'Zero-Trust Arch', '24/7 Monitoring'],
       stat:'178+ Blocked/day', statColor:'#ef4444',
       color:'#ef4444', pos:{ bottom:'12%', left:'3%' }, anim:'hv7-float-c', dur:'4.8s', delay:'-0.7s',
     },
     {
       id:'mkt', label:'Growth Marketing',
-      icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L7 13L11 15L17 8L21 11" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="21" cy="11" r="1.5" fill="#d97706"/></svg>,
+      icon:<svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M3 17L7 13L11 15L17 8L21 11" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="21" cy="11" r="1.5" fill="#d97706"/></svg>,
       items:['Organic SEO', 'Google / Meta Ads', 'Brand & Creative'],
       stat:'+284% Traffic', statColor:'#d97706',
       color:'#d97706', pos:{ bottom:'10%', right:'3%' }, anim:'hv7-float-d', dur:'5.6s', delay:'-2.2s',
@@ -103,31 +103,31 @@ export function ServicesSection() {
         /* floating cards */
         .hv7-card {
           position:absolute; background:#fff;
-          border:1px solid rgba(8,33,60,0.07); border-radius:16px;
-          padding:16px 18px;
+          border:1px solid rgba(8,33,60,0.07); border-radius:24px;
+          padding:28px 30px;
           box-shadow:0 8px 36px rgba(8,33,60,0.1);
-          width:clamp(170px,18vw,230px);
+          width:clamp(270px,28vw,370px);
           will-change:transform; z-index:3;
           transition:border-color .25s, box-shadow .25s;
         }
         .hv7-card:hover { border-color:rgba(60,185,140,0.4); box-shadow:0 18px 54px rgba(8,33,60,0.2); }
-        .hv7-card-hd { display:flex; align-items:center; gap:9px; margin-bottom:10px; }
+        .hv7-card-hd { display:flex; align-items:center; gap:13px; margin-bottom:16px; }
         .hv7-card-ico {
-          width:34px; height:34px; border-radius:9px;
+          width:54px; height:54px; border-radius:15px;
           display:flex; align-items:center; justify-content:center; flex-shrink:0;
           transition:transform .25s cubic-bezier(0.34,1.56,0.64,1);
         }
         .hv7-card:hover .hv7-card-ico { transform:scale(1.12) rotate(-4deg); }
-        .hv7-card-title { font-size:11.5px; font-weight:800; color:${NAVY}; line-height:1.25; }
-        .hv7-card-items { display:flex; flex-direction:column; gap:4px; margin-bottom:10px; }
+        .hv7-card-title { font-size:17.5px; font-weight:800; color:${NAVY}; line-height:1.25; }
+        .hv7-card-items { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
         .hv7-card-item {
-          display:flex; align-items:center; gap:5px;
-          font-size:10.5px; font-weight:600; color:rgba(8,33,60,0.52);
+          display:flex; align-items:center; gap:9px;
+          font-size:15.5px; font-weight:600; color:rgba(8,33,60,0.52);
         }
-        .hv7-card-dot { width:4px; height:4px; border-radius:50%; flex-shrink:0; }
+        .hv7-card-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
         .hv7-card-stat {
-          font-size:10px; font-weight:800; letter-spacing:'0.8px';
-          padding:3px 9px; border-radius:100px;
+          font-size:15px; font-weight:800; letter-spacing:'0.8px';
+          padding:7px 15px; border-radius:100px;
         }
 
         /* center divider */
