@@ -241,9 +241,20 @@ function SceneInner({ scene }: { scene: Scene }) {
           </button>
         </div>
       </div>
-      {scene.cards.map((c, idx) => (
-        <div key={idx} className={`dvk-card${c.far ? ' dvk-far' : ''}`} style={c.pos}>{c.node}</div>
-      ))}
+      {scene.cards.map((c, idx) => {
+        // Anchor each card's scale origin to its OUTER corner so that when it
+        // shrinks (on smaller viewports / higher zoom) it tucks toward the
+        // screen edge instead of sliding under the centred headline.
+        const p = c.pos as Record<string, unknown>
+        const ox = 'right' in p ? 'right' : 'left'
+        const oy = 'bottom' in p ? 'bottom' : 'top'
+        return (
+          <div key={idx} className={`dvk-card${c.far ? ' dvk-far' : ''}`}
+            style={{ ...c.pos, ['--ox' as string]: ox, ['--oy' as string]: oy } as React.CSSProperties}>
+            {c.node}
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -344,6 +355,28 @@ function DesktopStage({ navigate }: { navigate: ReturnType<typeof useNavigate> }
   )
 }
 
+// As the viewport (or browser zoom) shrinks, the wide photo/mockup cards would
+// slide under the centred headline. Instead of hiding them we scale them down
+// so they stay visible and tuck into their outer corner. The headline text is
+// left untouched. The scale is driven off the widest card (the 460px photos).
+function useCardScale() {
+  const [cs, setCs] = useState(1)
+  useEffect(() => {
+    const calc = () => {
+      const vw = window.innerWidth
+      const stage = Math.min(vw - 48, 1760)          // centre stage width
+      const headline = Math.min(720, 0.76 * stage)   // protected headline column
+      const gutter = 0.46 * stage - 0.5 * headline   // room from a card's outer anchor to the headline edge
+      const s = (gutter - 8) / 460                    // 460 = widest card; corner-anchored fit scale
+      setCs(Math.max(0.3, Math.min(1, s)))
+    }
+    calc()
+    window.addEventListener('resize', calc)
+    return () => window.removeEventListener('resize', calc)
+  }, [])
+  return cs
+}
+
 // Pinned cross-fade only makes sense where the floating cards have room. On
 // small screens we fall back to the original stacked, natively-scrolled blocks.
 function useIsMobile(query = '(max-width: 600px)') {
@@ -362,8 +395,9 @@ function useIsMobile(query = '(max-width: 600px)') {
 export function DevKineticSection() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
+  const cardScale = useCardScale()
 
-  const theme = { ['--txt' as string]: NAVY, ['--card' as string]: '#ffffff', ['--cardln' as string]: 'rgba(8,33,60,0.08)', ['--muted' as string]: 'rgba(8,33,60,0.5)', ['--barmute' as string]: 'rgba(8,33,60,0.10)' } as React.CSSProperties
+  const theme = { ['--txt' as string]: NAVY, ['--card' as string]: '#ffffff', ['--cardln' as string]: 'rgba(8,33,60,0.08)', ['--muted' as string]: 'rgba(8,33,60,0.5)', ['--barmute' as string]: 'rgba(8,33,60,0.10)', ['--cs' as string]: cardScale } as React.CSSProperties
 
   return (
     <>
@@ -414,6 +448,9 @@ export function DevKineticSection() {
         .dvk-link:hover { gap:10px; opacity:.82; }
 
         .dvk-card { position:absolute; z-index:3; will-change:transform,opacity; }
+        /* Card scales down with the viewport (--cs) and tucks into its outer
+           corner so it never slides under the headline. */
+        .dvk-card > div { transform:scale(var(--cs,1)); transform-origin:var(--ox,center) var(--oy,center); transition:transform .15s ease; }
 
         /* CTA pill sticks to the bottom of the viewport while the section is in
            view, then scrolls away with it. It is tiny, so it stays cheap. */
@@ -428,8 +465,6 @@ export function DevKineticSection() {
 
         @media (max-width:1024px) { .dvk-card.dvk-far { display:none; } }
         @media (max-width:760px) {
-          .dvk-card { transform-origin:center; }
-          .dvk-card > div { transform:scale(.82); }
           .dvk-banner p { white-space:normal; font-size:11px; }
           .dvk-banner { padding:8px 8px 8px 16px; gap:10px; }
         }

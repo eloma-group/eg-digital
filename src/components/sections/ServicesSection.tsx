@@ -1,9 +1,33 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+// As the viewport (or browser zoom) shrinks, the floating cards would slide
+// under the centre column. Instead of hiding them we scale them down so they
+// stay visible and tuck into their outer corner. Text size is untouched.
+function useCardScale() {
+  const [cs, setCs] = useState(1)
+  useEffect(() => {
+    const calc = () => {
+      const vw = window.innerWidth
+      const center = Math.min(vw - 48, 800)        // centre column width
+      const centerLeft = (vw - center) / 2          // gap from edge to centre column
+      const cardW = Math.min(Math.max(0.28 * vw, 270), 370)
+      const edge = 0.03 * vw                         // card sits 3% from the edge
+      const gap = 14                                 // breathing room before the text
+      const s = (centerLeft - edge - gap) / cardW    // corner-anchored fit scale
+      setCs(Math.max(0.3, Math.min(1, s)))
+    }
+    calc()
+    window.addEventListener('resize', calc)
+    return () => window.removeEventListener('resize', calc)
+  }, [])
+  return cs
+}
 
 function fadeUp(delay = 0) {
   return {
@@ -20,6 +44,7 @@ function fadeUp(delay = 0) {
 // ─────────────────────────────────────────────────────────────────────────────
 export function ServicesSection() {
   const navigate = useNavigate()
+  const cardScale = useCardScale()
   const cards = [
     {
       id:'ms', label:'Microsoft Solutions',
@@ -54,10 +79,10 @@ export function ServicesSection() {
   return (
     <>
       <style>{`
-        @keyframes hv7-float-a { 0%,100%{transform:translateY(0) rotate(-1.5deg);} 50%{transform:translateY(-12px) rotate(-1.5deg);} }
-        @keyframes hv7-float-b { 0%,100%{transform:translateY(0) rotate(1.5deg);}  50%{transform:translateY(-16px) rotate(1.5deg);}  }
-        @keyframes hv7-float-c { 0%,100%{transform:translateY(0) rotate(-1deg);}   50%{transform:translateY(-9px) rotate(-1deg);}    }
-        @keyframes hv7-float-d { 0%,100%{transform:translateY(0) rotate(2deg);}    50%{transform:translateY(-14px) rotate(2deg);}    }
+        @keyframes hv7-float-a { 0%,100%{transform:translateY(0) rotate(-1.5deg) scale(var(--cs,1));} 50%{transform:translateY(-12px) rotate(-1.5deg) scale(var(--cs,1));} }
+        @keyframes hv7-float-b { 0%,100%{transform:translateY(0) rotate(1.5deg) scale(var(--cs,1));}  50%{transform:translateY(-16px) rotate(1.5deg) scale(var(--cs,1));}  }
+        @keyframes hv7-float-c { 0%,100%{transform:translateY(0) rotate(-1deg) scale(var(--cs,1));}   50%{transform:translateY(-9px) rotate(-1deg) scale(var(--cs,1));}    }
+        @keyframes hv7-float-d { 0%,100%{transform:translateY(0) rotate(2deg) scale(var(--cs,1));}    50%{transform:translateY(-14px) rotate(2deg) scale(var(--cs,1));}    }
         @keyframes hv7-ring-spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
         .hv7-section {
@@ -108,6 +133,7 @@ export function ServicesSection() {
           box-shadow:0 8px 36px rgba(8,33,60,0.1);
           width:clamp(270px,28vw,370px);
           will-change:transform; z-index:3;
+          transform-origin:var(--ox,center) var(--oy,center);
           transition:border-color .25s, box-shadow .25s;
         }
         .hv7-card:hover { border-color:rgba(60,185,140,0.4); box-shadow:0 18px 54px rgba(8,33,60,0.2); }
@@ -155,7 +181,7 @@ export function ServicesSection() {
         @media (max-width:1100px) { .hv7-card { display:none; } }
       `}</style>
 
-      <section className="hv7-section">
+      <section className="hv7-section" style={{ ['--cs' as string]: cardScale } as React.CSSProperties}>
         <div className="hv7-bloom-a" aria-hidden="true" />
         <div className="hv7-bloom-b" aria-hidden="true" />
 
@@ -165,15 +191,19 @@ export function ServicesSection() {
         ))}
 
         {/* Floating cards */}
-        {cards.map((card, i) => (
+        {cards.map((card, i) => {
+          const p = card.pos as Record<string, string | undefined>
+          const ox = 'right' in p ? 'right' : 'left'
+          const oy = 'bottom' in p ? 'bottom' : 'top'
+          return (
           <motion.div
             key={card.id}
-            initial={{ opacity:0, y:24, scale:0.9 }}
-            whileInView={{ opacity:1, y:0, scale:1 }}
+            initial={{ opacity:0, y:24 }}
+            whileInView={{ opacity:1, y:0 }}
             viewport={{ once:true }}
             transition={{ duration:0.8, ease:EASE, delay:0.4+i*0.1 }}
             className="hv7-card"
-            style={{ ...card.pos, animation:`${card.anim} ${card.dur} ease-in-out infinite`, animationDelay:card.delay }}
+            style={{ ...card.pos, ['--ox' as string]:ox, ['--oy' as string]:oy, animation:`${card.anim} ${card.dur} ease-in-out infinite`, animationDelay:card.delay } as React.CSSProperties}
           >
             <div className="hv7-card-hd">
               <div className="hv7-card-ico" style={{ background:`${card.color}14` }}>{card.icon}</div>
@@ -191,7 +221,8 @@ export function ServicesSection() {
               {card.stat}
             </div>
           </motion.div>
-        ))}
+          )
+        })}
 
         {/* Center content */}
         <div className="hv7-center">
