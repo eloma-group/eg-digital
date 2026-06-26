@@ -107,6 +107,20 @@ const CSS = `
   }
   .h3-stage { position: absolute; inset: 0; }
 
+  /* caption under the robot */
+  .h3-robot-cap {
+    position: absolute; left: 0; right: 0; bottom: clamp(4px, 2%, 26px);
+    z-index: 4; text-align: center; pointer-events: none; padding: 0 20px;
+  }
+  .h3-robot-cap-t {
+    display: block; font-size: clamp(12px, 0.95vw, 15px); font-weight: 900;
+    letter-spacing: -0.02em; text-transform: uppercase; color: ${NAVY}; line-height: 1.1;
+  }
+  .h3-robot-cap-d {
+    display: block; margin-top: 6px; font-size: clamp(12px, 0.95vw, 14px);
+    font-weight: 500; color: rgba(8,33,60,0.5); line-height: 1.5;
+  }
+
   /* foreground robot, sits over the section gradient */
   .h3-fg-robot { position: absolute; inset: 0; z-index: 2; }
   .h3-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -203,8 +217,8 @@ export function Hero3() {
       <section ref={ref} className="h3-section" data-nav-overlap>
         <div className="h3-amb" aria-hidden="true" />
 
-        <div className="h3-robot" aria-hidden="true">
-          <div className="h3-stage">
+        <div className="h3-robot">
+          <div className="h3-stage" aria-hidden="true">
             {inView ? (
               <div className="h3-fg-robot">
                 <Suspense fallback={<div className="h3-fallback"><span /></div>}>
@@ -213,6 +227,14 @@ export function Hero3() {
               </div>
             ) : null}
           </div>
+          <motion.div
+            className="h3-robot-cap"
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.95 }}
+          >
+            <span className="h3-robot-cap-t">Eyes on You</span>
+            <span className="h3-robot-cap-d">Move your cursor and watch me follow along.</span>
+          </motion.div>
         </div>
 
         <div className="h3-head"><Words /></div>

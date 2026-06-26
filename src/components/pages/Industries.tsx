@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { industrySlug } from '../../lib/industryRoutes'
 import {
   Briefcase, Cpu, Rocket, HeartHandshake, Stethoscope, Landmark, Factory,
   GraduationCap, Building2, Truck, Plane, Sprout, Hotel, UtensilsCrossed,
@@ -36,8 +38,20 @@ const INDUSTRIES: Industry[] = [
 ]
 
 /* ═════════════════ Periodic table (primary) ═════════════════ */
+function indexFromHash(hash: string): number {
+  if (!hash) return -1
+  const slug = decodeURIComponent(hash.slice(1))
+  return INDUSTRIES.findIndex(ind => industrySlug(ind.name) === slug)
+}
+
 function PeriodicConcept() {
-  const [i, setI] = useState(0)
+  const { hash } = useLocation()
+  const [i, setI] = useState(() => Math.max(0, indexFromHash(typeof window !== 'undefined' ? window.location.hash : '')))
+  // Footer "Industries" links carry the sector slug in the hash - select it.
+  useEffect(() => {
+    const idx = indexFromHash(hash)
+    if (idx >= 0) setI(idx)
+  }, [hash])
   const a = INDUSTRIES[i]; const c = FIELD_COLOR[a.field]
   return (
     <>
@@ -49,7 +63,7 @@ function PeriodicConcept() {
           {INDUSTRIES.map((ind, idx) => {
             const fc = FIELD_COLOR[ind.field]
             return (
-              <button key={ind.name} className={`pt-tile${idx === i ? ' on' : ''}`} style={{ ['--c' as string]: fc }} onMouseEnter={() => setI(idx)} onClick={() => setI(idx)}>
+              <button key={ind.name} id={industrySlug(ind.name)} className={`pt-tile${idx === i ? ' on' : ''}`} style={{ ['--c' as string]: fc, scrollMarginTop: 96 }} onMouseEnter={() => setI(idx)} onClick={() => setI(idx)}>
                 <span className="pt-n">{String(idx + 1).padStart(2, '0')}</span>
                 <span className="pt-sym">{ind.sym}</span>
                 <span className="pt-nm">{ind.name}</span>

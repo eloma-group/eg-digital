@@ -2,14 +2,24 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 import { solutionsHref, servicesHref } from '../../lib/sectionRoutes'
+import { industryHref } from '../../lib/industryRoutes'
+
+// Blog category links land on the Blog page with that filter pre-applied.
+const BLOG_CATEGORY_HREF: Record<string, string> = {
+  'Latest Technologies': '/blog?category=latest-technologies',
+  'Awareness':           '/blog?category=awareness',
+}
 
 // Resolve a footer link's destination from its column heading.
 function resolveTo(heading: string, item: string): string | undefined {
   if (heading === 'About Us') return ABOUT_ROUTES[item]
   if (heading === 'Solutions') return solutionsHref(item)
   if (heading === 'Services') return servicesHref(item)
-  if (heading === 'Industries') return '/industries'
-  if (heading === 'Company') return item === 'Career' ? '/career' : '/blog'
+  if (heading === 'Industries') return industryHref(item)
+  if (heading === 'Company') {
+    if (item === 'Career') return '/career'
+    return BLOG_CATEGORY_HREF[item] ?? '/blog'
+  }
   return undefined
 }
 
