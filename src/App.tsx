@@ -14,11 +14,17 @@ const Values                       = lazy(() => import('./components/pages/Value
 const FAQ                          = lazy(() => import('./components/pages/FAQ').then(m => ({ default: m.FAQ })))
 const Contact                      = lazy(() => import('./components/pages/Contact').then(m => ({ default: m.Contact })))
 const Solutions                    = lazy(() => import('./components/pages/Solutions').then(m => ({ default: m.Solutions })))
-const MicrosoftProducts            = lazy(() => import('./components/pages/solutions/MicrosoftProducts').then(m => ({ default: m.MicrosoftProducts })))
+// New SEO service page replaces the old MicrosoftProducts page on this route.
+// The old component remains at components/pages/solutions/MicrosoftProducts.tsx.
+const MicrosoftSolutions           = lazy(() => import('./components/pages/services/MicrosoftSolutions').then(m => ({ default: m.MicrosoftSolutions })))
 const DevelopmentSolution          = lazy(() => import('./components/pages/solutions/Development').then(m => ({ default: m.DevelopmentSolution })))
 const DigitalMarketingSolution     = lazy(() => import('./components/pages/solutions/DigitalMarketing').then(m => ({ default: m.DigitalMarketingSolution })))
 const SecurityIntegrationSolution  = lazy(() => import('./components/pages/solutions/SecurityIntegration').then(m => ({ default: m.SecurityIntegrationSolution })))
 const Services                     = lazy(() => import('./components/pages/Services').then(m => ({ default: m.Services })))
+const SocialMediaMarketing         = lazy(() => import('./components/pages/services/SocialMediaMarketing').then(m => ({ default: m.SocialMediaMarketing })))
+const PPCServices                  = lazy(() => import('./components/pages/services/PPCServices').then(m => ({ default: m.PPCServices })))
+const WebDevelopment               = lazy(() => import('./components/pages/services/WebDevelopment').then(m => ({ default: m.WebDevelopment })))
+const SEOServices                  = lazy(() => import('./components/pages/services/SEOServices').then(m => ({ default: m.SEOServices })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
@@ -88,11 +94,15 @@ function App() {
         <Route path="/about/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/solutions" element={<Solutions />} />
-        <Route path="/solutions/microsoft-products" element={<MicrosoftProducts />} />
+        <Route path="/solutions/microsoft-products" element={<MicrosoftSolutions />} />
         <Route path="/solutions/development" element={<DevelopmentSolution />} />
         <Route path="/solutions/digital-marketing" element={<DigitalMarketingSolution />} />
         <Route path="/solutions/security-integration" element={<SecurityIntegrationSolution />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
+        <Route path="/services/ppc-services" element={<PPCServices />} />
+        <Route path="/services/web-development" element={<WebDevelopment />} />
+        <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />
