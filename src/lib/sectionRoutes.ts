@@ -48,10 +48,22 @@ export const SERVICE_SECTIONS: Record<string, string> = {
   'Support Services':    'support-services',
 }
 
+// Dedicated, SEO-focused service landing pages. Listed in the Footer "Services"
+// column only (not the header). Each has its own full page.
+export const SERVICE_PAGE_ROUTES: Record<string, string> = {
+  'Web Development':        '/services/web-development',
+  'SEO Services':           '/services/seo-services',
+  'PPC Services':           '/services/ppc-services',
+  'Social Media Marketing': '/services/social-media-marketing',
+  'Microsoft Solutions':    '/solutions/microsoft-products',
+}
+
 export const solutionsHref = (label: string): string | undefined =>
   SOLUTION_ROUTES[label] ?? SOLUTION_SUBLINK_ROUTES[label]
 
 export const servicesHref = (label: string): string | undefined => {
+  // Dedicated service pages take priority over the /services#anchor sections.
+  if (SERVICE_PAGE_ROUTES[label]) return SERVICE_PAGE_ROUTES[label]
   const id = SERVICE_SECTIONS[label]
   return id ? `/services#${id}` : undefined
 }

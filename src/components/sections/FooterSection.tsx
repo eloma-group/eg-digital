@@ -39,7 +39,10 @@ const COLS: { heading: string; links: string[] }[] = [
       'Branding','Cloud Hosting','SEO Marketing',
       'Cyber Security','AI Cyber Security','Integrations','Licenses',
     ] },
-  { heading: 'Services',   links: ['Upgrades','Cloud Maintenances','Server Maintenances','Support Services'] },
+  { heading: 'Services',   links: [
+      'Web Development','SEO Services','PPC Services','Social Media Marketing','Microsoft Solutions',
+      'Upgrades','Cloud Maintenances','Server Maintenances','Support Services',
+    ] },
   { heading: 'Industries', links: [
       'Professional Services','IT','Startups & SMEs','Non Profit Organizations','Healthcare',
       'Banking & Financial Services','Manufacturing','Education','Real Estate',
