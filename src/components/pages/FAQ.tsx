@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PageLayout, Eyebrow, NAVY, GREEN, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 type Group = { id: string; label: string; items: { q: string; a: string }[] }
 
@@ -39,6 +40,10 @@ const GROUPS: Group[] = [
 ]
 
 export function FAQ() {
+  usePageMeta(
+    'EG Digital FAQ | Frequently Asked Questions',
+    'Find answers to common questions about EG Digital services, pricing, development process, support, and how we help businesses grow digitally.',
+  )
   const [open, setOpen] = useState<string | null>('general-0')
   const [active, setActive] = useState(GROUPS[0].id)
   const refs = useRef<Record<string, HTMLElement | null>>({})

@@ -1,6 +1,7 @@
 import { RefreshCw, Cloud, Server, Headphones, Check } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -109,6 +110,10 @@ function ServiceCards() {
 }
 
 export function Services() {
+  usePageMeta(
+    'EG Digital Services | IT & Digital Growth Solutions',
+    'Discover EG Digital services including SEO, web development, AI solutions, cloud management, cybersecurity, and digital marketing for business growth.',
+  )
   return (
     <PageLayout>
       <style>{`

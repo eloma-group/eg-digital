@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 type Value = { n: string; word: string; def: string }
 
@@ -40,6 +41,10 @@ function CreedLine({ v }: { v: Value }) {
 }
 
 export function Values() {
+  usePageMeta(
+    'EG Digital Values | Mission, Vision & Principles',
+    "Learn about EG Digital's core values, mission, and vision driving innovation, integrity, and customer-focused digital transformation for global businesses.",
+  )
   return (
     <PageLayout>
       <style>{`

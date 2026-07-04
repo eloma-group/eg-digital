@@ -1,5 +1,6 @@
 import { Rocket, Clock, TrendingUp, Globe, Code2, ShoppingBag } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
+import { usePageMeta } from '../../../hooks/usePageMeta'
 import { useNavigate } from 'react-router-dom'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -122,6 +123,10 @@ function Mock({ kind }: { kind: string }) {
 }
 
 export function DevelopmentSolution() {
+  usePageMeta(
+    'Web & App Development Services | EG Digital Experts',
+    'EG Digital offers custom web and mobile app development services using modern technologies to build scalable, secure, and high-performance solutions.',
+  )
   const navigate = useNavigate()
   return (
     <PageLayout>

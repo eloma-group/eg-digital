@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 /* ── Data ── */
 const BENEFITS = [
@@ -70,6 +71,10 @@ function ScrollStory() {
 }
 
 export function Career() {
+  usePageMeta(
+    'EG Digital Careers | Join Our Growing Tech Team',
+    'Explore career opportunities at EG Digital. Join our team of developers, designers, and marketers building innovative digital solutions worldwide.',
+  )
   return (
     <PageLayout>
       <style>{`

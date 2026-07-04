@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, NAVY, GREEN, CREAM, EASE, useIsMobile } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { CinematicBanner } from '../sections/JourneyHero'
 
 type Theme = 'light' | 'navy' | 'green'
@@ -136,6 +137,10 @@ function StackCard({ s, i }: { s: Scene; i: number }) {
 }
 
 export function OurUSP() {
+  usePageMeta(
+    'EG Digital USP | Why Businesses Choose Us',
+    "Explore EG Digital's unique strengths in web development, AI solutions, and digital marketing that help businesses scale faster with measurable results.",
+  )
   const navigate = useNavigate()
   const mobile = useIsMobile(820)
 
