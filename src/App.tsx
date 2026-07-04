@@ -25,6 +25,9 @@ const SocialMediaMarketing         = lazy(() => import('./components/pages/servi
 const PPCServices                  = lazy(() => import('./components/pages/services/PPCServices').then(m => ({ default: m.PPCServices })))
 const WebDevelopment               = lazy(() => import('./components/pages/services/WebDevelopment').then(m => ({ default: m.WebDevelopment })))
 const SEOServices                  = lazy(() => import('./components/pages/services/SEOServices').then(m => ({ default: m.SEOServices })))
+const TechnicalSEO                 = lazy(() => import('./components/pages/services/TechnicalSEO').then(m => ({ default: m.TechnicalSEO })))
+const MobileAppDevelopment         = lazy(() => import('./components/pages/services/MobileAppDevelopment').then(m => ({ default: m.MobileAppDevelopment })))
+const LocalSEO                     = lazy(() => import('./components/pages/services/LocalSEO').then(m => ({ default: m.LocalSEO })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
@@ -103,6 +106,9 @@ function App() {
         <Route path="/services/ppc-services" element={<PPCServices />} />
         <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/seo-services" element={<SEOServices />} />
+        <Route path="/services/technical-seo" element={<TechnicalSEO />} />
+        <Route path="/services/mobile-app-development-company-australia" element={<MobileAppDevelopment />} />
+        <Route path="/services/local-seo" element={<LocalSEO />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />

@@ -1,5 +1,6 @@
 import { BadgeCheck, Wallet, Headphones } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { KineticBanner } from '../sections/JourneyHero'
 
 type Tier = 'Cloud' | 'Technology' | 'Community'
@@ -37,6 +38,10 @@ const TIER_META: Record<Tier, string> = {
 }
 
 export function NetworksPartners() {
+  usePageMeta(
+    'EG Digital Partners | Networks & Technology Alliances',
+    "Meet EG Digital's trusted partners and technology networks that power our digital solutions, cloud services, and enterprise-grade business systems.",
+  )
   return (
     <PageLayout>
       <style>{`

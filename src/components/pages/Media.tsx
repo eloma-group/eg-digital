@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 type Cat = 'Press' | 'Awards' | 'Articles'
 type Card =
@@ -85,6 +86,10 @@ function PressCard({ c }: { c: Card }) {
 }
 
 export function Media() {
+  usePageMeta(
+    'EG Digital Media | News, Updates & Press',
+    'Stay updated with EG Digital media coverage, announcements, insights, and press releases showcasing our innovation in digital transformation services.',
+  )
   const [filter, setFilter] = useState<'All' | Cat>('All')
   const shown = CARDS.filter(c => filter === 'All' || c.cat === filter)
 

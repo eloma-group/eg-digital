@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 type Field = 'Public & Social' | 'Commerce & Finance' | 'Industrial & Tech' | 'Lifestyle & Travel'
 type Industry = { icon: LucideIcon; name: string; sym: string; field: Field; detail: string }
@@ -153,6 +154,10 @@ function WallConcept() {
 }
 
 export function Industries() {
+  usePageMeta(
+    'Industries We Serve | EG Digital Solutions',
+    'EG Digital serves industries like healthcare, finance, education, retail, logistics, and more with tailored digital solutions and scalable technology.',
+  )
   return (
     <PageLayout>
       <style>{`

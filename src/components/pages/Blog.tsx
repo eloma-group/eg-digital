@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 
 type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest Technologies' | 'Awareness'; read: string; date: string; img: string }
 
@@ -38,6 +39,10 @@ const filterFromSearch = (search: string): (typeof FILTERS)[number] =>
   CATEGORY_SLUGS[new URLSearchParams(search).get('category') ?? ''] ?? 'All'
 
 export function Blog() {
+  usePageMeta(
+    'EG Digital Blog | Insights on Tech & Innovation',
+    'Read EG Digital blog for insights on web development, AI, cloud computing, SEO strategies, and digital transformation trends shaping modern businesses.',
+  )
   const { search } = useLocation()
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>(() => filterFromSearch(search))
   // Keep the active filter in sync when arriving via a footer category link.

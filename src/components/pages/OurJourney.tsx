@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, NAVY, GREEN, CREAM, EASE } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { ImageTrail } from '../sections/ImageTrail'
 import { JourneyHero } from '../sections/JourneyHero'
 
@@ -60,6 +61,10 @@ function Milestone({ m }: { m: M }) {
 }
 
 export function OurJourney() {
+  usePageMeta(
+    'EG Digital Journey | Our Growth Story & Innovation',
+    "Discover EG Digital's journey from startup to digital excellence. Learn how we build innovative web, app, and AI solutions for modern businesses.",
+  )
   const navigate = useNavigate()
   const timelineRef = useRef<HTMLDivElement>(null)
   const [idx, setIdx] = useState(0)

@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { AsdPartnershipStrip } from './AsdPartnershipStrip'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 import { solutionsHref, servicesHref } from '../../lib/sectionRoutes'
 import { industryHref } from '../../lib/industryRoutes'
@@ -40,7 +41,7 @@ const COLS: { heading: string; links: string[] }[] = [
       'Cyber Security','AI Cyber Security','Integrations','Licenses',
     ] },
   { heading: 'Services',   links: [
-      'Web Development','SEO Services','PPC Services','Social Media Marketing','Microsoft Solutions',
+      'Web Development','Mobile App Development','SEO Services','Technical SEO','Local SEO','PPC Services','Social Media Marketing','Microsoft Solutions',
       'Upgrades','Cloud Maintenances','Server Maintenances','Support Services',
     ] },
   { heading: 'Industries', links: [
@@ -130,6 +131,9 @@ function FooterLink({ children, to }: { children: React.ReactNode; to?: string }
 
 export function FooterSection() {
   return (
+    <>
+    {/* Government partnership strip - rendered on every page, directly above the footer. */}
+    <AsdPartnershipStrip />
     <footer style={{ background: NAVY, position: 'relative', overflow: 'hidden' }}>
 
       {/* Subtle inner glow top-center */}
@@ -329,5 +333,6 @@ export function FooterSection() {
         }
       `}</style>
     </footer>
+    </>
   )
 }

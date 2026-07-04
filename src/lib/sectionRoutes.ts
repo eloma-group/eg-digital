@@ -52,7 +52,10 @@ export const SERVICE_SECTIONS: Record<string, string> = {
 // column only (not the header). Each has its own full page.
 export const SERVICE_PAGE_ROUTES: Record<string, string> = {
   'Web Development':        '/services/web-development',
+  'Mobile App Development': '/services/mobile-app-development-company-australia',
   'SEO Services':           '/services/seo-services',
+  'Technical SEO':          '/services/technical-seo',
+  'Local SEO':              '/services/local-seo',
   'PPC Services':           '/services/ppc-services',
   'Social Media Marketing': '/services/social-media-marketing',
   'Microsoft Solutions':    '/solutions/microsoft-products',

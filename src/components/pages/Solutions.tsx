@@ -1,6 +1,7 @@
 import { Boxes, Code2, Megaphone, ShieldCheck } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, CREAM } from './_kit'
+import { usePageMeta } from '../../hooks/usePageMeta'
 import { SOLUTION_SECTIONS } from '../../lib/sectionRoutes'
 
 type Kind = 'ms' | 'dev' | 'mkt' | 'sec'
@@ -113,6 +114,10 @@ function PracticeStage({ kind, color }: { kind: Kind; color: string }) {
 }
 
 export function Solutions() {
+  usePageMeta(
+    'Digital Solutions | Web, App & AI Services EG Digital',
+    'Explore EG Digital solutions including web development, mobile apps, AI systems, cloud services, and digital transformation for modern businesses.',
+  )
   return (
     <PageLayout>
       <style>{`
