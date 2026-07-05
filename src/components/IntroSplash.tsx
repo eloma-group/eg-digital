@@ -10,7 +10,7 @@ import { LogoBuild } from './LogoBuild'
 // Everything animates on transform / opacity / mask only, so it stays smooth.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const DURATION = 4200 // total time the splash stays up before fading out
+const DURATION = 3000 // total time the splash stays up before fading out
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function IntroSplash() {
