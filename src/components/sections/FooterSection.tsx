@@ -296,14 +296,20 @@ export function FooterSection() {
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', margin: 0 }}>
               © 2026 EG Digital Australia Pty Ltd. All rights reserved.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px,2vw,24px)', flexWrap: 'wrap' }}>
-              {['Privacy Policy', 'Terms of Use'].map(link => (
-                <a key={link} href="#" style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', transition: 'color 0.15s ease', textDecoration: 'none' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.28)' }}
-                >
-                  {link}
-                </a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px,2vw,20px)', flexWrap: 'wrap' }}>
+              {[
+                { label: 'Privacy Policy', to: '/privacy-policy' },
+                { label: 'Terms & Conditions', to: '/terms-and-conditions' },
+              ].map(({ label, to }, i) => (
+                <span key={to} style={{ display: 'inline-flex', alignItems: 'center', gap: 'clamp(10px,2vw,20px)' }}>
+                  {i > 0 && <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(255,255,255,0.35)' }} />}
+                  <Link to={to} style={{ fontSize: 12.5, fontWeight: 600, color: 'rgba(255,255,255,0.65)', transition: 'color 0.15s ease', textDecoration: 'none' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.65)' }}
+                  >
+                    {label}
+                  </Link>
+                </span>
               ))}
             </div>
           </div>

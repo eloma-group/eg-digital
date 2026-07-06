@@ -31,6 +31,8 @@ const LocalSEO                     = lazy(() => import('./components/pages/servi
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
+const PrivacyPolicy                = lazy(() => import('./components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })))
+const TermsConditions              = lazy(() => import('./components/pages/TermsConditions').then(m => ({ default: m.TermsConditions })))
 
 // Reset scroll (and the global Lenis instance) on every route change, or scroll
 // to a #section anchor when the URL carries a hash.
@@ -112,6 +114,8 @@ function App() {
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsConditions />} />
         {/* Any unknown path falls back to the homepage. */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
