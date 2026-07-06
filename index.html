@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Redirect www -> apex. Azure Static Web Apps' staticwebapp.config.json
+      // routes match on path only (not the Host header), so a host-based
+      // redirect can't live there. This runs before the app so www traffic is
+      // sent to the canonical apex domain, preserving path, query and hash.
+      (function () {
+        if (location.hostname === 'www.egdigital.com.au') {
+          location.replace('https://egdigital.com.au' + location.pathname + location.search + location.hash)
+        }
+      })()
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
