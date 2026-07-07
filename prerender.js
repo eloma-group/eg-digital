@@ -80,3 +80,34 @@ for (const route of ROUTES) {
 }
 
 console.log(`\n[prerender] wrote ${count} static pages.`)
+
+// ── sitemap.xml ──────────────────────────────────────────────────────────────
+// Generated from the same ROUTES list so it can never drift from what actually
+// ships. The homepage gets top priority; everything else a notch below.
+const lastmod = new Date().toISOString().slice(0, 10)
+const urls = ROUTES.map((route) => {
+  const loc = esc(SITE_URL + route)
+  const priority = route === '/' ? '1.0' : '0.8'
+  return (
+    `  <url>\n` +
+    `    <loc>${loc}</loc>\n` +
+    `    <lastmod>${lastmod}</lastmod>\n` +
+    `    <changefreq>weekly</changefreq>\n` +
+    `    <priority>${priority}</priority>\n` +
+    `  </url>`
+  )
+}).join('\n')
+
+const sitemap =
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  `${urls}\n` +
+  `</urlset>\n`
+
+fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap)
+console.log(`[prerender] wrote sitemap.xml (${ROUTES.length} urls).`)
+
+// robots.txt - allow everything and advertise the sitemap for crawlers.
+const robots = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+fs.writeFileSync(path.join(dist, 'robots.txt'), robots)
+console.log(`[prerender] wrote robots.txt.`)
