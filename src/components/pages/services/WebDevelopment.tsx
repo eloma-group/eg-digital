@@ -8,6 +8,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, EASE } from '../_kit'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - WEB DEVELOPMENT (Australia)
@@ -246,6 +247,7 @@ function CodePanel() {
 
 export function WebDevelopment() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/web-development')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.
@@ -278,7 +280,7 @@ export function WebDevelopment() {
         @media (max-width:768px){ .wdv-hin{ max-width:100%; } }
         .wdv-hgrid { display:grid; grid-template-columns:1.06fr 0.94fr; gap:clamp(36px,5vw,88px); align-items:center; }
         @media (max-width:960px){ .wdv-hgrid{ grid-template-columns:1fr; } }
-        .wdv-h1 { font-size:clamp(44px,7.4vw,108px); font-weight:900; letter-spacing:0.015em; line-height:1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .wdv-h1 { font-size:clamp(42px,6.4vw,92px); font-weight:900; letter-spacing:0.015em; line-height:1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; }
         .wdv-h1 em { font-style:normal; color:${GREEN}; }
         .wdv-lede { font-size:clamp(20px,2.6vw,34px); font-weight:800; letter-spacing:-0.01em; line-height:1.28; color:rgba(255,255,255,0.92); margin:22px 0 0; }
         .wdv-lede span { color:${GREEN}; }
@@ -455,7 +457,7 @@ export function WebDevelopment() {
           <div className="wdv-hgrid">
             <Reveal>
               <Eyebrow light>Web Development company in Australia</Eyebrow>
-              <h1 className="wdv-h1">Websites that <em>earn their keep</em></h1>
+              <h1 className="wdv-h1">Web Development Company in Australia</h1>
               <p className="wdv-lede">
                 We build fast, custom websites and web apps that <span>earn their keep</span>.
               </p>

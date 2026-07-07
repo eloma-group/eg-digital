@@ -50,6 +50,9 @@ export const ROUTES: string[] = [
   '/services/technical-seo',
   '/services/mobile-app-development-company-australia',
   '/services/local-seo',
+  '/services/off-page-seo',
+  '/services/facebook-ads-management',
+  '/services/google-ads-management',
   '/industries',
   '/blog',
   '/career',
@@ -133,6 +136,21 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Local SEO Services in Australia | Google Maps & Local Search | EG Digital',
     description:
       'Local SEO marketing services in Australia that rank you in Google Maps and local search. White-hat, Google Business Profile management, no lock-in. Get a free local SEO audit.',
+  },
+  '/services/off-page-seo': {
+    title: 'Off-Page SEO Services in Australia | Link Building | EG Digital',
+    description:
+      'White-hat off-page SEO and link building services in Australia. High-authority backlinks, guest posting, digital PR and brand mentions from a Melbourne team. Get a free off-page SEO audit.',
+  },
+  '/services/facebook-ads-management': {
+    title: 'Facebook Ads Management Services Australia | Meta Ads | EG Digital',
+    description:
+      'Facebook & Instagram ads management in Australia, run on Meta Ads Manager for revenue, not reach. Audience targeting, creative & tracking done in-house. 100% of budget to Meta, no lock-in. Free consultation.',
+  },
+  '/services/google-ads-management': {
+    title: 'Google Ads Management Services Australia | EG Digital',
+    description:
+      'Expert Google Ads management in Australia. Search, Shopping, Performance Max & YouTube campaigns managed for revenue, not clicks. 100% of budget to Google, no lock-in. Get a free Google Ads audit.',
   },
   '/industries': {
     title: 'Industries We Serve | EG Digital Solutions',

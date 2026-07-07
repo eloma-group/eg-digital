@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { IntroSplash } from './components/IntroSplash'
+import { useCanonical } from './hooks/useCanonical'
 
 // Every page is code-split so opening one route never downloads the others.
 // This keeps the initial bundle tiny - the homepage no longer ships the blog,
@@ -28,6 +29,9 @@ const SEOServices                  = lazy(() => import('./components/pages/servi
 const TechnicalSEO                 = lazy(() => import('./components/pages/services/TechnicalSEO').then(m => ({ default: m.TechnicalSEO })))
 const MobileAppDevelopment         = lazy(() => import('./components/pages/services/MobileAppDevelopment').then(m => ({ default: m.MobileAppDevelopment })))
 const LocalSEO                     = lazy(() => import('./components/pages/services/LocalSEO').then(m => ({ default: m.LocalSEO })))
+const OffPageSEO                   = lazy(() => import('./components/pages/services/OffPageSEO').then(m => ({ default: m.OffPageSEO })))
+const FacebookAdsManagement        = lazy(() => import('./components/pages/services/FacebookAdsManagement').then(m => ({ default: m.FacebookAdsManagement })))
+const GoogleAdsManagement          = lazy(() => import('./components/pages/services/GoogleAdsManagement').then(m => ({ default: m.GoogleAdsManagement })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
@@ -83,11 +87,19 @@ function ScrollToTop() {
   return null
 }
 
+// Keeps the canonical link + og:url pointing at the current route (the static
+// build bakes them per page; this fixes them for client-side navigation).
+function CanonicalTag() {
+  useCanonical()
+  return null
+}
+
 function App() {
   return (
     <>
       <IntroSplash />
       <ScrollToTop />
+      <CanonicalTag />
       <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -111,6 +123,9 @@ function App() {
         <Route path="/services/technical-seo" element={<TechnicalSEO />} />
         <Route path="/services/mobile-app-development-company-australia" element={<MobileAppDevelopment />} />
         <Route path="/services/local-seo" element={<LocalSEO />} />
+        <Route path="/services/off-page-seo" element={<OffPageSEO />} />
+        <Route path="/services/facebook-ads-management" element={<FacebookAdsManagement />} />
+        <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />

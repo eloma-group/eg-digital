@@ -7,6 +7,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - PPC SERVICES (Australia)
@@ -176,6 +177,7 @@ const FAQS: { q: string; a: string }[] = [
 
 export function PPCServices() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/ppc-services')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.
@@ -201,7 +203,7 @@ export function PPCServices() {
           background:radial-gradient(circle, ${GREEN}22, transparent 64%); pointer-events:none; z-index:0; }
         .ppc-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .ppc-hgrid{ grid-template-columns:1fr; } }
-        .ppc-h1 { font-size:clamp(46px,8vw,116px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .ppc-h1 { font-size:clamp(46px,7.4vw,102px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
         .ppc-lede { font-size:clamp(22px,3vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1.04; color:${NAVY}; margin:20px 0 0; }
         .ppc-lede span { color:${GREEN}; }
         .ppc-intro { max-width:560px; font-size:clamp(15px,1.2vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:20px 0 0; }
@@ -337,7 +339,7 @@ export function PPCServices() {
         <div className="ppc-hgrid">
           <Reveal>
             <Eyebrow>PPC Services in Australia</Eyebrow>
-            <h1 className="ppc-h1">Paid ads that pay their way</h1>
+            <h1 className="ppc-h1">PPC Services in Australia</h1>
             <p className="ppc-lede">
               Get in front of buyers the moment they search, and <span>pay only when they click</span>.
             </p>
@@ -366,7 +368,7 @@ export function PPCServices() {
             <div className="ppc-heroimg">
               <img
                 src={img('photo-1454165804606-c3d57bc86b40', 900, 780)}
-                alt="Paid advertising performance analytics on screen"
+                alt="PPC services in Australia - PPC management company in Australia"
                 width={900} height={780} loading="eager" decoding="async"
               />
             </div>
