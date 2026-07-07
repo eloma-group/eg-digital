@@ -53,6 +53,8 @@ export const ROUTES: string[] = [
   '/services/off-page-seo',
   '/services/facebook-ads-management',
   '/services/google-ads-management',
+  '/services/linkedin-ads-management',
+  '/services/branding',
   '/industries',
   '/blog',
   '/career',
@@ -151,6 +153,16 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Google Ads Management Services Australia | EG Digital',
     description:
       'Expert Google Ads management in Australia. Search, Shopping, Performance Max & YouTube campaigns managed for revenue, not clicks. 100% of budget to Google, no lock-in. Get a free Google Ads audit.',
+  },
+  '/services/linkedin-ads-management': {
+    title: 'LinkedIn Ads Management Services Australia | B2B | EG Digital',
+    description:
+      'B2B LinkedIn advertising company in Australia. Reach decision-makers by role, seniority & industry, with campaigns managed for pipeline, not impressions. CRM-connected, no lock-in. Free consultation.',
+  },
+  '/services/branding': {
+    title: 'Branding Services in Australia | EG Digital',
+    description:
+      'Branding company in Australia. Brand strategy, identity, messaging, guidelines & rebranding from a Melbourne team. Get a free brand audit.',
   },
   '/industries': {
     title: 'Industries We Serve | EG Digital Solutions',
