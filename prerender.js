@@ -21,7 +21,7 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf-8')
 const serverEntry = url.pathToFileURL(
   path.resolve(process.cwd(), 'dist-server', 'entry-server.js'),
 ).href
-const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL } = await import(serverEntry)
+const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd } = await import(serverEntry)
 
 const esc = (s) =>
   String(s)
@@ -56,6 +56,27 @@ function applyMeta(html, route) {
   return html
 }
 
+// Bake the Service + BreadcrumbList JSON-LD for a service route into the <body>
+// so crawlers that do not run JavaScript still read the structured data. The
+// runtime useServiceJsonLd hook clears and re-adds these (matched by the same
+// data-page-jsonld attribute) once the SPA boots, so there is never a duplicate.
+function applyJsonLd(html, route) {
+  const objects = buildServiceJsonLd(route)
+  if (!objects || objects.length === 0) return html
+
+  // Escape "<" as < so a stray "</script>" in any value can never break out
+  // of the tag; the result is still valid JSON.
+  const scripts = objects
+    .map(
+      (obj) =>
+        `<script type="application/ld+json" data-page-jsonld>` +
+        `${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`,
+    )
+    .join('\n')
+
+  return html.replace('</body>', `${scripts}\n</body>`)
+}
+
 let count = 0
 for (const route of ROUTES) {
   let appHtml
@@ -71,6 +92,7 @@ for (const route of ROUTES) {
     `<div id="root">${appHtml}</div>`,
   )
   html = applyMeta(html, route)
+  html = applyJsonLd(html, route)
 
   const outDir = route === '/' ? dist : path.join(dist, route)
   fs.mkdirSync(outDir, { recursive: true })

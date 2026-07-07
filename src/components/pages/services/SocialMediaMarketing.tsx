@@ -7,6 +7,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - SOCIAL MEDIA MARKETING (Australia)
@@ -166,6 +167,7 @@ const FAQS: { q: string; a: string }[] = [
 
 export function SocialMediaMarketing() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/social-media-marketing')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.
@@ -191,7 +193,7 @@ export function SocialMediaMarketing() {
           background:radial-gradient(circle, ${GREEN}22, transparent 64%); pointer-events:none; z-index:0; }
         .smm-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .smm-hgrid{ grid-template-columns:1fr; } }
-        .smm-h1 { font-size:clamp(46px,8vw,116px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .smm-h1 { font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
         .smm-lede { font-size:clamp(22px,3vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1.04; color:${NAVY}; margin:20px 0 0; }
         .smm-lede span { color:${GREEN}; }
         .smm-intro { max-width:560px; font-size:clamp(15px,1.2vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:20px 0 0; }
@@ -327,7 +329,7 @@ export function SocialMediaMarketing() {
         <div className="smm-hgrid">
           <Reveal>
             <Eyebrow>Social Media Marketing Services in Australia</Eyebrow>
-            <h1 className="smm-h1">Social media that brings in customers</h1>
+            <h1 className="smm-h1">Social Media Marketing Services in Australia</h1>
             <p className="smm-lede">
               Turn your social channels into a channel that <span>actually brings in customers</span>.
             </p>
@@ -356,7 +358,7 @@ export function SocialMediaMarketing() {
             <div className="smm-heroimg">
               <img
                 src={img('photo-1460925895917-afdab827c52f', 900, 780)}
-                alt="Marketing analytics dashboard showing social performance"
+                alt="Social media marketing services in Australia - social media marketing company in Australia"
                 width={900} height={780} loading="eager" decoding="async"
               />
             </div>

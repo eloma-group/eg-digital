@@ -7,6 +7,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, EASE } from '../_kit'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - SEO SERVICES (Australia)
@@ -261,6 +262,7 @@ function SearchPanel() {
 
 export function SEOServices() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/seo-services')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.
@@ -461,7 +463,7 @@ export function SEOServices() {
           <div className="seo-hgrid">
             <Reveal>
               <Eyebrow light>SEO Services in Australia</Eyebrow>
-              <h1 className="seo-h1">Get found on Google and in <em>AI answers</em></h1>
+              <h1 className="seo-h1">SEO Company in Australia</h1>
               <p className="seo-lede">
                 Get found on Google and in AI answers, by the people who are <span>ready to buy</span>.
               </p>

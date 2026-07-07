@@ -7,6 +7,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - MOBILE APP DEVELOPMENT (Australia)
@@ -217,6 +218,7 @@ const PRICES: { v: string; l: string }[] = [
 
 export function MobileAppDevelopment() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/mobile-app-development-company-australia')
 
   usePageMeta(
     'App Development Company in Australia | iOS, Android & Cross-Platform | EG Digital',
@@ -285,7 +287,7 @@ export function MobileAppDevelopment() {
         .hero-head { display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
         .hero-head::before { content:''; position:absolute; top:-30%; right:-14%; width:52%; height:150%; border-radius:50%;
           background:radial-gradient(circle, ${GREEN}30, transparent 62%); pointer-events:none; }
-        .mad-h1 { position:relative; font-size:clamp(46px,7vw,104px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .mad-h1 { position:relative; font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
         .mad-lede { position:relative; font-size:clamp(20px,2.4vw,34px); font-weight:900; letter-spacing:-0.035em; line-height:1.06; color:#fff; margin:18px 0 0; }
         .mad-lede span { color:${GREEN}; }
         .mad-cta { position:relative; display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -383,7 +385,7 @@ export function MobileAppDevelopment() {
             <Reveal className="tile n feat hero-head">
               <div>
                 <Eyebrow light>Mobile App Development Company in Australia</Eyebrow>
-                <h1 className="mad-h1">Apps engineered to perform</h1>
+                <h1 className="mad-h1">Mobile App Development Company in Australia</h1>
                 <p className="mad-lede">
                   We build mobile apps that <span>hold up under real use</span>, not demos that fall apart after launch.
                 </p>
@@ -400,7 +402,7 @@ export function MobileAppDevelopment() {
             <Reveal delay={0.12} className="tile hero-img">
               <img
                 src={img('photo-1526498460520-4c246339dccb', 900, 900)}
-                alt="Mobile app development on iOS and Android devices"
+                alt="Mobile app development company in Australia - iOS and Android app developers in Australia"
                 width={900} height={900} loading="eager" decoding="async"
               />
               <div className="mad-scan" aria-hidden="true" />

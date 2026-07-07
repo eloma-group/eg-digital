@@ -7,6 +7,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
+import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - TECHNICAL SEO (Australia)
@@ -213,6 +214,7 @@ const PRICES: { v: string; l: string }[] = [
 
 export function TechnicalSEO() {
   const navigate = useNavigate()
+  useServiceJsonLd('/services/technical-seo')
 
   usePageMeta(
     'Technical SEO Company in Australia | Audits, Speed & Site Fixes | EG Digital',
@@ -281,7 +283,7 @@ export function TechnicalSEO() {
         .hero-head { display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
         .hero-head::before { content:''; position:absolute; top:-30%; right:-14%; width:52%; height:150%; border-radius:50%;
           background:radial-gradient(circle, ${GREEN}30, transparent 62%); pointer-events:none; }
-        .tseo-h1 { position:relative; font-size:clamp(46px,7vw,104px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .tseo-h1 { position:relative; font-size:clamp(42px,6.2vw,92px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
         .tseo-lede { position:relative; font-size:clamp(20px,2.4vw,34px); font-weight:900; letter-spacing:-0.035em; line-height:1.06; color:#fff; margin:18px 0 0; }
         .tseo-lede span { color:${GREEN}; }
         .tseo-cta { position:relative; display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -380,7 +382,7 @@ export function TechnicalSEO() {
             <Reveal className="tile n feat hero-head">
               <div>
                 <Eyebrow light>Technical SEO Company in Australia</Eyebrow>
-                <h1 className="tseo-h1">Rank on solid foundations</h1>
+                <h1 className="tseo-h1">Technical SEO Company in Australia</h1>
                 <p className="tseo-lede">
                   Fix the foundations search engines choke on, so your content and links can <span>finally rank</span>.
                 </p>
@@ -397,7 +399,7 @@ export function TechnicalSEO() {
             <Reveal delay={0.12} className="tile hero-img">
               <img
                 src={img('photo-1461749280684-dccba630e2f6', 900, 900)}
-                alt="Technical SEO engineer reviewing site code and Core Web Vitals"
+                alt="Technical SEO services in Australia - technical SEO company in Australia"
                 width={900} height={900} loading="eager" decoding="async"
               />
               <div className="tseo-scan" aria-hidden="true" />
