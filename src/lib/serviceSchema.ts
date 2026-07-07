@@ -85,6 +85,18 @@ export const SERVICE_SCHEMA: Record<string, ServiceSchemaInput> = {
       'EG Digital provides professional Google Ads management services in Australia, including Search, Shopping, Performance Max, Display, and YouTube campaigns, keyword research, conversion tracking, and ongoing optimisation to help businesses generate qualified leads and maximise return on ad spend.',
     breadcrumbName: 'Google Ads',
   },
+  '/services/linkedin-ads-management': {
+    serviceName: 'LinkedIn Ads Management Services Australia | B2B | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional B2B LinkedIn ads management services in Australia, including campaign strategy, audience targeting by job title, seniority, industry and company size, Sponsored Content and InMail ad formats, creative and copywriting, CRM integration, and account-based retargeting to help businesses generate qualified pipeline and maximise return on ad spend.',
+    breadcrumbName: 'LinkedIn Ads',
+  },
+  '/services/branding': {
+    serviceName: 'Branding Services in Australia | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional branding services in Australia, including brand strategy, logo and visual identity design, brand messaging and voice, brand guidelines, rebranding, and brand rollout across channels to help businesses build a recognisable, consistent brand that earns trust and a price premium.',
+    breadcrumbName: 'Branding',
+  },
 }
 
 const PROVIDER = {

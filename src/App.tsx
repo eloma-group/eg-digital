@@ -32,6 +32,8 @@ const LocalSEO                     = lazy(() => import('./components/pages/servi
 const OffPageSEO                   = lazy(() => import('./components/pages/services/OffPageSEO').then(m => ({ default: m.OffPageSEO })))
 const FacebookAdsManagement        = lazy(() => import('./components/pages/services/FacebookAdsManagement').then(m => ({ default: m.FacebookAdsManagement })))
 const GoogleAdsManagement          = lazy(() => import('./components/pages/services/GoogleAdsManagement').then(m => ({ default: m.GoogleAdsManagement })))
+const LinkedInAdsManagement        = lazy(() => import('./components/pages/services/LinkedInAdsManagement').then(m => ({ default: m.LinkedInAdsManagement })))
+const Branding                     = lazy(() => import('./components/pages/services/Branding').then(m => ({ default: m.Branding })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
@@ -126,6 +128,8 @@ function App() {
         <Route path="/services/off-page-seo" element={<OffPageSEO />} />
         <Route path="/services/facebook-ads-management" element={<FacebookAdsManagement />} />
         <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
+        <Route path="/services/linkedin-ads-management" element={<LinkedInAdsManagement />} />
+        <Route path="/services/branding" element={<Branding />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/career" element={<Career />} />

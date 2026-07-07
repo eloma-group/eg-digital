@@ -59,6 +59,8 @@ export const SERVICE_PAGE_ROUTES: Record<string, string> = {
   'Off-Page SEO':           '/services/off-page-seo',
   'Facebook Ads':           '/services/facebook-ads-management',
   'Google Ads':             '/services/google-ads-management',
+  'LinkedIn Ads':           '/services/linkedin-ads-management',
+  'Branding':               '/services/branding',
   'PPC Services':           '/services/ppc-services',
   'Social Media Marketing': '/services/social-media-marketing',
   'Microsoft Solutions':    '/solutions/microsoft-products',

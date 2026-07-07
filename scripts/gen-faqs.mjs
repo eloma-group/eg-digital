@@ -15,6 +15,8 @@ const ROUTES = [
   '/services/off-page-seo',
   '/services/facebook-ads-management',
   '/services/google-ads-management',
+  '/services/linkedin-ads-management',
+  '/services/branding',
 ]
 
 const dist = path.resolve(process.cwd(), 'dist')
