@@ -93,6 +93,9 @@ export function Contact() {
       const data = await res.json()
       if (data.success) {
         setSent(true)
+        // Fire the Google Ads "Submit lead form" conversion (helper defined in index.html <head>).
+        ;(window as unknown as { gtag_report_conversion?: (url?: string) => boolean })
+          .gtag_report_conversion?.()
       } else {
         setError(data.message || 'Something went wrong. Please try again.')
       }
