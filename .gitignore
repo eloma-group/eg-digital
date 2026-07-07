@@ -1,6 +1,7 @@
 node_modules/
 CLAUDE.md
 dist/
+dist-server/
 .env
 .env.local
 .env.*.local

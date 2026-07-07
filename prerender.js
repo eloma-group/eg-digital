@@ -1,0 +1,82 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// STATIC SITE GENERATION (SSG)
+//
+// Runs after `vite build` (client) and `vite build --ssr` (server). For every
+// route it renders the React tree to HTML, injects that into the built
+// index.html template's #root, rewrites the per-page SEO tags (title,
+// description, canonical, Open Graph / Twitter) and writes a static
+// dist/<route>/index.html. Azure Static Web Apps then serves real, crawlable
+// HTML for a direct hit on any URL, while the SPA still boots and takes over on
+// the client.
+// ─────────────────────────────────────────────────────────────────────────────
+
+import fs from 'node:fs'
+import path from 'node:path'
+import url from 'node:url'
+
+const dist = path.resolve(process.cwd(), 'dist')
+const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf-8')
+
+// The compiled SSR bundle exposes both the renderer and the SEO data.
+const serverEntry = url.pathToFileURL(
+  path.resolve(process.cwd(), 'dist-server', 'entry-server.js'),
+).href
+const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL } = await import(serverEntry)
+
+const esc = (s) =>
+  String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+
+// Replace the content="" of a <meta> matched by its identifying attribute.
+function setMeta(html, attr, value) {
+  const re = new RegExp(`(<meta\\s+${attr}\\s+content=")[^"]*(")`)
+  return html.replace(re, (_m, a, b) => a + esc(value) + b)
+}
+
+function applyMeta(html, route) {
+  const meta = PAGE_META[route] || {}
+  const title = meta.title || DEFAULT_META.title
+  const description = meta.description || DEFAULT_META.description
+  const canonical = SITE_URL + route
+
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
+  html = setMeta(html, 'name="description"', description)
+  html = setMeta(html, 'property="og:title"', title)
+  html = setMeta(html, 'property="og:description"', description)
+  html = setMeta(html, 'name="twitter:title"', title)
+  html = setMeta(html, 'name="twitter:description"', description)
+  html = setMeta(html, 'property="og:url"', canonical)
+  html = html.replace(
+    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+    (_m, a, b) => a + esc(canonical) + b,
+  )
+  return html
+}
+
+let count = 0
+for (const route of ROUTES) {
+  let appHtml
+  try {
+    appHtml = await render(route)
+  } catch (err) {
+    console.error(`\n[prerender] failed while rendering "${route}"`)
+    throw err
+  }
+
+  let html = template.replace(
+    '<div id="root"></div>',
+    `<div id="root">${appHtml}</div>`,
+  )
+  html = applyMeta(html, route)
+
+  const outDir = route === '/' ? dist : path.join(dist, route)
+  fs.mkdirSync(outDir, { recursive: true })
+  fs.writeFileSync(path.join(outDir, 'index.html'), html)
+  count++
+  console.log(`[prerender] ${route}`)
+}
+
+console.log(`\n[prerender] wrote ${count} static pages.`)

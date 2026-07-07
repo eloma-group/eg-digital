@@ -45,7 +45,17 @@ window.addEventListener(
   { once: true },
 )
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+
+// The route HTML is pre-rendered into #root at build time (see prerender.js) so
+// crawlers get real content. We deliberately do a fresh client render rather
+// than hydrate: the heavy 3D/WebGL and animation layers make a clean re-render
+// far more robust than reconciling against server markup, and the intro splash
+// covers the swap so it is never visible. Clearing first avoids React's
+// "createRoot on server-rendered container" warning.
+root.innerHTML = ''
+
+createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
       <App />
