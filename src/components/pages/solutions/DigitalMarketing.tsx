@@ -414,7 +414,7 @@ export function DigitalMarketingSolution() {
       <section className="dmk-sec2 alt">
         <div className="dmk-shell">
           <Reveal>
-            <Eyebrow>SEO Marketing</Eyebrow>
+            <Eyebrow>Digital Marketing</Eyebrow>
             <h2 className="dmk-h2">Reach, traffic<br />and <span>leads.</span></h2>
             <p className="dmk-lead">Reach the right audience, generate quality leads and grow with strategies built to deliver measurable results.</p>
           </Reveal>

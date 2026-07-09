@@ -33,7 +33,7 @@ export const SOLUTION_SUBLINK_ROUTES: Record<string, string> = {
   // Digital & Marketing
   'Branding':             SOLUTION_ROUTES['Digital & Marketing'],
   'Cloud Hosting':        SOLUTION_ROUTES['Digital & Marketing'],
-  'SEO Marketing':        SOLUTION_ROUTES['Digital & Marketing'],
+  'Digital Marketing':    SOLUTION_ROUTES['Digital & Marketing'],
   // Security & Integration
   'Cyber Security':       SOLUTION_ROUTES['Security & Integration'],
   'AI Cyber Security':    SOLUTION_ROUTES['Security & Integration'],

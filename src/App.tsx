@@ -36,6 +36,7 @@ const LinkedInAdsManagement        = lazy(() => import('./components/pages/servi
 const Branding                     = lazy(() => import('./components/pages/services/Branding').then(m => ({ default: m.Branding })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
+const BlogArticle                  = lazy(() => import('./components/pages/BlogArticle').then(m => ({ default: m.BlogArticle })))
 const Career                       = lazy(() => import('./components/pages/Career').then(m => ({ default: m.Career })))
 const PrivacyPolicy                = lazy(() => import('./components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })))
 const TermsConditions              = lazy(() => import('./components/pages/TermsConditions').then(m => ({ default: m.TermsConditions })))
@@ -132,6 +133,7 @@ function App() {
         <Route path="/services/branding" element={<Branding />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
         <Route path="/career" element={<Career />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsConditions />} />

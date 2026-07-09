@@ -1,31 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-
-type Post = { title: string; excerpt: string; category: 'Case Studies' | 'Latest Technologies' | 'Awareness'; read: string; date: string; img: string }
-
-// Hand-picked, content-matched Unsplash photos. `img` holds the Unsplash photo
-// id and this builds a stable, cropped CDN URL at the requested size - so each
-// card always shows the same relevant image (no reshuffle / flicker).
-const photo = (id: string, _seed: number, w = 640, h = 400) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
-
-const FEATURED: Post = {
-  title: 'How we took an e-commerce brand from 4.1 to 4.9 stars in 90 days',
-  excerpt: 'A deep dive into the review automation, analytics and response workflows we built - and the measurable revenue lift that followed.',
-  category: 'Case Studies', read: '8 min read', date: 'June 2026', img: 'photo-1608222351212-18fe0ec7b13b',
-}
-
-const POSTS: Post[] = [
-  { title: 'Scaling a SaaS platform to 50k users without rewriting the stack', excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.', category: 'Case Studies', read: '6 min read', date: 'May 2026', img: 'photo-1551288049-bebda4e38f71' },
-  { title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime', excerpt: 'How we phased a full ERP migration around a 24/7 production line.', category: 'Case Studies', read: '7 min read', date: 'Apr 2026', img: 'photo-1717386255773-1e3037c81788' },
-  { title: 'What Microsoft Copilot actually means for small businesses', excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.', category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026', img: 'photo-1684369175833-4b445ad6bfb5' },
-  { title: 'React 19 and the end of the useEffect era', excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.', category: 'Latest Technologies', read: '6 min read', date: 'May 2026', img: 'photo-1461749280684-dccba630e2f6' },
-  { title: 'Five phishing tactics still fooling Australian businesses in 2026', excerpt: 'Practical, plain-English steps to protect your team and your data.', category: 'Awareness', read: '4 min read', date: 'Jun 2026', img: 'photo-1562813733-b31f71025d54' },
-  { title: 'Why your business needs a zero-trust security model now', excerpt: 'The shift from perimeter defence to identity-first security, explained.', category: 'Awareness', read: '5 min read', date: 'Apr 2026', img: 'photo-1614064641938-3bbee52942c7' },
-]
+import { FEATURED, GRID_POSTS, photo } from '../../lib/blogPosts'
 
 const FILTERS = ['All', 'Case Studies', 'Latest Technologies', 'Awareness'] as const
 
@@ -44,10 +22,11 @@ export function Blog() {
     'Read EG Digital blog for insights on web development, AI, cloud computing, SEO strategies, and digital transformation trends shaping modern businesses.',
   )
   const { search } = useLocation()
+  const navigate = useNavigate()
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>(() => filterFromSearch(search))
   // Keep the active filter in sync when arriving via a footer category link.
   useEffect(() => { setFilter(filterFromSearch(search)) }, [search])
-  const visible = filter === 'All' ? POSTS : POSTS.filter(p => p.category === filter)
+  const visible = filter === 'All' ? GRID_POSTS : GRID_POSTS.filter(p => p.category === filter)
 
   return (
     <PageLayout>
@@ -70,7 +49,11 @@ export function Blog() {
           letter-spacing: 1.8px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 18px; }
         .bl-feat-title { font-size: clamp(28px,3.4vw,52px); font-weight: 900; letter-spacing: -0.04em;
           line-height: 1.02; color: #fff; margin: 0 0 18px; text-transform: uppercase; }
-        .bl-feat-ex { font-size: clamp(15px,1.15vw,18px); line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 24px; }
+        .bl-feat-ex { font-size: clamp(15px,1.15vw,18px); line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 20px; }
+        .bl-feat-cta { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800;
+          letter-spacing: 0.6px; text-transform: uppercase; color: ${GREEN}; margin: 0 0 20px; }
+        .bl-feat:hover .bl-feat-cta { gap: 11px; }
+        .bl-feat-cta { transition: gap 0.2s; }
         .bl-feat-meta { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.4px; }
         .bl-feat-art { aspect-ratio: 4/3; width: 100%; object-fit: cover; display: block;
           border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: #0d2e52; }
@@ -118,14 +101,22 @@ export function Blog() {
 
       <div className="bl-shell">
         <Reveal>
-          <article className="bl-feat">
+          <article
+            className="bl-feat"
+            role="link"
+            tabIndex={0}
+            style={{ cursor: 'pointer' }}
+            onClick={() => navigate(`/blog/${FEATURED.slug}`)}
+            onKeyDown={e => { if (e.key === 'Enter') navigate(`/blog/${FEATURED.slug}`) }}
+          >
             <div>
               <div className="bl-feat-cat"><span style={{ width: 8, height: 8, borderRadius: 99, background: GREEN }} />{FEATURED.category}</div>
               <h2 className="bl-feat-title">{FEATURED.title}</h2>
               <p className="bl-feat-ex">{FEATURED.excerpt}</p>
+              <div className="bl-feat-cta">Read article <ArrowUpRight size={16} /></div>
               <div className="bl-feat-meta">{FEATURED.date} · {FEATURED.read}</div>
             </div>
-            <img className="bl-feat-art" src={photo(FEATURED.img, 0, 800, 600)} alt="" loading="lazy" decoding="async" width={800} height={600} />
+            <img className="bl-feat-art" src={photo(FEATURED.img, 800, 600)} alt="" loading="lazy" decoding="async" width={800} height={600} />
           </article>
         </Reveal>
 
@@ -143,10 +134,16 @@ export function Blog() {
 
         <div className="bl-grid">
           {visible.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 0.06}>
-              <article className="bl-card">
+            <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+              <article
+                className="bl-card"
+                role="link"
+                tabIndex={0}
+                onClick={() => navigate(`/blog/${p.slug}`)}
+                onKeyDown={e => { if (e.key === 'Enter') navigate(`/blog/${p.slug}`) }}
+              >
                 <div className="bl-card-imgwrap">
-                  <img className="bl-card-img" src={photo(p.img, i + 1)} alt="" loading="lazy" decoding="async" width={640} height={400} />
+                  <img className="bl-card-img" src={photo(p.img)} alt="" loading="lazy" decoding="async" width={640} height={400} />
                 </div>
                 <div className="bl-card-body">
                   <div className="bl-card-cat">{p.category}</div>
