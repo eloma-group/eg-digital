@@ -12,6 +12,8 @@
 // runtime behaviour exactly.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { POSTS } from './blogPosts'
+
 export const SITE_URL = 'https://egdigital.com.au'
 
 export const DEFAULT_META = {
@@ -57,6 +59,8 @@ export const ROUTES: string[] = [
   '/services/branding',
   '/industries',
   '/blog',
+  // Every blog article gets its own crawlable, pre-rendered page.
+  ...POSTS.map(p => `/blog/${p.slug}`),
   '/career',
   '/privacy-policy',
   '/terms-and-conditions',
@@ -189,4 +193,10 @@ export const PAGE_META: Record<string, PageMeta> = {
     description:
       'Read the terms and conditions that govern the use of the EG Digital Australia website and services, including intellectual property, payment and liability.',
   },
+}
+
+// Fold in per-article SEO from the posts registry (title tag + meta description
+// come straight from each post) so the static build bakes them per URL.
+for (const p of POSTS) {
+  PAGE_META[`/blog/${p.slug}`] = { title: p.metaTitle, description: p.metaDescription }
 }

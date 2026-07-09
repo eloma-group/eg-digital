@@ -66,7 +66,7 @@ const SOLUTIONS_GROUPS = [
     categories: [
       { label: 'Branding',      items: ['Logo Creation', 'Email Signature', 'Visiting Card Designing', 'Website Designing'] },
       { label: 'Cloud Hosting', items: ['Azure', 'AWS'] },
-      { label: 'SEO Marketing', items: ['Email Marketing', 'Social Media Handling', 'Google Ads', 'Wikipedia Creation', 'Content Writing', 'Organic SEO'] },
+      { label: 'Digital Marketing', items: ['Email Marketing', 'Social Media Handling', 'Google Ads', 'Wikipedia Creation', 'Content Writing', 'Organic SEO'] },
     ],
   },
   {

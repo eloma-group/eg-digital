@@ -37,7 +37,7 @@ const COLS: { heading: string; links: string[] }[] = [
   { heading: 'Solutions',  links: [
       'Microsoft 365','Dynamic 365',
       'Software Development','App Development','Website Development','CRM','ERP',
-      'Branding','Cloud Hosting','SEO Marketing',
+      'Branding','Cloud Hosting','Digital Marketing',
       'Cyber Security','AI Cyber Security','Integrations','Licenses',
     ] },
   { heading: 'Services',   links: [

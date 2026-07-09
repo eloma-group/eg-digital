@@ -117,10 +117,13 @@ export function buildServiceJsonLd(route: string): object[] | null {
   if (!s) return null
 
   const url = SITE_URL + route
+  const breadcrumbId = `${url}#breadcrumb`
+  const serviceId = `${url}#service`
 
   const breadcrumb = {
     '@context': 'https://schema.org/',
     '@type': 'BreadcrumbList',
+    '@id': breadcrumbId,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Homepage', item: `${SITE_URL}/` },
       { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
@@ -136,13 +139,16 @@ export function buildServiceJsonLd(route: string): object[] | null {
     url,
     inLanguage: 'en-AU',
     isPartOf: { '@type': 'WebSite', name: 'EG Digital', url: SITE_URL },
-    breadcrumb: { '@id': `${url}#breadcrumb` },
-    about: { '@type': 'Service', name: s.serviceName },
+    breadcrumb: { '@id': breadcrumbId },
+    // Reference the single Service node by @id - never inline a second copy,
+    // or validators read two separate Service entities on the page.
+    about: { '@id': serviceId },
   }
 
   const service = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': serviceId,
     name: s.serviceName,
     description: s.serviceDescription,
     url,
@@ -150,7 +156,7 @@ export function buildServiceJsonLd(route: string): object[] | null {
     provider: PROVIDER,
   }
 
-  const objects: object[] = [webPage, service, { ...breadcrumb, '@id': `${url}#breadcrumb` }]
+  const objects: object[] = [webPage, service, breadcrumb]
 
   const faqs = SERVICE_FAQS[route]
   if (faqs && faqs.length) {
