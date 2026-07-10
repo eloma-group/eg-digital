@@ -57,6 +57,7 @@ export const ROUTES: string[] = [
   '/services/google-ads-management',
   '/services/linkedin-ads-management',
   '/services/branding',
+  '/services/email-marketing',
   '/industries',
   '/blog',
   // Every blog article gets its own crawlable, pre-rendered page.
@@ -167,6 +168,11 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Branding Services in Australia | EG Digital',
     description:
       'Branding company in Australia. Brand strategy, identity, messaging, guidelines & rebranding from a Melbourne team. Get a free brand audit.',
+  },
+  '/services/email-marketing': {
+    title: 'Email Marketing Services in Australia | EG Digital',
+    description:
+      'Email marketing company in Australia. Strategy, automation, newsletter design & campaign management for small business, ecommerce & B2B. Get a free email audit.',
   },
   '/industries': {
     title: 'Industries We Serve | EG Digital Solutions',

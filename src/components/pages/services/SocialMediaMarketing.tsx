@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import {
   BarChart3, Users, Sparkles, Unlock, PenTool, CalendarCheck, Palette,
   LayoutGrid, Mail, Megaphone, Store, ShoppingCart, Briefcase, Building2,
-  Phone,
+  Phone, PenLine, MonitorSmartphone, MousePointerClick,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -165,6 +165,51 @@ const FAQS: { q: string; a: string }[] = [
   },
 ]
 
+// The design/creative craft behind social - merged verbatim from the approved
+// graphic design page content, kept to the pieces that support a social program
+// (logo, digital assets, and the UI/UX behind what social drives traffic to).
+const DESIGN: { icon: LucideIcon; t: string; d: string }[] = [
+  {
+    icon: PenLine,
+    t: 'Logo design',
+    d: 'Your logo is the first thing people recognise and the last thing you want done cheaply. We design logos built to last: a mark that works at any size, reads clearly in one colour or many, and still looks right in five years. You get the full set, primary and secondary marks, the variations you will actually use, and the files for every application.',
+  },
+  {
+    icon: MonitorSmartphone,
+    t: 'Digital graphic design',
+    d: 'Most of your brand now lives on a screen. We produce the digital graphic design services your channels run on: web graphics, banners, display ad creative, email design, and the visual assets that carry your brand online. Everything is built to your brand and sized for where it appears, so nothing looks stretched, cramped, or off-brand.',
+  },
+  {
+    icon: MousePointerClick,
+    t: 'UI/UX design',
+    d: 'A good-looking interface that is hard to use is a bad interface. We design UI and UX that people can actually navigate: website and app interfaces, user flows, wireframes, and the design decisions that make a product easy instead of frustrating. Because EG Digital also builds websites and software, the design gets handed to developers who work in the same team, so what gets built matches what was designed.',
+  },
+]
+
+// Client-only animated vector (fetched from the internet, self-hosted under
+// /public/lottie). lottie-web is imported lazily inside the effect so the static
+// pre-render (which has no window/DOM) never touches it. Honours reduced-motion.
+function CreativeLottie() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    let anim: { destroy: () => void } | undefined
+    let cancelled = false
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    import('lottie-web').then(({ default: lottie }) => {
+      if (cancelled || !ref.current) return
+      anim = lottie.loadAnimation({
+        container: ref.current,
+        renderer: 'svg',
+        loop: !reduce,
+        autoplay: !reduce,
+        path: '/lottie/creative-laptop.json',
+      })
+    })
+    return () => { cancelled = true; anim?.destroy() }
+  }, [])
+  return <div ref={ref} className="smm-lottie" aria-hidden="true" />
+}
+
 export function SocialMediaMarketing() {
   const navigate = useNavigate()
   useServiceJsonLd('/services/social-media-marketing')
@@ -250,6 +295,27 @@ export function SocialMediaMarketing() {
           background:linear-gradient(150deg,${NAVY},#12395f); color:${GREEN}; flex-shrink:0; }
         .smm-srow-t { font-size:clamp(22px,2.4vw,38px); font-weight:900; letter-spacing:-0.035em; line-height:0.98; color:${NAVY}; margin:2px 0 0; text-transform:uppercase; }
         .smm-srow-p { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:14px 0 0; }
+
+        /* ── Design / creative studio band ── */
+        .smm-design { display:grid; grid-template-columns:0.92fr 1.08fr; gap:clamp(28px,4vw,64px); align-items:center; margin-top:clamp(36px,4vw,56px); }
+        @media (max-width:900px){ .smm-design{ grid-template-columns:1fr; } }
+        .smm-lcard { position:relative; overflow:hidden; border-radius:26px; background:linear-gradient(158deg,#0e3059,${NAVY} 70%,#061a30);
+          border:1px solid rgba(255,255,255,0.1); box-shadow:0 34px 80px -34px rgba(8,33,60,0.5); aspect-ratio:4 / 3.4;
+          display:flex; align-items:center; justify-content:center; }
+        .smm-lcard::before { content:''; position:absolute; bottom:-35%; right:-15%; width:60%; height:150%; border-radius:50%;
+          background:radial-gradient(circle, ${GREEN}33, transparent 62%); pointer-events:none; }
+        .smm-lottie { position:relative; z-index:1; width:82%; max-width:440px; }
+        .smm-lottie svg { display:block; width:100%; height:auto; }
+        .smm-dcards { display:flex; flex-direction:column; gap:clamp(12px,1.4vw,18px); }
+        .smm-dc { position:relative; overflow:hidden; display:grid; grid-template-columns:auto 1fr; gap:clamp(14px,1.8vw,22px); align-items:start;
+          background:#fff; border:1px solid rgba(8,33,60,0.09); border-radius:20px; padding:clamp(20px,2.2vw,30px);
+          transition:transform .4s cubic-bezier(0.16,1,0.3,1), box-shadow .4s, border-color .4s; will-change:transform; }
+        .smm-dc:hover { transform:translateY(-4px); box-shadow:0 26px 56px -30px rgba(8,33,60,0.3); border-color:${GREEN}44; }
+        @media (max-width:480px){ .smm-dc{ grid-template-columns:1fr; } }
+        .smm-dc-ic { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+          background:linear-gradient(150deg,${GREEN}29,${GREEN}0d); color:${GREEN}; flex-shrink:0; }
+        .smm-dc-t { font-size:clamp(18px,1.7vw,25px); font-weight:900; letter-spacing:-0.03em; color:${NAVY}; margin:2px 0 9px; line-height:1.08; }
+        .smm-dc-d { font-size:clamp(13.5px,1vw,15.5px); line-height:1.75; color:rgba(8,33,60,0.62); margin:0; }
 
         /* ── Audiences ── */
         .smm-aud { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,1.6vw,22px); margin-top:clamp(36px,4vw,56px); }
@@ -432,6 +498,44 @@ export function SocialMediaMarketing() {
                 </Reveal>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Design / creative studio (merged from graphic design content) ── */}
+      <section className="smm-sec alt">
+        <div className="smm-shell">
+          <Reveal>
+            <Eyebrow>Creative studio</Eyebrow>
+            <h2 className="smm-h2">Design that does a job, not just <span>looks nice</span></h2>
+            <p className="smm-lead">
+              Most design agencies sell you a pretty picture. Pretty is not the point. What the design gets done is. The
+              same team that runs your social builds the design behind it, so when one team handles all of it, your
+              design stays consistent everywhere it appears.
+            </p>
+          </Reveal>
+          <div className="smm-design">
+            <Reveal>
+              <div className="smm-lcard">
+                <CreativeLottie />
+              </div>
+            </Reveal>
+            <div className="smm-dcards">
+              {DESIGN.map((d, i) => {
+                const Ic = d.icon
+                return (
+                  <Reveal key={d.t} delay={Math.min(i * 0.06, 0.2)}>
+                    <div className="smm-dc">
+                      <div className="smm-dc-ic"><Ic size={24} /></div>
+                      <div>
+                        <h3 className="smm-dc-t">{d.t}</h3>
+                        <p className="smm-dc-d">{d.d}</p>
+                      </div>
+                    </div>
+                  </Reveal>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>

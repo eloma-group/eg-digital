@@ -41,7 +41,7 @@ const COLS: { heading: string; links: string[] }[] = [
       'Cyber Security','AI Cyber Security','Integrations','Licenses',
     ] },
   { heading: 'Services',   links: [
-      'Web Development','Mobile App Development','SEO Services','Technical SEO','Local SEO','Off-Page SEO','PPC Services','Google Ads','Facebook Ads','LinkedIn Ads','Social Media Marketing','Branding','Microsoft Solutions',
+      'Web Development','Mobile App Development','SEO Services','Technical SEO','Local SEO','Off-Page SEO','PPC Services','Google Ads','Facebook Ads','LinkedIn Ads','Social Media Marketing','Email Marketing','Branding','Microsoft Solutions',
       'Upgrades','Cloud Maintenances','Server Maintenances','Support Services',
     ] },
   { heading: 'Industries', links: [

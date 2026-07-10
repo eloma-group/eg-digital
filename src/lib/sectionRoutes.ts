@@ -61,6 +61,7 @@ export const SERVICE_PAGE_ROUTES: Record<string, string> = {
   'Google Ads':             '/services/google-ads-management',
   'LinkedIn Ads':           '/services/linkedin-ads-management',
   'Branding':               '/services/branding',
+  'Email Marketing':        '/services/email-marketing',
   'PPC Services':           '/services/ppc-services',
   'Social Media Marketing': '/services/social-media-marketing',
   'Microsoft Solutions':    '/solutions/microsoft-products',
