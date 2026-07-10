@@ -14,7 +14,12 @@ const DURATION = 3000 // total time the splash stays up before fading out
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function IntroSplash() {
-  const [show, setShow] = useState(true)
+  // Only ever exists on the client. During the static pre-render there is no
+  // `window`, so we start hidden - otherwise the full-screen white overlay
+  // (z-index 99999) is baked into the raw HTML and covers every page's content
+  // for crawlers and before JS runs. On the client it starts shown and masks
+  // the fresh re-render swap as intended.
+  const [show, setShow] = useState(() => typeof window !== 'undefined')
   const reduce = useReducedMotion()
 
   useEffect(() => {

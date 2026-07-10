@@ -97,6 +97,12 @@ export const SERVICE_SCHEMA: Record<string, ServiceSchemaInput> = {
       'EG Digital provides professional branding services in Australia, including brand strategy, logo and visual identity design, brand messaging and voice, brand guidelines, rebranding, and brand rollout across channels to help businesses build a recognisable, consistent brand that earns trust and a price premium.',
     breadcrumbName: 'Branding',
   },
+  '/services/email-marketing': {
+    serviceName: 'Email Marketing Services in Australia | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional email marketing services in Australia, including email strategy, campaign management, email automation and flows, newsletter design, email copywriting, and list growth and management to help small businesses, ecommerce brands, and B2B companies turn an owned list into measurable revenue, enquiries, and repeat customers.',
+    breadcrumbName: 'Email Marketing',
+  },
 }
 
 const PROVIDER = {

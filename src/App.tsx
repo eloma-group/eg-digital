@@ -34,6 +34,7 @@ const FacebookAdsManagement        = lazy(() => import('./components/pages/servi
 const GoogleAdsManagement          = lazy(() => import('./components/pages/services/GoogleAdsManagement').then(m => ({ default: m.GoogleAdsManagement })))
 const LinkedInAdsManagement        = lazy(() => import('./components/pages/services/LinkedInAdsManagement').then(m => ({ default: m.LinkedInAdsManagement })))
 const Branding                     = lazy(() => import('./components/pages/services/Branding').then(m => ({ default: m.Branding })))
+const EmailMarketing               = lazy(() => import('./components/pages/services/EmailMarketing').then(m => ({ default: m.EmailMarketing })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const BlogArticle                  = lazy(() => import('./components/pages/BlogArticle').then(m => ({ default: m.BlogArticle })))
@@ -131,6 +132,7 @@ function App() {
         <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
         <Route path="/services/linkedin-ads-management" element={<LinkedInAdsManagement />} />
         <Route path="/services/branding" element={<Branding />} />
+        <Route path="/services/email-marketing" element={<EmailMarketing />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogArticle />} />

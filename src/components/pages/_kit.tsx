@@ -22,15 +22,22 @@ export function PageLayout({ children }: { children: ReactNode }) {
   )
 }
 
-/* In-view fade-up. Compositor-only (transform + opacity). */
+/* In-view fade-up. Compositor-only (transform + opacity).
+   During the static pre-render there is no `window`, so we bake the VISIBLE
+   end-state into the HTML - otherwise framer-motion writes the hidden
+   `opacity:0; transform:translateY(28px)` initial state into the raw markup and
+   the content (including the hero H1) stays invisible for crawlers and before
+   JS runs. On the client the hidden start-state is applied so the fade-up still
+   plays. Safe because the app re-renders fresh on the client (no hydration). */
 export function Reveal({
   children, delay = 0, y = 28, style, className,
 }: { children: ReactNode; delay?: number; y?: number; style?: CSSProperties; className?: string }) {
+  const initial = typeof window === 'undefined' ? { opacity: 1, y: 0 } : { opacity: 0, y }
   return (
     <motion.div
       className={className}
       style={style}
-      initial={{ opacity: 0, y }}
+      initial={initial}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-70px' }}
       transition={{ duration: 0.8, ease: EASE, delay }}
@@ -75,7 +82,8 @@ export function PageCTA({
     <section style={{ background: NAVY, padding: 'clamp(64px,10vw,140px) clamp(24px,4vw,72px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 60% 70% at 50% 0%, rgba(60,185,140,0.16), transparent 60%)` }} />
       <motion.div
-        initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }}
+        initial={typeof window === 'undefined' ? { opacity: 1, y: 0 } : { opacity: 0, y: 26 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: EASE }}
         style={{ position: 'relative', zIndex: 1, maxWidth: 1100, margin: '0 auto' }}
       >
