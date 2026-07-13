@@ -33,6 +33,14 @@ a {
   color: inherit;
 }
 
+/* SEO / accessibility: headings must never be left invisible.
+   Framer Motion bakes `opacity:0` into the pre-rendered HTML for its
+   `whileInView` scroll reveals, so crawlers and SEO audit tools that read the
+   rendered/visible headings (without scrolling to trigger the reveal) count
+   zero H1-H6. Forcing headings opaque overrides that inline opacity in both the
+   static HTML and the live DOM. The transform-based slide-in still plays. */
+h1, h2, h3, h4, h5, h6 { opacity: 1 !important; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
