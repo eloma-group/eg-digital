@@ -212,7 +212,7 @@ export function MarketingSection() {
           </motion.div>
 
           {/* Heading */}
-          <motion.h2 {...fadeUp(0.07)} style={{
+          <motion.h1 {...fadeUp(0.07)} style={{
             fontSize:'clamp(52px,9vw,136px)', fontWeight:900,
             letterSpacing:'-0.045em', lineHeight:0.88,
             textTransform:'uppercase', color:NAVY,
@@ -220,7 +220,7 @@ export function MarketingSection() {
           }}>
             Rank Higher.<br />
             <span style={{ color:GREEN }}>Grow</span> Faster.
-          </motion.h2>
+          </motion.h1>
 
           <motion.p {...fadeUp(0.14)} style={{
             fontSize:'clamp(15px,1.2vw,19px)', color:'rgba(8,33,60,0.52)',

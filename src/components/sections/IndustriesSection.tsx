@@ -189,7 +189,7 @@ export function IndustriesSection() {
               </span>
             </motion.div>
 
-            <motion.h2 {...fadeUp(0.07)} style={{
+            <motion.h1 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,6.5vw,100px)', fontWeight:900,
               letterSpacing:'-0.045em', lineHeight:0.88,
               textTransform:'uppercase', color:NAVY,
@@ -198,7 +198,7 @@ export function IndustriesSection() {
               Built For<br />
               <span style={{ color:GREEN }}>Every</span><br />
               Industry.
-            </motion.h2>
+            </motion.h1>
 
             <motion.p {...fadeUp(0.14)} style={{
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(8,33,60,0.52)',
