@@ -24,7 +24,7 @@ export function AsdPartnershipStrip() {
         </div>
         <div className="asd-card-body">
           <span className="asd-card-eyebrow"><span className="asd-card-dot" />Government Partnership</span>
-          <h1 className="asd-card-h">In partnership with the <span className="asd-g">Australian Signals Directorate</span></h1>
+          <h2 className="asd-card-h">In partnership with the <span className="asd-g">Australian Signals Directorate</span></h2>
           <p className="asd-card-p">
             Eloma Group works alongside the Australian Government's Australian Signals Directorate (ASD) and the
             Australian Cyber Security Centre (ACSC) - aligning our operations to national-grade security standards,
