@@ -51,24 +51,26 @@ function useDeferredMount() {
 function Words() {
   return (
     <>
-      <span className="h3-clip">
-        <motion.span className="h3-word" style={{ fontSize: 'clamp(48px, 20cqi, 210px)' }}
-          initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}>
-          We Build
-        </motion.span>
-      </span>
-      <span className="h3-clip">
-        <motion.span className="h3-word h3-word-green" style={{ fontSize: 'clamp(58px, 27cqi, 284px)' }}
-          initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.3 }}>
-          Digital
-        </motion.span>
-      </span>
-      <span className="h3-clip">
-        <motion.span className="h3-word" style={{ fontSize: 'clamp(38px, 14.5cqi, 168px)' }}
-          initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.4 }}>
-          Excellence.
-        </motion.span>
-      </span>
+      <h1 style={{ margin: 0, fontWeight: 'inherit', letterSpacing: 'inherit' }}>
+        <span className="h3-clip">
+          <motion.span className="h3-word" style={{ fontSize: 'clamp(48px, 20cqi, 210px)' }}
+            initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}>
+            We Build
+          </motion.span>
+        </span>
+        <span className="h3-clip">
+          <motion.span className="h3-word h3-word-green" style={{ fontSize: 'clamp(58px, 27cqi, 284px)' }}
+            initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.3 }}>
+            Digital
+          </motion.span>
+        </span>
+        <span className="h3-clip">
+          <motion.span className="h3-word" style={{ fontSize: 'clamp(38px, 14.5cqi, 168px)' }}
+            initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.4 }}>
+            Excellence.
+          </motion.span>
+        </span>
+      </h1>
 
       <div className="h3-rule-row">
         <motion.div className="h3-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}

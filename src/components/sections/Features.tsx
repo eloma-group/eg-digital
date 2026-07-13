@@ -358,7 +358,7 @@ function FeatureBlock({ id, num, eyebrow, headline, body, cta, to, flip, bg = '#
           }} aria-hidden="true">{num}</div>
 
           <motion.div className="fb-eyebrow" {...fadeUp(0)}>{eyebrow}</motion.div>
-          <motion.h2 className="fb-h2" {...fadeUp(0.08)}>{headline}</motion.h2>
+          <motion.h1 className="fb-h2" {...fadeUp(0.08)}>{headline}</motion.h1>
           <motion.p className="fb-body" {...fadeUp(0.14)}>{body}</motion.p>
           <motion.div {...fadeUp(0.2)}>
             <button className="fb-cta" onClick={() => navigate(to)}>{cta} <ArrowRight size={15} /></button>

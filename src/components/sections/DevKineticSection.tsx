@@ -231,10 +231,10 @@ function SceneInner({ scene }: { scene: Scene }) {
           <span className="dvk-tag" style={{ color: scene.accent }}>
             <span style={{ width: 7, height: 7, borderRadius: '50%', background: scene.accent }} />{scene.label}
           </span>
-          <h3 className="dvk-title">
+          <h1 className="dvk-title">
             <span className="dvk-l1">{scene.line1}</span>
             <span className="dvk-l2" style={{ ['--acc' as string]: scene.accent } as React.CSSProperties}>{scene.line2}</span>
-          </h3>
+          </h1>
           <button type="button" className="dvk-link" style={{ color: scene.accent }} onClick={() => navigate(scene.to)}>
             {scene.link}
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
