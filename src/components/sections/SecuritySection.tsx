@@ -119,7 +119,7 @@ export function SecuritySection() {
               <span style={{ fontSize:'clamp(10px,.75vw,12px)', fontWeight:800, letterSpacing:'2.5px', textTransform:'uppercase', color:GREEN }}>Cybersecurity · IT Support</span>
             </motion.div>
 
-            <motion.h1 {...fadeUp(0.07)} style={{
+            <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,7.5vw,112px)', fontWeight:900,
               letterSpacing:'-0.045em', lineHeight:0.88,
               textTransform:'uppercase', color:'#fff',
@@ -128,7 +128,7 @@ export function SecuritySection() {
               Zero<br/>
               <span style={{ color:GREEN }}>Threats</span><br/>
               Allowed.
-            </motion.h1>
+            </motion.h2>
 
             <motion.p {...fadeUp(0.14)} style={{
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(255,255,255,0.5)',

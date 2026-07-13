@@ -162,7 +162,7 @@ export function MicrosoftSection() {
               </div>
             </motion.div>
 
-            <motion.h1 {...fadeUp(0.07)} style={{
+            <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,7.5vw,112px)', fontWeight:900,
               letterSpacing:'-0.045em', lineHeight:0.88,
               textTransform:'uppercase', color:NAVY,
@@ -171,7 +171,7 @@ export function MicrosoftSection() {
               Run Your<br />
               Business<br />
               <span style={{ color:'#0078d4' }}>On Cloud.</span>
-            </motion.h1>
+            </motion.h2>
 
             <motion.p {...fadeUp(0.14)} style={{
               fontSize:'clamp(15px,1.15vw,18px)', color:'rgba(8,33,60,0.52)',

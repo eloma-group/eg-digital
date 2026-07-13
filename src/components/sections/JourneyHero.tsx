@@ -142,13 +142,13 @@ export function CinematicBanner({
           <b />{eyebrow}
         </motion.span>
 
-        <motion.div className="jh-b-clip" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}>
+        <motion.h1 className="jh-b-clip" style={{ margin: 0 }} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}>
           <svg className="jh-b-svg" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid meet" aria-label={word}>
             <text x="600" y="146" textAnchor="middle" dominantBaseline="central"
               fontFamily={SERIF} fontWeight="900" fontSize="252"
               textLength="1150" lengthAdjust="spacingAndGlyphs" fill="#fff">{word}</text>
           </svg>
-        </motion.div>
+        </motion.h1>
 
         <motion.p className="jh-b-sub" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}>
           {sub}

@@ -286,7 +286,7 @@ export function Testimonials() {
         >
           Happy Clients
         </div>
-        <h1
+        <h2
           style={{
             fontSize: 'clamp(40px,5vw,72px)',
             fontWeight: 900,
@@ -298,7 +298,7 @@ export function Testimonials() {
           }}
         >
           What Our Clients Say
-        </h1>
+        </h2>
       </div>
 
       <div
