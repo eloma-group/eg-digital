@@ -48,7 +48,7 @@ export const POSTS: BlogPost[] = [
       'Google has introduced a new platform property type in Search Console to track how social and video content performs directly on Google Search - across Instagram, TikTok, X and YouTube.',
     category: 'Latest Technologies',
     read: '6 min read',
-    date: 'Jul 2026',
+    date: 'Jul 10, 2026',
     img: 'photo-1460925895917-afdab827c52f',
     metaTitle: 'Google Search Console Adds Social & Video Platform Properties',
     metaDescription:
@@ -188,54 +188,246 @@ export const POSTS: BlogPost[] = [
     ],
   },
 
-  // ── Existing listing cards ──────────────────────────────────────────────────
+  // ── Listing cards ───────────────────────────────────────────────────────────
   {
-    slug: 'scaling-saas-50k-users',
-    title: 'Scaling a SaaS platform to 50k users without rewriting the stack',
-    excerpt: 'The architecture decisions that let one of our clients 10x their user base on the same codebase.',
-    category: 'Case Studies', read: '6 min read', date: 'May 2026', img: 'photo-1551288049-bebda4e38f71',
-    metaTitle: 'Scaling a SaaS Platform to 50k Users | EG Digital',
-    metaDescription: 'The architecture decisions that let one of our clients 10x their user base on the same codebase - without a costly rewrite.',
-  },
-  {
-    slug: 'dynamics-365-migration-zero-downtime',
-    title: 'Migrating a manufacturer to Dynamics 365 - with zero downtime',
-    excerpt: 'How we phased a full ERP migration around a 24/7 production line.',
-    category: 'Case Studies', read: '7 min read', date: 'Apr 2026', img: 'photo-1717386255773-1e3037c81788',
-    metaTitle: 'Zero-Downtime Dynamics 365 ERP Migration | EG Digital',
-    metaDescription: 'How we phased a full ERP migration to Microsoft Dynamics 365 around a 24/7 production line, with zero downtime.',
-  },
-  {
-    slug: 'microsoft-copilot-small-business',
-    title: 'What Microsoft Copilot actually means for small businesses',
-    excerpt: 'Cutting through the hype: where AI assistants genuinely save time today.',
-    category: 'Latest Technologies', read: '5 min read', date: 'Jun 2026', img: 'photo-1684369175833-4b445ad6bfb5',
-    metaTitle: 'What Microsoft Copilot Means for Small Business | EG Digital',
-    metaDescription: 'Cutting through the hype: where Microsoft Copilot and AI assistants genuinely save small businesses time today.',
-  },
-  {
-    slug: 'react-19-end-of-useeffect',
-    title: 'React 19 and the end of the useEffect era',
-    excerpt: 'The new patterns reshaping how we build fast, resilient front-ends.',
-    category: 'Latest Technologies', read: '6 min read', date: 'May 2026', img: 'photo-1461749280684-dccba630e2f6',
-    metaTitle: 'React 19 and the End of the useEffect Era | EG Digital',
-    metaDescription: 'The new React 19 patterns reshaping how we build fast, resilient front-ends - and what they replace.',
-  },
-  {
-    slug: 'phishing-tactics-australian-business-2026',
-    title: 'Five phishing tactics still fooling Australian businesses in 2026',
-    excerpt: 'Practical, plain-English steps to protect your team and your data.',
-    category: 'Awareness', read: '4 min read', date: 'Jun 2026', img: 'photo-1562813733-b31f71025d54',
-    metaTitle: 'Five Phishing Tactics Fooling Australian Businesses | EG Digital',
-    metaDescription: 'Practical, plain-English steps to protect your team and your data from the phishing tactics still working in 2026.',
-  },
-  {
-    slug: 'zero-trust-security-model',
-    title: 'Why your business needs a zero-trust security model now',
-    excerpt: 'The shift from perimeter defence to identity-first security, explained.',
-    category: 'Awareness', read: '5 min read', date: 'Apr 2026', img: 'photo-1614064641938-3bbee52942c7',
-    metaTitle: 'Why Your Business Needs Zero-Trust Security Now | EG Digital',
-    metaDescription: 'The shift from perimeter defence to identity-first, zero-trust security - explained in plain English for business.',
+    slug: 'rank-google-maps-three-pack-australia',
+    title: 'How to rank in the Google Maps three-pack in Australia',
+    h1: 'How Do You Rank in the Google Maps Three-Pack in Australia?',
+    excerpt:
+      'Optimising your Google Business Profile, building consistent local citations, earning genuine reviews, and signalling proximity and relevance - here is how Australian businesses win the Google Maps three-pack.',
+    category: 'Awareness',
+    read: '9 min read',
+    date: 'Jul 14, 2026',
+    img: 'photo-1604357209793-fca5dca89f97',
+    metaTitle: 'How to Rank in the Google Maps Three-Pack in Australia | EG Digital',
+    metaDescription:
+      'Learn how Australian businesses rank in the Google Maps three-pack, from Google Business Profile optimisation to reviews, citations, and local links.',
+    body: [
+      {
+        k: 'p',
+        text: 'You rank in the Google Maps three-pack by optimising your Google Business Profile, building consistent local citations, earning genuine reviews, and signalling proximity and relevance for the exact terms your customers search. No single factor decides it. Google blends relevance, distance, and prominence, and Australian businesses that win the three-pack usually score well on all three at once.',
+      },
+
+      { k: 'h2', text: 'TL;DR: Key facts' },
+      {
+        k: 'ul',
+        items: [
+          'The three-pack shows the top three local results above the organic listings on Google Search and Maps.',
+          "Google's three ranking pillars are relevance, distance, and prominence.",
+          'Review count and review recency carry more weight in local rankings than most business owners assume.',
+          'NAP (name, address, phone) consistency across the web remains one of the most common reasons Australian businesses get filtered out of local packs.',
+          'A fully completed Google Business Profile with accurate categories outperforms a sparse one, even in competitive metro suburbs like Surry Hills or South Yarra.',
+        ],
+      },
+
+      { k: 'h2', text: 'What Is the Google Maps Three-Pack?' },
+      {
+        k: 'p',
+        text: 'The Google Maps three-pack is the block of three local business listings that appears at the top of Google Search results for location-based queries, shown alongside a map. Search "electrician Parramatta" or "cafe near me" and the three-pack appears before any standard organic result, which makes it the most valuable real estate in local search.',
+      },
+      {
+        k: 'p',
+        text: 'Each listing in the pack shows the business name, star rating, review count, category, and often opening hours or a "call now" button. Because it sits above organic results, a business that ranks third in the three-pack still gets more visibility than a business ranking first organically underneath it. This is why local SEO campaigns in Australia increasingly focus on the map pack rather than blue-link rankings alone.',
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1512428559087-560fa5ceab42',
+        alt: 'A person tapping a smartphone to run a local search',
+        caption: 'Location-based searches like "cafe near me" surface the three-pack before any organic listing.',
+      },
+
+      { k: 'h2', text: 'How Does Google Rank Businesses in the Local Three-Pack?' },
+      {
+        k: 'p',
+        text: 'Google ranks three-pack listings using three factors: relevance, distance, and prominence, and it weighs all three together rather than picking a winner on any single one.',
+      },
+      {
+        k: 'ul',
+        items: [
+          "**Relevance** - how well your Google Business Profile matches the searcher's query, based on your business category, description, and the products or services you list.",
+          '**Distance** - how close your business location is to the searcher, or to the location mentioned in the search (e.g. "plumber Brisbane CBD").',
+          '**Prominence** - how well-known and well-reviewed your business is, both on Google and across the wider web, including citations, links, and press mentions.',
+        ],
+      },
+      {
+        k: 'p',
+        text: "A business a few suburbs further away can still outrank a closer competitor if it wins clearly on relevance and prominence. That's why proximity alone won't save a listing with thin reviews, an incomplete profile, or inconsistent business information.",
+      },
+
+      { k: 'h2', text: 'How Do You Optimise Your Google Business Profile for Local Rankings?' },
+      {
+        k: 'p',
+        text: 'You optimise your Google Business Profile by claiming and verifying it, then filling in every available field with accurate, keyword-relevant information rather than leaving default or partial entries.',
+      },
+      {
+        k: 'ul',
+        items: [
+          '**Claim and verify the listing** through Google Business Profile Manager, using the verification method Google offers for your business (postcard, phone, or instant verification for eligible accounts).',
+          '**Set the primary category precisely.** "Family Lawyer" ranks differently than the generic "Lawyer," and Google gives real weight to category accuracy.',
+          "**Add secondary categories** that reflect genuine services, without keyword-stuffing categories that don't apply.",
+          '**Write a complete business description** using natural language that includes your suburb, service area, and core services.',
+          '**Upload real photos regularly** - team photos, completed jobs, storefront images - since profiles with fresh, geotagged images tend to hold rankings better over time.',
+          '**Enable messaging, Q&A, and booking links** where relevant to your industry.',
+          '**Post updates** through the Google Posts feature at least monthly to show Google the profile is active.',
+        ],
+      },
+      {
+        k: 'p',
+        text: 'Businesses that pair this with a structured [local SEO strategy](/services/local-seo) tend to see three-pack movement within 60 to 90 days, since profile optimisation compounds with citation and review signals rather than working in isolation.',
+      },
+
+      { k: 'h2', text: 'Why Do Reviews Matter for Three-Pack Rankings in Australia?' },
+      {
+        k: 'p',
+        text: 'Reviews matter because they feed directly into the prominence signal Google uses to rank three-pack listings, and Australian searchers actively filter results by star rating before clicking. A business with 60 reviews at 4.8 stars will typically outrank a competitor with 8 reviews at 5.0 stars, because review volume and recency both carry ranking weight, not just the average score.',
+      },
+      {
+        k: 'p',
+        text: 'Google also reads review content. Mentions of your suburb, service type, or specific job ("fixed our hot water system in Bondi same day") reinforce relevance signals in a way a generic five-star rating doesn\'t. A steady, ongoing flow of new reviews outperforms a big batch collected once and never repeated, since recency resets the signal Google gives more credit to.',
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1556742049-0cfed4f6a45d',
+        alt: 'A local business owner serving a customer at the counter',
+        caption: 'Genuine, recent reviews from real local customers feed the prominence signal Google rewards most.',
+      },
+
+      { k: 'h2', text: 'How Important Is NAP Consistency for Local Pack Rankings?' },
+      {
+        k: 'p',
+        text: 'NAP consistency (your business Name, Address, and Phone number matching exactly across every online listing) is one of the highest-impact, lowest-cost fixes available, because mismatches directly confuse the algorithm Google uses to confirm your business is legitimate and trustworthy.',
+      },
+      { k: 'p', text: 'Common inconsistencies that hurt Australian businesses include:' },
+      {
+        k: 'ul',
+        items: [
+          'Old addresses left live on Yellow Pages, True Local, or Yelp after an office move.',
+          '"St" vs "Street," or "Pty Ltd" appearing on some listings but not others.',
+          'Multiple phone numbers (mobile on one directory, landline on another).',
+          'Duplicate Google Business Profile listings created after a rebrand.',
+        ],
+      },
+      {
+        k: 'p',
+        text: 'A full citation audit across major Australian directories (Google, True Local, Yellow Pages, Hotfrog, StartLocal, and industry-specific directories) usually surfaces at least a handful of these mismatches, even for businesses that have never moved locations.',
+      },
+
+      { k: 'h2', text: 'Which Local Citations and Directories Help Australian Businesses Rank?' },
+      {
+        k: 'p',
+        text: 'The citations that help most are the ones Google already trusts and cross-references, which in Australia means Google Business Profile itself, plus a mix of general and industry-specific directories with consistent NAP data.',
+      },
+      {
+        k: 'ul',
+        items: [
+          '**General Australian directories:** True Local, Yellow Pages, Hotfrog, StartLocal, Localsearch.',
+          '**Industry-specific directories:** relevant to your trade or profession (e.g. HiPages for tradies, HealthEngine for medical practices).',
+          '**Data aggregators:** services that feed business data into multiple directories at once, reducing manual listing work.',
+          '**Chamber of commerce and local business association listings**, which often carry more local trust signal than generic directories.',
+        ],
+      },
+      {
+        k: 'p',
+        text: 'Quality matters more than quantity here. Twenty accurate, consistent citations on relevant Australian directories outperform a hundred citations scattered across low-authority or irrelevant sites.',
+      },
+
+      { k: 'h2', text: 'How Does Proximity Affect Your Three-Pack Chances?' },
+      {
+        k: 'p',
+        text: "Proximity affects three-pack rankings because Google prioritises businesses physically closer to the searcher or to the location named in the query, but it's the one ranking factor you can't directly control through optimisation.",
+      },
+      { k: 'p', text: 'You can influence proximity-related outcomes indirectly:' },
+      {
+        k: 'ul',
+        items: [
+          "List an accurate service area in Google Business Profile if you're a service-area business without a public storefront.",
+          "Avoid listing a virtual office or PO box address, which Google's guidelines prohibit and which can get a listing suspended.",
+          'Target suburb-specific landing pages on your website so Google associates your business with multiple nearby locations, not just one.',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1449824913935-59a10b8d2000',
+        alt: 'A busy city street lined with local businesses',
+        caption: 'Suburb-specific location pages help you rank across every area you genuinely serve, not just the closest one.',
+      },
+
+      {
+        k: 'p',
+        text: 'A business genuinely serving five suburbs, with location pages, local schema, and citations for each, has a real shot at ranking in the three-pack across all five searches, not just the one closest to its physical address.',
+      },
+
+      { k: 'h2', text: 'Can Local Link Building Improve Your Google Maps Ranking?' },
+      {
+        k: 'p',
+        text: 'Yes, local link building improves Google Maps rankings by strengthening the prominence signal, particularly when the links come from other Australian businesses, local media, or community organisations rather than generic guest posts.',
+      },
+      { k: 'p', text: 'Effective local link sources include:' },
+      {
+        k: 'ul',
+        items: [
+          'Sponsoring a local sports team, school event, or charity that links back from their website.',
+          'Getting covered in local news or industry publications relevant to your service area.',
+          'Partnering with complementary local businesses for cross-promotion and reciprocal mentions.',
+          'Supplier or association pages that list you as a certified or preferred provider.',
+        ],
+      },
+      {
+        k: 'p',
+        text: 'These links do more than pass authority. They tell Google your business is embedded in the local community, which reinforces exactly the trust signal the three-pack algorithm rewards.',
+      },
+
+      { k: 'h2', text: 'Key Takeaways' },
+      {
+        k: 'ul',
+        items: [
+          'The three-pack ranks on relevance, distance, and prominence together, not any single factor.',
+          'A fully optimised, actively updated Google Business Profile is the foundation everything else builds on.',
+          'Review volume, recency, and content all influence prominence, not just star rating.',
+          "NAP consistency across directories is a quick win most businesses haven't fixed.",
+          'Local citations and local link building both feed the prominence signal Google trusts most.',
+          "Local SEO isn't a one-off task. Profiles, citations, and reviews all need ongoing attention to hold a three-pack position once you've earned it.",
+        ],
+      },
+      {
+        k: 'p',
+        text: "If you want this handled end-to-end, EG Digital's [local SEO services](/services/local-seo) cover Google Business Profile optimisation, citation cleanup, and review growth for Australian businesses targeting the map pack.",
+      },
+
+      { k: 'h2', text: 'Frequently Asked Questions' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: 'How long does it take to rank in the Google Maps three-pack in Australia?',
+            a: 'Most businesses see measurable movement within 60 to 90 days of consistent optimisation, though highly competitive metro categories (lawyers, dentists, real estate agents) can take four to six months. Ongoing review growth and citation building matter more for holding the position than the initial climb.',
+          },
+          {
+            q: 'Do I need a physical office to rank in the three-pack?',
+            a: "No, service-area businesses without a public storefront can still rank by setting an accurate service area in Google Business Profile and hiding the exact address, provided they follow Google's guidelines for service-area businesses.",
+          },
+          {
+            q: 'Does responding to Google reviews affect ranking?',
+            a: 'Yes, responding to reviews, especially negative ones, signals an active, trustworthy profile and can support prominence. It also improves conversion once a customer sees the listing, since responsive businesses appear more credible.',
+          },
+          {
+            q: 'Can a business rank in the three-pack without any reviews?',
+            a: "It's possible but unlikely in any competitive category. Reviews are one of the strongest prominence signals Google uses, so a zero-review profile is competing with one hand tied behind its back against rivals with active review pipelines.",
+          },
+          {
+            q: 'Is Google Maps ranking the same as organic Google ranking?',
+            a: 'No, the three-pack uses a separate algorithm weighted toward relevance, distance, and prominence, while organic rankings depend more heavily on content, backlinks, and technical SEO. A business can rank well in one and poorly in the other.',
+          },
+          {
+            q: 'How much does local SEO cost in Australia?',
+            a: 'Costs vary by market competitiveness and scope, typically ranging from a few hundred to a few thousand dollars per month for ongoing local SEO management. A free audit is usually the best starting point to understand what a specific business needs before committing to a package.',
+          },
+        ],
+      },
+    ],
   },
 ]
 
