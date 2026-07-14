@@ -58,6 +58,12 @@ export const ROUTES: string[] = [
   '/services/linkedin-ads-management',
   '/services/branding',
   '/services/email-marketing',
+  '/services/content-creation',
+  '/services/flutter-app-development-company-australia',
+  '/services/custom-app-development-company-australia',
+  '/services/android-app-development-company-australia',
+  '/services/iphone-app-development-company-australia',
+  '/services/graphic-design',
   '/industries',
   '/blog',
   // Every blog article gets its own crawlable, pre-rendered page.
@@ -173,6 +179,36 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Email Marketing Services in Australia | EG Digital',
     description:
       'Email marketing company in Australia. Strategy, automation, newsletter design & campaign management for small business, ecommerce & B2B. Get a free email audit.',
+  },
+  '/services/content-creation': {
+    title: 'Content Creation Services in Australia | EG Digital',
+    description:
+      'Full-service content creation company in Australia. Content strategy, copywriting, B2B content, short-form video & design from a Melbourne team. Get a free content audit.',
+  },
+  '/services/flutter-app-development-company-australia': {
+    title: 'Flutter App Development Company in Australia | EG Digital',
+    description:
+      'Flutter app development services in Australia. Custom, MVP & enterprise cross-platform apps built for iOS and Android. Melbourne team, in-house engineering. Get a free quote.',
+  },
+  '/services/custom-app-development-company-australia': {
+    title: 'Custom App Development Company in Australia | Mobile, Web & Enterprise | EG Digital',
+    description:
+      'Custom app development in Australia built around your business. Mobile apps, web platforms & enterprise software, secure and scalable, source code yours. Melbourne team. Free quote.',
+  },
+  '/services/android-app-development-company-australia': {
+    title: 'Android App Development Company in Australia | Native Kotlin Apps | EG Digital',
+    description:
+      'Android app development in Australia done right. Native Kotlin apps built to run across every device, secure and scalable, with in-house engineering. Melbourne team. Get a free quote.',
+  },
+  '/services/iphone-app-development-company-australia': {
+    title: 'iPhone App Development Company in Australia | Native iOS Apps | EG Digital',
+    description:
+      'iOS app development in Australia done right. Native iPhone & iPad apps built in Swift, secure and scalable, with in-house engineering. Melbourne team. Get a free quote.',
+  },
+  '/services/graphic-design': {
+    title: 'Graphic Design Services in Australia | EG Digital',
+    description:
+      'Full-service graphic design company in Australia. Logo design, brand identity, UI/UX, social, brochure & book cover design from a Melbourne team. Get a free design audit.',
   },
   '/industries': {
     title: 'Industries We Serve | EG Digital Solutions',

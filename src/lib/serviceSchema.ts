@@ -103,6 +103,42 @@ export const SERVICE_SCHEMA: Record<string, ServiceSchemaInput> = {
       'EG Digital provides professional email marketing services in Australia, including email strategy, campaign management, email automation and flows, newsletter design, email copywriting, and list growth and management to help small businesses, ecommerce brands, and B2B companies turn an owned list into measurable revenue, enquiries, and repeat customers.',
     breadcrumbName: 'Email Marketing',
   },
+  '/services/content-creation': {
+    serviceName: 'Content Creation Services in Australia | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional content creation services in Australia, including content strategy, content writing and copywriting, B2B and corporate content, social media content creation, short-form video production, graphic design and visual content, and email content to help small businesses, B2B and professional services, e-commerce brands, and growth businesses turn content into measurable enquiries, leads, and customers.',
+    breadcrumbName: 'Content Creation',
+  },
+  '/services/flutter-app-development-company-australia': {
+    serviceName: 'Flutter App Development Company in Australia | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional Flutter app development services in Australia, including custom cross-platform apps, MVP development, enterprise builds, app migration and rebuilds, dedicated Flutter teams, integrations and APIs, and ongoing maintenance to build fast, secure iOS and Android apps from a single Flutter codebase.',
+    breadcrumbName: 'Flutter App Development',
+  },
+  '/services/custom-app-development-company-australia': {
+    serviceName: 'Custom App Development Company in Australia | Mobile, Web & Enterprise | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional custom app development services in Australia, including custom mobile apps, web applications, enterprise software, B2B apps, SaaS platforms, MVP development, integrations and APIs, and ongoing maintenance, built around your business and connected to the systems you already run, with source code you own.',
+    breadcrumbName: 'Custom App Development',
+  },
+  '/services/android-app-development-company-australia': {
+    serviceName: 'Android App Development Company in Australia | Native Kotlin Apps | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional Android app development services in Australia, including custom Android apps, native Kotlin development, enterprise and B2B apps, MVP development, Google Play submission, integrations and APIs, and ongoing maintenance, built and tested across the real range of devices your users carry.',
+    breadcrumbName: 'Android App Development',
+  },
+  '/services/iphone-app-development-company-australia': {
+    serviceName: 'iPhone App Development Company in Australia | Native iOS Apps | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional iOS app development services in Australia, including custom iOS apps, iPhone and iPad development in Swift and SwiftUI, enterprise and B2B apps, MVP development, App Store submission and review, integrations and APIs, and ongoing maintenance, built for the performance and polish Apple users expect.',
+    breadcrumbName: 'iPhone App Development',
+  },
+  '/services/graphic-design': {
+    serviceName: 'Graphic Design Services in Australia | EG Digital',
+    serviceDescription:
+      'EG Digital provides professional graphic design services in Australia, including logo design, brand identity, corporate design, digital graphic design, UI/UX design, social media graphics, brochure and print design, and book cover design, produced by a full studio and tied to what your business needs.',
+    breadcrumbName: 'Graphic Design',
+  },
 }
 
 const PROVIDER = {
