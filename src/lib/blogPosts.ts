@@ -144,7 +144,7 @@ export const POSTS: BlogPost[] = [
         items: [
           "Justifying investment in video production by proving YouTube's exact search value.",
           'Providing clearer attribution for off-site influencer marketing campaigns.',
-          'Encouraging brands to rely on robust [Web Design and Development Services](/services/web-development) for their main site while actively optimizing social platforms to capture top-of-funnel search traffic.',
+          'Encouraging brands to rely on robust [Web Design and Development Services](/services/web-development) and [custom app development](/services/custom-app-development-company-australia) for their main site and products while actively optimizing social platforms to capture top-of-funnel search traffic.',
         ],
       },
 
@@ -159,7 +159,7 @@ export const POSTS: BlogPost[] = [
         items: [
           'Placing primary keywords in the first 50 characters of your YouTube and TikTok descriptions.',
           "Utilizing relevant, high-intent hashtags on Instagram and X to provide context to Google's indexers.",
-          'Aligning your social media output with your core [Content Marketing Services](/services/social-media-marketing) so your website and social channels dominate different parts of the same search result page.',
+          'Aligning your social media output with your core [Content Marketing Services](/services/content-creation) and consistent [graphic design](/services/graphic-design) so your website and social channels dominate different parts of the same search result page.',
         ],
       },
 

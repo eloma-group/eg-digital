@@ -35,6 +35,12 @@ const GoogleAdsManagement          = lazy(() => import('./components/pages/servi
 const LinkedInAdsManagement        = lazy(() => import('./components/pages/services/LinkedInAdsManagement').then(m => ({ default: m.LinkedInAdsManagement })))
 const Branding                     = lazy(() => import('./components/pages/services/Branding').then(m => ({ default: m.Branding })))
 const EmailMarketing               = lazy(() => import('./components/pages/services/EmailMarketing').then(m => ({ default: m.EmailMarketing })))
+const ContentCreation              = lazy(() => import('./components/pages/services/ContentCreation').then(m => ({ default: m.ContentCreation })))
+const FlutterAppDevelopment        = lazy(() => import('./components/pages/services/FlutterAppDevelopment').then(m => ({ default: m.FlutterAppDevelopment })))
+const CustomAppDevelopment         = lazy(() => import('./components/pages/services/CustomAppDevelopment').then(m => ({ default: m.CustomAppDevelopment })))
+const AndroidAppDevelopment        = lazy(() => import('./components/pages/services/AndroidAppDevelopment').then(m => ({ default: m.AndroidAppDevelopment })))
+const IPhoneAppDevelopment         = lazy(() => import('./components/pages/services/IPhoneAppDevelopment').then(m => ({ default: m.IPhoneAppDevelopment })))
+const GraphicDesign                = lazy(() => import('./components/pages/services/GraphicDesign').then(m => ({ default: m.GraphicDesign })))
 const Industries                   = lazy(() => import('./components/pages/Industries').then(m => ({ default: m.Industries })))
 const Blog                         = lazy(() => import('./components/pages/Blog').then(m => ({ default: m.Blog })))
 const BlogArticle                  = lazy(() => import('./components/pages/BlogArticle').then(m => ({ default: m.BlogArticle })))
@@ -133,6 +139,12 @@ function App() {
         <Route path="/services/linkedin-ads-management" element={<LinkedInAdsManagement />} />
         <Route path="/services/branding" element={<Branding />} />
         <Route path="/services/email-marketing" element={<EmailMarketing />} />
+        <Route path="/services/content-creation" element={<ContentCreation />} />
+        <Route path="/services/flutter-app-development-company-australia" element={<FlutterAppDevelopment />} />
+        <Route path="/services/custom-app-development-company-australia" element={<CustomAppDevelopment />} />
+        <Route path="/services/android-app-development-company-australia" element={<AndroidAppDevelopment />} />
+        <Route path="/services/iphone-app-development-company-australia" element={<IPhoneAppDevelopment />} />
+        <Route path="/services/graphic-design" element={<GraphicDesign />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogArticle />} />
