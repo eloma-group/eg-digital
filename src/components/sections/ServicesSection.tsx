@@ -238,10 +238,10 @@ export function ServicesSection() {
             </span>
           </motion.div>
 
-          <motion.h2 {...fadeUp(0.07)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'-0.045em', lineHeight:0.9, textTransform:'uppercase', color:NAVY, marginBottom:0 }}>Transform.</motion.h2>
-          <motion.h2 {...fadeUp(0.11)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'-0.045em', lineHeight:0.9, textTransform:'uppercase', color:GREEN, marginBottom:0 }}>Build.</motion.h2>
-          <motion.h2 {...fadeUp(0.15)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'-0.045em', lineHeight:0.9, textTransform:'uppercase', color:NAVY, marginBottom:0 }}>Protect.</motion.h2>
-          <motion.h2 {...fadeUp(0.19)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'-0.045em', lineHeight:0.9, textTransform:'uppercase', color:GREEN, marginBottom:'clamp(16px,2vw,28px)' }}>Grow.</motion.h2>
+          <motion.h2 {...fadeUp(0.07)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'0.01em', lineHeight: 1.07, textTransform:'uppercase', color:NAVY, marginBottom:0 }}>Transform.</motion.h2>
+          <motion.h2 {...fadeUp(0.11)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'0.01em', lineHeight: 1.07, textTransform:'uppercase', color:GREEN, marginBottom:0 }}>Build.</motion.h2>
+          <motion.h2 {...fadeUp(0.15)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'0.01em', lineHeight: 1.07, textTransform:'uppercase', color:NAVY, marginBottom:0 }}>Protect.</motion.h2>
+          <motion.h2 {...fadeUp(0.19)} style={{ fontSize:'clamp(52px,8vw,120px)', fontWeight:900, letterSpacing:'0.01em', lineHeight: 1.07, textTransform:'uppercase', color:GREEN, marginBottom:'clamp(16px,2vw,28px)' }}>Grow.</motion.h2>
 
           <div className="hv7-divider" />
 

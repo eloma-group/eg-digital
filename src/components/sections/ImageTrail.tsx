@@ -131,15 +131,15 @@ export function ImageTrail() {
           margin: 0 auto; text-align: center; pointer-events: none; }
         .it-eyebrow { display: inline-flex; align-items: center; gap: 10px;
           font-size: clamp(10px,0.8vw,13px); font-weight: 800; letter-spacing: 2.6px;
-          text-transform: uppercase; color: ${GREEN}; }
-        .it-h2 { font-size: clamp(40px,7vw,116px); font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.92; text-transform: uppercase; color: #fff; margin: 20px auto 0; max-width: 14ch; }
+          text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; }
+        .it-h2 { font-size: clamp(40px,7vw,116px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.04; text-transform: uppercase; word-spacing: 0.14em; color: #fff; margin: 20px auto 0; max-width: 14ch; }
         .it-h2 em { font-style: normal; color: ${GREEN}; }
         .it-sub { font-size: clamp(15px,1.2vw,18px); line-height: 1.85; color: rgba(255,255,255,0.55);
           max-width: 540px; margin: 26px auto 0; }
         .it-hint { display: inline-flex; align-items: center; gap: 9px; margin-top: 30px;
           font-size: clamp(11px,0.85vw,13px); font-weight: 700; letter-spacing: 1.6px;
-          text-transform: uppercase; color: rgba(255,255,255,0.42); }
+          text-transform: uppercase; word-spacing: 0.14em; color: rgba(255,255,255,0.42); }
         .it-hint span { width: 7px; height: 7px; border-radius: 99px; background: ${GREEN};
           animation: it-pulse 2.4s ease-in-out infinite; }
         @keyframes it-pulse { 0%,100% { opacity: 0.35; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }

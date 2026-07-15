@@ -412,7 +412,7 @@ export function DevKineticSection() {
 
         .dvk-eyebrow-row { width:min(calc(100vw - 48px),1760px); margin:0 auto clamp(8px,2vh,28px); }
         .dvk-eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:clamp(10px,0.8vw,12px); font-weight:800;
-          letter-spacing:2px; text-transform:uppercase; color:var(--txt); opacity:.8; }
+          letter-spacing:2px; text-transform:uppercase; word-spacing: 0.14em; color:var(--txt); opacity:.8; }
         .dvk-eyebrow span.d { width:7px; height:7px; border-radius:50%; background:${GREEN}; }
 
         /* DESKTOP: one tall scroll track, sticky pinned stage that cross-fades
@@ -436,7 +436,7 @@ export function DevKineticSection() {
           z-index:4; pointer-events:none; will-change:transform,opacity; }
         .dvk-head { width:min(720px,76%); display:flex; flex-direction:column; align-items:center; text-align:center; }
         .dvk-tag { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:800; letter-spacing:2px;
-          text-transform:uppercase; margin-bottom:14px; }
+          text-transform:uppercase; word-spacing: 0.14em; margin-bottom:14px; }
         .dvk-title { margin:0; font-weight:900; letter-spacing:-0.045em; line-height:0.98; text-transform:none;
           display:flex; flex-direction:column; gap:2px; }
         .dvk-l1 { font-size:clamp(28px,4.2vw,54px); color:var(--txt); }

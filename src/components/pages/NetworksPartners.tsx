@@ -52,11 +52,11 @@ export function NetworksPartners() {
         .np-section { padding: clamp(56px,8vw,120px) 0; }
         .np-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
           flex-wrap: wrap; margin-bottom: clamp(28px,4vw,52px); }
-        .np-h2 { font-size: clamp(36px,5.5vw,88px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9;
-          text-transform: uppercase; color: ${NAVY}; margin: 14px 0 0; }
+        .np-h2 { font-size: clamp(36px,5.5vw,88px); font-weight: 900; letter-spacing: 0.01em; line-height: 1.02;
+          text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 14px 0 0; }
         .np-legend { display: flex; gap: 18px; flex-wrap: wrap; }
         .np-legend-item { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800;
-          letter-spacing: 1.4px; text-transform: uppercase; color: rgba(8,33,60,0.5); }
+          letter-spacing: 1.4px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.5); }
         .np-legend-item span { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
         /* ── Bento grid ── */
@@ -83,7 +83,7 @@ export function NetworksPartners() {
           font-weight: 900; letter-spacing: -0.02em; transition: transform 0.28s; }
         .np-tile:hover .np-mark { transform: scale(1.08) rotate(-3deg); }
         .np-tname { font-size: clamp(15px,1.15vw,18px); font-weight: 800; letter-spacing: -0.02em; color: ${NAVY}; line-height: 1.2; }
-        .np-ttier { font-size: 10.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 6px; }
+        .np-ttier { font-size: 10.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; word-spacing: 0.14em; margin-top: 6px; }
 
         /* Featured platinum cell */
         .np-featcard { position: relative; overflow: hidden; height: 100%; box-sizing: border-box;
@@ -95,9 +95,9 @@ export function NetworksPartners() {
           pointer-events: none; animation: np-pulse 7s ease-in-out infinite; }
         @keyframes np-pulse { 0%,100% { opacity: 0.65; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
         .np-plat { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: clamp(10px,0.8vw,12px);
-          font-weight: 800; letter-spacing: 2.8px; text-transform: uppercase; color: ${GREEN}; }
-        .np-feat-h { position: relative; font-size: clamp(40px,5.5vw,92px); font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.9; text-transform: uppercase; color: #fff; margin: 0; }
+          font-weight: 800; letter-spacing: 2.8px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; }
+        .np-feat-h { position: relative; font-size: clamp(40px,5.5vw,92px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.02; text-transform: uppercase; word-spacing: 0.14em; color: #fff; margin: 0; }
         .np-feat-p { position: relative; font-size: clamp(14px,1.1vw,17px); line-height: 1.75; color: rgba(255,255,255,0.66);
           margin: 0; max-width: 46ch; font-weight: 500; }
         .np-chips { position: relative; display: flex; flex-wrap: wrap; gap: 9px; }
@@ -113,7 +113,7 @@ export function NetworksPartners() {
         .np-bene:hover { transform: translateY(-5px); box-shadow: 0 22px 52px rgba(8,33,60,0.12); }
         .np-bene-ic { width: 54px; height: 54px; border-radius: 15px; background: rgba(60,185,140,0.12);
           display: flex; align-items: center; justify-content: center; color: ${GREEN}; margin-bottom: 22px; }
-        .np-bene-h { font-size: clamp(20px,1.8vw,26px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; color: ${NAVY}; margin: 0 0 12px; }
+        .np-bene-h { font-size: clamp(20px,1.8vw,26px); font-weight: 900; letter-spacing: 0.01em; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0 0 12px; }
         .np-bene-b { font-size: clamp(14px,1.05vw,16px); line-height: 1.75; color: rgba(8,33,60,0.6); margin: 0; }
 
         @media (prefers-reduced-motion: reduce) { .np-glow { animation: none !important; } }

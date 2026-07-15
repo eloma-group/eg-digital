@@ -11,7 +11,7 @@ export function AsdPartnershipStrip() {
   return (
     <section className="asd-strip" aria-label="Australian Signals Directorate partnership">
       <span className="asd-strip-dots" aria-hidden />
-      <a href="/partners" className="asd-card" aria-label="In partnership with the Australian Signals Directorate">
+      <a href="/about/networks-partners" className="asd-card" aria-label="In partnership with the Australian Signals Directorate">
         <div className="asd-card-logo">
           <span className="asd-card-glow" aria-hidden />
           <img
@@ -26,7 +26,7 @@ export function AsdPartnershipStrip() {
           <span className="asd-card-eyebrow"><span className="asd-card-dot" />Government Partnership</span>
           <h2 className="asd-card-h">In partnership with the <span className="asd-g">Australian Signals Directorate</span></h2>
           <p className="asd-card-p">
-            Eloma Group works alongside the Australian Government's Australian Signals Directorate (ASD) and the
+            EG Digital works alongside the Australian Government's Australian Signals Directorate (ASD) and the
             Australian Cyber Security Centre (ACSC) - aligning our operations to national-grade security standards,
             trusted infrastructure and resilient, security-first delivery.
           </p>
@@ -90,7 +90,7 @@ export function AsdPartnershipStrip() {
         .asd-card-eyebrow {
           display: inline-flex; align-items: center; gap: 9px;
           font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(10px,0.8vw,12px);
-          letter-spacing: 2.2px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 10px;
+          letter-spacing: 2.2px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 10px;
         }
         .asd-card-dot { width: 6px; height: 6px; border-radius: 50%; background: ${GREEN}; box-shadow: 0 0 0 4px rgba(60,185,140,0.16); }
         .asd-card-h {

@@ -126,7 +126,7 @@ export function SplashScreen() {
           font-size: clamp(10px, 0.72vw, 12px);
           font-weight: 800;
           letter-spacing: 3.5px;
-          text-transform: uppercase;
+          text-transform: uppercase; word-spacing: 0.14em;
           color: ${GREEN};
         }
 
@@ -135,9 +135,9 @@ export function SplashScreen() {
           font-size: min(clamp(52px, 9vw, 120px), 13vh);
           font-weight: 900;
           color: #ffffff;
-          text-transform: uppercase;
-          letter-spacing: -0.04em;
-          line-height: 0.92;
+          text-transform: uppercase; word-spacing: 0.14em;
+          letter-spacing: 0.01em;
+          line-height: 1.04;
           margin: 0 0 clamp(10px, 1.4vw, 18px);
         }
         .sp-headline-accent { color: ${GREEN}; }
@@ -211,7 +211,7 @@ export function SplashScreen() {
           font-size: clamp(7px, 0.5vw, 9px);
           font-weight: 700;
           letter-spacing: 2px;
-          text-transform: uppercase;
+          text-transform: uppercase; word-spacing: 0.14em;
           color: rgba(255,255,255,0.30);
         }
 
@@ -269,7 +269,7 @@ export function SplashScreen() {
           font-size: clamp(9px, 0.58vw, 10px);
           font-weight: 700;
           letter-spacing: 2px;
-          text-transform: uppercase;
+          text-transform: uppercase; word-spacing: 0.14em;
           color: rgba(255,255,255,0.26);
           margin-bottom: 2px;
         }

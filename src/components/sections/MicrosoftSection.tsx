@@ -84,7 +84,7 @@ export function MicrosoftSection() {
           border-bottom:1px solid rgba(8,33,60,0.07);
         }
         .hv3-stat-v { font-size:clamp(20px,2vw,28px); font-weight:900; color:${NAVY}; letter-spacing:-0.04em; line-height:1; }
-        .hv3-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; letter-spacing:1.2px; margin-top:3px; }
+        .hv3-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; word-spacing: 0.14em; letter-spacing:1.2px; margin-top:3px; }
 
         /* right - photo + chips */
         .hv3-right { position:relative; padding:28px 32px 28px 8px; }
@@ -164,7 +164,7 @@ export function MicrosoftSection() {
 
             <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,7.5vw,112px)', fontWeight:900,
-              letterSpacing:'-0.045em', lineHeight:0.88,
+              letterSpacing:'0.01em', lineHeight: 1,
               textTransform:'uppercase', color:NAVY,
               marginBottom:'clamp(18px,2.2vw,28px)',
             }}>

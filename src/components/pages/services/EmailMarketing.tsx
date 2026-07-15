@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - EMAIL MARKETING (Australia)
@@ -200,7 +201,7 @@ export function EmailMarketing() {
         .eml-sec.dark .eml-shell { position:relative; z-index:1; }
 
         .eml-head { max-width:900px; margin:0 0 clamp(28px,3.4vw,52px); }
-        .eml-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .eml-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .eml-h2 span { color:${GREEN}; }
         .eml-sec.dark .eml-h2 { color:#fff; }
         .eml-lead { max-width:680px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:18px 0 0; }
@@ -246,7 +247,7 @@ export function EmailMarketing() {
         .hero-head { display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
         .hero-head::before { content:''; position:absolute; top:-30%; right:-14%; width:52%; height:150%; border-radius:50%;
           background:radial-gradient(circle, ${GREEN}30, transparent 62%); pointer-events:none; }
-        .eml-h1 { position:relative; font-size:clamp(46px,7vw,104px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .eml-h1 { position:relative; font-size:clamp(46px,7vw,104px); font-weight:900; letter-spacing: 0.01em; line-height: 1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .eml-lede { position:relative; font-size:clamp(19px,2.2vw,32px); font-weight:900; letter-spacing:-0.035em; line-height:1.08; color:#fff; margin:18px 0 0; }
         .eml-lede span { color:${GREEN}; }
         .eml-cta { position:relative; display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -269,9 +270,9 @@ export function EmailMarketing() {
         .mock-ic { width:38px; height:38px; border-radius:11px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,${GREEN},#2c9e74); color:${NAVY}; }
         .mock-tt { display:flex; flex-direction:column; line-height:1.25; margin-right:auto; }
-        .mock-k { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+        .mock-k { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.5); }
         .mock-v { font-size:14px; font-weight:800; color:#fff; letter-spacing:-0.01em; }
-        .mock-live { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:${GREEN}; }
+        .mock-live { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; word-spacing: 0.14em; color:${GREEN}; }
         .mock-list { display:flex; flex-direction:column; gap:10px; padding:16px 0; }
         .mrow { display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:12px;
           background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
@@ -284,7 +285,7 @@ export function EmailMarketing() {
         .mrow-tick { width:22px; height:22px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:${GREEN}; }
         .mock-metrics { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); }
         .metric { border-radius:12px; padding:12px 14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); }
-        .metric-k { display:block; font-size:10px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+        .metric-k { display:block; font-size:10px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.5); }
         .metric-v { display:block; font-size:15px; font-weight:900; color:${GREEN}; margin:3px 0 10px; letter-spacing:-0.02em; }
         .bars { display:flex; align-items:flex-end; gap:5px; height:34px; }
         .bars i { flex:1; border-radius:3px 3px 0 0; background:${GREEN}; transform-origin:bottom; transform:scaleY(0.28);
@@ -304,7 +305,7 @@ export function EmailMarketing() {
         .eml-emblem-ring::after { content:''; position:absolute; inset:4px; border-radius:50%; background:${NAVY}; }
         .eml-emblem-ic { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:${GREEN}; z-index:1; }
         .eml-emblem-tx { display:flex; flex-direction:column; line-height:1.1; }
-        .eml-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.66); }
+        .eml-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.66); }
         .eml-emblem-v { display:flex; align-items:center; gap:7px; font-size:15px; font-weight:900; letter-spacing:-0.02em; color:#fff; }
         .eml-dot { width:9px; height:9px; border-radius:50%; background:${GREEN}; animation:eml-pulse 1.8s ease-in-out infinite; }
         @keyframes eml-spin { to { transform:rotate(360deg); } }
@@ -330,7 +331,7 @@ export function EmailMarketing() {
         .srv-feat { display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,2.6vw,40px); align-items:center; }
         @media (max-width:640px){ .srv-feat{ grid-template-columns:1fr; } }
         .srv-feat .tico { width:66px; height:66px; margin:0; }
-        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; margin-bottom:12px; }
+        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; word-spacing: 0.14em; margin-bottom:12px; }
 
         /* ── Steps ── */
         .step-no { font-size:clamp(38px,4.4vw,72px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${GREEN};
@@ -349,7 +350,7 @@ export function EmailMarketing() {
 
         /* ── Ready band ── */
         .ready { text-align:center; }
-        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing:-0.045em; line-height:0.98; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.66); }
         .ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .eml-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -464,7 +465,7 @@ export function EmailMarketing() {
                 what actually moved the business and do more of it.
               </p>
               <p className="t-d">
-                <strong>We are part of Eloma Group,</strong> which means your email sits next to SEO, web development, PPC,
+                <strong>We are part of <ElomaLink />,</strong> which means your email sits next to SEO, web development, PPC,
                 social media, and content under one roof. That matters more than it sounds. Your list is fed by your
                 website, your social channels, and your search traffic, and all of that is usually run by different
                 suppliers who never talk to each other. When one team handles the whole picture, your channels feed your

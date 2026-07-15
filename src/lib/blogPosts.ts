@@ -10,7 +10,7 @@
 //   [label](/internal/path)    -> internal link (react-router)
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type Category = 'Case Studies' | 'Latest Technologies' | 'Awareness'
+export type Category = 'Case Studies' | 'Latest Technologies'
 
 // A single content block inside an article body.
 export type Block =
@@ -195,7 +195,7 @@ export const POSTS: BlogPost[] = [
     h1: 'How Do You Rank in the Google Maps Three-Pack in Australia?',
     excerpt:
       'Optimising your Google Business Profile, building consistent local citations, earning genuine reviews, and signalling proximity and relevance - here is how Australian businesses win the Google Maps three-pack.',
-    category: 'Awareness',
+    category: 'Latest Technologies',
     read: '9 min read',
     date: 'Jul 14, 2026',
     img: 'photo-1604357209793-fca5dca89f97',

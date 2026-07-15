@@ -21,7 +21,7 @@ const SERVICES_ITEMS = [
 const SERVICES_LINK_MAP: Record<string, string> = Object.fromEntries(
   Object.entries(SERVICE_SECTIONS).map(([label, id]) => [label, `/services#${id}`]),
 )
-const BLOG_ITEMS = ['Latest Technologies', 'Awareness']
+const BLOG_ITEMS = ['Latest Technologies']
 // Every blog option routes to the Blog page (no per-section anchors).
 const BLOG_LINK_MAP: Record<string, string> = Object.fromEntries(
   BLOG_ITEMS.map(item => [item, '/blog']),
@@ -888,7 +888,7 @@ export function Navbar() {
                 {activeMenu === 'blog' && (
                   <PanelDropdown
                     eyebrow="Latest Insights"
-                    heading="Knowledge & Awareness"
+                    heading="Knowledge & Insights"
                     desc="Stay ahead with expert articles on Microsoft, cloud computing, cyber security, and digital transformation trends."
                     cta="View All Posts"
                     ctaTo="/blog"

@@ -4,6 +4,7 @@ import {
 } from 'lucide-react'
 import { AppServicePage } from './_appServiceKit'
 import type { ServicePageData } from './_appServiceKit'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 const DATA: ServicePageData = {
   route: '/services/iphone-app-development-company-australia',
@@ -23,7 +24,7 @@ const DATA: ServicePageData = {
   ],
   intro: [
     'An iPhone app lives or dies on the details Apple users notice: how fast it opens, how it handles a dropped connection, whether it feels like it belongs on the device or fights it. Get those wrong and you lose the review, the rating, and the reinstall. iOS users are not forgiving, and the App Store review team is not either.',
-    <><strong>EG Digital is a Melbourne-based iPhone app development company</strong> that builds native iOS apps in Swift and SwiftUI, engineered to be fast, secure, and connected to the systems that run your business. We are part of Eloma Group, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, holds up under real load, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
+    <><strong>EG Digital is a Melbourne-based iPhone app development company</strong> that builds native iOS apps in Swift and SwiftUI, engineered to be fast, secure, and connected to the systems that run your business. We are part of <ElomaLink />, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, holds up under real load, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
     'One partner scopes it, designs it, builds it, gets it through App Store review, and maintains it. One number to call when something needs attention.',
     'Tell us what you want to build and we will give you a real number and a real timeline, not a vague range.',
   ],

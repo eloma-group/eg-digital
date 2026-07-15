@@ -225,7 +225,7 @@ export function TransformationSection() {
           <div style={{ position:'relative', left:'50%', transform:'translateX(-50%)', width:'max-content', maxWidth:'100vw' }}>
             <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(48px,8.5vw,132px)', fontWeight:900,
-              letterSpacing:'-0.045em', lineHeight:0.88,
+              letterSpacing:'0.01em', lineHeight: 1,
               textTransform:'uppercase', color:NAVY, textAlign:'center',
               marginBottom:'clamp(18px,2.2vw,28px)',
             }}>

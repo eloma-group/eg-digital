@@ -5,13 +5,12 @@ import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { FEATURED, GRID_POSTS, photo } from '../../lib/blogPosts'
 
-const FILTERS = ['All', 'Case Studies', 'Latest Technologies', 'Awareness'] as const
+const FILTERS = ['All', 'Case Studies', 'Latest Technologies'] as const
 
 // Footer links use ?category=<slug> to open the Blog with that filter applied.
 const CATEGORY_SLUGS: Record<string, (typeof FILTERS)[number]> = {
   'case-studies': 'Case Studies',
   'latest-technologies': 'Latest Technologies',
-  'awareness': 'Awareness',
 }
 const filterFromSearch = (search: string): (typeof FILTERS)[number] =>
   CATEGORY_SLUGS[new URLSearchParams(search).get('category') ?? ''] ?? 'All'
@@ -36,8 +35,8 @@ export function Blog() {
         @media (min-width: 2560px) { .bl-shell { max-width: 2440px; } }
 
         .bl-hero { padding: clamp(40px,6vw,96px) 0 clamp(24px,3vw,40px); }
-        .bl-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.88; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; }
+        .bl-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .bl-h1 span { color: ${GREEN}; }
         .bl-intro { max-width: 640px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8; color: rgba(8,33,60,0.58); margin: 22px 0 0; }
 
@@ -46,12 +45,12 @@ export function Blog() {
           margin: clamp(24px,3vw,40px) 0 clamp(36px,4vw,64px); overflow: hidden; position: relative; }
         @media (max-width: 820px) { .bl-feat { grid-template-columns: 1fr; } }
         .bl-feat-cat { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800;
-          letter-spacing: 1.8px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 18px; }
-        .bl-feat-title { font-size: clamp(28px,3.4vw,52px); font-weight: 900; letter-spacing: -0.04em;
-          line-height: 1.02; color: #fff; margin: 0 0 18px; text-transform: uppercase; }
+          letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 18px; }
+        .bl-feat-title { font-size: clamp(28px,3.4vw,52px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.14; color: #fff; margin: 0 0 18px; text-transform: uppercase; word-spacing: 0.14em; }
         .bl-feat-ex { font-size: clamp(15px,1.15vw,18px); line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 20px; }
         .bl-feat-cta { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800;
-          letter-spacing: 0.6px; text-transform: uppercase; color: ${GREEN}; margin: 0 0 20px; }
+          letter-spacing: 0.6px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin: 0 0 20px; }
         .bl-feat:hover .bl-feat-cta { gap: 11px; }
         .bl-feat-cta { transition: gap 0.2s; }
         .bl-feat-meta { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.4px; }
@@ -79,7 +78,7 @@ export function Blog() {
           transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
         .bl-card:hover .bl-card-img { transform: scale(1.05); }
         .bl-card-body { padding: clamp(20px,2vw,28px); display: flex; flex-direction: column; flex: 1; }
-        .bl-card-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 12px; }
+        .bl-card-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 12px; }
         .bl-card-title { font-size: clamp(17px,1.3vw,21px); font-weight: 800; letter-spacing: -0.02em;
           line-height: 1.25; color: ${NAVY}; margin: 0 0 10px; }
         .bl-card-ex { font-size: 14px; line-height: 1.7; color: rgba(8,33,60,0.55); margin: 0 0 18px; flex: 1; }

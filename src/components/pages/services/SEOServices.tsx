@@ -8,6 +8,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, EASE } from '../_kit'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - SEO SERVICES (Australia)
@@ -295,7 +296,7 @@ export function SEOServices() {
         @media (max-width:768px){ .seo-hin{ max-width:100%; } }
         .seo-hgrid { display:grid; grid-template-columns:1.06fr 0.94fr; gap:clamp(36px,5vw,88px); align-items:center; }
         @media (max-width:960px){ .seo-hgrid{ grid-template-columns:1fr; } }
-        .seo-h1 { font-size:clamp(44px,7.4vw,108px); font-weight:900; letter-spacing:0.015em; line-height:1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .seo-h1 { font-size:clamp(44px,7.4vw,108px); font-weight:900; letter-spacing:0.015em; line-height: 1.14; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .seo-h1 em { font-style:normal; color:${GREEN}; }
         .seo-lede { font-size:clamp(20px,2.6vw,34px); font-weight:800; letter-spacing:-0.01em; line-height:1.28; color:rgba(255,255,255,0.92); margin:22px 0 0; }
         .seo-lede span { color:${GREEN}; }
@@ -322,12 +323,12 @@ export function SEOServices() {
         .seo-query { font-size:13.5px; font-weight:600; color:rgba(255,255,255,0.85); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
         .seo-cursor { display:inline-block; width:2px; height:16px; background:${GREEN}; animation:seo-blink 1.1s step-end infinite; }
         .seo-ai { margin-top:14px; background:rgba(125,211,252,0.07); border:1px solid rgba(125,211,252,0.22); border-radius:16px; padding:16px 18px; }
-        .seo-ai-head { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:${SKY}; }
+        .seo-ai-head { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; word-spacing: 0.14em; color:${SKY}; }
         .seo-ai-lines { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
         .seo-ai-lines span { display:block; height:9px; border-radius:5px; background:rgba(255,255,255,0.16); }
         .seo-cite { display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-size:12.5px; font-weight:700; color:${GREEN};
           background:rgba(60,185,140,0.12); border:1px solid rgba(60,185,140,0.32); padding:7px 14px; border-radius:99px; }
-        .seo-cite b { font-weight:900; text-transform:uppercase; letter-spacing:0.6px; font-size:10.5px; }
+        .seo-cite b { font-weight:900; text-transform:uppercase; word-spacing: 0.14em; letter-spacing:0.6px; font-size:10.5px; }
         .seo-ranks { display:flex; flex-direction:column; gap:8px; margin-top:14px; }
         .seo-rank { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
           border-radius:12px; padding:11px 15px; }
@@ -348,7 +349,7 @@ export function SEOServices() {
         .seo-sec.dark::before { content:''; position:absolute; top:-22%; left:-10%; width:min(640px,60vw); height:min(640px,60vw); border-radius:50%;
           background:radial-gradient(circle, ${GREEN}29, transparent 65%); pointer-events:none; }
         .seo-sec.dark .seo-shell { position:relative; z-index:1; }
-        .seo-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height:1.02; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .seo-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height: 1.14; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .seo-h2 span { color:${GREEN}; }
         .seo-sec.dark .seo-h2 { color:#fff; }
         .seo-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); margin:18px 0 0; }
@@ -379,7 +380,7 @@ export function SEOServices() {
           letter-spacing:-0.05em; color:${GREEN}; opacity:0.12; line-height:1; font-variant-numeric:tabular-nums; pointer-events:none; }
         .seo-sc-ic { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,${NAVY},#12395f); color:${GREEN}; margin-bottom:18px; }
-        .seo-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; }
+        .seo-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; }
         .seo-sc-p { font-size:clamp(14px,1.02vw,16px); line-height:1.78; color:rgba(8,33,60,0.62); margin:14px 0 0; }
 
         /* ── SEO / AEO / GEO layer cards (dark) ── */
@@ -404,7 +405,7 @@ export function SEOServices() {
         .seo-step:last-child .seo-line { display:none; }
         .seo-step-body { padding-bottom:clamp(28px,3.4vw,52px); }
         .seo-step:last-child .seo-step-body { padding-bottom:0; }
-        .seo-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; padding-top:clamp(8px,1vw,14px); }
+        .seo-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; padding-top:clamp(8px,1vw,14px); }
         .seo-step-d { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:12px 0 0; max-width:72ch; }
         @media (max-width:480px){
           .seo-step{ grid-template-columns:1fr; gap:10px; }
@@ -444,7 +445,7 @@ export function SEOServices() {
           padding:clamp(34px,5vw,72px); margin-top:clamp(36px,4vw,56px); text-align:center; }
         .seo-ready::before { content:''; position:absolute; inset:0; pointer-events:none;
           background:radial-gradient(ellipse 50% 60% at 85% 10%, ${GREEN}1a, transparent 65%); }
-        .seo-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height:1.04; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .seo-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height: 1.16; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .seo-ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.62); }
         .seo-ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
 
@@ -494,7 +495,7 @@ export function SEOServices() {
           <Reveal>
             <div className="seo-hero-more">
               <p className="seo-intro">
-                We are part of Eloma Group, which means your SEO sits next to web development, Microsoft and cloud,
+                We are part of <ElomaLink />, which means your SEO sits next to web development, Microsoft and cloud,
                 custom software, and cyber security under one roof. <strong>One partner, one team, one set of monthly
                 reports you can read without a translator.</strong>
               </p>

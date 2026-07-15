@@ -89,9 +89,9 @@ function CardFace({ s, mobile }: { s: Scene; mobile: boolean }) {
 
         <h2 style={{ margin: 0, textTransform: 'uppercase' }}>
           {s.lines.map((ln, li) => (
-            <span key={li} style={{ overflow: 'hidden', display: 'block', lineHeight: 0.96 }}>
+            <span key={li} style={{ overflow: 'hidden', display: 'block', lineHeight: 1.08 }}>
               <motion.span
-                style={{ display: 'block', fontSize: mobile ? 'clamp(34px,8.5vw,56px)' : 'clamp(40px,5.4vw,94px)', fontWeight: 900, letterSpacing: '-0.05em', color: t.fg }}
+                style={{ display: 'block', fontSize: mobile ? 'clamp(34px,8.5vw,56px)' : 'clamp(40px,5.4vw,94px)', fontWeight: 900, letterSpacing: '0.01em', color: t.fg }}
                 initial={{ y: '110%' }} whileInView={{ y: '0%' }} viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.85, ease: EASE, delay: 0.07 * li }}
               >{renderLine(ln, s.hi, accent)}</motion.span>
@@ -159,7 +159,7 @@ export function OurUSP() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: GREEN, marginBottom: 18 }}>
           <span style={{ width: 22, height: 2, background: GREEN }} />The exception, not the rule
         </div>
-        <h2 style={{ fontSize: 'clamp(38px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: NAVY, margin: '0 0 30px', textTransform: 'uppercase' }}>
+        <h2 style={{ fontSize: 'clamp(38px,7vw,104px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.07, color: NAVY, margin: '0 0 30px', textTransform: 'uppercase' }}>
           Ready to feel<br />the <span style={{ color: GREEN }}>difference?</span>
         </h2>
         <button onClick={() => navigate('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: NAVY, color: '#fff', border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>

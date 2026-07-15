@@ -177,7 +177,7 @@ export function MicrosoftProducts() {
         @media (max-width:920px){ .msp-hero-grid{ grid-template-columns:1fr; } .msp-hero-visual{ order:-1; } }
         .msp-badge { display:inline-flex; align-items:center; gap:9px; margin-top:18px; padding:8px 15px; border-radius:100px;
           background:${MSBLUE}12; border:1px solid ${MSBLUE}2e; font-size:12px; font-weight:800; letter-spacing:0.3px; color:${MSBLUE}; }
-        .msp-h1 { font-size: clamp(52px,9.5vw,128px); font-weight:900; letter-spacing:-0.05em; line-height:0.88; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .msp-h1 { font-size: clamp(52px,9.5vw,128px); font-weight:900; letter-spacing: 0.01em; line-height: 1; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .msp-h1 span { color:${MSBLUE}; }
         .msp-intro { max-width:560px; font-size:clamp(15px,1.25vw,19px); line-height:1.8; color:rgba(8,33,60,0.58); margin:22px 0 0; }
         .msp-cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -210,7 +210,7 @@ export function MicrosoftProducts() {
           padding-top:clamp(28px,3vw,40px); border-top:1px solid rgba(8,33,60,0.12); }
         @media (max-width:680px){ .msp-stats{ grid-template-columns:repeat(2,1fr); gap:28px 16px; } }
         .msp-sv { font-size:clamp(32px,4vw,58px); font-weight:900; letter-spacing:-0.05em; color:${NAVY}; line-height:1; }
-        .msp-sl { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:rgba(8,33,60,0.42); margin-top:8px; }
+        .msp-sl { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(8,33,60,0.42); margin-top:8px; }
 
         /* ── Section ── */
         .msp-sec { padding: clamp(56px,7vw,118px) 0; }
@@ -228,9 +228,9 @@ export function MicrosoftProducts() {
         .msp-sec.dark .msp-h2 span { color:${T_BLU}; }
         .msp-sec.dark .msp-h3 { color:#fff; }
         .msp-sec.dark .msp-lead { color:rgba(255,255,255,0.62); }
-        .msp-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .msp-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .msp-h2 span { color:${MSBLUE}; }
-        .msp-h3 { font-size:clamp(22px,2.6vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1; text-transform:uppercase; color:${NAVY}; margin:clamp(48px,6vw,82px) 0 0; }
+        .msp-h3 { font-size:clamp(22px,2.6vw,40px); font-weight:900; letter-spacing: 0.01em; line-height: 1.12; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:clamp(48px,6vw,82px) 0 0; }
         .msp-lead { max-width:600px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.55); margin:16px 0 0; }
 
         /* ── Microsoft 365 apps ── */

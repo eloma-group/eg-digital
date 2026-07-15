@@ -4,6 +4,7 @@ import {
 } from 'lucide-react'
 import { AppServicePage } from './_appServiceKit'
 import type { ServicePageData } from './_appServiceKit'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 const DATA: ServicePageData = {
   route: '/services/custom-app-development-company-australia',
@@ -23,7 +24,7 @@ const DATA: ServicePageData = {
   ],
   intro: [
     "Off-the-shelf software is fine until it isn't. You start bending your process to fit the tool, paying for features you never touch, missing the ones you need, and stitching three subscriptions together with spreadsheets and manual data entry. At some point the workarounds cost more than the thing they were meant to save you.",
-    <><strong>EG Digital is a Melbourne-based custom app development company</strong> that builds software around your business: mobile apps, web applications, and full platforms, engineered to fit your workflow and connect to the systems you already run. We are part of Eloma Group, so your build sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. What we ship is not a stranded island. It talks to your backend, it stays secure, and it keeps working long after go-live, because the same team that built it is the team that keeps it running.</>,
+    <><strong>EG Digital is a Melbourne-based custom app development company</strong> that builds software around your business: mobile apps, web applications, and full platforms, engineered to fit your workflow and connect to the systems you already run. We are part of <ElomaLink />, so your build sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. What we ship is not a stranded island. It talks to your backend, it stays secure, and it keeps working long after go-live, because the same team that built it is the team that keeps it running.</>,
     'One partner scopes it, designs it, builds it, ships it, and maintains it. You own what we build, source code included. One number to call.',
     'Tell us what you want to build and we will give you a real number and a real timeline, not a vague range.',
   ],

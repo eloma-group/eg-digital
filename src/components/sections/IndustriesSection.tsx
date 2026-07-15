@@ -54,9 +54,9 @@ export function IndustriesSection() {
         .hv6-watermark {
           position:absolute; bottom:-6%; left:-3%;
           font-size:clamp(160px,24vw,340px); font-weight:900;
-          color:rgba(8,33,60,0.03); letter-spacing:-0.06em;
-          line-height:1; pointer-events:none; user-select:none;
-          text-transform:uppercase;
+          color:rgba(8,33,60,0.03); letter-spacing: 0.01em;
+          line-height: 1.12; pointer-events:none; user-select:none;
+          text-transform:uppercase; word-spacing: 0.14em;
         }
         .hv6-left-inner { position:relative; z-index:1; max-width:620px; width:100%; }
 
@@ -95,7 +95,7 @@ export function IndustriesSection() {
           margin-bottom:clamp(22px,2.8vw,36px);
         }
         .hv6-stat-v { font-size:clamp(20px,2vw,28px); font-weight:900; color:${NAVY}; letter-spacing:-0.04em; line-height:1; }
-        .hv6-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; letter-spacing:1.2px; margin-top:3px; }
+        .hv6-stat-l { font-size:10px; font-weight:700; color:rgba(8,33,60,0.36); text-transform:uppercase; word-spacing: 0.14em; letter-spacing:1.2px; margin-top:3px; }
 
         .hv6-cta-row { display:flex; gap:12px; flex-wrap:wrap; }
         .hv6-btn-p {
@@ -145,7 +145,7 @@ export function IndustriesSection() {
         /* caption chip on small images */
         .hv6-collage-tag {
           position:absolute; left:10px; bottom:10px; z-index:2;
-          font-size:10px; font-weight:800; letter-spacing:0.6px; text-transform:uppercase;
+          font-size:10px; font-weight:800; letter-spacing:0.6px; text-transform:uppercase; word-spacing: 0.14em;
           color:#fff; background:rgba(8,33,60,0.55); backdrop-filter:blur(6px);
           padding:5px 10px; border-radius:100px;
         }
@@ -191,7 +191,7 @@ export function IndustriesSection() {
 
             <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,6.5vw,100px)', fontWeight:900,
-              letterSpacing:'-0.045em', lineHeight:0.88,
+              letterSpacing:'0.01em', lineHeight: 1,
               textTransform:'uppercase', color:NAVY,
               marginBottom:'clamp(16px,2vw,24px)',
             }}>

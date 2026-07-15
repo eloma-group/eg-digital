@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
+import { linkEloma } from '../../lib/elomaLink'
 import { ImageTrail } from '../sections/ImageTrail'
 import { JourneyHero } from '../sections/JourneyHero'
 
@@ -50,7 +51,7 @@ function Milestone({ m }: { m: M }) {
           {m.year} - {m.tag}
         </div>
         <h2 className="jr-block-head">{renderHead(m.head, m.hi)}</h2>
-        <p className="jr-block-body">{m.body}</p>
+        <p className="jr-block-body">{linkEloma(m.body)}</p>
         <div className="jr-block-stat">
           <span className="jr-stat-num">{m.stat}</span>
           <span className="jr-stat-lbl">{m.statLabel}</span>
@@ -85,7 +86,7 @@ export function OurJourney() {
         .jr-stage { position: sticky; top: 0; align-self: start; height: 100svh;
           display: flex; flex-direction: column; justify-content: center; gap: 28px; }
         .jr-stage-idx { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 2.5px;
-          text-transform: uppercase; color: rgba(8,33,60,0.4); font-variant-numeric: tabular-nums; }
+          text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.4); font-variant-numeric: tabular-nums; }
         .jr-reel-row { display: flex; align-items: center; height: clamp(96px,15.5vw,256px);
           font-size: clamp(78px,13vw,252px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85;
           color: #08213C66; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -98,13 +99,13 @@ export function OurJourney() {
         .jr-block { min-height: 90svh; display: flex; flex-direction: column; justify-content: center;
           padding: clamp(40px,8vh,90px) 0 clamp(40px,8vh,90px) clamp(28px,4vw,80px); }
         .jr-block-tag { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(11px,0.85vw,13px);
-          font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 22px; }
-        .jr-block-head { font-size: clamp(32px,5vw,72px); font-weight: 900; letter-spacing: -0.045em;
-          line-height: 1.0; text-transform: uppercase; color: ${NAVY}; margin: 0 0 22px; }
+          font-weight: 800; letter-spacing: 2px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 22px; }
+        .jr-block-head { font-size: clamp(32px,5vw,72px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.12; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0 0 22px; }
         .jr-block-body { font-size: clamp(15px,1.2vw,18px); line-height: 1.85; color: rgba(8,33,60,0.58); margin: 0; max-width: 540px; }
         .jr-block-stat { display: flex; align-items: baseline; gap: 16px; margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(8,33,60,0.12); }
         .jr-stat-num { font-size: clamp(28px,3.5vw,56px); font-weight: 900; letter-spacing: -0.04em; color: ${NAVY}; line-height: 1; }
-        .jr-stat-lbl { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(8,33,60,0.42); }
+        .jr-stat-lbl { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.42); }
 
         @media (max-width: 900px) {
           .jr-timeline { grid-template-columns: 1fr; max-width: 100%; padding: 0; }
@@ -155,7 +156,7 @@ export function OurJourney() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>
             <span style={{ width: 22, height: 2, background: GREEN }} />The Next Chapter
           </div>
-          <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 24px', textTransform: 'uppercase' }}>
+          <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.12, color: '#fff', margin: '18px 0 24px', textTransform: 'uppercase' }}>
             Let's write <span style={{ color: GREEN }}>yours.</span>
           </h2>
           <p style={{ fontSize: 'clamp(13px,1vw,16px)', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', margin: '0 0 30px' }}>
