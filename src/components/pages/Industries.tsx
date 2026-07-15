@@ -166,10 +166,10 @@ export function Industries() {
         @media (min-width: 2560px) { .in-shell { max-width: 2440px; } }
         .in-sec { padding: clamp(56px,7vw,116px) 0; }
         .in-hero { padding: clamp(40px,6vw,96px) 0 clamp(20px,3vw,32px); }
-        .in-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.88; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; }
+        .in-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em; line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .in-h1 span { color: ${GREEN}; }
         .in-intro { max-width: 640px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8; color: rgba(8,33,60,0.58); margin: 22px 0 0; }
-        .in-h2 { font-size: clamp(34px,5vw,76px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.92; text-transform: uppercase; color: ${NAVY}; margin: 14px 0 0; }
+        .in-h2 { font-size: clamp(34px,5vw,76px); font-weight: 900; letter-spacing: 0.01em; line-height: 1.04; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 14px 0 0; }
         .in-h2 span { color: ${GREEN}; }
         .in-lead { max-width: 600px; font-size: clamp(15px,1.15vw,18px); line-height: 1.7; color: rgba(8,33,60,0.55); margin: 16px 0 0; }
         .in-head { margin-bottom: clamp(28px,3.5vw,48px); }
@@ -199,8 +199,8 @@ export function Industries() {
         .pt-readout { position: relative; overflow: hidden; background: #fff; border: 1px solid rgba(8,33,60,0.1); border-top: 4px solid var(--c); border-radius: 20px; padding: clamp(24px,2.6vw,36px); min-height: 240px; box-shadow: 0 20px 50px -28px rgba(8,33,60,0.3); position: sticky; top: 96px; }
         .pt-r-bgnum { position: absolute; right: -6px; bottom: -28px; font-size: clamp(120px,16vw,200px); font-weight: 900; letter-spacing: -0.06em; color: color-mix(in srgb, var(--c) 8%, transparent); line-height: 0.8; }
         .pt-r-sym { font-size: clamp(48px,6vw,84px); font-weight: 900; letter-spacing: -0.05em; color: var(--c); line-height: 0.9; }
-        .pt-r-field { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--c); margin: 14px 0 6px; }
-        .pt-r-name { font-size: clamp(22px,2.2vw,32px); font-weight: 900; letter-spacing: -0.03em; color: ${NAVY}; margin: 0 0 12px; text-transform: uppercase; line-height: 1; }
+        .pt-r-field { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: var(--c); margin: 14px 0 6px; }
+        .pt-r-name { font-size: clamp(22px,2.2vw,32px); font-weight: 900; letter-spacing: 0.01em; color: ${NAVY}; margin: 0 0 12px; text-transform: uppercase; word-spacing: 0.14em; line-height: 1.12; }
         .pt-r-detail { font-size: clamp(14px,1.05vw,16px); line-height: 1.7; color: rgba(8,33,60,0.6); margin: 0; max-width: 40ch; }
 
         /* ── Field tabs ── */
@@ -213,8 +213,8 @@ export function Industries() {
         .tb-side { border-right: 1px solid rgba(8,33,60,0.1); padding-right: clamp(20px,2vw,32px); }
         @media (max-width: 820px) { .tb-side { border-right: none; border-bottom: 1px solid rgba(8,33,60,0.1); padding-right: 0; padding-bottom: 20px; } }
         .tb-side-n { font-size: clamp(54px,7vw,104px); font-weight: 900; letter-spacing: -0.06em; color: var(--c); line-height: 0.8; }
-        .tb-side-l { font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(8,33,60,0.42); margin: 8px 0 16px; }
-        .tb-side-h { font-size: clamp(20px,2vw,30px); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; color: ${NAVY}; margin: 0; line-height: 1; }
+        .tb-side-l { font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.42); margin: 8px 0 16px; }
+        .tb-side-h { font-size: clamp(20px,2vw,30px); font-weight: 900; letter-spacing: 0.01em; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0; line-height: 1.12; }
         .tb-items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px,1.8vw,22px); }
         @media (max-width: 520px) { .tb-items-grid { grid-template-columns: 1fr; } }
         .tb-item { display: flex; gap: 14px; align-items: flex-start; }
@@ -235,7 +235,7 @@ export function Industries() {
         .wall-tile { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid rgba(8,33,60,0.08); border-radius: 16px; padding: 18px; box-shadow: 0 4px 20px rgba(8,33,60,0.05); }
         .wall-ic { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .wall-nm { font-size: clamp(14px,1.1vw,16px); font-weight: 800; color: ${NAVY}; letter-spacing: -0.02em; line-height: 1.15; }
-        .wall-fd { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
+        .wall-fd { font-size: 10.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; word-spacing: 0.14em; margin-top: 3px; }
 
         @media (prefers-reduced-motion: reduce) { .wall-track { animation: none !important; } }
       `}</style>

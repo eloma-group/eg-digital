@@ -62,8 +62,8 @@ export function Values() {
         .vl-idx { font-size: clamp(20px,2vw,30px); font-weight: 900; letter-spacing: -0.02em;
           font-variant-numeric: tabular-nums; line-height: 1; padding-top: 0.4em; }
 
-        .vl-word { margin: 0; text-transform: uppercase; font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.92; font-size: clamp(40px,8vw,128px); will-change: transform, opacity; }
+        .vl-word { margin: 0; text-transform: uppercase; word-spacing: 0.14em; font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.04; font-size: clamp(40px,8vw,128px); will-change: transform, opacity; }
 
         .vl-rule { display: block; height: 3px; background: ${GREEN}; transform-origin: left center;
           margin: clamp(18px,2vw,30px) 0; will-change: transform; }
@@ -81,7 +81,7 @@ export function Values() {
       <section className="vl-shell" style={{ padding: 'clamp(44px,7vw,110px) clamp(24px,4vw,72px) clamp(20px,3vw,40px)' }}>
         <Reveal>
           <Eyebrow>Values</Eyebrow>
-          <h1 style={{ fontSize: 'clamp(46px,9vw,150px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.88, color: NAVY, margin: '18px 0 0', textTransform: 'uppercase' }}>
+          <h1 style={{ fontSize: 'clamp(46px,9vw,150px)', fontWeight: 900, letterSpacing: '0.015em', lineHeight: 1.06, color: NAVY, margin: '18px 0 0', textTransform: 'uppercase' }}>
             What we<br />stand <span style={{ color: GREEN }}>for.</span>
           </h1>
           <p style={{ maxWidth: 600, fontSize: 'clamp(15px,1.25vw,19px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.58)', margin: '22px 0 0' }}>
@@ -100,7 +100,7 @@ export function Values() {
         <div className="vl-shell" style={{ padding: '0 clamp(24px,4vw,72px)', textAlign: 'center' }}>
           <motion.h2
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: EASE }}
-            style={{ fontSize: 'clamp(34px,6vw,96px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.98, color: '#fff', margin: 0, textTransform: 'uppercase' }}
+            style={{ fontSize: 'clamp(34px,6vw,96px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.14, color: '#fff', margin: 0, textTransform: 'uppercase' }}
           >
             Values you can<br /><span style={{ color: GREEN }}>actually feel.</span>
           </motion.h2>

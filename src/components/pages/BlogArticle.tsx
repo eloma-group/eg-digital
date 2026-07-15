@@ -120,7 +120,7 @@ export function BlogArticle() {
         .ba-top { max-width: var(--shell); margin: 0 auto;
           padding: clamp(20px,3vw,40px) var(--gut) 0; }
         .ba-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px;
-          font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; color: ${GREEN};
+          font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN};
           background: none; border: none; cursor: pointer; font-family: inherit; padding: 8px 0;
           min-height: 44px; }
 
@@ -128,7 +128,7 @@ export function BlogArticle() {
         .ba-hero { max-width: var(--shell); margin: 0 auto;
           padding: clamp(6px,1vw,14px) var(--gut) clamp(24px,3vw,44px); }
         .ba-cat { display: inline-flex; align-items: center; gap: 8px; font-size: 12px;
-          font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: ${GREEN}; }
+          font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; }
         .ba-cat span { width: 8px; height: 8px; border-radius: 99px; background: ${GREEN}; }
         .ba-h1 { font-size: clamp(34px,5.2vw,68px); font-weight: 900; letter-spacing: -0.035em;
           line-height: 1.02; color: ${NAVY}; margin: 16px 0 18px; }
@@ -175,8 +175,8 @@ export function BlogArticle() {
         /* Related */
         .ba-rel { max-width: min(calc(100vw - 40px),1760px); margin: 0 auto;
           padding: 0 var(--gut) clamp(56px,8vw,120px); }
-        .ba-rel-h { font-size: clamp(24px,3vw,40px); font-weight: 900; letter-spacing: -0.03em;
-          text-transform: uppercase; color: ${NAVY}; margin: 0 0 clamp(20px,2.5vw,36px); }
+        .ba-rel-h { font-size: clamp(24px,3vw,40px); font-weight: 900; letter-spacing: 0.01em;
+          text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0 0 clamp(20px,2.5vw,36px); }
         .ba-rel-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,2vw,28px); }
         @media (max-width: 900px) { .ba-rel-grid { grid-template-columns: 1fr; } }
         .ba-rel-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(8,33,60,0.08);
@@ -188,7 +188,7 @@ export function BlogArticle() {
           transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
         .ba-rel-card:hover .ba-rel-img { transform: scale(1.05); }
         .ba-rel-body { padding: clamp(18px,1.8vw,26px); display: flex; flex-direction: column; flex: 1; }
-        .ba-rel-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: ${GREEN}; margin-bottom: 10px; }
+        .ba-rel-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 10px; }
         .ba-rel-title { font-size: clamp(16px,1.2vw,20px); font-weight: 800; letter-spacing: -0.02em;
           line-height: 1.25; color: ${NAVY}; margin: 0 0 12px; }
         .ba-rel-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto;

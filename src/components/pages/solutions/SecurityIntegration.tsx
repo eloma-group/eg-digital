@@ -109,7 +109,7 @@ export function SecurityIntegrationSolution() {
           background:radial-gradient(circle, ${VIOLET}1f, transparent 64%); pointer-events:none; z-index:0; }
         .sec-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .sec-hgrid{ grid-template-columns:1fr; } }
-        .sec-h1 { font-size:clamp(50px,9vw,124px); font-weight:900; letter-spacing:-0.05em; line-height:0.88; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .sec-h1 { font-size:clamp(50px,9vw,124px); font-weight:900; letter-spacing: 0.01em; line-height: 1; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .sec-h1 span { color:${VIOLET}; }
         .sec-intro { max-width:520px; font-size:clamp(15px,1.25vw,19px); line-height:1.8; color:rgba(8,33,60,0.58); margin:22px 0 0; }
         .sec-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -128,7 +128,7 @@ export function SecurityIntegrationSolution() {
         .sec-panel:hover { animation-play-state:paused; }
         .sec-ptop { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
         .sec-ptitle { font-size:14px; font-weight:800; color:${NAVY}; }
-        .sec-plive { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+        .sec-plive { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; word-spacing: 0.14em;
           color:${VIOLET}; background:${VIOLET}14; border:1px solid ${VIOLET}33; padding:4px 10px; border-radius:99px; }
         @keyframes sec-pulse { 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.7); opacity:0.4; } }
         .sec-plive i { width:6px; height:6px; border-radius:50%; background:${VIOLET}; animation:sec-pulse 1.8s ease-in-out infinite; }
@@ -147,12 +147,12 @@ export function SecurityIntegrationSolution() {
           margin-top:clamp(36px,4vw,60px); padding-top:clamp(28px,3vw,40px); border-top:1px solid rgba(8,33,60,0.12); }
         @media (max-width:680px){ .sec-stats{ grid-template-columns:repeat(2,1fr); gap:28px 16px; } }
         .sec-sv { font-size:clamp(32px,4vw,58px); font-weight:900; letter-spacing:-0.05em; color:${NAVY}; line-height:1; }
-        .sec-sl { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:rgba(8,33,60,0.42); margin-top:8px; }
+        .sec-sl { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(8,33,60,0.42); margin-top:8px; }
 
         /* shared section header */
         .sec-cap { padding:clamp(56px,7vw,118px) 0; }
         .sec-cap.alt { background:#fff; }
-        .sec-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .sec-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .sec-h2 span { color:${VIOLET}; }
         .sec-lead { max-width:560px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.55); margin:16px 0 0; }
         .sec-pill { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:rgba(8,33,60,0.64);
@@ -176,7 +176,7 @@ export function SecurityIntegrationSolution() {
         .q-emblem::before { inset:-12px; animation:q-ring 3s ease-out infinite; }
         .q-emblem::after  { inset:-12px; animation:q-ring 3s ease-out infinite 1.5s; }
         @keyframes q-ring { 0%{ transform:scale(0.9); opacity:0.8; } 100%{ transform:scale(1.35); opacity:0; } }
-        .q-elabel { margin-top:16px; font-size:clamp(13px,1vw,15px); font-weight:900; letter-spacing:1.5px; text-transform:uppercase; color:${NAVY}; }
+        .q-elabel { margin-top:16px; font-size:clamp(13px,1vw,15px); font-weight:900; letter-spacing:1.5px; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; }
         .q-esub { font-size:12px; color:rgba(8,33,60,0.5); margin-top:4px; }
         .q-card { background:#fff; border:1px solid rgba(8,33,60,0.08); border-radius:20px; padding:clamp(20px,2.2vw,30px);
           box-shadow:0 4px 22px rgba(8,33,60,0.05); transition:transform .3s cubic-bezier(0.16,1,0.3,1), box-shadow .3s, border-color .3s; will-change:transform; }
@@ -196,7 +196,7 @@ export function SecurityIntegrationSolution() {
         .sx-sec.dark .sec-shell { position:relative; z-index:1; }
         .sx-sec.dark .sec-h2 { color:#fff; } .sx-sec.dark .sec-h2 span { color:${VIOLET2}; }
         .sx-sec.dark .sec-lead { color:rgba(255,255,255,0.62); }
-        .sx-h3 { font-size:clamp(22px,2.6vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1; text-transform:uppercase; color:${NAVY}; margin:clamp(46px,6vw,80px) 0 0; }
+        .sx-h3 { font-size:clamp(22px,2.6vw,40px); font-weight:900; letter-spacing: 0.01em; line-height: 1.12; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:clamp(46px,6vw,80px) 0 0; }
         .sx-sec.dark .sx-h3 { color:#fff; }
 
         /* premium card */
@@ -268,7 +268,7 @@ export function SecurityIntegrationSolution() {
           background:linear-gradient(150deg,${VIOLET}29,${VIOLET}0d); color:${VIOLET}; display:flex; align-items:center; justify-content:center;
           transition:transform .35s cubic-bezier(0.16,1,0.3,1); }
         .sx-layer:hover .sx-licon { transform:scale(1.08) rotate(-4deg); }
-        .sx-ldom { display:block; font-family:ui-monospace,monospace; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(8,33,60,0.42); margin-bottom:6px; }
+        .sx-ldom { display:block; font-family:ui-monospace,monospace; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(8,33,60,0.42); margin-bottom:6px; }
         .sx-lname { font-size:clamp(18px,1.9vw,30px); font-weight:900; letter-spacing:-0.03em; line-height:1; color:${NAVY}; margin:0; }
         .sx-ldesc { font-size:clamp(13px,1vw,15px); line-height:1.6; color:rgba(8,33,60,0.55); margin:8px 0 0; max-width:54ch; }
         .sx-lchips { display:flex; flex-wrap:wrap; gap:7px; justify-content:flex-end; max-width:clamp(170px,22vw,320px); }

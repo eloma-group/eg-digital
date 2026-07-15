@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - FACEBOOK / META ADS MANAGEMENT (Australia)
@@ -227,7 +228,7 @@ export function FacebookAdsManagement() {
         .fba-sec.dark .fba-shell { position:relative; z-index:1; }
 
         .fba-head { max-width:900px; margin:0 0 clamp(28px,3.4vw,52px); }
-        .fba-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .fba-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .fba-h2 span { color:${GREEN}; }
         .fba-sec.dark .fba-h2 { color:#fff; }
         .fba-lead { max-width:680px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:18px 0 0; }
@@ -273,7 +274,7 @@ export function FacebookAdsManagement() {
         .hero-head { display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
         .hero-head::before { content:''; position:absolute; top:-30%; right:-14%; width:52%; height:150%; border-radius:50%;
           background:radial-gradient(circle, ${GREEN}30, transparent 62%); pointer-events:none; }
-        .fba-h1 { position:relative; font-size:clamp(42px,6.2vw,96px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .fba-h1 { position:relative; font-size:clamp(42px,6.2vw,96px); font-weight:900; letter-spacing: 0.01em; line-height: 1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .fba-lede { position:relative; font-size:clamp(19px,2.2vw,32px); font-weight:900; letter-spacing:-0.035em; line-height:1.08; color:#fff; margin:18px 0 0; }
         .fba-lede span { color:${GREEN}; }
         .fba-cta { position:relative; display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -302,7 +303,7 @@ export function FacebookAdsManagement() {
         .fba-emblem-ring::after { content:''; position:absolute; inset:4px; border-radius:50%; background:${NAVY}; }
         .fba-emblem-ic { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:${GREEN}; z-index:1; }
         .fba-emblem-tx { display:flex; flex-direction:column; line-height:1.1; }
-        .fba-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.66); }
+        .fba-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.66); }
         .fba-emblem-v { display:flex; align-items:center; gap:7px; font-size:15px; font-weight:900; letter-spacing:-0.02em; color:#fff; }
         .fba-dot { width:9px; height:9px; border-radius:50%; background:${GREEN}; animation:fba-pulse 1.8s ease-in-out infinite; }
         @keyframes fba-spin { to { transform:rotate(360deg); } }
@@ -328,7 +329,7 @@ export function FacebookAdsManagement() {
         .srv-feat { display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,2.6vw,40px); align-items:center; }
         @media (max-width:640px){ .srv-feat{ grid-template-columns:1fr; } }
         .srv-feat .tico { width:66px; height:66px; margin:0; }
-        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; margin-bottom:12px; }
+        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; word-spacing: 0.14em; margin-bottom:12px; }
 
         /* ── Steps ── */
         .step-no { font-size:clamp(38px,4.4vw,72px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${GREEN};
@@ -347,7 +348,7 @@ export function FacebookAdsManagement() {
 
         /* ── Ready band ── */
         .ready { text-align:center; }
-        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing:-0.045em; line-height:0.98; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.66); }
         .ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .fba-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -426,7 +427,7 @@ export function FacebookAdsManagement() {
                 the budget quietly disappear into impressions that never convert.
               </p>
               <p className="t-d">
-                <strong>We are part of Eloma Group,</strong> so your Facebook advertising sits next to web development,
+                <strong>We are part of <ElomaLink />,</strong> so your Facebook advertising sits next to web development,
                 SEO, Microsoft and cloud, custom software, and cyber security under one roof. That matters more than it
                 sounds. The landing page your ads point to, the conversion tracking behind it, and the systems that catch
                 the lead are usually where paid social leaks money. When the same team runs all of it, the leaks get

@@ -6,6 +6,8 @@ const GREEN = '#3CB98C'
 const CREAM = '#f8f8ff'
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 const SERIF = "'Playfair Display', Georgia, 'Times New Roman', serif"
+// Display sans used for the CinematicBanner hero word (e.g. Our USP "DIFFERENT").
+const BANNER_WORD_FONT = "'Inter', system-ui, sans-serif"
 
 /* Shared styling for all three banner treatments. One banner per page, so a
    per-component <style> tag is fine (no duplicate-injection concern). */
@@ -15,7 +17,7 @@ const HERO_CSS = `
     font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; }
 
   .jh-eyebrow { display: inline-flex; align-items: center; gap: 11px;
-    font-size: clamp(10px,0.8vw,13px); font-weight: 800; letter-spacing: 2.6px; text-transform: uppercase; color: ${GREEN}; }
+    font-size: clamp(10px,0.8vw,13px); font-weight: 800; letter-spacing: 2.6px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; }
   .jh-eyebrow b { width: 7px; height: 7px; border-radius: 99px; background: ${GREEN}; flex-shrink: 0;
     box-shadow: 0 0 0 0 rgba(60,185,140,0.55); animation: jh-pulse 2.6s ease-in-out infinite; }
   .jh-eyebrow--muted { color: rgba(8,33,60,0.4); }
@@ -27,7 +29,7 @@ const HERO_CSS = `
   .jh-line { display: block; }
 
   .jh-scrollcue { display: inline-flex; align-items: center; gap: 11px;
-    font-size: clamp(10px,0.78vw,12px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(8,33,60,0.45); }
+    font-size: clamp(10px,0.78vw,12px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.45); }
   .jh-scrollcue i { width: 46px; height: 1px; background: rgba(8,33,60,0.25); position: relative; overflow: hidden; }
   .jh-scrollcue i::after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 40%; background: ${GREEN};
     animation: jh-dash 1.9s ease-in-out infinite; }
@@ -35,14 +37,14 @@ const HERO_CSS = `
   .jh-scrollcue--light i { background: rgba(255,255,255,0.22); }
   @keyframes jh-dash { 0% { transform: translateX(-100%); } 60%,100% { transform: translateX(300%); } }
 
-  .jh-meta { font-size: clamp(10px,0.78vw,12px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(8,33,60,0.45); }
+  .jh-meta { font-size: clamp(10px,0.78vw,12px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.45); }
 
   .jh-ledger { display: flex; align-items: stretch; }
   .jh-ledger > div { display: flex; flex-direction: column; gap: 6px;
     padding-right: clamp(20px,2.4vw,40px); margin-right: clamp(20px,2.4vw,40px); border-right: 1px solid rgba(8,33,60,0.14); }
   .jh-ledger > div:last-child { border: none; margin: 0; padding: 0; }
   .jh-ledger .num { font-size: clamp(26px,2.8vw,42px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: ${NAVY}; font-variant-numeric: tabular-nums; }
-  .jh-ledger .lbl { font-size: clamp(10px,0.8vw,12px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(8,33,60,0.42); }
+  .jh-ledger .lbl { font-size: clamp(10px,0.8vw,12px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.42); }
 
   /* ── A - Editorial ── */
   .jh-a { background: ${CREAM}; justify-content: space-between; }
@@ -145,7 +147,7 @@ export function CinematicBanner({
         <motion.h1 className="jh-b-clip" style={{ margin: 0 }} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}>
           <svg className="jh-b-svg" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid meet" aria-label={word}>
             <text x="600" y="146" textAnchor="middle" dominantBaseline="central"
-              fontFamily={SERIF} fontWeight="900" fontSize="252"
+              fontFamily={BANNER_WORD_FONT} fontWeight="900" fontSize="252"
               textLength="1150" lengthAdjust="spacingAndGlyphs" fill="#fff">{word}</text>
           </svg>
         </motion.h1>

@@ -90,7 +90,7 @@ export function PageCTA({
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 'clamp(10px,0.8vw,12px)', fontWeight: 800, letterSpacing: '2.6px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>
           <span style={{ width: 22, height: 2, background: GREEN }} />{eyebrow}
         </div>
-        <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.95, color: '#fff', margin: '18px 0 30px', textTransform: 'uppercase' }}>
+        <h2 style={{ fontSize: 'clamp(40px,7vw,104px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.12, color: '#fff', margin: '18px 0 30px', textTransform: 'uppercase' }}>
           {heading}{highlight && <> <span style={{ color: GREEN }}>{highlight}</span></>}
         </h2>
         <button onClick={() => navigate(to)} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, background: GREEN, color: NAVY, border: 'none', borderRadius: 100, padding: '16px 32px', fontSize: 15, fontWeight: 800, cursor: 'pointer', fontFamily: 'inherit', minHeight: 52 }}>

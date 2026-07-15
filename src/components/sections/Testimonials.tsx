@@ -292,8 +292,8 @@ export function Testimonials() {
             fontWeight: 900,
             color: NAVY,
             textTransform: 'uppercase',
-            letterSpacing: '-0.04em',
-            lineHeight: 0.94,
+            letterSpacing: '0.01em',
+            lineHeight: 1.1,
             margin: 0,
           }}
         >

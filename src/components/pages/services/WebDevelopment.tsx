@@ -9,6 +9,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, EASE } from '../_kit'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - WEB DEVELOPMENT (Australia)
@@ -280,7 +281,7 @@ export function WebDevelopment() {
         @media (max-width:768px){ .wdv-hin{ max-width:100%; } }
         .wdv-hgrid { display:grid; grid-template-columns:1.06fr 0.94fr; gap:clamp(36px,5vw,88px); align-items:center; }
         @media (max-width:960px){ .wdv-hgrid{ grid-template-columns:1fr; } }
-        .wdv-h1 { font-size:clamp(42px,6.4vw,92px); font-weight:900; letter-spacing:0.015em; line-height:1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .wdv-h1 { font-size:clamp(42px,6.4vw,92px); font-weight:900; letter-spacing:0.015em; line-height: 1.14; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .wdv-h1 em { font-style:normal; color:${GREEN}; }
         .wdv-lede { font-size:clamp(20px,2.6vw,34px); font-weight:800; letter-spacing:-0.01em; line-height:1.28; color:rgba(255,255,255,0.92); margin:22px 0 0; }
         .wdv-lede span { color:${GREEN}; }
@@ -314,7 +315,7 @@ export function WebDevelopment() {
         .wdv-url { flex:1; text-align:center; font-size:12px; font-weight:700; color:rgba(255,255,255,0.55);
           background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:99px; padding:6px 14px;
           white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-        .wdv-live { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+        .wdv-live { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; word-spacing: 0.14em;
           color:${GREEN}; background:rgba(60,185,140,0.12); border:1px solid rgba(60,185,140,0.32); padding:4px 10px; border-radius:99px; flex-shrink:0; }
         .wdv-live i { width:6px; height:6px; border-radius:50%; background:${GREEN}; animation:wdv-pulse 1.6s ease-in-out infinite; will-change:transform; }
         .wdv-code { padding:clamp(20px,2.4vw,34px) clamp(18px,2.2vw,30px); display:flex; flex-direction:column; gap:13px; }
@@ -336,7 +337,7 @@ export function WebDevelopment() {
         .wdv-sec.dark::before { content:''; position:absolute; top:-22%; left:-10%; width:min(640px,60vw); height:min(640px,60vw); border-radius:50%;
           background:radial-gradient(circle, ${GREEN}29, transparent 65%); pointer-events:none; }
         .wdv-sec.dark .wdv-shell { position:relative; z-index:1; }
-        .wdv-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height:1.02; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .wdv-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height: 1.14; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .wdv-h2 span { color:${GREEN}; }
         .wdv-sec.dark .wdv-h2 { color:#fff; }
         .wdv-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); margin:18px 0 0; }
@@ -367,7 +368,7 @@ export function WebDevelopment() {
           letter-spacing:-0.05em; color:${GREEN}; opacity:0.12; line-height:1; font-variant-numeric:tabular-nums; pointer-events:none; }
         .wdv-sc-ic { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,${NAVY},#12395f); color:${GREEN}; margin-bottom:18px; }
-        .wdv-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; }
+        .wdv-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; }
         .wdv-sc-p { font-size:clamp(14px,1.02vw,16px); line-height:1.78; color:rgba(8,33,60,0.62); margin:14px 0 0; }
         .wdv-sc.wide { grid-column:1 / -1; }
 
@@ -393,7 +394,7 @@ export function WebDevelopment() {
         .wdv-step:last-child .wdv-line { display:none; }
         .wdv-step-body { padding-bottom:clamp(28px,3.4vw,52px); }
         .wdv-step:last-child .wdv-step-body { padding-bottom:0; }
-        .wdv-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; padding-top:clamp(8px,1vw,14px); }
+        .wdv-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; padding-top:clamp(8px,1vw,14px); }
         .wdv-step-d { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:12px 0 0; max-width:72ch; }
         @media (max-width:480px){
           .wdv-step{ grid-template-columns:1fr; gap:10px; }
@@ -440,7 +441,7 @@ export function WebDevelopment() {
           padding:clamp(34px,5vw,72px); margin-top:clamp(36px,4vw,56px); text-align:center; }
         .wdv-ready::before { content:''; position:absolute; inset:0; pointer-events:none;
           background:radial-gradient(ellipse 50% 60% at 85% 10%, ${GREEN}1a, transparent 65%); }
-        .wdv-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height:1.04; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .wdv-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height: 1.16; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .wdv-ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.62); }
         .wdv-ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .wdv-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -468,7 +469,7 @@ export function WebDevelopment() {
               <p className="wdv-intro">
                 EG Digital is a Melbourne-based web development company that builds sites and web applications
                 engineered to perform: quick to load, easy to manage, search-ready from the first line of code, and
-                built to scale as your business grows. We are part of Eloma Group, so your build sits alongside cloud
+                built to scale as your business grows. We are part of <ElomaLink />, so your build sits alongside cloud
                 hosting, custom software, Microsoft and integrations, cyber security, and SEO under one roof. That
                 means the site we ship is not a stranded brochure. It connects to your systems, it stays secure, and it
                 gets found.
@@ -743,7 +744,7 @@ export function WebDevelopment() {
           </Reveal>
           <Reveal>
             <p className="wdv-legal">
-              EG Digital Australia Pty Ltd, a unit of Eloma Group. Web development delivered Australia-wide from
+              EG Digital Australia Pty Ltd, a unit of <ElomaLink />. Web development delivered Australia-wide from
               Melbourne.
             </p>
           </Reveal>

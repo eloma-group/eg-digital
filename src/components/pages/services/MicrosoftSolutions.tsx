@@ -8,6 +8,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN, EASE } from '../_kit'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - MICROSOFT SOLUTIONS (Australia)
@@ -268,7 +269,7 @@ export function MicrosoftSolutions() {
         @media (max-width:768px){ .mso-hin{ max-width:100%; } }
         .mso-hgrid { display:grid; grid-template-columns:1.06fr 0.94fr; gap:clamp(36px,5vw,88px); align-items:center; }
         @media (max-width:960px){ .mso-hgrid{ grid-template-columns:1fr; } }
-        .mso-h1 { font-size:clamp(44px,7.4vw,108px); font-weight:900; letter-spacing:0.015em; line-height:1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .mso-h1 { font-size:clamp(44px,7.4vw,108px); font-weight:900; letter-spacing:0.015em; line-height: 1.14; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .mso-h1 em { font-style:normal; color:${GREEN}; }
         .mso-lede { font-size:clamp(20px,2.6vw,34px); font-weight:800; letter-spacing:-0.01em; line-height:1.28; color:rgba(255,255,255,0.92); margin:22px 0 0; }
         .mso-lede span { color:${GREEN}; }
@@ -294,7 +295,7 @@ export function MicrosoftSolutions() {
           padding:clamp(28px,3vw,48px) clamp(24px,2.6vw,44px); text-align:center;
           box-shadow:0 40px 90px -40px rgba(0,0,0,0.6); animation:mso-panel-float 8s ease-in-out infinite; will-change:transform; }
         .mso-panel:hover { animation-play-state:paused; }
-        .mso-badge { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:1.8px; text-transform:uppercase;
+        .mso-badge { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:1.8px; text-transform:uppercase; word-spacing: 0.14em;
           color:${GREEN}; background:rgba(60,185,140,0.12); border:1px solid rgba(60,185,140,0.32); padding:7px 15px; border-radius:99px; margin-bottom:clamp(22px,2.6vw,34px); }
         .mso-tiles { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(10px,1.2vw,16px);
           width:clamp(140px,16vw,220px); aspect-ratio:1; margin:0 auto; }
@@ -319,7 +320,7 @@ export function MicrosoftSolutions() {
         .mso-sec.dark::before { content:''; position:absolute; top:-22%; left:-10%; width:min(640px,60vw); height:min(640px,60vw); border-radius:50%;
           background:radial-gradient(circle, ${MS_BLUE}2b, transparent 65%); pointer-events:none; }
         .mso-sec.dark .mso-shell { position:relative; z-index:1; }
-        .mso-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height:1.02; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .mso-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:0.01em; line-height: 1.14; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .mso-h2 span { color:${GREEN}; }
         .mso-sec.dark .mso-h2 { color:#fff; }
         .mso-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); margin:18px 0 0; }
@@ -350,7 +351,7 @@ export function MicrosoftSolutions() {
           letter-spacing:-0.05em; color:var(--mc); opacity:0.12; line-height:1; font-variant-numeric:tabular-nums; pointer-events:none; }
         .mso-sc-ic { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center;
           background:var(--mc); color:#fff; margin-bottom:18px; box-shadow:0 12px 26px -10px var(--mc); }
-        .mso-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; }
+        .mso-sc-t { font-size:clamp(21px,2.1vw,32px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; }
         .mso-sc-p { font-size:clamp(14px,1.02vw,16px); line-height:1.78; color:rgba(8,33,60,0.62); margin:14px 0 0; }
         .mso-sc.wide { grid-column:1 / -1; }
         @media (min-width:901px){ .mso-sc.wide .mso-sc-body{ columns:2; column-gap:clamp(24px,3vw,52px); } .mso-sc.wide .mso-sc-p:first-of-type{ margin-top:0; } .mso-sc.wide .mso-sc-body{ margin-top:14px; } }
@@ -377,7 +378,7 @@ export function MicrosoftSolutions() {
         .mso-step:last-child .mso-line { display:none; }
         .mso-step-body { padding-bottom:clamp(28px,3.4vw,52px); }
         .mso-step:last-child .mso-step-body { padding-bottom:0; }
-        .mso-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; padding-top:clamp(8px,1vw,14px); }
+        .mso-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:0.01em; line-height:1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; padding-top:clamp(8px,1vw,14px); }
         .mso-step-d { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:12px 0 0; max-width:72ch; }
 
         /* ── Cost ── */
@@ -415,7 +416,7 @@ export function MicrosoftSolutions() {
           padding:clamp(34px,5vw,72px); margin-top:clamp(36px,4vw,56px); text-align:center; }
         .mso-ready::before { content:''; position:absolute; inset:0; pointer-events:none;
           background:radial-gradient(ellipse 50% 60% at 85% 10%, ${MS_BLUE}17, transparent 65%); }
-        .mso-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height:1.04; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .mso-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:0.01em; line-height: 1.16; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .mso-ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.62); }
         .mso-ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .mso-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -476,7 +477,7 @@ export function MicrosoftSolutions() {
           <Reveal>
             <div className="mso-hero-more">
               <p className="mso-intro">
-                We are part of Eloma Group, which means your Microsoft environment sits next to web development, SEO,
+                We are part of <ElomaLink />, which means your Microsoft environment sits next to web development, SEO,
                 cloud hosting, cyber security, and custom software under one roof. That matters more than it sounds.
                 Your Microsoft setup, your security, your integrations, and the systems that connect to it are usually
                 run by three or four companies that never talk to each other. When one team handles all of it, your
@@ -758,7 +759,7 @@ export function MicrosoftSolutions() {
           </div>
           <Reveal>
             <p className="mso-legal">
-              EG Digital Australia Pty Ltd, a unit of Eloma Group. Certified Microsoft Partner delivering Microsoft
+              EG Digital Australia Pty Ltd, a unit of <ElomaLink />. Certified Microsoft Partner delivering Microsoft
               solutions Australia-wide from Melbourne.
             </p>
           </Reveal>

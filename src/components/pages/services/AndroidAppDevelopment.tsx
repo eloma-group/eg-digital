@@ -4,6 +4,7 @@ import {
 } from 'lucide-react'
 import { AppServicePage } from './_appServiceKit'
 import type { ServicePageData } from './_appServiceKit'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 const DATA: ServicePageData = {
   route: '/services/android-app-development-company-australia',
@@ -23,7 +24,7 @@ const DATA: ServicePageData = {
   ],
   intro: [
     'The catch with Android is that "Android" is not one device. It is Samsung, Xiaomi, Oppo, Pixel, and hundreds of others, across a dozen screen sizes and half a dozen live OS versions. An app that runs beautifully on the newest Galaxy and crashes on a two-year-old budget handset was tested on the wrong phone. And on Android, the budget handset is often the one most of your users carry.',
-    <><strong>EG Digital is a Melbourne-based Android app development company</strong> that builds native apps in Kotlin, engineered to be fast, secure, and reliable across the real range of devices your users have, not just the one in the demo. We are part of Eloma Group, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, holds up under real load, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
+    <><strong>EG Digital is a Melbourne-based Android app development company</strong> that builds native apps in Kotlin, engineered to be fast, secure, and reliable across the real range of devices your users have, not just the one in the demo. We are part of <ElomaLink />, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, holds up under real load, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
     'One partner scopes it, designs it, builds it, gets it onto Google Play, and maintains it. One number to call when something needs attention.',
     'Tell us what you want to build and we will give you a real number and a real timeline, not a vague range.',
   ],

@@ -64,7 +64,7 @@ export function SecuritySection() {
           margin-bottom:clamp(18px,2.2vw,28px);
         }
         .hv2-stat-val { font-size:clamp(22px,2.2vw,32px); font-weight:900; color:#fff; letter-spacing:-0.04em; line-height:1; }
-        .hv2-stat-lbl { font-size:10px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:1.3px; text-transform:uppercase; margin-top:4px; }
+        .hv2-stat-lbl { font-size:10px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:1.3px; text-transform:uppercase; word-spacing: 0.14em; margin-top:4px; }
         .hv2-tags { display:flex; gap:8px; flex-wrap:wrap; }
         .hv2-tag { padding:6px 14px; border-radius:100px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); font-size:12px; font-weight:600; color:rgba(255,255,255,0.5); transition:background .2s,border-color .2s,color .2s,transform .2s; cursor:default; }
         .hv2-tag:hover { background:rgba(60,185,140,0.12); border-color:rgba(60,185,140,0.4); color:#fff; transform:translateY(-2px); }
@@ -121,7 +121,7 @@ export function SecuritySection() {
 
             <motion.h2 {...fadeUp(0.07)} style={{
               fontSize:'clamp(52px,7.5vw,112px)', fontWeight:900,
-              letterSpacing:'-0.045em', lineHeight:0.88,
+              letterSpacing:'0.01em', lineHeight: 1,
               textTransform:'uppercase', color:'#fff',
               marginBottom:'clamp(18px,2.2vw,28px)',
             }}>

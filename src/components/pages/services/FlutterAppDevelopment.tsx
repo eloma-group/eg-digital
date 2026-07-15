@@ -4,6 +4,7 @@ import {
 } from 'lucide-react'
 import { AppServicePage } from './_appServiceKit'
 import type { ServicePageData } from './_appServiceKit'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 const DATA: ServicePageData = {
   route: '/services/flutter-app-development-company-australia',
@@ -23,7 +24,7 @@ const DATA: ServicePageData = {
   ],
   intro: [
     'A Flutter app that looks right in a demo and lags on a mid-range Android phone was not tested properly. Cross-platform development is meant to save you time and money, not cost you the performance and polish your users expect from a native app. Get it wrong and you end up maintaining two codebases anyway, because the shared one never worked properly to begin with.',
-    <><strong>EG Digital is a Melbourne-based Flutter app development company</strong> building iOS and Android apps from a single Flutter codebase, engineered to be fast, secure, and connected to the systems that run your business. We are part of Eloma Group, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, stays secure, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
+    <><strong>EG Digital is a Melbourne-based Flutter app development company</strong> building iOS and Android apps from a single Flutter codebase, engineered to be fast, secure, and connected to the systems that run your business. We are part of <ElomaLink />, so your app sits alongside cloud hosting, custom software, Microsoft integrations, cyber security, and SEO under one roof. The app we ship talks to your backend, stays secure, and keeps working after go-live, because the same team that built it is the team that keeps it running.</>,
     'One partner scopes it, designs it, builds it, ships it to both app stores, and maintains it. One number to call.',
     'Tell us what you want to build and we will give you a real number and a real timeline, not a vague range.',
   ],

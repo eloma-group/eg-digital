@@ -143,7 +143,7 @@ export function DevelopmentSolution() {
         .dvp-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(36px,5vw,80px); align-items:center; }
         .dvp-cwterm { border-top:1px solid rgba(255,255,255,0.08); padding:11px 16px; font-family:ui-monospace,monospace; font-size:11.5px; color:rgba(255,255,255,0.62); }
         @media (max-width:920px){ .dvp-hgrid{ grid-template-columns:1fr; } }
-        .dvp-h1 { font-size:clamp(52px,9.5vw,128px); font-weight:900; letter-spacing:-0.05em; line-height:0.88; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .dvp-h1 { font-size:clamp(52px,9.5vw,128px); font-weight:900; letter-spacing: 0.01em; line-height: 1; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .dvp-h1 span { color:${GREEN}; }
         .dvp-intro { max-width:520px; font-size:clamp(15px,1.25vw,19px); line-height:1.8; color:rgba(255,255,255,0.62); margin:22px 0 0; }
         .dvp-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -155,7 +155,7 @@ export function DevelopmentSolution() {
         .dvp-bg:hover { border-color:rgba(255,255,255,0.6); }
         .dvp-hstats { display:flex; gap:clamp(22px,3vw,44px); margin-top:clamp(30px,4vw,44px); }
         .dvp-hsv { font-size:clamp(24px,2.4vw,38px); font-weight:900; letter-spacing:-0.04em; color:#fff; line-height:1; }
-        .dvp-hsl { font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:6px; }
+        .dvp-hsl { font-size:11px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.45); margin-top:6px; }
 
         /* code window in hero */
         .dvp-codewin { border-radius:16px; overflow:hidden; background:#0a1322; border:1px solid rgba(255,255,255,0.1);
@@ -175,7 +175,7 @@ export function DevelopmentSolution() {
         .dvp-row.rev .dvp-text { order:2; }
         @media (max-width:900px){ .dvp-row{ grid-template-columns:1fr; gap:clamp(24px,5vw,40px); } .dvp-row.rev .dvp-text{ order:0; } }
         .dvp-rno { font-family:ui-monospace,monospace; font-size:14px; font-weight:800; color:${GREEN}; }
-        .dvp-rt { font-size:clamp(30px,3.6vw,60px); font-weight:900; letter-spacing:-0.04em; line-height:0.95; text-transform:uppercase; color:${NAVY}; margin:10px 0 14px; }
+        .dvp-rt { font-size:clamp(30px,3.6vw,60px); font-weight:900; letter-spacing: 0.01em; line-height: 1.07; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:10px 0 14px; }
         .dvp-rd { font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); max-width:46ch; margin:0 0 20px; }
         .dvp-rtags { display:flex; flex-wrap:wrap; gap:8px; }
         .dvp-pill { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:rgba(8,33,60,0.64);
@@ -194,7 +194,7 @@ export function DevelopmentSolution() {
         .dvp-mock:hover .dvp-tile:nth-child(3){ transform:translateY(-3px); }
         .dvp-mlive { position:absolute; top:16px; right:16px; z-index:3; display:inline-flex; align-items:center; gap:6px;
           background:rgba(60,185,140,0.16); border:1px solid rgba(60,185,140,0.4); color:${GREEN}; font-size:10px; font-weight:800;
-          letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:99px; }
+          letter-spacing:1px; text-transform:uppercase; word-spacing: 0.14em; padding:4px 10px; border-radius:99px; }
         .dvp-mlive i { width:6px; height:6px; border-radius:50%; background:${GREEN}; }
 
         /* code */
@@ -218,7 +218,7 @@ export function DevelopmentSolution() {
         .dvp-blink { font-size:12px; font-weight:600; color:rgba(8,33,60,0.5); }
         .dvp-bcta { margin-left:auto; background:${GREEN}; color:${NAVY}; font-size:11px; font-weight:800; padding:6px 14px; border-radius:99px; }
         .dvp-bhero { display:flex; flex-direction:column; gap:9px; align-items:flex-start; margin-bottom:clamp(16px,2vw,22px); }
-        .dvp-bh { font-size:clamp(22px,2.6vw,38px); font-weight:900; letter-spacing:-0.04em; line-height:0.95; color:${NAVY}; text-transform:uppercase; }
+        .dvp-bh { font-size:clamp(22px,2.6vw,38px); font-weight:900; letter-spacing: 0.01em; line-height: 1.07; color:${NAVY}; text-transform:uppercase; word-spacing: 0.14em; }
         .dvp-bsub { font-size:clamp(12px,1vw,14px); color:rgba(8,33,60,0.5); line-height:1.6; }
         .dvp-bbtn { background:${NAVY}; color:#fff; font-size:12px; font-weight:800; padding:9px 18px; border-radius:99px; margin-top:4px; }
         .dvp-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
@@ -252,12 +252,12 @@ export function DevelopmentSolution() {
         .dvp-oic { width:52px; height:52px; border-radius:14px; background:rgba(60,185,140,0.14); color:${GREEN}; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
         .dvp-ot { font-size:clamp(18px,1.6vw,23px); font-weight:900; letter-spacing:-0.02em; color:${NAVY}; margin:0 0 9px; }
         .dvp-od { font-size:clamp(13px,1vw,15px); line-height:1.7; color:rgba(8,33,60,0.55); margin:0; }
-        .dvp-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .dvp-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .dvp-h2 span { color:${GREEN}; }
 
         /* ── CRM / ERP solution sections ── */
         .dvp-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.55); margin:18px 0 0; }
-        .dvp-subh { font-size:clamp(20px,2.4vw,34px); font-weight:900; letter-spacing:-0.035em; line-height:1; text-transform:uppercase; color:${NAVY}; margin:clamp(36px,4.5vw,60px) 0 0; }
+        .dvp-subh { font-size:clamp(20px,2.4vw,34px); font-weight:900; letter-spacing: 0.01em; line-height: 1.12; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:clamp(36px,4.5vw,60px) 0 0; }
         .dvp-sol { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.6vw,22px); margin-top:clamp(28px,3vw,40px); }
         @media (max-width:980px){ .dvp-sol{ grid-template-columns:repeat(2,1fr); } }
         @media (max-width:560px){ .dvp-sol{ grid-template-columns:1fr; } }

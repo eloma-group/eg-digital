@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { PageLayout, Eyebrow, NAVY, GREEN } from './_kit'
+import { linkEloma } from '../../lib/elomaLink'
 
 /* ── Shared legal-document layout ──
    A two-column reading layout (sticky section index on the left, prose on the
@@ -66,7 +67,7 @@ export function LegalDoc({
         {/* ── Sticky left: title + section index ── */}
         <div className="legal-left">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 style={{ fontSize: 'clamp(38px,5vw,76px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.92, color: NAVY, margin: '16px 0 20px', textTransform: 'uppercase' }}>
+          <h1 style={{ fontSize: 'clamp(38px,5vw,76px)', fontWeight: 900, letterSpacing: '0.015em', lineHeight: 1.14, color: NAVY, margin: '16px 0 20px', textTransform: 'uppercase' }}>
             {title}<br /><span style={{ color: GREEN }}>{highlight}</span>
           </h1>
 
@@ -108,7 +109,7 @@ export function LegalDoc({
                 {s.blocks.map((b, bi) =>
                   b.type === 'para' ? (
                     <p key={bi} style={{ fontSize: 'clamp(15px,1.15vw,18px)', lineHeight: 1.85, color: 'rgba(8,33,60,0.66)', margin: '0 0 18px' }}>
-                      {b.text}
+                      {linkEloma(b.text)}
                     </p>
                   ) : (
                     <ul key={bi} style={{ listStyle: 'none', margin: '0 0 18px', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>

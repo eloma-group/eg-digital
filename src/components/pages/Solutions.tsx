@@ -127,8 +127,8 @@ export function Solutions() {
 
         /* ── Hero ── */
         .sol-hero { padding: clamp(40px,6vw,96px) 0 clamp(28px,3vw,44px); }
-        .sol-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.88; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; }
+        .sol-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .sol-h1 span { color: ${GREEN}; }
         .sol-intro { max-width: 640px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8; color: rgba(8,33,60,0.58); margin: 22px 0 0; }
         .sol-jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(24px,3vw,36px); }
@@ -144,7 +144,7 @@ export function Solutions() {
           padding-top: clamp(28px,3vw,44px); border-top: 1px solid rgba(8,33,60,0.12); }
         .sol-ov-item { display: flex; flex-direction: column; gap: 4px; }
         .sol-ov-v { font-size: clamp(34px,4vw,60px); font-weight: 900; letter-spacing: -0.04em; color: ${NAVY}; line-height: 1; }
-        .sol-ov-l { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(8,33,60,0.42); }
+        .sol-ov-l { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.42); }
 
         /* ── Chapter sections ── */
         .sol-chapter { position: relative; overflow: hidden; scroll-margin-top: 88px; padding: clamp(56px,7vw,128px) 0; }
@@ -241,13 +241,13 @@ export function Solutions() {
         }
 
         .sol-tag { display: inline-flex; align-items: center; gap: 10px; font-size: clamp(11px,0.85vw,13px);
-          font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px; }
+          font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; margin-bottom: 14px; }
         .sol-tag .ic { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .sol-h2 { font-size: clamp(34px,4.4vw,72px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.92;
-          text-transform: uppercase; color: ${NAVY}; margin: 0 0 18px; }
+        .sol-h2 { font-size: clamp(34px,4.4vw,72px); font-weight: 900; letter-spacing: 0.01em; line-height: 1.04;
+          text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0 0 18px; }
         .sol-rule { height: 3px; width: 64px; border-radius: 99px; margin: 0 0 18px; transform-origin: left center; }
         .sol-blurb { font-size: clamp(15px,1.2vw,19px); line-height: 1.8; color: rgba(8,33,60,0.6); margin: 0; max-width: 46ch; }
-        .sol-meta { margin-top: 22px; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(8,33,60,0.38); }
+        .sol-meta { margin-top: 22px; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.38); }
 
         /* Capability cards */
         .sol-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(14px,1.6vw,22px); }

@@ -115,8 +115,8 @@ export function Contact() {
 
         /* ── Hero ── */
         .ct-hero { padding: clamp(48px,7vw,110px) 0 clamp(28px,3vw,40px); }
-        .ct-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: -0.05em;
-          line-height: 0.88; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; }
+        .ct-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .ct-h1 span { color: ${GREEN}; }
         .ct-intro { max-width: 620px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8;
           color: rgba(8,33,60,0.58); margin: 22px 0 0; }
@@ -129,7 +129,7 @@ export function Contact() {
         .ct-bar-ic { width: 40px; height: 40px; border-radius: 11px; background: rgba(60,185,140,0.12);
           color: ${GREEN}; display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.2s; }
         a.ct-bar-item:hover .ct-bar-ic { background: rgba(60,185,140,0.2); transform: translateY(-2px); }
-        .ct-bar-l { font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(8,33,60,0.4); }
+        .ct-bar-l { font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.4); }
         .ct-bar-v { font-size: clamp(15px,1.1vw,17px); font-weight: 700; color: ${NAVY}; transition: color 0.2s; }
         a.ct-bar-item:hover .ct-bar-v { color: ${GREEN}; }
 
@@ -138,8 +138,8 @@ export function Contact() {
         .ct-form-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(32px,4.5vw,80px); align-items: start; }
         @media (max-width: 900px) { .ct-form-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-        .ct-aside-h { font-size: clamp(28px,3.4vw,48px); font-weight: 900; letter-spacing: -0.035em;
-          line-height: 1; color: ${NAVY}; text-transform: uppercase; margin: 14px 0 18px; }
+        .ct-aside-h { font-size: clamp(28px,3.4vw,48px); font-weight: 900; letter-spacing: 0.01em;
+          line-height: 1.12; color: ${NAVY}; text-transform: uppercase; word-spacing: 0.14em; margin: 14px 0 18px; }
         .ct-aside-p { font-size: clamp(14px,1.05vw,16px); line-height: 1.8; color: rgba(8,33,60,0.55);
           max-width: 440px; margin-bottom: clamp(24px,3vw,38px); }
         .ct-steps { display: flex; flex-direction: column; }
@@ -156,10 +156,10 @@ export function Contact() {
           border-radius: 24px; padding: clamp(26px,3vw,46px); box-shadow: 0 10px 40px rgba(8,33,60,0.07); }
         .ct-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
           background: linear-gradient(90deg, ${GREEN}, #2dd4a0); }
-        .ct-form-h { font-size: clamp(24px,3vw,38px); font-weight: 900; letter-spacing: -0.03em;
-          color: ${NAVY}; text-transform: uppercase; margin: 0 0 26px; line-height: 1; }
+        .ct-form-h { font-size: clamp(24px,3vw,38px); font-weight: 900; letter-spacing: 0.01em;
+          color: ${NAVY}; text-transform: uppercase; word-spacing: 0.14em; margin: 0 0 26px; line-height: 1.12; }
         .ct-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-        .ct-field label { font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(8,33,60,0.5); }
+        .ct-field label { font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.5); }
         .ct-field input, .ct-field textarea, .ct-field select {
           font-family: inherit; font-size: 15px; color: ${NAVY}; background: ${CREAM};
           border: 1px solid rgba(8,33,60,0.12); border-radius: 12px; padding: 14px 16px; outline: none;
@@ -173,7 +173,7 @@ export function Contact() {
           font-family: inherit; min-height: 54px; transition: background 0.2s, transform 0.2s; }
         .ct-submit:hover { background: ${GREEN}; color: ${NAVY}; transform: translateY(-2px); }
         .ct-thanks { text-align: center; padding: clamp(28px,4vw,56px) 0; }
-        .ct-thanks h3 { font-size: clamp(26px,3vw,40px); font-weight: 900; color: ${NAVY}; text-transform: uppercase; letter-spacing: -0.03em; margin: 0 0 12px; }
+        .ct-thanks h3 { font-size: clamp(26px,3vw,40px); font-weight: 900; color: ${NAVY}; text-transform: uppercase; word-spacing: 0.14em; letter-spacing: 0.01em; margin: 0 0 12px; }
         .ct-thanks p { font-size: 16px; color: rgba(8,33,60,0.6); line-height: 1.7; margin: 0; }
 
         /* ── Locations / global presence ── */
@@ -189,13 +189,13 @@ export function Contact() {
         @media (max-width: 980px) { .ct-loc-grid { grid-template-columns: 1fr; gap: clamp(36px,5vw,52px); } }
 
         /* left rail */
-        .ct-loc-h2 { font-size: clamp(40px,6vw,92px); font-weight: 900; color: #fff; letter-spacing: -0.045em;
-          line-height: 0.92; text-transform: uppercase; margin: 16px 0 0; }
+        .ct-loc-h2 { font-size: clamp(40px,6vw,92px); font-weight: 900; color: #fff; letter-spacing: 0.01em;
+          line-height: 1.04; text-transform: uppercase; word-spacing: 0.14em; margin: 16px 0 0; }
         .ct-loc-h2 span { color: ${GREEN}; }
         .ct-loc-sub { font-size: clamp(14px,1.1vw,17px); color: rgba(255,255,255,0.5); line-height: 1.75; margin: 18px 0 0; max-width: 460px; }
         .ct-loc-stats { display: flex; gap: clamp(20px,3vw,40px); margin-top: clamp(28px,3.4vw,44px); flex-wrap: wrap; }
         .ct-loc-stat-v { font-size: clamp(30px,3.6vw,52px); font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1; }
-        .ct-loc-stat-l { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 8px; }
+        .ct-loc-stat-l { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(255,255,255,0.4); margin-top: 8px; }
         .ct-loc-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: clamp(28px,3.4vw,44px);
           background: ${GREEN}; color: ${NAVY}; border-radius: 100px; padding: 15px 30px;
           font-size: 15px; font-weight: 800; text-decoration: none; min-height: 52px;

@@ -122,7 +122,7 @@ export function Services() {
         @media (min-width: 2560px) { .sv-shell { max-width: 2440px; } }
 
         .sv-hero { padding: clamp(40px,6vw,92px) 0 clamp(24px,3vw,40px); }
-        .sv-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.88; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; }
+        .sv-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em; line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .sv-h1 span { color: ${GREEN}; }
         .sv-intro { max-width: 640px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8; color: rgba(8,33,60,0.58); margin: 22px 0 0; }
 
@@ -131,12 +131,12 @@ export function Services() {
           padding-top: clamp(28px,3vw,40px); border-top: 1px solid rgba(8,33,60,0.12); }
         @media (max-width: 680px) { .sv-stats { grid-template-columns: repeat(2,1fr); gap: 28px 16px; } }
         .sv-sv { font-size: clamp(30px,4vw,56px); font-weight: 900; letter-spacing: -0.05em; color: ${NAVY}; line-height: 1; }
-        .sv-sl { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(8,33,60,0.42); margin-top: 8px; }
+        .sv-sl { font-size: clamp(11px,0.85vw,13px); font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.42); margin-top: 8px; }
         @keyframes svc-beat { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); } 70%,100% { box-shadow: 0 0 0 8px rgba(255,255,255,0); } }
 
         /* ── Service modules section ── */
         .sv-rows-sec { margin-top: clamp(48px,6vw,92px); }
-        .sv-sech { font-size: clamp(30px,4vw,64px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.94; text-transform: uppercase; color: ${NAVY}; margin: 12px 0 0; }
+        .sv-sech { font-size: clamp(30px,4vw,64px); font-weight: 900; letter-spacing: 0.01em; line-height: 1.06; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 12px 0 0; }
         .sv-sech span { color: ${GREEN}; }
 
         .svc-grid { display: flex; flex-direction: column; gap: clamp(18px,2.4vw,32px); }
@@ -153,12 +153,12 @@ export function Services() {
         .svc-head-row { position: relative; display: flex; align-items: center; justify-content: space-between; margin-bottom: clamp(22px,3vw,42px); }
         .svc-head-ic { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; }
         .svc-code { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: rgba(255,255,255,0.72); }
-        .svc-h { position: relative; font-size: clamp(30px,3.4vw,52px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; text-transform: uppercase; margin: 0 0 12px; }
+        .svc-h { position: relative; font-size: clamp(30px,3.4vw,52px); font-weight: 900; letter-spacing: 0.01em; line-height: 1.07; text-transform: uppercase; word-spacing: 0.14em; margin: 0 0 12px; }
         .svc-lead { position: relative; font-size: clamp(15px,1.3vw,19px); font-weight: 800; letter-spacing: -0.01em; color: #fff; margin: 0 0 14px; }
         .svc-body { position: relative; font-size: clamp(13px,1.05vw,16px); line-height: 1.7; color: rgba(255,255,255,0.8); margin: 0 0 auto; max-width: 46ch; }
         .svc-status { position: relative; display: inline-flex; align-items: center; gap: 8px; margin-top: clamp(22px,3vw,34px); align-self: flex-start;
           background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.28); border-radius: 99px; padding: 7px 14px;
-          font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; }
+          font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; word-spacing: 0.14em; }
         .svc-status i { width: 7px; height: 7px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,0.6); animation: svc-beat 2s ease-out infinite; }
         .svc-card.rev .svc-head { order: 2; }
         @media (max-width: 860px) { .svc-card.rev .svc-head { order: 0; } }

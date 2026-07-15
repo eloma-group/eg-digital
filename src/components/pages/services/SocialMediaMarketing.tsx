@@ -8,6 +8,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - SOCIAL MEDIA MARKETING (Australia)
@@ -238,7 +239,7 @@ export function SocialMediaMarketing() {
           background:radial-gradient(circle, ${GREEN}22, transparent 64%); pointer-events:none; z-index:0; }
         .smm-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .smm-hgrid{ grid-template-columns:1fr; } }
-        .smm-h1 { font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .smm-h1 { font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing: 0.01em; line-height: 1.02; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .smm-lede { font-size:clamp(22px,3vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1.04; color:${NAVY}; margin:20px 0 0; }
         .smm-lede span { color:${GREEN}; }
         .smm-intro { max-width:560px; font-size:clamp(15px,1.2vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:20px 0 0; }
@@ -263,7 +264,7 @@ export function SocialMediaMarketing() {
         .smm-sec.dark::before { content:''; position:absolute; top:-22%; left:-10%; width:min(640px,60vw); height:min(640px,60vw); border-radius:50%;
           background:radial-gradient(circle, ${GREEN}2e, transparent 65%); pointer-events:none; }
         .smm-sec.dark .smm-shell { position:relative; z-index:1; }
-        .smm-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .smm-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .smm-h2 span { color:${GREEN}; }
         .smm-sec.dark .smm-h2 { color:#fff; }
         .smm-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); margin:18px 0 0; }
@@ -293,7 +294,7 @@ export function SocialMediaMarketing() {
         @media (max-width:640px){ .smm-srow{ grid-template-columns:1fr; } }
         .smm-srow-ic { width:64px; height:64px; border-radius:17px; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,${NAVY},#12395f); color:${GREEN}; flex-shrink:0; }
-        .smm-srow-t { font-size:clamp(22px,2.4vw,38px); font-weight:900; letter-spacing:-0.035em; line-height:0.98; color:${NAVY}; margin:2px 0 0; text-transform:uppercase; }
+        .smm-srow-t { font-size:clamp(22px,2.4vw,38px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; color:${NAVY}; margin:2px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .smm-srow-p { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:14px 0 0; }
 
         /* ── Design / creative studio band ── */
@@ -335,7 +336,7 @@ export function SocialMediaMarketing() {
         .smm-step:last-child { border-bottom:1px solid rgba(8,33,60,0.12); }
         .smm-step-no { font-size:clamp(40px,5vw,86px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${GREEN};
           font-variant-numeric:tabular-nums; opacity:0.9; }
-        .smm-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1; color:${NAVY}; margin:0; text-transform:uppercase; }
+        .smm-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing: 0.01em; line-height: 1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; }
         .smm-step-d { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:12px 0 0; max-width:70ch; }
         @media (max-width:480px){
           .smm-step{ grid-template-columns:1fr; gap:10px; }
@@ -372,7 +373,7 @@ export function SocialMediaMarketing() {
         /* ── Ready band ── */
         .smm-ready { background:linear-gradient(160deg, #f2fbf7 0%, #e6f6ee 100%); border:1px solid ${GREEN}30; border-radius:28px;
           padding:clamp(34px,5vw,72px); margin-top:clamp(36px,4vw,56px); text-align:center; }
-        .smm-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:-0.045em; line-height:0.96; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .smm-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing: 0.01em; line-height: 1.08; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .smm-ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.62); }
         .smm-ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .smm-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -432,7 +433,7 @@ export function SocialMediaMarketing() {
         </div>
 
         <p className="smm-intro" style={{ maxWidth: 900 }}>
-          We are part of Eloma Group, which means your social sits next to web development, SEO, PPC, Microsoft and
+          We are part of <ElomaLink />, which means your social sits next to web development, SEO, PPC, Microsoft and
           cloud, and branding under one roof. That matters. The content you post, the landing pages it drives traffic
           to, and the email list it feeds are usually run by three different companies that never talk to each other.
           When one team handles all of it, your social feeds your website, your website feeds your list, and your list
@@ -723,7 +724,7 @@ export function SocialMediaMarketing() {
           </div>
           <Reveal>
             <p className="smm-legal">
-              EG Digital Australia Pty Ltd, a unit of Eloma Group. Social media marketing delivered Australia-wide from
+              EG Digital Australia Pty Ltd, a unit of <ElomaLink />. Social media marketing delivered Australia-wide from
               Melbourne.
             </p>
           </Reveal>

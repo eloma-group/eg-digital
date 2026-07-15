@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
+import { photo } from '../../lib/blogPosts'
 
 type Cat = 'Press' | 'Awards' | 'Articles'
 type Card =
-  | { type: 'cover'; cat: Cat; outlet: string; date: string; title: string; grad: string }
+  | { type: 'cover'; cat: Cat; outlet: string; date: string; title: string; img: string }
   | { type: 'quote'; cat: Cat; outlet: string; date: string; quote: string }
   | { type: 'outlet'; cat: Cat; outlet: string; date: string; label: string }
   | { type: 'text'; cat: Cat; outlet: string; date: string; title: string }
@@ -13,13 +14,13 @@ type Card =
 const FILTERS: ('All' | Cat)[] = ['All', 'Press', 'Awards', 'Articles']
 
 const CARDS: Card[] = [
-  { type: 'cover', cat: 'Press', outlet: 'AusTech Daily', date: 'Mar 2026', title: 'EG Digital named one of Melbourne’s fastest-growing studios', grad: `linear-gradient(135deg, ${NAVY}, #16406e)` },
+  { type: 'cover', cat: 'Press', outlet: 'AusTech Daily', date: 'Mar 2026', title: 'EG Digital named one of Melbourne’s fastest-growing studios', img: 'photo-1545044846-351ba102b6d5' },
   { type: 'quote', cat: 'Press', outlet: 'StartupSmart', date: 'Feb 2026', quote: '“A rare agency that ships enterprise-grade work at startup speed.”' },
   { type: 'outlet', cat: 'Press', outlet: 'The Australian', date: 'Jan 2026', label: 'As featured in' },
-  { type: 'cover', cat: 'Awards', outlet: 'Awards', date: 'Dec 2025', title: 'Site of the Day for the Lumio SaaS platform', grad: `linear-gradient(135deg, ${GREEN}, #1f8e69)` },
+  { type: 'cover', cat: 'Awards', outlet: 'Awards', date: 'Dec 2025', title: 'Site of the Day for the Lumio SaaS platform', img: 'photo-1551288049-bebda4e38f71' },
   { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Nov 2025', title: 'Why we quote honestly - and how fixed milestones keep us accountable' },
   { type: 'quote', cat: 'Awards', outlet: 'CSS Design Awards', date: 'Oct 2025', quote: '“Best UI Design - a masterclass in editorial restraint.”' },
-  { type: 'cover', cat: 'Articles', outlet: 'EG Journal', date: 'Sep 2025', title: 'Shipping Dynamics 365 for SMEs without the six-month timeline', grad: `linear-gradient(135deg, #16406e, ${GREEN})` },
+  { type: 'cover', cat: 'Articles', outlet: 'EG Journal', date: 'Sep 2025', title: 'Shipping Dynamics 365 for SMEs without the six-month timeline', img: 'photo-1600880292203-757bb62b4baf' },
   { type: 'outlet', cat: 'Press', outlet: 'SmartCompany', date: 'Aug 2025', label: 'As seen in' },
   { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Jul 2025', title: 'The single-partner model: one team from first call to launch' },
   { type: 'quote', cat: 'Awards', outlet: 'The Webby Awards', date: 'Jun 2025', quote: '“Honoree - Best Visual Design, Aesthetic.”' },
@@ -43,8 +44,14 @@ function PressCard({ c }: { c: Card }) {
   if (c.type === 'cover') {
     return (
       <div style={base} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div style={{ position: 'relative', overflow: 'hidden', height: 'clamp(180px,16vw,240px)', background: c.grad }}>
-          <div style={{ position: 'absolute', inset: 0, background: c.grad, transform: hover ? 'scale(1.06)' : 'scale(1)', transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1)' }} />
+        <div style={{ position: 'relative', overflow: 'hidden', height: 'clamp(180px,16vw,240px)', background: NAVY }}>
+          <img
+            src={photo(c.img, 800, 480)}
+            alt={c.title}
+            loading="lazy"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: hover ? 'scale(1.06)' : 'scale(1)', transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1)' }}
+          />
         </div>
         <div style={{ background: '#fff', padding: 'clamp(18px,1.8vw,26px)' }}>
           {meta(false)}
@@ -107,7 +114,7 @@ export function Media() {
       <section style={{ borderBottom: `1px solid rgba(8,33,60,0.12)`, padding: 'clamp(36px,5vw,72px) clamp(24px,4vw,72px) clamp(20px,3vw,36px)', maxWidth: 1760, margin: '0 auto' }}>
         <Reveal>
           <Eyebrow>Press & Features</Eyebrow>
-          <h1 style={{ fontSize: 'clamp(52px,12vw,200px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.86, color: NAVY, margin: '14px 0 0', textTransform: 'uppercase' }}>
+          <h1 style={{ fontSize: 'clamp(52px,12vw,200px)', fontWeight: 900, letterSpacing: '0.015em', lineHeight: 1.06, color: NAVY, margin: '14px 0 0', textTransform: 'uppercase' }}>
             Newsroom
           </h1>
         </Reveal>
@@ -117,14 +124,21 @@ export function Media() {
       <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px)' }}>
         <Reveal>
           <div className="md-lead" style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(24px,3vw,52px)', alignItems: 'center', background: '#fff', border: '1px solid rgba(8,33,60,0.1)', borderRadius: 20, overflow: 'hidden' }}>
-            <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: `linear-gradient(135deg, ${NAVY} 0%, ${GREEN} 160%)`, position: 'relative' }}>
-              <span style={{ position: 'absolute', top: 22, left: 22, background: GREEN, color: NAVY, fontSize: 11, fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '7px 13px', borderRadius: 99 }}>Featured</span>
+            <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: NAVY, position: 'relative', overflow: 'hidden' }}>
+              <img
+                src={photo('photo-1522071820081-009f0129c71c', 900, 700)}
+                alt="The EG Digital team collaborating in the studio"
+                loading="lazy"
+                decoding="async"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <span style={{ position: 'absolute', top: 22, left: 22, zIndex: 1, background: GREEN, color: NAVY, fontSize: 11, fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '7px 13px', borderRadius: 99 }}>Featured</span>
             </div>
             <div style={{ padding: 'clamp(28px,3vw,56px) clamp(28px,3vw,56px) clamp(28px,3vw,56px) 0' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: GREEN }}>
                 AusTech Daily<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />March 2026
               </div>
-              <h2 style={{ fontSize: 'clamp(26px,3.2vw,52px)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.02, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase' }}>
+              <h2 style={{ fontSize: 'clamp(26px,3.2vw,52px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.08, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase' }}>
                 The studio shipping enterprise work at startup speed
               </h2>
               <p style={{ fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: 0, maxWidth: 520 }}>

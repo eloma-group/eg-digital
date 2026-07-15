@@ -4,11 +4,11 @@ import { AsdPartnershipStrip } from './AsdPartnershipStrip'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 import { solutionsHref, servicesHref } from '../../lib/sectionRoutes'
 import { industryHref } from '../../lib/industryRoutes'
+import { ElomaLink } from '../../lib/elomaLink'
 
 // Blog category links land on the Blog page with that filter pre-applied.
 const BLOG_CATEGORY_HREF: Record<string, string> = {
   'Latest Technologies': '/blog?category=latest-technologies',
-  'Awareness':           '/blog?category=awareness',
 }
 
 // Resolve a footer link's destination from its column heading.
@@ -49,7 +49,7 @@ const COLS: { heading: string; links: string[] }[] = [
       'Banking & Financial Services','Manufacturing','Education','Real Estate',
       'Logistics & Supply Chain','Travel and Tourism','Agriculture','Hospitality','Food and Beverage',
     ] },
-  { heading: 'Company',    links: ['Career','Blog','Latest Technologies','Awareness'] },
+  { heading: 'Company',    links: ['Career','Blog','Latest Technologies'] },
 ]
 
 /* ── Inline brand SVGs (lucide removed brand icons) ── */
@@ -238,7 +238,7 @@ export function FooterSection() {
                   </span>
                   <div style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.2)' }} />
                   <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
-                    EG Digital Australia Pty Ltd (Unit of Eloma Group)
+                    EG Digital Australia Pty Ltd (Unit of <ElomaLink />)
                   </span>
                 </div>
               </div>

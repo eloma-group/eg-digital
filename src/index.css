@@ -41,6 +41,13 @@ a {
    static HTML and the live DOM. The transform-based slide-in still plays. */
 h1, h2, h3, h4, h5, h6 { opacity: 1 !important; }
 
+/* Breathing room for ALL uppercase text site-wide.
+   Uppercase words set tight together read as cramped, so add a small gap
+   between words. No inline style sets word-spacing, so this rule always wins.
+   Letter-spacing stays per-element (positive) so each component keeps its
+   intended tracking. */
+[style*="uppercase"] { word-spacing: 0.14em; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

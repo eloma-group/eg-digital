@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PageLayout, Eyebrow, NAVY, GREEN, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
@@ -75,7 +76,7 @@ export function FAQ() {
         {/* ── Sticky left ── */}
         <div className="faq-left">
           <Eyebrow>Help Centre</Eyebrow>
-          <h1 style={{ fontSize: 'clamp(38px,5vw,76px)', fontWeight: 900, letterSpacing: '-0.05em', lineHeight: 0.92, color: NAVY, margin: '16px 0 28px', textTransform: 'uppercase' }}>
+          <h1 style={{ fontSize: 'clamp(38px,5vw,76px)', fontWeight: 900, letterSpacing: '0.015em', lineHeight: 1.14, color: NAVY, margin: '16px 0 28px', textTransform: 'uppercase' }}>
             Questions,<br /><span style={{ color: GREEN }}>answered.</span>
           </h1>
 
@@ -97,10 +98,10 @@ export function FAQ() {
           <div style={{ background: NAVY, borderRadius: 16, padding: 'clamp(22px,2.2vw,30px)' }}>
             <div style={{ fontSize: 'clamp(17px,1.5vw,21px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', marginBottom: 8 }}>Still curious?</div>
             <p style={{ fontSize: 13.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)', margin: '0 0 18px' }}>Can’t find your answer? Talk to a real person on the team.</p>
-            <a href="mailto:connect@egdigital.com.au" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: GREEN, color: NAVY, borderRadius: 100, padding: '12px 22px', fontSize: 14, fontWeight: 800, textDecoration: 'none' }}>
+            <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: GREEN, color: NAVY, borderRadius: 100, padding: '12px 22px', fontSize: 14, fontWeight: 800, textDecoration: 'none' }}>
               Contact us
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={NAVY} strokeWidth="1.8" strokeLinecap="round" /></svg>
-            </a>
+            </Link>
           </div>
         </div>
 

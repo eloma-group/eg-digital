@@ -153,7 +153,7 @@ const CSS = `
   }
   .h3-robot-cap-t {
     display: block; font-size: clamp(12px, 0.95vw, 15px); font-weight: 900;
-    letter-spacing: -0.02em; text-transform: uppercase; color: ${NAVY}; line-height: 1.1;
+    letter-spacing: 0.01em; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; line-height: 1.1;
   }
   .h3-robot-cap-d {
     display: block; margin-top: 6px; font-size: clamp(12px, 0.95vw, 14px);
@@ -187,8 +187,8 @@ const CSS = `
   .h3-clip { overflow: hidden; line-height: 0.88; display: block; }
   .h3-clip + .h3-clip { margin-top: clamp(2px, 0.4vw, 6px); }
   .h3-word {
-    display: block; font-weight: 900; letter-spacing: -0.05em;
-    line-height: 0.88; text-transform: uppercase; color: ${NAVY};
+    display: block; font-weight: 900; letter-spacing: 0.01em;
+    line-height: 1; text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY};
   }
   .h3-word-green { color: ${GREEN}; }
 
@@ -197,7 +197,7 @@ const CSS = `
     background: linear-gradient(90deg, ${GREEN} 0%, rgba(60,185,140,0.1) 100%); transform-origin: left center; }
   .h3-rule-txt {
     font-size: clamp(9px, 0.65vw, 11px); font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: rgba(8,33,60,0.28); white-space: nowrap; flex-shrink: 0;
+    text-transform: uppercase; word-spacing: 0.14em; color: rgba(8,33,60,0.28); white-space: nowrap; flex-shrink: 0;
   }
 
   /* ── bottom bar ── */

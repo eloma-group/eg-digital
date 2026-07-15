@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - MOBILE APP DEVELOPMENT (Australia)
@@ -241,7 +242,7 @@ export function MobileAppDevelopment() {
         .mad-sec.dark .mad-shell { position:relative; z-index:1; }
 
         .mad-head { max-width:900px; margin:0 0 clamp(28px,3.4vw,52px); }
-        .mad-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .mad-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .mad-h2 span { color:${GREEN}; }
         .mad-sec.dark .mad-h2 { color:#fff; }
         .mad-lead { max-width:680px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:18px 0 0; }
@@ -287,7 +288,7 @@ export function MobileAppDevelopment() {
         .hero-head { display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
         .hero-head::before { content:''; position:absolute; top:-30%; right:-14%; width:52%; height:150%; border-radius:50%;
           background:radial-gradient(circle, ${GREEN}30, transparent 62%); pointer-events:none; }
-        .mad-h1 { position:relative; font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:#fff; margin:16px 0 0; text-transform:uppercase; }
+        .mad-h1 { position:relative; font-size:clamp(38px,5.6vw,82px); font-weight:900; letter-spacing: 0.01em; line-height: 1.02; color:#fff; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .mad-lede { position:relative; font-size:clamp(20px,2.4vw,34px); font-weight:900; letter-spacing:-0.035em; line-height:1.06; color:#fff; margin:18px 0 0; }
         .mad-lede span { color:${GREEN}; }
         .mad-cta { position:relative; display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -316,7 +317,7 @@ export function MobileAppDevelopment() {
         .mad-emblem-ring::after { content:''; position:absolute; inset:4px; border-radius:50%; background:${NAVY}; }
         .mad-emblem-ic { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:${GREEN}; z-index:1; }
         .mad-emblem-tx { display:flex; flex-direction:column; line-height:1.1; }
-        .mad-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.66); }
+        .mad-emblem-k { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(255,255,255,0.66); }
         .mad-emblem-v { display:flex; align-items:center; gap:7px; font-size:15px; font-weight:900; letter-spacing:-0.02em; color:#fff; }
         .mad-dot { width:9px; height:9px; border-radius:50%; background:${GREEN}; animation:mad-pulse 1.8s ease-in-out infinite; }
         @keyframes mad-spin { to { transform:rotate(360deg); } }
@@ -342,7 +343,7 @@ export function MobileAppDevelopment() {
         .srv-feat { display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,2.6vw,40px); align-items:center; }
         @media (max-width:640px){ .srv-feat{ grid-template-columns:1fr; } }
         .srv-feat .tico { width:66px; height:66px; margin:0; }
-        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; margin-bottom:12px; }
+        .srv-feat .t-t { font-size:clamp(24px,2.8vw,42px); text-transform:uppercase; word-spacing: 0.14em; margin-bottom:12px; }
 
         /* ── Steps ── */
         .step-no { font-size:clamp(38px,4.4vw,72px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${GREEN};
@@ -360,7 +361,7 @@ export function MobileAppDevelopment() {
 
         /* ── Ready band ── */
         .ready { text-align:center; }
-        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing:-0.045em; line-height:0.98; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .ready-h { font-size:clamp(30px,4.4vw,66px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.66); }
         .ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .mad-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -435,7 +436,7 @@ export function MobileAppDevelopment() {
               <p className="t-d">
                 EG Digital is a Melbourne-based mobile app development company that builds iOS, Android, and
                 cross-platform apps engineered to perform: fast, secure, scalable, and connected to the systems that
-                actually run your business. We are part of Eloma Group, so your app sits alongside cloud hosting, custom
+                actually run your business. We are part of <ElomaLink />, so your app sits alongside cloud hosting, custom
                 software, Microsoft and integrations, cyber security, and SEO under one roof. That means the app we ship
                 is not a stranded island. It talks to your backend, it stays secure, and it keeps working long after
                 go-live.

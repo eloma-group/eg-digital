@@ -399,7 +399,7 @@ export function Features() {
         .fb-eyebrow {
           font-size: clamp(10px, 0.72vw, 12px);
           font-weight: 800; letter-spacing: 2.5px;
-          text-transform: uppercase; color: ${GREEN};
+          text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN};
           margin-bottom: clamp(12px, 1.2vw, 18px);
           display: flex; align-items: center; gap: 10px;
           position: relative; z-index: 1;
@@ -413,8 +413,8 @@ export function Features() {
         .fb-h2 {
           font-size: clamp(34px, 4.5vw, 64px);
           font-weight: 900; color: ${NAVY};
-          text-transform: uppercase;
-          letter-spacing: -0.04em; line-height: 0.94;
+          text-transform: uppercase; word-spacing: 0.14em;
+          letter-spacing: 0.01em; line-height: 1.06;
           margin-bottom: clamp(14px, 1.8vw, 24px);
           position: relative; z-index: 1;
         }

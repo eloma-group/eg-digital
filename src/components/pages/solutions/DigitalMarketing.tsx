@@ -100,7 +100,7 @@ export function DigitalMarketingSolution() {
           background:radial-gradient(circle, ${AMBER}1f, transparent 64%); pointer-events:none; z-index:0; }
         .dmk-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .dmk-hgrid{ grid-template-columns:1fr; } }
-        .dmk-h1 { font-size:clamp(50px,9vw,124px); font-weight:900; letter-spacing:-0.05em; line-height:0.88; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .dmk-h1 { font-size:clamp(50px,9vw,124px); font-weight:900; letter-spacing: 0.01em; line-height: 1; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .dmk-h1 span { color:${AMBER}; }
         .dmk-intro { max-width:520px; font-size:clamp(15px,1.25vw,19px); line-height:1.8; color:rgba(8,33,60,0.58); margin:22px 0 0; }
         .dmk-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -119,7 +119,7 @@ export function DigitalMarketingSolution() {
         .dmk-panel:hover { animation-play-state:paused; }
         .dmk-ptop { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
         .dmk-ptitle { font-size:14px; font-weight:800; color:${NAVY}; }
-        .dmk-plive { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+        .dmk-plive { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; word-spacing: 0.14em;
           color:${GREEN}; background:rgba(60,185,140,0.12); border:1px solid rgba(60,185,140,0.3); padding:4px 10px; border-radius:99px; }
         .dmk-plive i { width:6px; height:6px; border-radius:50%; background:${GREEN}; }
         .dmk-pstats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
@@ -139,11 +139,11 @@ export function DigitalMarketingSolution() {
           padding-top:clamp(28px,3vw,40px); border-top:1px solid rgba(8,33,60,0.12); position:relative; z-index:1; }
         @media (max-width:680px){ .dmk-metrics{ grid-template-columns:repeat(2,1fr); gap:28px 16px; } }
         .dmk-mv { font-size:clamp(32px,4vw,58px); font-weight:900; letter-spacing:-0.05em; color:${NAVY}; line-height:1; }
-        .dmk-ml { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:rgba(8,33,60,0.42); margin-top:8px; }
+        .dmk-ml { font-size:clamp(11px,0.85vw,13px); font-weight:800; letter-spacing:1.6px; text-transform:uppercase; word-spacing: 0.14em; color:rgba(8,33,60,0.42); margin-top:8px; }
 
         /* ── Bento services ── */
         .dmk-sec { padding:clamp(56px,7vw,120px) 0; background:#fff; }
-        .dmk-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .dmk-h2 { font-size:clamp(34px,4.6vw,76px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .dmk-h2 span { color:${AMBER}; }
         .dmk-lead { max-width:560px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.55); margin:16px 0 0; }
         .dmk-bento { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:minmax(150px,auto); gap:clamp(14px,1.6vw,22px);
@@ -224,8 +224,8 @@ export function DigitalMarketingSolution() {
           background:radial-gradient(circle, ${AMBER}24, transparent 60%); pointer-events:none; }
         .dmk-fb-ic { position:relative; width:60px; height:60px; border-radius:16px; background:linear-gradient(150deg,${AMBER}29,${AMBER}0d);
           display:flex; align-items:center; justify-content:center; color:${AMBER}; margin-bottom:auto; }
-        .dmk-fb-tag { position:relative; font-size:11px; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; color:${AMBER}; margin:22px 0 10px; }
-        .dmk-fb-t { position:relative; font-size:clamp(26px,3vw,46px); font-weight:900; letter-spacing:-0.04em; line-height:0.95; margin:0 0 12px; text-transform:uppercase; color:${NAVY}; }
+        .dmk-fb-tag { position:relative; font-size:11px; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; word-spacing: 0.14em; color:${AMBER}; margin:22px 0 10px; }
+        .dmk-fb-t { position:relative; font-size:clamp(26px,3vw,46px); font-weight:900; letter-spacing: 0.01em; line-height: 1.07; margin:0 0 12px; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; }
         .dmk-fb-d { position:relative; font-size:clamp(14px,1.1vw,17px); line-height:1.6; color:rgba(8,33,60,0.6); max-width:36ch; margin:0; }
 
         /* ── Cloud platform cards (dark) ── */
@@ -262,8 +262,8 @@ export function DigitalMarketingSolution() {
           background:radial-gradient(circle, ${AMBER}33, transparent 60%); pointer-events:none; }
         .dmk-mf-ic { position:relative; width:56px; height:56px; border-radius:15px; background:linear-gradient(150deg,${AMBER},${AMBER2});
           display:flex; align-items:center; justify-content:center; color:#fff; margin-bottom:18px; }
-        .dmk-mf-tag { position:relative; font-size:11px; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; color:${AMBER2}; margin-bottom:12px; display:inline-block; }
-        .dmk-mf-t { position:relative; font-size:clamp(24px,2.6vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:0.98; color:#fff; margin:0 0 12px; text-transform:uppercase; }
+        .dmk-mf-tag { position:relative; font-size:11px; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; word-spacing: 0.14em; color:${AMBER2}; margin-bottom:12px; display:inline-block; }
+        .dmk-mf-t { position:relative; font-size:clamp(24px,2.6vw,40px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; color:#fff; margin:0 0 12px; text-transform:uppercase; word-spacing: 0.14em; }
         .dmk-mf-d { position:relative; font-size:clamp(14px,1.1vw,17px); line-height:1.7; color:rgba(255,255,255,0.66); margin:0; max-width:40ch; }
         .dmk-ladder { position:relative; display:flex; flex-direction:column; gap:10px; }
         .dmk-ladder-row { display:flex; align-items:center; justify-content:space-between; gap:14px; background:rgba(255,255,255,0.05);

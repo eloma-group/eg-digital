@@ -8,6 +8,7 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
+import { ElomaLink, linkEloma } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
    SERVICE PAGE - PPC SERVICES (Australia)
@@ -203,7 +204,7 @@ export function PPCServices() {
           background:radial-gradient(circle, ${GREEN}22, transparent 64%); pointer-events:none; z-index:0; }
         .ppc-hgrid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,80px); align-items:center; }
         @media (max-width:920px){ .ppc-hgrid{ grid-template-columns:1fr; } }
-        .ppc-h1 { font-size:clamp(46px,7.4vw,102px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; }
+        .ppc-h1 { font-size:clamp(46px,7.4vw,102px); font-weight:900; letter-spacing: 0.01em; line-height: 1.02; color:${NAVY}; margin:16px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .ppc-lede { font-size:clamp(22px,3vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1.04; color:${NAVY}; margin:20px 0 0; }
         .ppc-lede span { color:${GREEN}; }
         .ppc-intro { max-width:560px; font-size:clamp(15px,1.2vw,18px); line-height:1.8; color:rgba(8,33,60,0.6); margin:20px 0 0; }
@@ -228,7 +229,7 @@ export function PPCServices() {
         .ppc-sec.dark::before { content:''; position:absolute; top:-22%; left:-10%; width:min(640px,60vw); height:min(640px,60vw); border-radius:50%;
           background:radial-gradient(circle, ${GREEN}2e, transparent 65%); pointer-events:none; }
         .ppc-sec.dark .ppc-shell { position:relative; z-index:1; }
-        .ppc-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing:-0.05em; line-height:0.92; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .ppc-h2 { font-size:clamp(34px,4.8vw,80px); font-weight:900; letter-spacing: 0.01em; line-height: 1.04; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .ppc-h2 span { color:${GREEN}; }
         .ppc-sec.dark .ppc-h2 { color:#fff; }
         .ppc-lead { max-width:640px; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.58); margin:18px 0 0; }
@@ -258,7 +259,7 @@ export function PPCServices() {
         @media (max-width:640px){ .ppc-srow{ grid-template-columns:1fr; } }
         .ppc-srow-ic { width:64px; height:64px; border-radius:17px; display:flex; align-items:center; justify-content:center;
           background:linear-gradient(150deg,${NAVY},#12395f); color:${GREEN}; flex-shrink:0; }
-        .ppc-srow-t { font-size:clamp(22px,2.4vw,38px); font-weight:900; letter-spacing:-0.035em; line-height:0.98; color:${NAVY}; margin:2px 0 0; text-transform:uppercase; }
+        .ppc-srow-t { font-size:clamp(22px,2.4vw,38px); font-weight:900; letter-spacing: 0.01em; line-height: 1.1; color:${NAVY}; margin:2px 0 0; text-transform:uppercase; word-spacing: 0.14em; }
         .ppc-srow-p { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:14px 0 0; }
 
         /* ── Audiences ── */
@@ -279,7 +280,7 @@ export function PPCServices() {
         .ppc-step:last-child { border-bottom:1px solid rgba(8,33,60,0.12); }
         .ppc-step-no { font-size:clamp(40px,5vw,86px); font-weight:900; letter-spacing:-0.05em; line-height:0.9; color:${GREEN};
           font-variant-numeric:tabular-nums; opacity:0.9; }
-        .ppc-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing:-0.035em; line-height:1; color:${NAVY}; margin:0; text-transform:uppercase; }
+        .ppc-step-t { font-size:clamp(22px,2.4vw,40px); font-weight:900; letter-spacing: 0.01em; line-height: 1.12; color:${NAVY}; margin:0; text-transform:uppercase; word-spacing: 0.14em; }
         .ppc-step-d { font-size:clamp(14px,1.05vw,16.5px); line-height:1.8; color:rgba(8,33,60,0.62); margin:12px 0 0; max-width:70ch; }
         @media (max-width:480px){
           .ppc-step{ grid-template-columns:1fr; gap:10px; }
@@ -316,7 +317,7 @@ export function PPCServices() {
         /* ── Ready band ── */
         .ppc-ready { background:linear-gradient(160deg, #f2fbf7 0%, #e6f6ee 100%); border:1px solid ${GREEN}30; border-radius:28px;
           padding:clamp(34px,5vw,72px); margin-top:clamp(36px,4vw,56px); text-align:center; }
-        .ppc-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing:-0.045em; line-height:0.96; text-transform:uppercase; color:${NAVY}; margin:14px 0 0; }
+        .ppc-ready-h { font-size:clamp(30px,4.4vw,68px); font-weight:900; letter-spacing: 0.01em; line-height: 1.08; text-transform:uppercase; word-spacing: 0.14em; color:${NAVY}; margin:14px 0 0; }
         .ppc-ready-p { max-width:720px; margin:18px auto 0; font-size:clamp(15px,1.15vw,18px); line-height:1.8; color:rgba(8,33,60,0.62); }
         .ppc-ready-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(24px,3vw,34px); }
         .ppc-tel { display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:${NAVY}; color:#fff; border-radius:100px;
@@ -376,7 +377,7 @@ export function PPCServices() {
         </div>
 
         <p className="ppc-intro" style={{ maxWidth: 900 }}>
-          We are part of Eloma Group, so your PPC sits next to web development, SEO, Microsoft and cloud, custom
+          We are part of <ElomaLink />, so your PPC sits next to web development, SEO, Microsoft and cloud, custom
           software, and cyber security under one roof. That matters more than it sounds. The landing page your ads
           point to, the tracking behind it, and the systems that catch the lead are usually where campaigns leak
           money. When the same team runs all of it, the leaks get sealed instead of blamed on someone else.
@@ -435,7 +436,7 @@ export function PPCServices() {
                     <div className="ppc-srow-ic"><Ic size={28} /></div>
                     <div>
                       <h3 className="ppc-srow-t">{s.t}</h3>
-                      {s.paras.map((p, pi) => <p key={pi} className="ppc-srow-p">{p}</p>)}
+                      {s.paras.map((p, pi) => <p key={pi} className="ppc-srow-p">{linkEloma(p)}</p>)}
                     </div>
                   </div>
                 </Reveal>
@@ -630,7 +631,7 @@ export function PPCServices() {
           </div>
           <Reveal>
             <p className="ppc-legal">
-              EG Digital Australia Pty Ltd, a unit of Eloma Group. PPC management delivered Australia-wide from
+              EG Digital Australia Pty Ltd, a unit of <ElomaLink />. PPC management delivered Australia-wide from
               Melbourne.
             </p>
           </Reveal>
