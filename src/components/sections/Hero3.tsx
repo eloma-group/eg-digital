@@ -48,24 +48,27 @@ function useDeferredMount() {
   return ready
 }
 
-function Words() {
+function Words({ compact }: { compact?: boolean }) {
+  const sz = compact
+    ? { a: 'clamp(30px, 11cqi, 116px)', b: 'clamp(34px, 15cqi, 156px)', c: 'clamp(24px, 8cqi, 92px)' }
+    : { a: 'clamp(42px, 17.5cqi, 184px)', b: 'clamp(50px, 23.5cqi, 248px)', c: 'clamp(34px, 12.8cqi, 148px)' }
   return (
     <>
       <h1 style={{ margin: 0, fontWeight: 'inherit', letterSpacing: 'inherit' }}>
         <span className="h3-clip">
-          <motion.span className="h3-word" style={{ fontSize: 'clamp(48px, 20cqi, 210px)' }}
+          <motion.span className="h3-word" style={{ fontSize: sz.a }}
             initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.2 }}>
             We Build
           </motion.span>
         </span>
         <span className="h3-clip">
-          <motion.span className="h3-word h3-word-green" style={{ fontSize: 'clamp(58px, 27cqi, 284px)' }}
+          <motion.span className="h3-word h3-word-green" style={{ fontSize: sz.b }}
             initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.3 }}>
             Digital
           </motion.span>
         </span>
         <span className="h3-clip">
-          <motion.span className="h3-word" style={{ fontSize: 'clamp(38px, 14.5cqi, 168px)' }}
+          <motion.span className="h3-word" style={{ fontSize: sz.c }}
             initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.1, ease: EASE, delay: 0.4 }}>
             Excellence.
           </motion.span>
@@ -123,6 +126,23 @@ const CSS = `
     padding-top: 76px;
   }
 
+  /* duplicate panels: no robot, fully white background */
+  .h3-section-plain { background: #ffffff; }
+  /* headline can use the full width since the robot half is gone */
+  @media (min-width: 981px) {
+    .h3-section-plain .h3-head { width: 100%; }
+  }
+
+  /* full-cover background video for the duplicate panels */
+  .h3-bg-video {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  /* bare panel: no headline, so push the bottom bar to the bottom of the section */
+  .h3-section-bare .h3-bar { margin-top: auto; }
+
   /* ── ambient light-theme glow behind the robot ── */
   .h3-amb { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .h3-amb::before, .h3-amb::after { content: ''; position: absolute; border-radius: 50%; filter: blur(60px); }
@@ -141,7 +161,10 @@ const CSS = `
        whichever is smaller: half the screen, or whatever keeps the square
        inside the available height. ── */
   .h3-robot {
-    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    position: absolute; right: 0; top: 50%;
+    /* nudge the robot right so it clears the DIGITAL headline (the empty
+       canvas margin on its right just slips off-screen) */
+    transform: translate(clamp(28px, 4.5vw, 84px), -50%);
     width: min(50%, calc(100svh - 76px)); aspect-ratio: 1 / 1; z-index: 3;
   }
   .h3-stage { position: absolute; inset: 0; }
@@ -184,7 +207,10 @@ const CSS = `
     .h3-head { width: 56%; }
   }
 
-  .h3-clip { overflow: hidden; line-height: 0.88; display: block; }
+  /* padding-right widens the clip's visible (padding) box so the last glyph
+     (e.g. the L in DIGITAL) is never trimmed by overflow:hidden. cqi keeps
+     the breathing room proportional to the big headline. */
+  .h3-clip { overflow: hidden; line-height: 0.88; display: block; padding-right: clamp(6px, 1.4cqi, 22px); }
   .h3-clip + .h3-clip { margin-top: clamp(2px, 0.4vw, 6px); }
   .h3-word {
     display: block; font-weight: 900; letter-spacing: 0.01em;
@@ -236,11 +262,9 @@ const CSS = `
   }
 `
 
-/* ════════════════════════════════════════════════════════════════════
-   HERO 3 - Full-bleed layout/content with a white -> gray section gradient
-   backdrop and the (transparent) robot on the right.
-   ════════════════════════════════════════════════════════════════════ */
-export function Hero3() {
+/* One hero panel. Each instance owns its own in-view / robot-mount lifecycle so
+   the duplicates below the first only spin up their 3D scene while on screen. */
+function HeroPanel({ isFirst, bare }: { isFirst?: boolean; bare?: boolean }) {
   // Spline runs a non-stop render loop that keeps burning the GPU even when the
   // hero is far off-screen, which makes the WHOLE page scroll badly. We mount
   // the 3D scenes only while the hero is in (or near) the viewport and unmount
@@ -250,13 +274,30 @@ export function Hero3() {
   const inView = useInView(ref, { margin: '400px 0px 400px 0px' })
   const deferReady = useDeferredMount()
 
+  // Only the first panel gets the robot + gradient backdrop. The two duplicates
+  // below are plain white with no 3D scene.
   return (
-    <>
-      <style>{CSS}</style>
+    <section
+      ref={ref}
+      className={`h3-section${isFirst ? '' : ' h3-section-plain'}${bare ? ' h3-section-bare' : ''}`}
+      {...(isFirst ? { 'data-nav-overlap': true } : {})}
+    >
+      {isFirst && <div className="h3-amb" aria-hidden="true" />}
 
-      <section ref={ref} className="h3-section" data-nav-overlap>
-        <div className="h3-amb" aria-hidden="true" />
+      {!isFirst && (
+        <video
+          className="h3-bg-video"
+          src="/Digital Design.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+      )}
 
+      {isFirst && (
         <div className="h3-robot">
           <div className="h3-stage" aria-hidden="true">
             {inView && deferReady ? (
@@ -278,10 +319,27 @@ export function Hero3() {
             <span className="h3-robot-cap-d">Move your cursor and watch me follow along.</span>
           </motion.div>
         </div>
+      )}
 
-        <div className="h3-head"><Words /></div>
-        <CtaRow />
-      </section>
+      {!bare && <div className="h3-head"><Words compact={!isFirst} /></div>}
+      <CtaRow />
+    </section>
+  )
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   HERO 3 - Full-bleed layout/content with a white -> gray section gradient
+   backdrop and the (transparent) robot on the right.
+   Rendered three times: the original hero plus two duplicate panels below it.
+   ════════════════════════════════════════════════════════════════════ */
+export function Hero3() {
+  return (
+    <>
+      <style>{CSS}</style>
+
+      <HeroPanel isFirst />
+      <HeroPanel />
+      <HeroPanel bare />
     </>
   )
 }
