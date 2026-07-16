@@ -50,7 +50,7 @@ function useDeferredMount() {
 
 function Words({ compact }: { compact?: boolean }) {
   const sz = compact
-    ? { a: 'clamp(30px, 11cqi, 116px)', b: 'clamp(34px, 15cqi, 156px)', c: 'clamp(24px, 8cqi, 92px)' }
+    ? { a: 'clamp(22px, 6.5cqi, 68px)', b: 'clamp(26px, 9cqi, 92px)', c: 'clamp(18px, 5cqi, 56px)' }
     : { a: 'clamp(42px, 17.5cqi, 184px)', b: 'clamp(50px, 23.5cqi, 248px)', c: 'clamp(34px, 12.8cqi, 148px)' }
   return (
     <>
@@ -75,14 +75,16 @@ function Words({ compact }: { compact?: boolean }) {
         </span>
       </h1>
 
-      <div className="h3-rule-row">
-        <motion.div className="h3-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-          transition={{ duration: 1.0, ease: EASE, delay: 0.58 }} style={{ transformOrigin: 'left center' }} />
-        <motion.span className="h3-rule-txt" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.76 }}>
-          Building ambitious brands since 2025
-        </motion.span>
-      </div>
+      {!compact && (
+        <div className="h3-rule-row">
+          <motion.div className="h3-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+            transition={{ duration: 1.0, ease: EASE, delay: 0.58 }} style={{ transformOrigin: 'left center' }} />
+          <motion.span className="h3-rule-txt" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.76 }}>
+            Building ambitious brands since 2025
+          </motion.span>
+        </div>
+      )}
     </>
   )
 }
@@ -132,6 +134,9 @@ const CSS = `
   @media (min-width: 981px) {
     .h3-section-plain .h3-head { width: 100%; }
   }
+  /* duplicate content panel: anchor the headline to the top instead of centre,
+     with tighter top padding so it sits higher up */
+  .h3-section-plain .h3-head { justify-content: flex-start; padding-top: clamp(8px, 1.5vh, 20px); }
 
   /* full-cover background video for the duplicate panels */
   .h3-bg-video {
