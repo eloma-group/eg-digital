@@ -190,6 +190,121 @@ export const POSTS: BlogPost[] = [
 
   // ── Listing cards ───────────────────────────────────────────────────────────
   {
+    slug: 'is-ai-search-eating-your-organic-traffic-australia',
+    title: 'Is AI search eating your organic traffic? What Australian businesses need to know',
+    h1: 'Is AI Search Eating Your Organic Traffic? What Australian Businesses Need to Know',
+    excerpt:
+      "AI Overviews, ChatGPT and Perplexity are answering questions on the results page before anyone clicks. Here is what's really happening to your organic traffic, and how Australian businesses stay visible.",
+    category: 'Latest Technologies',
+    read: '6 min read',
+    date: 'Jul 17, 2026',
+    img: 'photo-1677442136019-21780ecad995',
+    metaTitle: 'Is AI Search Killing Your Organic Traffic? | EG Digital',
+    metaDescription:
+      "AI Overviews and chatbots are changing how Australians search. Learn what's really happening to your organic traffic and how to stay visible.",
+    body: [
+      {
+        k: 'p',
+        text: "If your organic traffic has dipped over the past year even though your rankings look fine, you're not imagining it. Google's AI Overviews, along with tools like ChatGPT and Perplexity, are answering questions directly on the search results page, often without the user ever clicking through to a website. For Australian businesses that have spent years building their SEO, this shift raises a fair question: is SEO still worth it?",
+      },
+      {
+        k: 'p',
+        text: 'The short answer is yes, but the rules of visibility are being rewritten, and businesses that adapt early will have a real advantage over those that wait.',
+      },
+
+      { k: 'h2', text: 'Why AI Search Is Changing the Game' },
+      {
+        k: 'p',
+        text: 'Traditional search sent users to a list of blue links. AI-powered search instead summarises information from multiple sources into a single answer, shown right at the top of the page. This is convenient for users, but it means fewer clicks reach individual websites, particularly for informational queries like "what is", "how to", or "best way to".',
+      },
+      {
+        k: 'p',
+        text: 'This doesn\'t affect every business equally. A local plumber searched for by suburb, or an ecommerce brand searched for by product name, still gets direct clicks because the intent is transactional, not informational. The businesses feeling the biggest impact are the ones relying heavily on top-of-funnel blog content to drive traffic.',
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1526628953301-3e589a6a8b74',
+        alt: 'A search performance dashboard showing click-through rate and quality metrics',
+        caption: 'Informational queries lose the most clicks to AI answers; transactional, local searches are far less affected.',
+      },
+
+      { k: 'h2', text: 'So, Is SEO Dead?' },
+      {
+        k: 'p',
+        text: 'No, but it is evolving. SEO is no longer just about ranking a page; it\'s about becoming the source that AI engines trust enough to cite or summarise. This broader discipline is often called AEO (Answer Engine Optimisation) or GEO (Generative Engine Optimisation), and it builds directly on solid [technical SEO](/services/technical-seo) foundations rather than replacing them.',
+      },
+
+      { k: 'h2', text: 'What Helps AI Engines Cite Your Website' },
+      {
+        k: 'ul',
+        items: [
+          'Clear, well-structured content that answers a specific question in the first few lines, rather than burying the answer under a long introduction.',
+          'Structured data (schema markup) that helps search engines understand exactly what your page is about.',
+          'Strong E-E-A-T signals - Experience, Expertise, Authoritativeness, and Trustworthiness - including author credentials and up-to-date information.',
+          "Original data, case studies, or insights that can't be found word-for-word on competitor sites.",
+          "A technically healthy site that's easy to crawl, fast to load, and free of indexing issues.",
+        ],
+      },
+      {
+        k: 'p',
+        text: "Google's own documentation on AI features in Search confirms that standard SEO best practices - helpful content, structured data, and technical health - remain the foundation for appearing in AI-generated results.",
+      },
+
+      { k: 'h2', text: 'What Metrics Should You Track Now?' },
+      {
+        k: 'p',
+        text: "Relying on organic click volume alone no longer tells the full story. Alongside traditional traffic and ranking reports, it's worth tracking:",
+      },
+      {
+        k: 'ul',
+        items: [
+          '**Branded search volume** - are more people searching for your business by name after seeing you referenced elsewhere?',
+          '**AI citation visibility** - is your brand or content being referenced in AI Overviews or chatbot answers?',
+          '**Conversion rate of the traffic you do get** - fewer but higher-intent visitors can still mean more revenue.',
+          '**Assisted conversions** - where search played a role earlier in the customer journey, even without a final click.',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1551288049-bebda4e38f71',
+        alt: 'An analytics dashboard tracking page load, bounce rate and session metrics',
+        caption: 'Branded search, AI citations, conversion rate and assisted conversions paint a fuller picture than clicks alone.',
+      },
+
+      { k: 'h2', text: 'How EG Digital Approaches AI-Era SEO' },
+      {
+        k: 'p',
+        text: "At EG Digital, our approach combines technical SEO fundamentals with content built to be cited, not just clicked. This means fixing the technical basics - like crawlability, structured data, and site performance - while building content around real expertise and clear, direct answers. If you'd like a clearer picture of how your site currently performs on both fronts, our team can walk you through a [full SEO review](/services/seo-services), including how visible your business is in AI-generated results.",
+      },
+
+      { k: 'h2', text: 'Frequently Asked Questions' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: 'Is SEO still worth investing in with AI search on the rise?',
+            a: 'Yes. AI-generated answers are still built from indexed, well-optimised content. Businesses with strong SEO foundations are more likely to be cited by AI tools, not less.',
+          },
+          {
+            q: 'Will AI Overviews reduce my website traffic?',
+            a: 'For purely informational searches, some click reduction is likely. For local and transactional searches - where most small business revenue comes from - the impact is generally much smaller.',
+          },
+          {
+            q: 'What is AEO or GEO, and do I need it?',
+            a: 'AEO (Answer Engine Optimisation) and GEO (Generative Engine Optimisation) refer to optimising content so AI tools can understand, trust, and cite it. It\'s not a replacement for SEO - it\'s an extension of it.',
+          },
+          {
+            q: 'How long does it take to see results from AI search optimisation?',
+            a: 'Similar to traditional SEO, most businesses start seeing measurable shifts in visibility within three to six months, depending on site authority and competition.',
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     slug: 'rank-google-maps-three-pack-australia',
     title: 'How to rank in the Google Maps three-pack in Australia',
     h1: 'How Do You Rank in the Google Maps Three-Pack in Australia?',
