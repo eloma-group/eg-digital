@@ -48,10 +48,8 @@ function useDeferredMount() {
   return ready
 }
 
-function Words({ compact }: { compact?: boolean }) {
-  const sz = compact
-    ? { a: 'clamp(22px, 6.5cqi, 68px)', b: 'clamp(26px, 9cqi, 92px)', c: 'clamp(18px, 5cqi, 56px)' }
-    : { a: 'clamp(42px, 17.5cqi, 184px)', b: 'clamp(50px, 23.5cqi, 248px)', c: 'clamp(34px, 12.8cqi, 148px)' }
+function Words() {
+  const sz = { a: 'clamp(42px, 17.5cqi, 184px)', b: 'clamp(50px, 23.5cqi, 248px)', c: 'clamp(34px, 12.8cqi, 148px)' }
   return (
     <>
       <h1 style={{ margin: 0, fontWeight: 'inherit', letterSpacing: 'inherit' }}>
@@ -75,16 +73,14 @@ function Words({ compact }: { compact?: boolean }) {
         </span>
       </h1>
 
-      {!compact && (
-        <div className="h3-rule-row">
-          <motion.div className="h3-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-            transition={{ duration: 1.0, ease: EASE, delay: 0.58 }} style={{ transformOrigin: 'left center' }} />
-          <motion.span className="h3-rule-txt" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.76 }}>
-            Building ambitious brands since 2025
-          </motion.span>
-        </div>
-      )}
+      <div className="h3-rule-row">
+        <motion.div className="h3-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+          transition={{ duration: 1.0, ease: EASE, delay: 0.58 }} style={{ transformOrigin: 'left center' }} />
+        <motion.span className="h3-rule-txt" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.76 }}>
+          Building ambitious brands since 2025
+        </motion.span>
+      </div>
     </>
   )
 }
@@ -127,26 +123,6 @@ const CSS = `
     position: relative; overflow: hidden;
     padding-top: 76px;
   }
-
-  /* duplicate panels: no robot, fully white background */
-  .h3-section-plain { background: #ffffff; }
-  /* headline can use the full width since the robot half is gone */
-  @media (min-width: 981px) {
-    .h3-section-plain .h3-head { width: 100%; }
-  }
-  /* duplicate content panel: anchor the headline to the top instead of centre,
-     with tighter top padding so it sits higher up */
-  .h3-section-plain .h3-head { justify-content: flex-start; padding-top: clamp(8px, 1.5vh, 20px); }
-
-  /* full-cover background video for the duplicate panels */
-  .h3-bg-video {
-    position: absolute; inset: 0; z-index: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-  }
-  /* bare panel: no headline, so push the bottom bar to the bottom of the section */
-  .h3-section-bare .h3-bar { margin-top: auto; }
 
   /* ── ambient light-theme glow behind the robot ── */
   .h3-amb { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -267,66 +243,45 @@ const CSS = `
   }
 `
 
-/* One hero panel. Each instance owns its own in-view / robot-mount lifecycle so
-   the duplicates below the first only spin up their 3D scene while on screen. */
-function HeroPanel({ isFirst, bare }: { isFirst?: boolean; bare?: boolean }) {
+/* The hero panel - robot + gradient backdrop, owning its own in-view /
+   robot-mount lifecycle so the 3D scene only spins up while on screen. */
+function HeroPanel() {
   // Spline runs a non-stop render loop that keeps burning the GPU even when the
   // hero is far off-screen, which makes the WHOLE page scroll badly. We mount
-  // the 3D scenes only while the hero is in (or near) the viewport and unmount
-  // them once it leaves - the render loop stops and the rest of the page scrolls
-  // free. The generous margin keeps them alive through small scrolls near the top.
+  // the 3D scene only while the hero is in (or near) the viewport and unmount
+  // it once it leaves - the render loop stops and the rest of the page scrolls
+  // free. The generous margin keeps it alive through small scrolls near the top.
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { margin: '400px 0px 400px 0px' })
   const deferReady = useDeferredMount()
 
-  // Only the first panel gets the robot + gradient backdrop. The two duplicates
-  // below are plain white with no 3D scene.
   return (
-    <section
-      ref={ref}
-      className={`h3-section${isFirst ? '' : ' h3-section-plain'}${bare ? ' h3-section-bare' : ''}`}
-      {...(isFirst ? { 'data-nav-overlap': true } : {})}
-    >
-      {isFirst && <div className="h3-amb" aria-hidden="true" />}
+    <section ref={ref} className="h3-section" data-nav-overlap>
+      <div className="h3-amb" aria-hidden="true" />
 
-      {!isFirst && (
-        <video
-          className="h3-bg-video"
-          src="/Digital Design.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
-      )}
-
-      {isFirst && (
-        <div className="h3-robot">
-          <div className="h3-stage" aria-hidden="true">
-            {inView && deferReady ? (
-              <div className="h3-fg-robot">
-                <Suspense fallback={<div className="h3-fallback"><span /></div>}>
-                  <RobotCanvas />
-                </Suspense>
-              </div>
-            ) : (
-              <div className="h3-fallback"><span /></div>
-            )}
-          </div>
-          <motion.div
-            className="h3-robot-cap"
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.95 }}
-          >
-            <span className="h3-robot-cap-t">Eyes on You</span>
-            <span className="h3-robot-cap-d">Move your cursor and watch me follow along.</span>
-          </motion.div>
+      <div className="h3-robot">
+        <div className="h3-stage" aria-hidden="true">
+          {inView && deferReady ? (
+            <div className="h3-fg-robot">
+              <Suspense fallback={<div className="h3-fallback"><span /></div>}>
+                <RobotCanvas />
+              </Suspense>
+            </div>
+          ) : (
+            <div className="h3-fallback"><span /></div>
+          )}
         </div>
-      )}
+        <motion.div
+          className="h3-robot-cap"
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.95 }}
+        >
+          <span className="h3-robot-cap-t">Eyes on You</span>
+          <span className="h3-robot-cap-d">Move your cursor and watch me follow along.</span>
+        </motion.div>
+      </div>
 
-      {!bare && <div className="h3-head"><Words compact={!isFirst} /></div>}
+      <div className="h3-head"><Words /></div>
       <CtaRow />
     </section>
   )
@@ -335,16 +290,13 @@ function HeroPanel({ isFirst, bare }: { isFirst?: boolean; bare?: boolean }) {
 /* ════════════════════════════════════════════════════════════════════
    HERO 3 - Full-bleed layout/content with a white -> gray section gradient
    backdrop and the (transparent) robot on the right.
-   Rendered three times: the original hero plus two duplicate panels below it.
    ════════════════════════════════════════════════════════════════════ */
 export function Hero3() {
   return (
     <>
       <style>{CSS}</style>
 
-      <HeroPanel isFirst />
       <HeroPanel />
-      <HeroPanel bare />
     </>
   )
 }
