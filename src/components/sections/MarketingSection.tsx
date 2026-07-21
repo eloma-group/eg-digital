@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { ElomaLink } from '../../lib/elomaLink'
 
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
@@ -338,7 +339,7 @@ export function MarketingSection() {
 
           <div className="hv4-serp-search">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="rgba(8,33,60,0.35)" strokeWidth="2"/><path d="M20 20L16.5 16.5" stroke="rgba(8,33,60,0.35)" strokeWidth="2" strokeLinecap="round"/></svg>
-            <span style={{ fontSize:12, color:'rgba(8,33,60,0.45)', fontWeight:600 }}>ecommerce agency sydney</span>
+            <span style={{ fontSize:12, color:'rgba(8,33,60,0.45)', fontWeight:600 }}>Logistics company melbourne</span>
           </div>
 
           <div className="hv4-serp-results">
@@ -347,8 +348,9 @@ export function MarketingSection() {
                 <span style={{ fontSize:9, fontWeight:800, letterSpacing:'1px', color:GREEN, background:`${GREEN}1a`, padding:'2px 8px', borderRadius:100 }}>#1 RANKING</span>
                 <span style={{ fontSize:9, fontWeight:700, color:GREEN }}>▲ +12 positions</span>
               </div>
-              <span style={{ fontSize:13, fontWeight:800, color:'#1a0dab' }}>Nova Commerce - Premium Online Store</span>
-              <span style={{ fontSize:11, color:'rgba(8,33,60,0.5)', lineHeight:1.5 }}>novacommerce.com.au - Shop the new season collection. Free shipping Australia-wide on all orders.</span>
+              <span style={{ fontSize:13, fontWeight:800, color:'#1a0dab' }}>Bivry - Australia's Trusted Logistics Company</span>
+              <span style={{ fontSize:11, color:'rgba(8,33,60,0.5)', lineHeight:1.5 }}>bivry.com.au - Road freight, warehousing and distribution across Australia. Get a quote today.</span>
+              <span style={{ fontSize:10, color:'rgba(8,33,60,0.4)', fontWeight:600, marginTop:2 }}>A brand under <ElomaLink /></span>
             </div>
 
             <div className="hv4-serp-row" style={{ opacity:0.55 }}>
