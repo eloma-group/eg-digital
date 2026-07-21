@@ -24,7 +24,7 @@ export function MarketingSection() {
   const METRICS = [
     { val:'+150%', lbl:'Organic Traffic', color:GREEN },
     { val:'#1',    lbl:'Google Rankings', color:NAVY  },
-    { val:'DA 6', lbl:'Domain Authority', color:NAVY },
+    { val:'DA 50+', lbl:'Domain Authority', color:NAVY },
     { val:'14',    lbl:'Industries Served', color:NAVY },
   ]
 

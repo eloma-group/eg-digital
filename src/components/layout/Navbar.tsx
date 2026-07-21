@@ -21,11 +21,6 @@ const SERVICES_ITEMS = [
 const SERVICES_LINK_MAP: Record<string, string> = Object.fromEntries(
   Object.entries(SERVICE_SECTIONS).map(([label, id]) => [label, `/services#${id}`]),
 )
-const BLOG_ITEMS = ['Latest Technologies']
-// Every blog option routes to the Blog page (no per-section anchors).
-const BLOG_LINK_MAP: Record<string, string> = Object.fromEntries(
-  BLOG_ITEMS.map(item => [item, '/blog']),
-)
 
 const INDUSTRIES_COL1 = [
   'Professional Services', 'IT', 'Startups & SMEs', 'Non Profit Organizations',
@@ -863,44 +858,8 @@ export function Navbar() {
 
             <button className="nav-link" onClick={() => { navigate('/career'); closeAll() }}>Career</button>
 
-            {/* Blog - full-width panel */}
-            <div
-              onMouseEnter={() => openMenu('blog')}
-              onMouseLeave={scheduleClose}
-              style={{ position: 'relative' }}
-            >
-              <button
-                className="nav-link"
-                style={{ color: activeMenu === 'blog' ? NAVY : undefined }}
-                aria-expanded={activeMenu === 'blog'}
-                onClick={() => { navigate('/blog'); closeAll() }}
-              >
-                Blog
-                <motion.span
-                  animate={{ rotate: activeMenu === 'blog' ? 180 : 0 }}
-                  transition={{ duration: 0.18 }}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <ChevronDown size={13} />
-                </motion.span>
-              </button>
-              <AnimatePresence>
-                {activeMenu === 'blog' && (
-                  <PanelDropdown
-                    eyebrow="Latest Insights"
-                    heading="Knowledge & Insights"
-                    desc="Stay ahead with expert articles on Microsoft, cloud computing, cyber security, and digital transformation trends."
-                    cta="View All Posts"
-                    ctaTo="/blog"
-                    columns={[{ items: BLOG_ITEMS }]}
-                    linkMap={BLOG_LINK_MAP}
-                    onClose={closeAll}
-                    onPanelMouseEnter={cancelClose}
-                    onPanelMouseLeave={scheduleClose}
-                  />
-                )}
-              </AnimatePresence>
-            </div>
+            {/* Blog - direct link */}
+            <button className="nav-link" onClick={() => { navigate('/blog'); closeAll() }}>Blog</button>
 
           </nav>
 
@@ -985,11 +944,7 @@ export function Navbar() {
 
             <button className="nav-mobile-link" onClick={() => { setMobileOpen(false); navigate('/career') }}>Career</button>
 
-            <MobileSection label="Blog" expanded={mobileExpanded === 'blog'} onToggle={() => toggleMobileSection('blog')}>
-              {BLOG_ITEMS.map(item => (
-                <button key={item} className="nav-mobile-item" onClick={() => { setMobileOpen(false); navigate('/blog') }}>{item}</button>
-              ))}
-            </MobileSection>
+            <button className="nav-mobile-link" onClick={() => { setMobileOpen(false); navigate('/blog') }}>Blog</button>
 
             <div className="nav-mobile-footer">
               <a href="tel:1800054555" style={{

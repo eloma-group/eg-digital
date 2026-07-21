@@ -201,7 +201,7 @@ function MockupMarketing() {
             <svg width="54" height="54" viewBox="0 0 54 54">
               <circle cx="27" cy="27" r="22" fill="none" stroke="rgba(8,33,60,0.06)" strokeWidth="5" />
               <circle cx="27" cy="27" r="22" fill="none" stroke={GREEN} strokeWidth="5"
-                strokeDasharray={`${2 * Math.PI * 22 * 0.84} ${2 * Math.PI * 22 * 0.16}`}
+                strokeDasharray={`${2 * Math.PI * 22 * 0.50} ${2 * Math.PI * 22 * 0.50}`}
                 strokeDashoffset={2 * Math.PI * 22 * 0.25}
                 strokeLinecap="round" />
             </svg>
@@ -210,7 +210,7 @@ function MockupMarketing() {
               display: 'flex', flexDirection: 'column',
               alignItems: 'center', justifyContent: 'center',
             }}>
-              <span style={{ fontSize: 13, fontWeight: 900, color: NAVY, lineHeight: 1 }}>84</span>
+              <span style={{ fontSize: 13, fontWeight: 900, color: NAVY, lineHeight: 1 }}>50</span>
               <span style={{ fontSize: 8, fontWeight: 700, color: 'rgba(8,33,60,0.35)', letterSpacing: '0.5px' }}>DA</span>
             </div>
           </div>
