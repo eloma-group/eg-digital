@@ -190,6 +190,124 @@ export const POSTS: BlogPost[] = [
 
   // ── Listing cards ───────────────────────────────────────────────────────────
   {
+    slug: 'chatgpt-ads-australian-businesses',
+    title: 'ChatGPT Ads are here: should your business be advertising inside AI conversations?',
+    h1: 'ChatGPT Ads Are Here: Should Your Business Be Advertising Inside AI Conversations?',
+    excerpt:
+      "ChatGPT Ads respond to context and intent inside a conversation, not keywords, reaching people before they'd ever type a search query. Here's what Australian businesses need to know before testing this new channel.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Jul 21, 2026',
+    img: 'photo-1676299081847-824916de030a',
+    metaTitle: 'ChatGPT Ads for Australian Businesses: Worth It in 2026? | EG Digital',
+    metaDescription:
+      "ChatGPT Ads are changing how people discover brands. Here's what Australian businesses need to know before testing this new advertising channel.",
+    body: [
+      {
+        k: 'p',
+        text: "For the past two decades, digital advertising has revolved around one idea: catch someone at the exact moment they're searching. ChatGPT Ads flip that model. Instead of matching keywords, they respond to context and intent inside a conversation - meaning a business can now appear in front of someone while they're still figuring out what they actually need, well before they'd ever type a search query.",
+      },
+      {
+        k: 'p',
+        text: "It's an early-stage platform, and like every new advertising channel, it comes with more questions than answers. But the businesses that understand how it works now are the ones best placed to use it well once it matures.",
+      },
+
+      { k: 'h2', text: 'How ChatGPT Ads Actually Work' },
+      {
+        k: 'p',
+        text: "Rather than bidding on search terms, OpenAI's advertising platform shows ads based on what a conversation is actually about. Two campaign types are currently available: standard campaigns aimed at traffic, leads and awareness, and product feed campaigns for ecommerce businesses that upload a product catalogue via SFTP.",
+      },
+      {
+        k: 'p',
+        text: "Conversion tracking and pixels can already be set up, even though full conversion-based optimisation isn't live yet. For businesses used to [Google Ads](/services/google-ads-management) or [Meta](/services/facebook-ads-management), the mechanics will feel familiar - the targeting logic is what's genuinely new.",
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1712002641088-9d76f9080889',
+        alt: 'A smartphone showing a folder of AI chat apps including ChatGPT',
+        caption: 'ChatGPT Ads surface inside AI conversations, reaching people while they are still working out what they actually need.',
+      },
+
+      { k: 'h2', text: 'Is This the Right Channel for Your Business?' },
+      {
+        k: 'p',
+        text: "ChatGPT Ads won't suit every business equally. They tend to perform best for products and services with a longer research phase - where people ask questions, compare options, and weigh up decisions before buying. Think SaaS, financial services, legal and healthcare providers, education, travel, automotive, and ecommerce brands with larger catalogues.",
+      },
+      {
+        k: 'p',
+        text: "If your business relies on impulse or last-minute purchases, this channel is less likely to move the needle right now - though that could shift as the platform develops.",
+      },
+
+      { k: 'h2', text: 'Why Your Brand Still Needs to Earn Trust Beyond the Ad' },
+      {
+        k: 'p',
+        text: "Here's the part many businesses overlook: getting the click is only half the job. Picture two businesses running near-identical ChatGPT campaigns. One has a strong, well-documented online presence - genuine expertise, consistent business information, and a few credible mentions elsewhere. The other has a website and not much else.",
+      },
+      {
+        k: 'p',
+        text: "When a user follows up with more questions, or asks the AI to double-check a claim, the business with the stronger digital footprint wins that moment of trust - regardless of which one paid for the placement. Your presence beyond the ad doesn't stop mattering once someone clicks. If anything, it matters more.",
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1552664730-d307ca884978',
+        alt: 'A marketing team mapping out a strategy with notes on a wall',
+        caption: 'Whether or not you advertise yet, the groundwork of content, structured data and consistent information is what wins trust once someone clicks.',
+      },
+
+      { k: 'h2', text: 'How to Prepare, Whether You Advertise Yet or Not' },
+      {
+        k: 'ul',
+        items: [
+          'Publish [content](/services/content-creation) that genuinely answers the questions your customers are asking.',
+          'Build brand authority through [digital PR](/services/off-page-seo) and credible third-party mentions.',
+          'Add [structured data](/services/technical-seo) so AI systems can understand your website correctly.',
+          'Keep your business details consistent everywhere they appear online.',
+          'Continue investing in solid [SEO](/services/seo-services) alongside newer GEO (Generative Engine Optimisation) strategies.',
+        ],
+      },
+
+      { k: 'h2', text: 'Our Take' },
+      {
+        k: 'p',
+        text: "We don't recommend shifting your existing Google Ads or Meta Ads budget over to ChatGPT Ads just yet. Treat it as a channel worth testing with modest spend, while the fundamentals - content, structured data, and AI visibility - keep doing the heavier lifting in the background. If you'd like help figuring out where ChatGPT Ads fits into your marketing mix, our [PPC and digital advertising team](/services/ppc-services) can walk you through it.",
+      },
+      {
+        k: 'p',
+        text: "Thinking about testing ChatGPT Ads for your business? [Get in touch with EG Digital](/contact) to see how it fits alongside your existing SEO and paid media strategy.",
+      },
+
+      { k: 'h2', text: 'FAQs' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: 'Are ChatGPT Ads available to Australian businesses?',
+            a: "Yes. Australian businesses can create an advertiser account, verify using their ABN, and begin setting up campaigns, subject to OpenAI's platform availability and policies.",
+          },
+          {
+            q: 'How much do ChatGPT Ads cost?',
+            a: 'At the time of writing, the platform suggests a minimum daily budget of around AUD $25, with typical CPC bids near AUD $5 for healthy delivery. Costs are expected to shift as the platform matures.',
+          },
+          {
+            q: 'How is this different from Google Ads?',
+            a: "Google Ads targets people based on what they search for. ChatGPT Ads respond to the context and intent of an ongoing conversation, often reaching people earlier in their research, before they've defined a specific search query.",
+          },
+          {
+            q: 'Should I move my ad budget from Google Ads to ChatGPT Ads?',
+            a: "Not yet. It's best treated as an emerging channel to test alongside established platforms, rather than a replacement for them.",
+          },
+          {
+            q: 'Which businesses benefit most from ChatGPT Ads?',
+            a: 'Businesses with longer buying cycles or considered purchases - such as SaaS, finance, legal, healthcare, education, travel, and larger ecommerce catalogues - tend to see the most value.',
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     slug: 'is-ai-search-eating-your-organic-traffic-australia',
     title: 'Is AI search eating your organic traffic? What Australian businesses need to know',
     h1: 'Is AI Search Eating Your Organic Traffic? What Australian Businesses Need to Know',
