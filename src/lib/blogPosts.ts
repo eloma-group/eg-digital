@@ -36,8 +36,12 @@ export interface BlogPost {
 }
 
 // Builds a stable, cropped Unsplash CDN URL for a photo id at the given size.
+// A locally hosted image (a path beginning with "/") is returned as-is, so a
+// post can mix Unsplash ids with images we've downloaded into /public/images.
 export const photo = (id: string, w = 640, h = 400) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
+  id.startsWith('/')
+    ? id
+    : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
 export const POSTS: BlogPost[] = [
   // ── Featured / newest article (full body) ──────────────────────────────────
@@ -198,7 +202,7 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '5 min read',
     date: 'Jul 21, 2026',
-    img: 'photo-1676299081847-824916de030a',
+    img: '/images/blog/chatgpt-ads-hero.jpg',
     metaTitle: 'ChatGPT Ads for Australian Businesses: Worth It in 2026? | EG Digital',
     metaDescription:
       "ChatGPT Ads are changing how people discover brands. Here's what Australian businesses need to know before testing this new advertising channel.",
@@ -224,7 +228,7 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1712002641088-9d76f9080889',
+        id: '/images/blog/chatgpt-ads-apps.jpg',
         alt: 'A smartphone showing a folder of AI chat apps including ChatGPT',
         caption: 'ChatGPT Ads surface inside AI conversations, reaching people while they are still working out what they actually need.',
       },
@@ -251,7 +255,7 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1552664730-d307ca884978',
+        id: '/images/blog/chatgpt-ads-strategy.jpg',
         alt: 'A marketing team mapping out a strategy with notes on a wall',
         caption: 'Whether or not you advertise yet, the groundwork of content, structured data and consistent information is what wins trust once someone clicks.',
       },
