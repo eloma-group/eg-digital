@@ -46,6 +46,120 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Featured / newest article (full body) ──────────────────────────────────
   {
+    slug: 'query-fan-out-google-ai-search-seo',
+    title: "Query fan-out explained: why Google's AI search is rewriting the rules of SEO",
+    h1: "Query Fan-Out Explained: Why Google's AI Search Is Rewriting the Rules of SEO",
+    excerpt:
+      "If your organic traffic is shifting even though your rankings haven't moved, the cause might be query fan-out - the way Google's AI search breaks one question into many sub-queries and stitches the answers together before anyone clicks.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Jul 23, 2026',
+    img: 'photo-1526628953301-3e589a6a8b74',
+    metaTitle: "Query Fan-Out Explained | Google AI Search & SEO | EG Digital",
+    metaDescription:
+      "Query fan-out is how Google's AI Mode and AI Overviews answer questions. Learn what it means for SEO and how Australian businesses stay visible in AI search.",
+    featured: true,
+    body: [
+      {
+        k: 'p',
+        text: "If you've noticed your organic traffic shifting even though your rankings haven't moved, the explanation might not be your SEO at all - it might be how Google is generating answers before anyone clicks a result. At the centre of that shift is a technique called query fan-out, and it's quietly changing what \"ranking well\" even means.",
+      },
+
+      { k: 'h2', text: 'What Is Query Fan-Out?' },
+      {
+        k: 'p',
+        text: "Traditionally, a search engine matched one query to one set of ranked results. Query fan-out works differently. When someone asks a question inside Google's AI Mode or triggers an AI Overview, the system breaks that single question into a series of related sub-queries, runs them in parallel behind the scenes, and stitches the results into one combined answer.",
+      },
+      {
+        k: 'p',
+        text: "Ask something like \"best suburbs for young families in Melbourne\", and instead of returning one results page, the system might quietly search school ratings, safety statistics, commute times, and rental prices - then weave all of it into a single response. The person asking never sees those individual searches happen; they just see one comprehensive answer.",
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1432888622747-4eb9a8efeb07',
+        alt: "Google's AI Mode answering a question on a laptop screen",
+        caption: 'Query fan-out breaks one question into many sub-queries, then stitches the results into a single AI answer.',
+      },
+
+      { k: 'h2', text: 'Why This Matters for SEO' },
+      {
+        k: 'p',
+        text: 'This changes what content actually needs to do. Ranking for a single keyword used to be the goal. Now, a page might get pulled into an AI-generated answer because one specific paragraph provides the clearest response to just one of many sub-queries - even if the rest of the page never gets seen.',
+      },
+      {
+        k: 'p',
+        text: "This isn't a minor tweak to search behaviour. Google's own documentation on AI features confirms that AI Overviews and AI Mode may use this fan-out approach, issuing multiple related searches across subtopics and data sources to build a response - while normal ranking fundamentals like crawlability, structured data, and content quality still apply underneath it.",
+      },
+
+      { k: 'h2', text: 'Query Fan-Out vs Traditional Keyword Research' },
+      {
+        k: 'p',
+        text: "Traditional keyword research asks: what is one phrase people search for, and how do we rank for it? Query fan-out asks a broader question: what are all the sub-questions someone might have around this topic, and does our content answer them clearly enough to be pulled into a synthesised response? The shift is from optimising for a phrase to optimising for a topic's full range of related intents.",
+      },
+
+      { k: 'h2', text: 'What This Means for Australian Businesses' },
+      {
+        k: 'p',
+        text: "For local and service-based businesses, this raises the bar on completeness. A tradie's service page, a clinic's treatment page, or a retailer's product page now needs to anticipate the follow-up questions a customer would naturally ask - pricing, availability, comparisons, and location-specific details - rather than covering just the primary topic.",
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1551288049-bebda4e38f71',
+        alt: 'An analytics dashboard showing search and referral trends',
+        caption: 'Completeness wins: pages that answer the natural follow-up questions are the ones pulled into synthesised answers.',
+      },
+
+      { k: 'h2', text: 'How to Optimise for Query Fan-Out' },
+      {
+        k: 'ul',
+        items: [
+          'Structure content in clear, self-contained sections using proper H2/H3 subheadings, so each part can stand alone if pulled into an AI answer.',
+          'Answer likely follow-up questions directly within the page, not just the primary query.',
+          'Use [structured data](/services/technical-seo) to help systems understand exactly what each section covers.',
+          'Back up claims with specific, verifiable details rather than vague statements.',
+          'Keep information current, since freshness affects whether a page gets pulled into a live answer.',
+        ],
+      },
+
+      { k: 'h2', text: 'The Bigger Picture' },
+      {
+        k: 'p',
+        text: "Query fan-out is really a reminder that content should be built around real customer questions, not just target keywords. That's the same principle good SEO has always rewarded - it's just being tested more literally now. If you'd like a clearer picture of how your content holds up under this kind of scrutiny, our [SEO team at EG Digital](/services/seo-services) can walk you through it.",
+      },
+      {
+        k: 'p',
+        text: "**Want to know how your site performs under Google's query fan-out approach?** [Get in touch with EG Digital](/contact) for a tailored AI search visibility review.",
+      },
+
+      { k: 'h2', text: 'Frequently Asked Questions' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: "Is query fan-out only relevant to Google's AI Mode?",
+            a: "It's most associated with AI Mode, but Google has confirmed AI Overviews can use the same approach, and similar retrieval behaviour appears in tools like Gemini and ChatGPT when they need to pull in current information.",
+          },
+          {
+            q: 'Does this replace the need for keyword research?',
+            a: 'No. Keyword research still tells you what people are searching for. Query fan-out simply means content also needs to cover the related questions around that topic, not just the primary phrase.',
+          },
+          {
+            q: 'How do I know if my content is being pulled into AI-generated answers?',
+            a: "This is harder to track than traditional rankings, since there's no single position to check. Monitoring branded search volume, referral patterns, and manually testing your own target queries in AI Mode are practical starting points.",
+          },
+          {
+            q: 'Should every business rewrite their content for query fan-out right now?',
+            a: 'Not necessarily all at once. Starting with your highest-value pages - the ones already driving leads or sales - is the most practical way to adapt without a full site overhaul.',
+          },
+        ],
+      },
+    ],
+  },
+
+  // ── Older article (full body) ──────────────────────────────────────────────
+  {
     slug: 'search-console-social-video-properties',
     title: 'Google Search Console gains reporting on social and video platforms',
     excerpt:
@@ -57,7 +171,6 @@ export const POSTS: BlogPost[] = [
     metaTitle: 'Google Search Console Adds Social & Video Platform Properties',
     metaDescription:
       'Google Search Console now supports platform properties for Instagram, TikTok, X, and YouTube. Learn how to track your social and video search performance.',
-    featured: true,
     body: [
       { k: 'h2', text: 'TL;DR: Key facts about Search Console platform properties' },
       {
