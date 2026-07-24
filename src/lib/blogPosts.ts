@@ -89,7 +89,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         k: 'p',
-        text: "This isn't a minor tweak to search behaviour. Google's own documentation on AI features confirms that AI Overviews and AI Mode may use this fan-out approach, issuing multiple related searches across subtopics and data sources to build a response - while normal ranking fundamentals like crawlability, structured data, and content quality still apply underneath it.",
+        text: "This isn't a minor tweak to search behaviour. [Google's own documentation on AI features](https://developers.google.com/search/docs/appearance/ai-features) confirms that AI Overviews and AI Mode may use this fan-out approach, issuing multiple related searches across subtopics and data sources to build a response - while normal ranking fundamentals like crawlability, structured data, and content quality still apply underneath it.",
       },
 
       { k: 'h2', text: 'Query Fan-Out vs Traditional Keyword Research' },
@@ -117,7 +117,7 @@ export const POSTS: BlogPost[] = [
         items: [
           'Structure content in clear, self-contained sections using proper H2/H3 subheadings, so each part can stand alone if pulled into an AI answer.',
           'Answer likely follow-up questions directly within the page, not just the primary query.',
-          'Use [structured data](/services/technical-seo) to help systems understand exactly what each section covers.',
+          'Use structured data to help systems understand exactly what each section covers.',
           'Back up claims with specific, verifiable details rather than vague statements.',
           'Keep information current, since freshness affects whether a page gets pulled into a live answer.',
         ],

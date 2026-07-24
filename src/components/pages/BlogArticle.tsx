@@ -18,9 +18,22 @@ function renderInline(text: string): ReactNode[] {
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) nodes.push(text.slice(last, m.index))
     if (m[1] !== undefined) {
-      // [label](url)
+      // [label](url) - external URLs open in a new tab, internal paths use the router
+      const url = m[2]
       nodes.push(
-        <Link key={key++} to={m[2]} className="ba-link">{m[1]}</Link>,
+        /^https?:\/\//.test(url) ? (
+          <a
+            key={key++}
+            href={url}
+            className="ba-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {m[1]}
+          </a>
+        ) : (
+          <Link key={key++} to={url} className="ba-link">{m[1]}</Link>
+        ),
       )
     } else {
       // **bold**
