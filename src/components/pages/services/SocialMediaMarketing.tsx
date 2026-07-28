@@ -219,7 +219,7 @@ export function SocialMediaMarketing() {
   // match the approved META TITLE for this page.
   useEffect(() => {
     const prev = document.title
-    document.title = 'Social Media Marketing Services in Australia | EG Digital'
+    document.title = 'Social Media Marketing Agency Australia | EG Digital'
     return () => { document.title = prev }
   }, [])
 

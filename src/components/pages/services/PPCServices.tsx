@@ -184,7 +184,7 @@ export function PPCServices() {
   // match the approved META TITLE for this page.
   useEffect(() => {
     const prev = document.title
-    document.title = 'PPC Services in Australia | Google, Bing & Social Ads | EG Digital'
+    document.title = 'PPC Services Australia | Paid Search Experts | EG Digital'
     return () => { document.title = prev }
   }, [])
 

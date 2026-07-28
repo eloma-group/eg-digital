@@ -196,8 +196,8 @@ export function ContentCreation() {
   useServiceJsonLd('/services/content-creation')
 
   usePageMeta(
-    'Content Creation Services in Australia | EG Digital',
-    'Full-service content creation company in Australia. Content strategy, copywriting, B2B content, short-form video & design from a Melbourne team. Get a free content audit.',
+    'Content Creation Services Australia | EG Digital',
+    'Engaging, SEO-optimised content that converts - blogs, website copy and social content created by Australian content marketing specialists.',
   )
 
   return (

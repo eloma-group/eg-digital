@@ -197,8 +197,8 @@ export function LinkedInAdsManagement() {
   useServiceJsonLd('/services/linkedin-ads-management')
 
   usePageMeta(
-    'LinkedIn Ads Management Services Australia | B2B | EG Digital',
-    'B2B LinkedIn advertising company in Australia. Reach decision-makers by role, seniority & industry, with campaigns managed for pipeline, not impressions. CRM-connected, no lock-in. Free consultation.',
+    'LinkedIn Ads Management Agency Australia | EG Digital',
+    'B2B LinkedIn advertising that generates qualified leads. Campaign setup, targeting & optimisation by LinkedIn ads specialists.',
   )
 
   return (
