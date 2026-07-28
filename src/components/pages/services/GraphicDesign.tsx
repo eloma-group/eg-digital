@@ -8,9 +8,9 @@ import type { ServicePageData } from './_appServiceKit'
 
 const DATA: ServicePageData = {
   route: '/services/graphic-design',
-  metaTitle: 'Graphic Design Services in Australia | EG Digital',
+  metaTitle: 'Graphic Design Services Australia | EG Digital',
   metaDescription:
-    'Full-service graphic design company in Australia. Logo design, brand identity, UI/UX, social, brochure & book cover design from a Melbourne team. Get a free design audit.',
+    'Professional graphic design for brands that want to stand out - logos, digital assets and marketing collateral by experienced designers.',
   eyebrow: 'Graphic Design Company in Australia',
   h1: 'Graphic Design Services in Australia',
   lede: <>Design that does a <span>job</span>, not just looks nice.</>,

@@ -124,16 +124,22 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Discover EG Digital services including SEO, web development, AI solutions, cloud management, cybersecurity, and digital marketing for business growth.',
   },
   '/services/social-media-marketing': {
-    title: 'Social Media Marketing Services in Australia | EG Digital',
+    title: 'Social Media Marketing Agency Australia | EG Digital',
+    description:
+      'Grow your brand with data-driven social media marketing. Strategy, content & paid social tailored for Australian businesses. Book a free consult.',
   },
   '/services/ppc-services': {
-    title: 'PPC Services in Australia | Google, Bing & Social Ads | EG Digital',
+    title: 'PPC Services Australia | Paid Search Experts | EG Digital',
+    description:
+      'Results-focused PPC management across Google & Bing. Keyword strategy, conversion tracking and ongoing optimisation to lower cost per lead.',
   },
   '/services/web-development': {
     title: 'Web Development company in Australia | EG Digital',
   },
   '/services/seo-services': {
-    title: 'SEO company in Australia | SEO + AEO & GEO | EG Digital',
+    title: 'SEO Services Australia | Proven Results | EG Digital',
+    description:
+      'Data-driven SEO services that improve rankings, traffic and leads. Technical SEO, content and link building tailored for Australian businesses.',
   },
   '/services/technical-seo': {
     title: 'Technical SEO Company in Australia | Audits, Speed & Site Fixes | EG Digital',
@@ -151,29 +157,29 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Local SEO marketing services in Australia that rank you in Google Maps and local search. White-hat, Google Business Profile management, no lock-in. Get a free local SEO audit.',
   },
   '/services/off-page-seo': {
-    title: 'Off-Page SEO Services in Australia | Link Building | EG Digital',
+    title: 'Off-Page SEO Services Australia | EG Digital',
     description:
-      'White-hat off-page SEO and link building services in Australia. High-authority backlinks, guest posting, digital PR and brand mentions from a Melbourne team. Get a free off-page SEO audit.',
+      'Boost rankings with authoritative link building and digital PR. Off-page SEO strategies that build domain authority and drive organic growth.',
   },
   '/services/facebook-ads-management': {
-    title: 'Facebook Ads Management Services Australia | Meta Ads | EG Digital',
+    title: 'Facebook Ads Management Services Australia | EG Digital',
     description:
-      'Facebook & Instagram ads management in Australia, run on Meta Ads Manager for revenue, not reach. Audience targeting, creative & tracking done in-house. 100% of budget to Meta, no lock-in. Free consultation.',
+      'Expert Facebook & Instagram ads management that drives real leads and sales. Full-funnel strategy and optimisation. Get a free strategy call.',
   },
   '/services/google-ads-management': {
-    title: 'Google Ads Management Services Australia | EG Digital',
+    title: 'Google Ads Management Agency Australia | EG Digital',
     description:
-      'Expert Google Ads management in Australia. Search, Shopping, Performance Max & YouTube campaigns managed for revenue, not clicks. 100% of budget to Google, no lock-in. Get a free Google Ads audit.',
+      'Certified Google Ads management for Australian businesses. Expert campaign strategy, bid optimisation & transparent reporting. Get a free ads audit today.',
   },
   '/services/linkedin-ads-management': {
-    title: 'LinkedIn Ads Management Services Australia | B2B | EG Digital',
+    title: 'LinkedIn Ads Management Agency Australia | EG Digital',
     description:
-      'B2B LinkedIn advertising company in Australia. Reach decision-makers by role, seniority & industry, with campaigns managed for pipeline, not impressions. CRM-connected, no lock-in. Free consultation.',
+      'B2B LinkedIn advertising that generates qualified leads. Campaign setup, targeting & optimisation by LinkedIn ads specialists.',
   },
   '/services/branding': {
-    title: 'Branding Services in Australia | EG Digital',
+    title: 'Branding Agency Australia | Brand Strategy & Identity | EG Digital',
     description:
-      'Branding company in Australia. Brand strategy, identity, messaging, guidelines & rebranding from a Melbourne team. Get a free brand audit.',
+      'Build a brand that resonates. Strategy, identity and positioning services to help Australian businesses stand out and grow with confidence.',
   },
   '/services/email-marketing': {
     title: 'Email Marketing Services in Australia | EG Digital',
@@ -181,9 +187,9 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Email marketing company in Australia. Strategy, automation, newsletter design & campaign management for small business, ecommerce & B2B. Get a free email audit.',
   },
   '/services/content-creation': {
-    title: 'Content Creation Services in Australia | EG Digital',
+    title: 'Content Creation Services Australia | EG Digital',
     description:
-      'Full-service content creation company in Australia. Content strategy, copywriting, B2B content, short-form video & design from a Melbourne team. Get a free content audit.',
+      'Engaging, SEO-optimised content that converts - blogs, website copy and social content created by Australian content marketing specialists.',
   },
   '/services/flutter-app-development-company-australia': {
     title: 'Flutter App Development Company in Australia | EG Digital',
@@ -206,9 +212,9 @@ export const PAGE_META: Record<string, PageMeta> = {
       'iOS app development in Australia done right. Native iPhone & iPad apps built in Swift, secure and scalable, with in-house engineering. Melbourne team. Get a free quote.',
   },
   '/services/graphic-design': {
-    title: 'Graphic Design Services in Australia | EG Digital',
+    title: 'Graphic Design Services Australia | EG Digital',
     description:
-      'Full-service graphic design company in Australia. Logo design, brand identity, UI/UX, social, brochure & book cover design from a Melbourne team. Get a free design audit.',
+      'Professional graphic design for brands that want to stand out - logos, digital assets and marketing collateral by experienced designers.',
   },
   '/industries': {
     title: 'Industries We Serve | EG Digital Solutions',

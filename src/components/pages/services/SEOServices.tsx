@@ -269,7 +269,7 @@ export function SEOServices() {
   // match the approved META TITLE for this page.
   useEffect(() => {
     const prev = document.title
-    document.title = 'SEO company in Australia | SEO + AEO & GEO | EG Digital'
+    document.title = 'SEO Services Australia | Proven Results | EG Digital'
     return () => { document.title = prev }
   }, [])
 

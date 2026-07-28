@@ -208,8 +208,8 @@ export function FacebookAdsManagement() {
   useServiceJsonLd('/services/facebook-ads-management')
 
   usePageMeta(
-    'Facebook Ads Management Services Australia | Meta Ads | EG Digital',
-    'Facebook & Instagram ads management in Australia, run on Meta Ads Manager for revenue, not reach. Audience targeting, creative & tracking done in-house. 100% of budget to Meta, no lock-in. Free consultation.',
+    'Facebook Ads Management Services Australia | EG Digital',
+    'Expert Facebook & Instagram ads management that drives real leads and sales. Full-funnel strategy and optimisation. Get a free strategy call.',
   )
 
   return (

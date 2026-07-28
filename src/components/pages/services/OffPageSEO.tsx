@@ -173,8 +173,8 @@ export function OffPageSEO() {
   useServiceJsonLd('/services/off-page-seo')
 
   usePageMeta(
-    'Off-Page SEO Services in Australia | Link Building | EG Digital',
-    'White-hat off-page SEO and link building services in Australia. High-authority backlinks, guest posting, digital PR and brand mentions from a Melbourne team. Get a free off-page SEO audit.',
+    'Off-Page SEO Services Australia | EG Digital',
+    'Boost rankings with authoritative link building and digital PR. Off-page SEO strategies that build domain authority and drive organic growth.',
   )
 
   return (

@@ -193,8 +193,8 @@ export function Branding() {
   useServiceJsonLd('/services/branding')
 
   usePageMeta(
-    'Branding Services in Australia | EG Digital',
-    'Branding company in Australia. Brand strategy, identity, messaging, guidelines & rebranding from a Melbourne team. Get a free brand audit.',
+    'Branding Agency Australia | Brand Strategy & Identity | EG Digital',
+    'Build a brand that resonates. Strategy, identity and positioning services to help Australian businesses stand out and grow with confidence.',
   )
 
   return (
