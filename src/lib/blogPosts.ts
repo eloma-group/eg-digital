@@ -158,6 +158,194 @@ export const POSTS: BlogPost[] = [
     ],
   },
 
+  // ── Content decay article ───────────────────────────────────────────────────
+  {
+    slug: 'content-decay-declining-seo-content',
+    title: 'Content Decay: How to Spot It and Bring Declining SEO Content Back to Life',
+    h1: 'Content Decay: How to Spot It and Bring Declining SEO Content Back to Life',
+    excerpt:
+      "If a page that used to bring in steady traffic has quietly started sliding down the rankings, you're probably dealing with content decay - one of the most common and most ignored problems in SEO. Here's how to diagnose it and bring declining content back to life.",
+    category: 'Latest Technologies',
+    read: '8 min read',
+    date: 'Jul 28, 2026',
+    img: '/images/blog/semrush-position-tracking.jpg',
+    metaTitle: 'Content Decay: How to Diagnose & Fix Declining SEO',
+    metaDescription:
+      "Struggling with declining SEO rankings? Learn how to spot content decay, diagnose the cause, and refresh, rewrite, or consolidate content that's losing traffic.",
+    body: [
+      {
+        k: 'p',
+        text: 'If a page that used to bring in steady traffic has quietly started sliding down the rankings, you\'re probably dealing with content decay. It\'s one of the most common - and most ignored - problems in SEO, because unlike a Google penalty or a technical outage, it doesn\'t announce itself. It just erodes your traffic, one small drop at a time, until someone finally checks the analytics and asks, "wait, what happened to this page?"',
+      },
+      {
+        k: 'p',
+        text: 'At EG Digital, we see this constantly when auditing new client websites: dozens of once-strong pages sitting untouched for years, slowly losing relevance while competitors publish fresher, more useful content around the same keywords. Take a look at some of our [client results](/blog) to see what a proper content and [SEO](/services/seo-services) overhaul can achieve. The good news is that content decay is fixable - often more easily and cheaply than creating something new from scratch.',
+      },
+
+      { k: 'h2', text: 'Key Takeaways' },
+      {
+        k: 'ul',
+        items: [
+          'Content decay is a gradual, ongoing loss of rankings and traffic on pages that used to perform well.',
+          "It's usually caused by outdated information, growing competition, or search intent shifting away from what the page originally offered.",
+          'Not every declining page needs a rewrite - some just need a refresh, others should be merged, and a few are better removed entirely.',
+          'Regular content audits (ideally quarterly) catch decay early, before it turns into a full ranking collapse.',
+        ],
+      },
+
+      { k: 'h2', text: 'What Is Content Decay?' },
+      {
+        k: 'p',
+        text: 'Content decay is the slow decline in organic traffic, rankings, or engagement that a piece of content experiences over time, even though nothing was actively changed on the page. The content itself hasn\'t gotten "worse" - the world around it has moved on. Google rewards freshness and relevance as part of its helpful content guidelines, so a page that stood still while the topic, competition, or user expectations evolved will naturally start losing ground.',
+      },
+      {
+        k: 'p',
+        text: "It's different from a sudden traffic drop caused by an algorithm update or a technical issue. Decay is gradual - a slow bleed rather than a cliff edge - which is exactly why it's so easy to miss until the damage has compounded.",
+      },
+
+      { k: 'h2', text: 'Why Does Content Decay Happen?' },
+      { k: 'p', text: "There's rarely a single cause. In most audits, it's a mix of the following:" },
+      {
+        k: 'ul',
+        items: [
+          '**Outdated information.** Statistics, pricing, product details, or industry advice that were accurate a year or two ago no longer hold up.',
+          '**Rising competition.** Other websites have published newer, deeper, or better-structured content targeting the same keywords.',
+          '**Shifting search intent.** What people mean when they search a term can change, a query that used to be informational might now be transactional, or vice versa.',
+          '**Algorithm updates.** Google periodically re-evaluates what "quality" and "helpfulness" look like - see the official Google Search Status Dashboard for update history.',
+          "**Neglected internal linking.** As a website grows, older pages often get fewer internal links pointed at them, quietly signalling to search engines that they're less important.",
+        ],
+      },
+
+      { k: 'h2', text: 'Four Common Content Decay Patterns' },
+      {
+        k: 'p',
+        text: 'When we run audits at EG Digital, declining pages tend to fall into one of four recognisable patterns:',
+      },
+      {
+        k: 'ul',
+        items: [
+          '**1. The slow fade** - a gradual, steady decline over many months, usually tied to competitors publishing better content.',
+          '**2. The cliff drop** - a sharp, sudden loss after a core algorithm update, often affecting a cluster of similar pages at once.',
+          '**3. The seasonal mirage** - traffic that looks like decay but is actually a normal seasonal dip, which should be judged year-over-year, not month-over-month.',
+          '**4. The cannibalisation drag** - a page losing ground because a newer page on the same site is competing with it for the same keywords.',
+        ],
+      },
+      {
+        k: 'p',
+        text: "Knowing which pattern you're looking at matters, because the fix is different for each one.",
+      },
+
+      { k: 'h2', text: 'How to Identify Content Decay' },
+      {
+        k: 'p',
+        text: 'The clearest signal is a consistent, multi-month decline in organic sessions or keyword rankings for a page that once performed well. To spot it reliably:',
+      },
+      {
+        k: 'ul',
+        items: [
+          'Compare traffic and rankings over a rolling 6-12 month window in Google Search Console, not just the last 30 days.',
+          "Segment by page or page group so seasonal categories aren't mixed in with genuinely declining ones.",
+          'Check click-through rate alongside impressions - a drop in CTR with stable impressions often points to a weaker or outdated title and meta description rather than a ranking problem.',
+          'Cross-check against competitor content for the same keywords using a tool such as Ahrefs or Semrush to see whether newer, more comprehensive pages have overtaken yours.',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/semrush-competitors.jpg',
+        alt: 'Semrush dashboard comparing a website against competitor rankings for the same keywords',
+        caption: 'A tool like Semrush lets you cross-check declining pages against competitors ranking for the same keywords.',
+      },
+
+      { k: 'h2', text: 'Refresh, Rewrite, Consolidate, or Remove?' },
+      {
+        k: 'p',
+        text: "Not every declining page deserves the same treatment. Once you've identified a page in decline, decide which bucket it falls into:",
+      },
+      {
+        k: 'ul',
+        items: [
+          '**Refresh** - the core topic is still relevant, but facts, examples, or data need updating. This is the lightest-touch fix and usually the fastest to see results from.',
+          "**Rewrite** - the topic still matters, but the structure, depth, or angle no longer matches what's ranking well. This calls for a more substantial overhaul.",
+          '**Consolidate** - you have several thin or overlapping pages competing with each other. Merging them into one authoritative page often outperforms all of them combined.',
+          '**Remove (or redirect)** - the topic is no longer relevant to your business or audience, and no amount of updating will bring it back. Use a 301 redirect to a more relevant page to preserve any remaining link value.',
+        ],
+      },
+
+      { k: 'h2', text: 'What Should a Content Refresh Include?' },
+      { k: 'p', text: 'A genuine refresh goes beyond swapping the publish date. It typically involves:' },
+      {
+        k: 'ul',
+        items: [
+          'Updating statistics, screenshots, pricing, and examples to reflect current information.',
+          'Reviewing the page against current search intent - does it still answer the question the way people are actually asking it now?',
+          'Strengthening the introduction and headings so they match how the topic is being searched today.',
+          'Adding missing subtopics that competitor pages now cover.',
+          'Refreshing internal links, both to and from the page, to signal renewed relevance - see our [SEO services](/services/seo-services) for how we approach this.',
+          'Improving the title tag and meta description if click-through rate has slipped.',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/semrush-visibility-trend.jpg',
+        alt: 'Semrush position tracking dashboard showing keyword visibility trending over time',
+        caption: 'Position tracking in Semrush shows whether a refreshed page is recovering visibility over the following weeks.',
+      },
+
+      { k: 'h2', text: 'How to Prioritise Declining Pages' },
+      {
+        k: 'p',
+        text: "Most businesses don't have the resources to refresh everything at once, so prioritisation matters. We generally recommend ranking declining pages by:",
+      },
+      {
+        k: 'ul',
+        items: [
+          '**Traffic and revenue potential** - start with pages that used to drive meaningful business value, not just traffic volume.',
+          '**Ranking proximity** - pages sitting just outside page one often respond fastest to a refresh.',
+          '**Business relevance** - prioritise topics still central to your current offering over legacy content.',
+          '**Effort required** - a quick refresh with strong upside beats a major rewrite with uncertain payoff, especially early on.',
+        ],
+      },
+
+      { k: 'h2', text: 'Common Content Decay Mistakes' },
+      {
+        k: 'ul',
+        items: [
+          'Refreshing the date without meaningfully updating the content - search engines and readers both notice.',
+          'Treating every declining page the same way, rather than choosing refresh, rewrite, consolidate, or remove based on the specific cause.',
+          'Ignoring internal linking when updating a page, which limits how much authority it can regain.',
+          'Waiting for a page to hit zero traffic before acting, instead of catching decay early through regular audits.',
+        ],
+      },
+
+      { k: 'h2', text: 'Content Decay Audit Checklist' },
+      {
+        k: 'ul',
+        items: [
+          'Pull 12 months of Search Console data, segmented by page.',
+          'Flag pages with a sustained decline (not a seasonal dip).',
+          'Check current search intent against the existing content.',
+          'Compare against top-ranking competitor pages for the same keywords.',
+          'Decide: refresh, rewrite, consolidate, or remove.',
+          'Update content, internal links, and metadata together.',
+          'Track rankings and traffic for 60-90 days post-update.',
+        ],
+      },
+
+      { k: 'h2', text: 'Content Decay Is a Diagnosis, Not a Death Sentence' },
+      {
+        k: 'p',
+        text: "A declining page isn't a failure - it's feedback. It's Google and your audience telling you the content needs attention before it can keep earning its place in the rankings. The businesses that treat content like a living asset, auditing and refreshing it on a regular cycle, consistently outperform those that publish once and walk away.",
+      },
+      { k: 'p', text: '**Not sure which of your pages are quietly losing ground?**' },
+      {
+        k: 'p',
+        text: "That's exactly the kind of audit our team at EG Digital runs for clients across Australia. [Get in touch with EG Digital](/contact) and we'll help you turn declining content back into growth.",
+      },
+    ],
+  },
+
   // ── Older article (full body) ──────────────────────────────────────────────
   {
     slug: 'search-console-social-video-properties',
