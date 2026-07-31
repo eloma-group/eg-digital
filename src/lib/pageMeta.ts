@@ -20,7 +20,7 @@ export const DEFAULT_META = {
   title:
     'Digital Marketing Company in Australia | EG Digital',
   description:
-    'EG Digital is a results-driven digital marketing company in Australia. SEO, Google Ads, social, web design and Microsoft services from one accountable Melbourne team. Talk to us today.',
+    'EG Digital is a results-driven digital marketing company in Australia. SEO, Google Ads, social media, web design and Microsoft services from one accountable Melbourne team. Talk to us today.',
 }
 
 export interface PageMeta {
@@ -167,9 +167,9 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Expert Facebook & Instagram ads management that drives real leads and sales. Full-funnel strategy and optimisation. Get a free strategy call.',
   },
   '/services/google-ads-management': {
-    title: 'Google Ads Management Agency Australia | EG Digital',
+    title: 'Google Ads Agency Australia | No Lock-In Contracts | EG Digital',
     description:
-      'Certified Google Ads management for Australian businesses. Expert campaign strategy, bid optimisation & transparent reporting. Get a free ads audit today.',
+      'No lock-in contracts, no guessing. We report on revenue, not clicks. Get a free Google Ads audit & consultation and see where your budget is leaking.',
   },
   '/services/linkedin-ads-management': {
     title: 'LinkedIn Ads Management Agency Australia | EG Digital',

@@ -1,5 +1,6 @@
 import { Navbar }        from './layout/Navbar'
-import { Hero3 }         from './sections/Hero3'
+// import { Hero3 }         from './sections/Hero3'  // robot hero hidden, do not delete
+import { HeroVideo }     from './sections/HeroVideo'
 import { DevKineticSection }     from './sections/DevKineticSection'
 import { SecuritySection }       from './sections/SecuritySection'
 import { MicrosoftSection }      from './sections/MicrosoftSection'
@@ -15,7 +16,9 @@ export function HomePage() {
   return (
     <div style={{ overflowX: 'clip', fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
-      <Hero3 />
+      {/* Robot hero section - hidden for now, do not delete */}
+      {/* <Hero3 /> */}
+      <HeroVideo />
       <DevKineticSection />
       <SecuritySection />
       <MicrosoftSection />

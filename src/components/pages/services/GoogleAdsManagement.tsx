@@ -208,8 +208,8 @@ export function GoogleAdsManagement() {
   useServiceJsonLd('/services/google-ads-management')
 
   usePageMeta(
-    'Google Ads Management Agency Australia | EG Digital',
-    'Certified Google Ads management for Australian businesses. Expert campaign strategy, bid optimisation & transparent reporting. Get a free ads audit today.',
+    'Google Ads Agency Australia | No Lock-In Contracts | EG Digital',
+    'No lock-in contracts, no guessing. We report on revenue, not clicks. Get a free Google Ads audit & consultation and see where your budget is leaking.',
   )
 
   return (
