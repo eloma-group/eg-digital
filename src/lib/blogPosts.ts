@@ -158,6 +158,110 @@ export const POSTS: BlogPost[] = [
     ],
   },
 
+  // ── Choosing an SEO company guide ───────────────────────────────────────────
+  {
+    slug: 'how-to-choose-seo-company-australia',
+    title: 'How to Choose a Search Engine Optimisation Company in Australia (2026 Guide)',
+    h1: 'How to Choose a Search Engine Optimisation Company in Australia (2026 Guide)',
+    excerpt:
+      "Every agency claims to be \"the best\", which makes choosing an SEO company harder, not easier. Here's what actually separates a genuine partner from a risky one - the questions to ask, the red flags to watch, and why the best agencies handle SEO, Google Ads, web and app together.",
+    category: 'Latest Technologies',
+    read: '6 min read',
+    date: 'Jul 31, 2026',
+    img: 'photo-1600880292203-757bb62b4baf',
+    metaTitle: 'How to Choose an SEO Company in Australia (2026 Guide) | EG Digital',
+    metaDescription:
+      'Choosing a search engine optimisation company in Australia? Learn what a genuine SEO agency should offer, the questions to ask, red flags to avoid, and why SEO, Google Ads and development belong together.',
+    body: [
+      {
+        k: 'p',
+        text: "Searching for a search engine optimisation company in Australia usually means one of two things: your current results aren't good enough, or you've never invested in SEO and don't know where to start. Either way, the number of agencies claiming to be \"the best\" makes the decision harder, not easier. Here's what actually separates a good partner from a risky one.",
+      },
+
+      { k: 'h2', text: 'What a Genuine SEO Company Should Offer' },
+      {
+        k: 'p',
+        text: "A proper SEO engagement isn't just link-building or keyword stuffing. It covers technical health (crawlability, site speed, indexing), on-page optimisation, content that matches real search intent, and increasingly, visibility inside AI-generated search results. If an agency only talks about rankings and never mentions [technical audits](/services/technical-seo) or content strategy, that's a gap worth asking about.",
+      },
+
+      { k: 'h2', text: 'Questions Worth Asking Before You Sign On' },
+      {
+        k: 'ul',
+        items: [
+          'Can they show real, verifiable case studies, not just screenshots of ranking positions?',
+          'Do they explain their process, or just promise "page one" without detail?',
+          'Is reporting transparent, with access to your own analytics and Search Console data?',
+          'Do they understand your industry, or are they applying a generic template?',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1454165804606-c3d57bc86b40',
+        alt: 'Two people comparing notes and analytics while evaluating an SEO agency',
+        caption: 'Ask for verifiable case studies and a clear process - not screenshots of ranking positions.',
+      },
+
+      { k: 'h2', text: 'SEO and Google Ads: Why the Best Agencies Handle Both' },
+      {
+        k: 'p',
+        text: "Businesses searching for a search engine optimisation company are often, at the same time, weighing up a [Google Ads agency](/services/google-ads-management). That's not a coincidence. SEO builds long-term, compounding visibility, while paid search delivers immediate traffic while organic rankings are still climbing. Run separately by two different providers, the two channels often send mixed signals and duplicate spend on the same keywords. Run together, they reinforce each other: ad data reveals which keywords convert, and that same data sharpens SEO content priorities.",
+      },
+
+      { k: 'h2', text: 'What About Web and App Development?' },
+      {
+        k: 'p',
+        text: "SEO and ads can only do so much if the destination they're sending people to doesn't convert. This is why businesses researching \"build my app Australia\" or a new website often end up back at the same digital agencies offering SEO - a [site](/services/web-development) or [app](/services/custom-app-development-company-australia) built with search performance in mind from day one avoids a costly rebuild down the line. Structure, load speed, and mobile usability aren't afterthoughts; they're ranking factors in their own right.",
+      },
+
+      {
+        k: 'img',
+        id: 'photo-1552664730-d307ca884978',
+        alt: 'A marketing team mapping out an SEO and paid search strategy together',
+        caption: 'Run together by one team, SEO, Google Ads, web and app development reinforce each other instead of competing.',
+      },
+
+      { k: 'h2', text: 'Red Flags to Watch For' },
+      {
+        k: 'p',
+        text: "Guaranteed rankings, suspiciously cheap packages, and vague reporting are the most common warning signs. [Google's own guidance for hiring an SEO](https://developers.google.com/search/docs/fundamentals/do-i-need-seo) explicitly warns that no one can guarantee a #1 ranking on Google, and recommends asking any prospective agency for references and a clear explanation of their methods before committing.",
+      },
+
+      { k: 'h2', text: 'How EG Digital Approaches This' },
+      {
+        k: 'p',
+        text: "We work as one accountable team across [SEO](/services/seo-services), [Google Ads](/services/google-ads-management), web and app development, and [Microsoft solutions](/solutions/microsoft-products), rather than handing clients between disconnected specialists. If you're comparing options and want a clear, no-pressure look at where your current site stands, our [SEO and digital marketing team](/services/seo-services) can walk you through it.",
+      },
+
+      { k: 'h2', text: 'FAQs' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: 'How much does SEO cost in Australia?',
+            a: 'Costs vary widely based on competition and scope, but ongoing monthly retainers are more common than one-off projects, since SEO is a continuous process rather than a single fix.',
+          },
+          {
+            q: 'Should I choose SEO or Google Ads first?',
+            a: "If you need traffic immediately, start with Google Ads. If you're building long-term visibility, SEO is the better investment. Most businesses benefit from running both together.",
+          },
+          {
+            q: 'How long does SEO take to show results?',
+            a: 'Most businesses see measurable movement within three to six months, with stronger gains compounding over six to twelve months depending on competition.',
+          },
+          {
+            q: 'Does a new website or app need SEO built in from the start?',
+            a: 'Yes. Site structure, page speed, and mobile performance are foundational ranking factors - retrofitting them after launch is far more costly than building them in from day one.',
+          },
+          {
+            q: 'Comparing SEO companies or Google Ads agencies in Australia?',
+            a: 'Get in touch with EG Digital for a straightforward look at your options.',
+          },
+        ],
+      },
+    ],
+  },
+
   // ── Content decay article ───────────────────────────────────────────────────
   {
     slug: 'content-decay-declining-seo-content',
