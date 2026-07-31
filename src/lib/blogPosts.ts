@@ -17,7 +17,7 @@ export type Block =
   | { k: 'p'; text: string }
   | { k: 'h2'; text: string }
   | { k: 'ul'; items: string[] }
-  | { k: 'img'; id: string; alt: string; caption?: string }
+  | { k: 'img'; id: string; alt: string; caption?: string; fit?: 'cover' | 'contain' }
   | { k: 'faq'; items: { q: string; a: string }[] }
 
 export interface BlogPost {
@@ -29,6 +29,7 @@ export interface BlogPost {
   read: string
   date: string
   img: string              // Unsplash photo id, shown on the card + as the hero
+  heroFit?: 'cover' | 'contain'  // 'contain' shows the full hero uncropped (for diagrams/graphics)
   metaTitle: string
   metaDescription: string
   featured?: boolean
@@ -169,6 +170,7 @@ export const POSTS: BlogPost[] = [
     read: '6 min read',
     date: 'Jul 31, 2026',
     img: '/images/blog/seo-hero-laptop.jpg',
+    heroFit: 'contain',
     metaTitle: 'How to Choose an SEO Company in Australia (2026 Guide) | EG Digital',
     metaDescription:
       'Choosing a search engine optimisation company in Australia? Learn what a genuine SEO agency should offer, the questions to ask, red flags to avoid, and why SEO, Google Ads and development belong together.',
@@ -198,6 +200,7 @@ export const POSTS: BlogPost[] = [
       {
         k: 'img',
         id: '/images/blog/seo-components.png',
+        fit: 'contain',
         alt: 'The core pieces of SEO - analysis, content, website, traffic and ranking',
         caption: 'A genuine SEO engagement covers analysis, content, on-page work and technical health - not just a ranking screenshot.',
       },
@@ -217,6 +220,7 @@ export const POSTS: BlogPost[] = [
       {
         k: 'img',
         id: '/images/blog/seo-technical-factors.webp',
+        fit: 'contain',
         alt: 'Technical SEO factors - rendering, meta tags, JavaScript bundles and routing',
         caption: 'Technical factors like rendering, meta tags and JavaScript bundles are ranking factors in their own right - which is why the build matters.',
       },
