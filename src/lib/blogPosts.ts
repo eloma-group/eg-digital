@@ -168,7 +168,7 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '6 min read',
     date: 'Jul 31, 2026',
-    img: 'photo-1600880292203-757bb62b4baf',
+    img: 'photo-1562577309-2592ab84b1bc',
     metaTitle: 'How to Choose an SEO Company in Australia (2026 Guide) | EG Digital',
     metaDescription:
       'Choosing a search engine optimisation company in Australia? Learn what a genuine SEO agency should offer, the questions to ask, red flags to avoid, and why SEO, Google Ads and development belong together.',
