@@ -168,7 +168,7 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '6 min read',
     date: 'Jul 31, 2026',
-    img: 'photo-1562577309-2592ab84b1bc',
+    img: '/images/blog/seo-hero-laptop.jpg',
     metaTitle: 'How to Choose an SEO Company in Australia (2026 Guide) | EG Digital',
     metaDescription:
       'Choosing a search engine optimisation company in Australia? Learn what a genuine SEO agency should offer, the questions to ask, red flags to avoid, and why SEO, Google Ads and development belong together.',
@@ -197,9 +197,9 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1454165804606-c3d57bc86b40',
-        alt: 'Two people comparing notes and analytics while evaluating an SEO agency',
-        caption: 'Ask for verifiable case studies and a clear process - not screenshots of ranking positions.',
+        id: '/images/blog/seo-components.png',
+        alt: 'The core pieces of SEO - analysis, content, website, traffic and ranking',
+        caption: 'A genuine SEO engagement covers analysis, content, on-page work and technical health - not just a ranking screenshot.',
       },
 
       { k: 'h2', text: 'SEO and Google Ads: Why the Best Agencies Handle Both' },
@@ -216,9 +216,9 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1552664730-d307ca884978',
-        alt: 'A marketing team mapping out an SEO and paid search strategy together',
-        caption: 'Run together by one team, SEO, Google Ads, web and app development reinforce each other instead of competing.',
+        id: '/images/blog/seo-technical-factors.webp',
+        alt: 'Technical SEO factors - rendering, meta tags, JavaScript bundles and routing',
+        caption: 'Technical factors like rendering, meta tags and JavaScript bundles are ranking factors in their own right - which is why the build matters.',
       },
 
       { k: 'h2', text: 'Red Flags to Watch For' },
