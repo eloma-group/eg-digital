@@ -61,7 +61,7 @@ function BlockView({ block }: { block: Block }) {
       return (
         <figure className="ba-figure">
           <img
-            className="ba-figure-img"
+            className={`ba-figure-img${block.fit === 'contain' ? ' ba-figure-img--contain' : ''}`}
             src={photo(block.id, 1400, 780)}
             alt={block.alt}
             loading="lazy"
@@ -153,6 +153,9 @@ export function BlogArticle() {
         .ba-hero-img { width: 100%; aspect-ratio: 21/9; object-fit: cover; display: block;
           border-radius: clamp(14px,1.4vw,22px); background: #eef1f4; }
         @media (max-width: 640px) { .ba-hero-img { aspect-ratio: 16/10; } }
+        /* Full, uncropped hero (diagrams/graphics) - shows the whole image, no zoom-crop. */
+        .ba-hero-img--contain { aspect-ratio: auto; height: auto; object-fit: contain;
+          max-height: 68vh; background: #fff; }
 
         /* Prose - full-width, edge-to-edge */
         .ba-prose { max-width: var(--shell); margin: 0 auto;
@@ -174,6 +177,9 @@ export function BlogArticle() {
         .ba-figure { margin: clamp(28px,3.5vw,48px) 0; }
         .ba-figure-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
           border-radius: 16px; background: #eef1f4; }
+        /* Full, uncropped figure (diagrams/graphics) - nothing gets cut off. */
+        .ba-figure-img--contain { aspect-ratio: auto; height: auto; object-fit: contain;
+          max-height: 60vh; background: #fff; }
         .ba-cap { font-size: 13px; color: rgba(8,33,60,0.5); margin-top: 12px; text-align: center;
           font-weight: 600; }
 
@@ -223,7 +229,7 @@ export function BlogArticle() {
 
         <div className="ba-hero-img-wrap">
           <img
-            className="ba-hero-img"
+            className={`ba-hero-img${post.heroFit === 'contain' ? ' ba-hero-img--contain' : ''}`}
             src={photo(post.img, 1600, 700)}
             alt={post.title}
             decoding="async"
