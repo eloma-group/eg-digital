@@ -604,7 +604,7 @@ export function Navbar() {
         .nav-link {
           background: none; border: none; cursor: pointer;
           font-family: inherit;
-          font-size: clamp(12.5px, 0.85vw, 14px); font-weight: 700;
+          font-size: 13px; font-weight: 700;
           color: #000;
           text-shadow: 0 1px 6px rgba(255,255,255,0.55);
           padding: 8px 14px; min-height: 44px;
