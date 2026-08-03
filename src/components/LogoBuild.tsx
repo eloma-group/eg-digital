@@ -11,8 +11,8 @@ import { useEffect, useLayoutEffect, useRef } from 'react'
 // buttery-smooth. Only transform / opacity / mask change (compositor-friendly).
 // ─────────────────────────────────────────────────────────────────────────────
 
-const STAGE_W = 808
-const STAGE_H = 244
+const STAGE_W = 2093
+const STAGE_H = 469
 const BUILD_END = 3.2 // seconds - everything is fully built well before this
 
 type Part = {
@@ -24,15 +24,17 @@ type Part = {
 }
 
 const PARTS: Part[] = [
-  { id: 'icon', left: 0,   width: 216, role: 'icon' },
-  { id: 'd',    left: 231, width: 92,  role: 'letter', order: 0 },
-  { id: 'i1',   left: 343, width: 27,  role: 'letter', order: 1 },
-  { id: 'g',    left: 380, width: 95,  role: 'letter', order: 2 },
-  { id: 'i2',   left: 494, width: 26,  role: 'letter', order: 3 },
-  { id: 't',    left: 524, width: 67,  role: 'letter', order: 4 },
-  { id: 'a',    left: 591, width: 79,  role: 'letter', order: 5 },
-  { id: 'l',    left: 691, width: 21,  role: 'letter', order: 6 },
-  { id: 'tm',   left: 712, width: 89,  role: 'tm' },
+  { id: 'icon', left: 0,    width: 440, role: 'icon' },
+  { id: 'e',    left: 499,  width: 186, role: 'letter', order: 0 },
+  { id: 'g1',   left: 709,  width: 196, role: 'letter', order: 1 },
+  { id: 'd',    left: 989,  width: 193, role: 'letter', order: 2 },
+  { id: 'i1',   left: 1230, width: 38,  role: 'letter', order: 3 },
+  { id: 'g2',   left: 1296, width: 196, role: 'letter', order: 4 },
+  { id: 'i2',   left: 1540, width: 38,  role: 'letter', order: 5 },
+  { id: 't',    left: 1592, width: 130, role: 'letter', order: 6 },
+  { id: 'a',    left: 1727, width: 160, role: 'letter', order: 7 },
+  { id: 'l',    left: 1939, width: 26,  role: 'letter', order: 8 },
+  { id: 'tm',   left: 1986, width: 108, role: 'tm' },
 ]
 
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x))
@@ -43,9 +45,10 @@ const outBack = (x: number) => {
   return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2)
 }
 
-// Final resting scale of the ™ mark (it sits at the top of its part, so we
-// shrink it from 'center top' to keep it in place, just smaller).
-const TM_SCALE = 0.62
+// Final resting scale of the ™ mark. Each part is sliced at its natural size
+// and position from the source logo, so the ™ rests at 1.0 (it still pops in
+// from 'center top' via the outBack ease).
+const TM_SCALE = 1.0
 
 const originFor = (it: Part) =>
   it.role === 'icon' ? '52% 48%' : it.role === 'letter' ? 'center bottom' : 'center top'
@@ -134,7 +137,7 @@ export function LogoBuild({ className }: { className?: string }) {
           <img
             key={it.id}
             ref={(el) => { imgRefs.current[i] = el }}
-            src={`/images/logo-build/${it.id}.png`}
+            src={`/images/logo-build-eg/${it.id}.png`}
             alt=""
             draggable={false}
             decoding="async"

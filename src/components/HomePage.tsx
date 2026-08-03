@@ -14,16 +14,16 @@ import { FooterSection } from './sections/FooterSection'
 
 export function HomePage() {
   return (
-    <div style={{ overflowX: 'clip', fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
+    <div style={{ overflowX: 'clip', fontFamily: "'Eloma Sans', 'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
       {/* Robot hero section - hidden for now, do not delete */}
       {/* <Hero3 /> */}
       <HeroVideo />
-      <DevKineticSection />
+      <TransformationSection />
       <SecuritySection />
       <MicrosoftSection />
       <MarketingSection />
-      <TransformationSection />
+      <DevKineticSection />
       <IndustriesSection />
       <ServicesSection />
       <Features />

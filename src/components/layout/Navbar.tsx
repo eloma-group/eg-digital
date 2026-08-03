@@ -590,7 +590,9 @@ export function Navbar() {
           flex-shrink: 0;
           margin-right: clamp(16px, 2vw, 32px);
         }
-        .nav-logo img { height: 46px; width: auto; }
+        .nav-logo img { height: 58px; width: auto; }
+        @media (min-width: 1024px) { .nav-logo img { height: 68px; } }
+        @media (min-width: 1536px) { .nav-logo img { height: 74px; } }
 
         /* Nav links - centered between logo and right actions */
         .nav-links {
@@ -698,9 +700,9 @@ export function Navbar() {
           {/* Logo */}
           <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <img
-              src="/images/Egdigital-logo.png"
+              src="/images/Egdigital-logo-eg.png"
               alt="EG Digital"
-              style={{ height: 46, width: 'auto', display: 'block' }}
+              style={{ width: 'auto', display: 'block' }}
             />
           </div>
 

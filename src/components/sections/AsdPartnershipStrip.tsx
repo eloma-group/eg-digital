@@ -89,21 +89,21 @@ export function AsdPartnershipStrip() {
         .asd-g { color: ${GREEN}; }
         .asd-card-eyebrow {
           display: inline-flex; align-items: center; gap: 9px;
-          font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(10px,0.8vw,12px);
+          font-family: 'Eloma Sans', 'Inter', sans-serif; font-weight: 800; font-size: clamp(10px,0.8vw,12px);
           letter-spacing: 2.2px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 10px;
         }
         .asd-card-dot { width: 6px; height: 6px; border-radius: 50%; background: ${GREEN}; box-shadow: 0 0 0 4px rgba(60,185,140,0.16); }
         .asd-card-h {
-          margin: 0 0 10px; font-family: 'Poppins', sans-serif; font-weight: 700;
+          margin: 0 0 10px; font-family: 'Eloma Sans Heading', 'Poppins', sans-serif; font-weight: 700;
           font-size: clamp(22px,2.3vw,38px); line-height: 1.1; letter-spacing: -0.03em; color: ${NAVY};
         }
         .asd-card-p {
-          margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(14px,1.15vw,17px);
+          margin: 0; font-family: 'Eloma Sans', 'Inter', sans-serif; font-size: clamp(14px,1.15vw,17px);
           line-height: 1.8; color: ${MUTED}; max-width: 68ch;
         }
         .asd-card-cta {
           display: inline-flex; align-items: center; gap: 8px; margin-top: clamp(12px,1.4vw,18px);
-          font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(13px,1.05vw,15px);
+          font-family: 'Eloma Sans', 'Poppins', sans-serif; font-weight: 600; font-size: clamp(13px,1.05vw,15px);
           letter-spacing: -0.01em; color: ${GREEN};
         }
         .asd-card-arrow { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }

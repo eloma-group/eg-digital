@@ -7,14 +7,14 @@ const CREAM = '#f8f8ff'
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 const SERIF = "'Playfair Display', Georgia, 'Times New Roman', serif"
 // Display sans used for the CinematicBanner hero word (e.g. Our USP "DIFFERENT").
-const BANNER_WORD_FONT = "'Inter', system-ui, sans-serif"
+const BANNER_WORD_FONT = "'Eloma Sans Heading', 'Inter', system-ui, sans-serif"
 
 /* Shared styling for all three banner treatments. One banner per page, so a
    per-component <style> tag is fine (no duplicate-injection concern). */
 const HERO_CSS = `
   .jh { position: relative; min-height: 100svh; display: flex; flex-direction: column;
     overflow: hidden; isolation: isolate; padding: clamp(112px,15vh,180px) clamp(24px,4vw,72px) clamp(40px,6vh,72px);
-    font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; }
+    font-family: 'Eloma Sans', 'Plus Jakarta Sans', Inter, system-ui, sans-serif; }
 
   .jh-eyebrow { display: inline-flex; align-items: center; gap: 11px;
     font-size: clamp(10px,0.8vw,13px); font-weight: 800; letter-spacing: 2.6px; text-transform: uppercase; word-spacing: 0.14em; color: ${GREEN}; }
@@ -78,7 +78,7 @@ const HERO_CSS = `
     background: radial-gradient(46% 50% at 14% 86%, rgba(60,185,140,0.10), transparent 60%); }
   .jh-c > * { position: relative; z-index: 1; width: 100%; max-width: min(calc(100vw - 120px), 2400px); margin-left: auto; margin-right: auto; }
   .jh-c-h1 { font-family: ${SERIF}; font-weight: 800; font-size: clamp(50px,9.5vw,168px); line-height: 0.98;
-    letter-spacing: -0.02em; color: ${NAVY}; margin: 0; }
+    letter-spacing: 0.045em; color: ${NAVY}; margin: 0; }
   .jh-c-rot { display: block; height: 1em; overflow: hidden; position: relative; }
   .jh-c-rot em { display: inline-block; font-style: italic; font-weight: 500; color: ${GREEN}; white-space: nowrap; }
   .jh-c-bot { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }

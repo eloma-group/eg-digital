@@ -14,7 +14,7 @@ export const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
    horizontal scroll. Every About subpage renders inside this. */
 export function PageLayout({ children }: { children: ReactNode }) {
   return (
-    <div style={{ overflowX: 'clip', background: CREAM, fontFamily: "'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
+    <div style={{ overflowX: 'clip', background: CREAM, fontFamily: "'Eloma Sans', 'Plus Jakarta Sans', Inter, system-ui, sans-serif" }}>
       <Navbar />
       <main style={{ paddingTop: 76 }}>{children}</main>
       <FooterSection />

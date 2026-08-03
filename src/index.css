@@ -1,3 +1,23 @@
+/* Brand typefaces.
+   'Eloma Sans Heading' -> all headings (h1-h6). Static OTF, so the weight range
+   100-900 lets the browser reuse the single file at any requested weight and
+   synth-bold where needed, preserving each heading's existing font-weight. */
+@font-face {
+  font-family: 'Eloma Sans Heading';
+  src: url('/fonts/ElomaSansHeading-Heading.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* 'Eloma Sans' -> all titles, descriptions, paragraphs and general body text. */
+@font-face {
+  font-family: 'Eloma Sans';
+  src: url('/fonts/ElomaSans-Premium.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -18,9 +38,17 @@ html {
 body {
   background-color: #ffffff;
   color: #08213C;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Eloma Sans', 'Inter', system-ui, sans-serif;
   font-weight: 400;
   line-height: 1.6;
+}
+
+/* Headings use the display face. No !important so any element with its own
+   font-family (e.g. the Playfair Display .jh-* headings in JourneyHero) keeps
+   its own font - class/inline selectors outrank this element selector. Weight,
+   size and style stay whatever each heading already sets. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Eloma Sans Heading', 'Eloma Sans', 'Inter', system-ui, sans-serif;
 }
 
 img {
