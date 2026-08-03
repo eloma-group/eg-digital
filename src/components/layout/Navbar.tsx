@@ -604,7 +604,7 @@ export function Navbar() {
         .nav-link {
           background: none; border: none; cursor: pointer;
           font-family: inherit;
-          font-size: 14.5px; font-weight: 700;
+          font-size: 15px; font-weight: 700;
           color: #000;
           text-shadow: 0 1px 6px rgba(255,255,255,0.55);
           padding: 8px 14px; min-height: 44px;
@@ -621,7 +621,7 @@ export function Navbar() {
         }
         .nav-phone {
           display: flex; align-items: center; gap: 6px;
-          font-size: 13px; font-weight: 700; color: ${GREEN};
+          font-size: 15px; font-weight: 700; color: ${GREEN};
           padding: 8px 10px; border-radius: 8px;
           white-space: nowrap; text-decoration: none;
           transition: background 0.18s;
@@ -630,7 +630,7 @@ export function Navbar() {
         .nav-contact {
           display: flex; align-items: center;
           background: ${NAVY}; color: #fff; border: none;
-          font-size: 13px; font-weight: 700;
+          font-size: 15px; font-weight: 700;
           padding: 10px 20px; border-radius: 100px;
           cursor: pointer; transition: all 0.22s;
           font-family: inherit; white-space: nowrap; min-height: 44px;
