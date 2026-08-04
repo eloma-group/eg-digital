@@ -54,7 +54,7 @@ export const POSTS: BlogPost[] = [
       "If your organic traffic is shifting even though your rankings haven't moved, the cause might be query fan-out - the way Google's AI search breaks one question into many sub-queries and stitches the answers together before anyone clicks.",
     category: 'Latest Technologies',
     read: '5 min read',
-    date: 'Jul 23, 2026',
+    date: 'Aug 4, 2026',
     img: '/images/blog/queryfanout-hero.jpg',
     metaTitle: "Query Fan-Out Explained | Google AI Search & SEO | EG Digital",
     metaDescription:
