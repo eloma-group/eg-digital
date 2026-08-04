@@ -30,6 +30,18 @@ html, body, #root {
   height: 100%;
 }
 
+/* Full-width on every device. Guards against any single element that is wider
+   than the viewport creating a horizontal scroll and leaving an empty gap on
+   mobile (the page then looks "not full width"). `overflow-x: clip` trims the
+   overflow WITHOUT creating a scroll container, so it never breaks the
+   `position: sticky` banners used across the site (unlike `overflow-x: hidden`,
+   which would). width/max-width pin the box to the viewport. */
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
