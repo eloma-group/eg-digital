@@ -55,7 +55,7 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '5 min read',
     date: 'Jul 23, 2026',
-    img: 'photo-1526628953301-3e589a6a8b74',
+    img: '/images/blog/queryfanout-hero.jpg',
     metaTitle: "Query Fan-Out Explained | Google AI Search & SEO | EG Digital",
     metaDescription:
       "Query fan-out is how Google's AI Mode and AI Overviews answer questions. Learn what it means for SEO and how Australian businesses stay visible in AI search.",
@@ -78,7 +78,7 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1432888622747-4eb9a8efeb07',
+        id: '/images/blog/queryfanout-ai-mode-laptop.jpg',
         alt: "Google's AI Mode answering a question on a laptop screen",
         caption: 'Query fan-out breaks one question into many sub-queries, then stitches the results into a single AI answer.',
       },
@@ -107,7 +107,7 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: 'photo-1551288049-bebda4e38f71',
+        id: '/images/blog/queryfanout-analytics-dashboard.jpg',
         alt: 'An analytics dashboard showing search and referral trends',
         caption: 'Completeness wins: pages that answer the natural follow-up questions are the ones pulled into synthesised answers.',
       },
