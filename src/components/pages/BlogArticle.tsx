@@ -126,9 +126,13 @@ export function BlogArticle() {
     <PageLayout>
       <style>{`
         /* Full-bleed, edge-to-edge article shell - wide, minimal bezel. */
-        .ba-wrap { --gut: clamp(24px,4vw,64px); --shell: min(calc(100vw - 96px),1760px); background: ${'#f8f8ff'}; }
-        @media (min-width: 1920px) { .ba-wrap { --shell: 1900px; } }
-        @media (min-width: 2560px) { .ba-wrap { --shell: 2440px; } }
+        /* Full-width on every screen: container fills 100% up to the cap, and the
+           only horizontal bezel is --gut. No fixed vw subtraction (that forced a
+           big centered margin on mobile and made the article look boxed). */
+        .ba-wrap, .ba-rel { --gut: clamp(16px,4vw,64px); --shell: min(100vw,1760px); }
+        .ba-wrap { background: ${'#f8f8ff'}; }
+        @media (min-width: 1920px) { .ba-wrap, .ba-rel { --shell: 1900px; } }
+        @media (min-width: 2560px) { .ba-wrap, .ba-rel { --shell: 2440px; } }
 
         .ba-top { max-width: var(--shell); margin: 0 auto;
           padding: clamp(20px,3vw,40px) var(--gut) 0; }
@@ -192,7 +196,7 @@ export function BlogArticle() {
         .ba-faq-a { font-size: clamp(15px,1.1vw,18px); line-height: 1.8; color: rgba(8,33,60,0.72); margin: 0; }
 
         /* Related */
-        .ba-rel { max-width: min(calc(100vw - 40px),1760px); margin: 0 auto;
+        .ba-rel { max-width: var(--shell); margin: 0 auto;
           padding: 0 var(--gut) clamp(56px,8vw,120px); }
         .ba-rel-h { font-size: clamp(24px,3vw,40px); font-weight: 900; letter-spacing: 0.01em;
           text-transform: uppercase; word-spacing: 0.14em; color: ${NAVY}; margin: 0 0 clamp(20px,2.5vw,36px); }
