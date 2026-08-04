@@ -120,7 +120,7 @@ function SectionHeading({ label }: { label: string }) {
 }
 
 function FooterLink({ children, to }: { children: React.ReactNode; to?: string }) {
-  const style: React.CSSProperties = { fontSize: 13.5, color: 'rgba(255,255,255,0.5)', transition: 'all 0.18s ease', display: 'block', textDecoration: 'none' }
+  const style: React.CSSProperties = { fontSize: 13.5, color: 'rgba(255,255,255,0.5)', transition: 'all 0.18s ease', display: 'block', textDecoration: 'none', letterSpacing: '0.3px', wordSpacing: '1px' }
   const onEnter = (e: React.MouseEvent<HTMLElement>) => { const el = e.currentTarget; el.style.color = '#fff'; el.style.paddingLeft = '5px' }
   const onLeave = (e: React.MouseEvent<HTMLElement>) => { const el = e.currentTarget; el.style.color = 'rgba(255,255,255,0.5)'; el.style.paddingLeft = '0' }
   if (to) {
@@ -167,21 +167,21 @@ export function FooterSection() {
                 <img src="/images/Egdigital-logo-white-eg.png" alt="EG Digital" style={{ height: 76, width: 'auto' }} />
               </a>
 
-              <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28 }}>
+              <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.9, maxWidth: 280, marginBottom: 28, letterSpacing: '0.3px', wordSpacing: '1.5px' }}>
                 Your single partner for cloud, development, cybersecurity, and digital growth -
                 built for ambitious Australian businesses.
               </p>
 
               {/* Contact details */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
-                <a href="tel:1800054555" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13.5, color: 'rgba(255,255,255,0.55)', transition: 'color 0.16s ease', textDecoration: 'none' }}
+                <a href="tel:1800054555" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13.5, color: 'rgba(255,255,255,0.55)', transition: 'color 0.16s ease', textDecoration: 'none', letterSpacing: '0.5px', wordSpacing: '1px' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)' }}
                 >
                   <Phone size={14} strokeWidth={1.5} style={{ flexShrink: 0, color: GREEN }} />
                   1800 054 555
                 </a>
-                <a href="mailto:connect@egdigital.com.au" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13.5, color: 'rgba(255,255,255,0.55)', transition: 'color 0.16s ease', textDecoration: 'none' }}
+                <a href="mailto:connect@egdigital.com.au" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13.5, color: 'rgba(255,255,255,0.55)', transition: 'color 0.16s ease', textDecoration: 'none', letterSpacing: '0.5px' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)' }}
                 >
@@ -205,7 +205,7 @@ export function FooterSection() {
                   }}
                 >
                   <MapPin size={14} strokeWidth={1.5} style={{ flexShrink: 0, color: GREEN }} />
-                  <span style={{ fontSize: 13, color: '#fff', fontWeight: 500, transition: 'color 0.2s ease' }}>
+                  <span style={{ fontSize: 13, color: '#fff', fontWeight: 500, transition: 'color 0.2s ease', letterSpacing: '0.4px', wordSpacing: '1.5px' }}>
                     71 Gipps Street, Collingwood,<br />Melbourne, VIC 3066, Australia
                   </span>
                 </a>
@@ -221,7 +221,7 @@ export function FooterSection() {
                     ABN
                   </span>
                   <div style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.2)' }} />
-                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, letterSpacing: '0.5px' }}>
+                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, letterSpacing: '1px', wordSpacing: '2px' }}>
                     76 693 175 012
                   </span>
                 </div>
@@ -237,7 +237,7 @@ export function FooterSection() {
                     Co.
                   </span>
                   <div style={{ width: 1, height: 12, background: 'rgba(255,255,255,0.2)' }} />
-                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
+                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', fontWeight: 500, letterSpacing: '0.4px', wordSpacing: '1.5px' }}>
                     EG Digital Australia Pty Ltd (Unit of <ElomaLink />)
                   </span>
                 </div>
@@ -293,7 +293,7 @@ export function FooterSection() {
             display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             flexWrap: 'wrap', gap: 14,
           }}>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', margin: 0 }}>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.28)', margin: 0, letterSpacing: '0.4px', wordSpacing: '1.5px' }}>
               © 2026 EG Digital Australia Pty Ltd. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px,2vw,20px)', flexWrap: 'wrap' }}>
@@ -303,7 +303,7 @@ export function FooterSection() {
               ].map(({ label, to }, i) => (
                 <span key={to} style={{ display: 'inline-flex', alignItems: 'center', gap: 'clamp(10px,2vw,20px)' }}>
                   {i > 0 && <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(255,255,255,0.35)' }} />}
-                  <Link to={to} style={{ fontSize: 12.5, fontWeight: 600, color: 'rgba(255,255,255,0.65)', transition: 'color 0.15s ease', textDecoration: 'none' }}
+                  <Link to={to} style={{ fontSize: 12.5, fontWeight: 600, color: 'rgba(255,255,255,0.65)', transition: 'color 0.15s ease', textDecoration: 'none', letterSpacing: '0.4px', wordSpacing: '1.5px' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = GREEN }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.65)' }}
                   >
