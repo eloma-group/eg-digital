@@ -34,7 +34,8 @@ export function Blog() {
         @media (min-width: 1920px) { .bl-shell { max-width: 1900px; } }
         @media (min-width: 2560px) { .bl-shell { max-width: 2440px; } }
 
-        .bl-hero { padding: clamp(40px,6vw,96px) 0 clamp(24px,3vw,40px); }
+        .bl-hero { padding: clamp(40px,6vw,96px) 0 clamp(24px,3vw,40px);
+          padding-left: clamp(12px,3vw,56px); }
         .bl-h1 { font-size: clamp(52px,10.5vw,136px); font-weight: 900; letter-spacing: 0.01em;
           line-height: 1; color: ${NAVY}; margin: 18px 0 0; text-transform: uppercase; word-spacing: 0.14em; }
         .bl-h1 span { color: ${GREEN}; }
