@@ -67,7 +67,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         k: 'p',
-        text: "Independent research backs this up: 83% of marketers now say it's more effective to publish less content, at a higher standard, than to chase volume. If your content calendar is built around a posting frequency rather than a business outcome, this is a good moment to rethink the approach.",
+        text: "Independent research backs this up: [83% of marketers now say it's more effective to publish less content, at a higher standard, than to chase volume](https://seoprofy.com/blog/content-marketing-statistics/). If your content calendar is built around a posting frequency rather than a business outcome, this is a good moment to rethink the approach.",
       },
 
       { k: 'h2', text: 'Why More Content Often Performs Worse, Not Better' },
