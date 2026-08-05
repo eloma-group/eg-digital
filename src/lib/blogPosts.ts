@@ -98,8 +98,8 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: '/images/blog/content-marketing-storytelling.jpg',
-        alt: 'A content writer drafting an article at her desk',
+        id: '/images/blog/content-marketing-writing.png',
+        alt: 'A content writer drafting copy by hand beside a laptop',
         caption: 'Content that educates and tells a genuine story sticks with people long after a product spec sheet is forgotten.',
       },
 
@@ -116,9 +116,10 @@ export const POSTS: BlogPost[] = [
 
       {
         k: 'img',
-        id: '/images/blog/content-marketing-metrics.jpg',
-        alt: 'Overhead view of a content writer planning and drafting content at a desk',
-        caption: 'A single strong idea, well written, can be repurposed into a blog post, a carousel, a short-form video and an email.',
+        id: '/images/blog/content-marketing-types.png',
+        fit: 'contain',
+        alt: 'Illustration of the different types of content marketing branching from one core idea',
+        caption: 'One strong idea can take many forms - blogs, social posts, videos, podcasts, infographics and newsletters all from the same core content.',
       },
 
       { k: 'h2', text: 'How EG Digital Approaches Content Marketing' },
