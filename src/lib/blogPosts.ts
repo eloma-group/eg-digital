@@ -47,6 +47,99 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Featured / newest article (full body) ──────────────────────────────────
   {
+    slug: 'content-marketing-quality-over-quantity-australia',
+    title: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
+    h1: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
+    excerpt:
+      "Most Australian businesses assume the fix for flat engagement is to post more. But the brands winning attention in 2026 aren't publishing the most - they're publishing the most deliberately. Here's how to shift from volume to strategy.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Aug 4, 2026',
+    img: '/images/blog/content-marketing-hero.jpg',
+    metaTitle: 'Quality Over Quantity: Content Marketing in 2026 | EG Digital',
+    metaDescription:
+      "Posting more isn't a strategy. Learn why publishing less at a higher standard wins in 2026, and how Australian brands shift from content volume to real strategy.",
+    featured: true,
+    body: [
+      {
+        k: 'p',
+        text: "Most Australian businesses assume the fix for flat engagement is to post more. More reels, more blog posts, more email sends. But the brands actually winning attention in 2026 aren't the ones publishing the most, they're the ones publishing the most deliberately. Every extra post that doesn't add value competes with your own best work for the same limited attention, and on most platforms, weak content actively suppresses how far your strong content reaches.",
+      },
+      {
+        k: 'p',
+        text: "Independent research backs this up: 83% of marketers now say it's more effective to publish less content, at a higher standard, than to chase volume. If your content calendar is built around a posting frequency rather than a business outcome, this is a good moment to rethink the approach.",
+      },
+
+      { k: 'h2', text: 'Why More Content Often Performs Worse, Not Better' },
+      {
+        k: 'p',
+        text: 'Social platforms and search engines are both built to reward engagement, not effort. When a brand publishes content that doesn\'t earn a reaction, a save, a click or a follow, the algorithm reads that as a signal to show the brand less often, not more. In effect, filling a calendar with filler content can quietly train the algorithm to bury everything you publish, including the pieces that actually matter.',
+      },
+      {
+        k: 'p',
+        text: 'The businesses pulling ahead right now tend to share a few habits: they post with a clear objective rather than because a schedule demands it, they choose the trends that genuinely fit their audience instead of chasing every one, and they judge success by engagement and business impact rather than raw volume of posts.',
+      },
+
+      { k: 'h2', text: 'What a Strategic Content Approach Actually Looks Like' },
+      {
+        k: 'p',
+        text: "Before any piece of content goes live, it should be able to answer two simple questions: is this genuinely useful or interesting to the audience it's aimed at, and does it move the business toward a specific goal, whether that's awareness, enquiries, or customer retention? If the honest answer to either is no, that piece probably isn't worth publishing.",
+      },
+      {
+        k: 'p',
+        text: "This starts with understanding who you're actually talking to: what problems they're trying to solve, what they respond to, and why they'd choose your brand over the alternative sitting one tab away. Content built on that understanding tends to outperform content built on what's trending this week, because it's solving for the audience rather than the algorithm.",
+      },
+
+      { k: 'h2', text: 'Storytelling Beats Selling' },
+      {
+        k: 'p',
+        text: "Audiences have grown fatigued with content that's obviously trying to sell them something. What tends to stick instead is content that educates, entertains, or shows the real people and process behind a brand. People remember how a brand made them feel or what it taught them long after they've forgotten a product spec sheet. Behind-the-scenes footage, founder stories, customer wins, and genuinely useful how-to content all build the kind of familiarity that makes someone choose your brand when they're finally ready to buy.",
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/content-marketing-storytelling.jpg',
+        alt: 'A production crew filming behind-the-scenes brand content on location',
+        caption: 'Behind-the-scenes footage, founder stories and customer wins build familiarity in a way a product spec sheet never can.',
+      },
+
+      { k: 'h2', text: 'A Practical Way to Shift From Volume to Strategy' },
+      {
+        k: 'ul',
+        items: [
+          '**Audit what you already have.** Identify your best-performing posts and the recurring themes or formats behind them, and be honest about what\'s consistently underperforming.',
+          '**Track the metrics that actually matter.** Impressions look good on a slide, but engagement rate, saves, shares, website traffic and enquiries tell you what\'s actually working.',
+          '**Double down on proven formats.** Once you know which topics and formats consistently perform, build more of your calendar around them instead of starting from scratch each time.',
+          '**Repurpose instead of recreating.** A single strong idea can become a blog post, a carousel, a short-form video and an email, stretching the value of the work you\'ve already done.',
+        ],
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/content-marketing-metrics.jpg',
+        alt: 'A marketer reviewing engagement and performance metrics on a printed chart',
+        caption: 'Impressions look good on a slide, but engagement rate, saves, shares and enquiries tell you what is actually working.',
+      },
+
+      { k: 'h2', text: 'How EG Digital Approaches Content Marketing' },
+      {
+        k: 'p',
+        text: "At EG Digital, content strategy isn't treated as a separate line item from the rest of your digital marketing, it's built to work alongside SEO and paid media so that every piece of content is pulling in the same direction. Our team pairs strategic [content planning](/services/content-creation) with [Google Ads management](/services/google-ads-management) to amplify the content that's already proving itself organically, and our in-house [graphic design team](/services/graphic-design) makes sure the creative behind every campaign looks as considered as the strategy driving it.",
+      },
+
+      { k: 'h2', text: 'Final Thoughts' },
+      {
+        k: 'p',
+        text: "Posting more isn't a strategy, it's a habit. The brands building real momentum in 2026 are the ones treating every piece of content as an investment that has to earn its place, not a box to tick on a content calendar. If your current approach is producing plenty of content but not much business impact, it's worth stepping back and asking whether the problem is really a lack of content, or a lack of strategy behind it.",
+      },
+      {
+        k: 'p',
+        text: "**Ready to build a content strategy that actually moves the needle?** EG Digital combines strategic content, [SEO](/services/seo-services) and Google Ads under one accountable Melbourne team. [Get in touch with EG Digital](/contact) to talk through your content marketing goals.",
+      },
+    ],
+  },
+
+  {
     slug: 'query-fan-out-google-ai-search-seo',
     title: "Query fan-out explained: why Google's AI search is rewriting the rules of SEO",
     h1: "Query Fan-Out Explained: Why Google's AI Search Is Rewriting the Rules of SEO",
@@ -59,7 +152,6 @@ export const POSTS: BlogPost[] = [
     metaTitle: "Query Fan-Out Explained | Google AI Search & SEO | EG Digital",
     metaDescription:
       "Query fan-out is how Google's AI Mode and AI Overviews answer questions. Learn what it means for SEO and how Australian businesses stay visible in AI search.",
-    featured: true,
     body: [
       {
         k: 'p',
