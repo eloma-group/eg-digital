@@ -54,7 +54,7 @@ export const POSTS: BlogPost[] = [
       "Most Australian businesses assume the fix for flat engagement is to post more. But the brands winning attention in 2026 aren't publishing the most - they're publishing the most deliberately. Here's how to shift from volume to strategy.",
     category: 'Latest Technologies',
     read: '5 min read',
-    date: 'Aug 4, 2026',
+    date: 'Aug 6, 2026',
     img: '/images/blog/content-marketing-hero.jpg',
     metaTitle: 'Quality Over Quantity: Content Marketing in 2026 | EG Digital',
     metaDescription:
@@ -99,8 +99,8 @@ export const POSTS: BlogPost[] = [
       {
         k: 'img',
         id: '/images/blog/content-marketing-storytelling.jpg',
-        alt: 'A production crew filming behind-the-scenes brand content on location',
-        caption: 'Behind-the-scenes footage, founder stories and customer wins build familiarity in a way a product spec sheet never can.',
+        alt: 'A content writer drafting an article at her desk',
+        caption: 'Content that educates and tells a genuine story sticks with people long after a product spec sheet is forgotten.',
       },
 
       { k: 'h2', text: 'A Practical Way to Shift From Volume to Strategy' },
@@ -117,8 +117,8 @@ export const POSTS: BlogPost[] = [
       {
         k: 'img',
         id: '/images/blog/content-marketing-metrics.jpg',
-        alt: 'A marketer reviewing engagement and performance metrics on a printed chart',
-        caption: 'Impressions look good on a slide, but engagement rate, saves, shares and enquiries tell you what is actually working.',
+        alt: 'Overhead view of a content writer planning and drafting content at a desk',
+        caption: 'A single strong idea, well written, can be repurposed into a blog post, a carousel, a short-form video and an email.',
       },
 
       { k: 'h2', text: 'How EG Digital Approaches Content Marketing' },
