@@ -27,7 +27,6 @@ const CREAM = '#f8f8ff'
 // bundle - only this hash does, and the entered value is hashed and compared.
 const PASSWORD_HASH =
   '15f86a69286eb583e18ae8cd1116769b690fa5b44a7cf9cfa250a3cb217f1e73'
-const UNLOCK_KEY = 'eg-cp-unlocked'
 
 async function sha256Hex(text: string): Promise<string> {
   const data = new TextEncoder().encode(text)
@@ -46,11 +45,8 @@ export function ContentProtection() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    // Already unlocked this session -> attach nothing, leave the page normal.
-    if (sessionStorage.getItem(UNLOCK_KEY) === '1') {
-      unlockedRef.current = true
-      return
-    }
+    // Protection is re-armed on every page load / refresh (no persistence), so
+    // the page is always protected until the password is entered again.
 
     // Stop the drag-ghost so images cannot be dragged out. Text selection is
     // intentionally left untouched so users can still select/read content.
@@ -126,7 +122,7 @@ export function ContentProtection() {
     e?.preventDefault()
     const hash = await sha256Hex(input)
     if (hash === PASSWORD_HASH) {
-      sessionStorage.setItem(UNLOCK_KEY, '1')
+      // Unlock only for this page view (in memory). A refresh re-locks.
       unlockedRef.current = true
       // Drop the image-drag lock immediately.
       document.querySelectorAll('style[data-content-protection]').forEach((s) => s.remove())
