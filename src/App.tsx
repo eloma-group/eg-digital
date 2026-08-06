@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { IntroSplash } from './components/IntroSplash'
+import { ContentProtection } from './components/ContentProtection'
 import { useCanonical } from './hooks/useCanonical'
 
 // Every page is code-split so opening one route never downloads the others.
@@ -108,6 +109,7 @@ function App() {
   return (
     <>
       <IntroSplash />
+      <ContentProtection />
       <ScrollToTop />
       <CanonicalTag />
       <Suspense fallback={null}>
