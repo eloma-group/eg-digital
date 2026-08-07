@@ -47,6 +47,46 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Featured / newest article (full body) ──────────────────────────────────
   {
+    slug: 'google-search-leadership-jeff-dean-exit-seo',
+    title: "Google's Search Leadership Just Shifted: What Jeff Dean's Exit Means for SEO",
+    h1: "Google's Search Leadership Just Shifted: What Jeff Dean's Exit Means for SEO",
+    excerpt:
+      "Jeff Dean is leaving Google after 27 years to launch his own AI venture, and DeepMind's leadership is being reshuffled at the same time. Here's what the shake-up at the top of Google Search could mean for your SEO.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Aug 6, 2026',
+    img: '/images/blog/google-search-leadership-hero.jpg',
+    metaTitle: "Jeff Dean Leaves Google: What It Means for SEO | EG Digital",
+    metaDescription:
+      "Jeff Dean is leaving Google after 27 years and DeepMind's leadership is shifting. Here's what the search leadership shake-up could mean for your SEO strategy.",
+    featured: true,
+    body: [
+      {
+        k: 'p',
+        text: "Big news out of Google this week if you keep half an eye on how search works behind the scenes. According to Search Engine Land, Jeff Dean is leaving Google after 27 years to launch his own AI venture, Discover Loop. He was one of the first 30 people ever hired at Google, and he's had his fingerprints on pretty much every major upgrade to Search since, from RankBrain all the way through to AI Overviews and AI Mode.",
+      },
+      {
+        k: 'p',
+        text: "On top of that, Demis Hassabis is stepping back from his role as CEO of Google DeepMind to take on the title of Alphabet's chief scientist, while Koray Kavukcuoglu steps in to run DeepMind, reporting straight to Sundar Pichai. A handful of other senior researchers are following Dean out the door to join his new company too.",
+      },
+
+      { k: 'h2', text: 'Why This Actually Matters if You Care About SEO' },
+      {
+        k: 'p',
+        text: "Here's the thing about Jeff Dean, he wasn't just another exec with a fancy title. He's one of the people who actually built the AI systems deciding how search results look today. That doesn't mean your rankings are about to flip overnight, but it's a fair reminder that the people steering Google's next moves have just changed, and that tends to ripple through eventually. Alphabet's share price dropped around 4% straight after the announcement, which says a fair bit about how seriously the market is taking this. The teams behind AI Overviews and AI Mode are getting reshuffled right now, and whoever's calling the shots next will shape where search heads from here.",
+      },
+      {
+        k: 'p',
+        text: "No one can tell you exactly what this means for future algorithm updates, and to be honest, anyone who says they can is probably guessing. But it's as good a nudge as any to check your [SEO strategy](/services/seo-services) isn't running on autopilot. If it's been a while since your last audit, now's not a bad time to have a proper look under the bonnet. It's the kind of thing we keep tabs on as part of every [Google Ads](/services/google-ads-management) and search strategy we run for clients, so nobody gets blindsided when the ground shifts.",
+      },
+      {
+        k: 'p',
+        text: "**Want a second set of eyes on your search strategy?** [Get in touch with EG Digital](/contact).",
+      },
+    ],
+  },
+
+  {
     slug: 'content-marketing-quality-over-quantity-australia',
     title: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
     h1: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
@@ -59,7 +99,6 @@ export const POSTS: BlogPost[] = [
     metaTitle: 'Quality Over Quantity: Content Marketing in 2026 | EG Digital',
     metaDescription:
       "Posting more isn't a strategy. Learn why publishing less at a higher standard wins in 2026, and how Australian brands shift from content volume to real strategy.",
-    featured: true,
     body: [
       {
         k: 'p',

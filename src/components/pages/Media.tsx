@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
@@ -123,11 +124,15 @@ export function Media() {
       {/* ── Featured lead ── */}
       <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px)' }}>
         <Reveal>
-          <div className="md-lead" style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(24px,3vw,52px)', alignItems: 'center', background: '#fff', border: '1px solid rgba(8,33,60,0.1)', borderRadius: 20, overflow: 'hidden' }}>
+          <Link
+            to="/blog/google-search-leadership-jeff-dean-exit-seo"
+            className="md-lead"
+            style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(24px,3vw,52px)', alignItems: 'center', background: '#fff', border: '1px solid rgba(8,33,60,0.1)', borderRadius: 20, overflow: 'hidden', textDecoration: 'none' }}
+          >
             <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: NAVY, position: 'relative', overflow: 'hidden' }}>
               <img
-                src={photo('photo-1522071820081-009f0129c71c', 900, 700)}
-                alt="The EG Digital team collaborating in the studio"
+                src="/images/blog/google-search-leadership-hero.jpg"
+                alt="Google's AI search leadership shifting as Jeff Dean departs"
                 loading="lazy"
                 decoding="async"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
@@ -136,16 +141,16 @@ export function Media() {
             </div>
             <div style={{ padding: 'clamp(28px,3vw,56px) clamp(28px,3vw,56px) clamp(28px,3vw,56px) 0' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: GREEN }}>
-                AusTech Daily<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />March 2026
+                EG Digital Blog<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />August 2026
               </div>
               <h2 style={{ fontSize: 'clamp(26px,3.2vw,52px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.08, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase' }}>
-                The studio shipping enterprise work at startup speed
+                Google's search leadership just shifted: what Jeff Dean's exit means for SEO
               </h2>
               <p style={{ fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: 0, maxWidth: 520 }}>
-                A deep-dive into how EG Digital became one of Melbourne’s fastest-growing digital studios - and why the single-partner model is winning.
+                Jeff Dean is leaving Google after 27 years to launch his own AI venture, and DeepMind's leadership is being reshuffled at the same time. Here's what the shake-up at the top of Google Search could mean for your SEO.
               </p>
             </div>
-          </div>
+          </Link>
         </Reveal>
       </section>
 
