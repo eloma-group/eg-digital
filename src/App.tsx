@@ -119,6 +119,7 @@ function App() {
         <Route path="/about/our-usp" element={<OurUSP />} />
         <Route path="/about/networks-partners" element={<NetworksPartners />} />
         <Route path="/about/media" element={<Media />} />
+        <Route path="/about/media/:slug" element={<BlogArticle />} />
         <Route path="/about/values" element={<Values />} />
         <Route path="/about/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />

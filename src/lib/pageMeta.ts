@@ -66,8 +66,9 @@ export const ROUTES: string[] = [
   '/services/graphic-design',
   '/industries',
   '/blog',
-  // Every blog article gets its own crawlable, pre-rendered page.
-  ...POSTS.map(p => `/blog/${p.slug}`),
+  // Every article gets its own crawlable, pre-rendered page - blog posts under
+  // /blog, newsroom posts under /about/media.
+  ...POSTS.map(p => (p.newsroom ? `/about/media/${p.slug}` : `/blog/${p.slug}`)),
   '/career',
   '/privacy-policy',
   '/terms-and-conditions',
@@ -246,5 +247,6 @@ export const PAGE_META: Record<string, PageMeta> = {
 // Fold in per-article SEO from the posts registry (title tag + meta description
 // come straight from each post) so the static build bakes them per URL.
 for (const p of POSTS) {
-  PAGE_META[`/blog/${p.slug}`] = { title: p.metaTitle, description: p.metaDescription }
+  const path = p.newsroom ? `/about/media/${p.slug}` : `/blog/${p.slug}`
+  PAGE_META[path] = { title: p.metaTitle, description: p.metaDescription }
 }

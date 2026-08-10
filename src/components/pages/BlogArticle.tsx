@@ -4,7 +4,7 @@ import { useParams, Navigate, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { PageLayout, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { getPost, photo, GRID_POSTS, type Block } from '../../lib/blogPosts'
+import { getPost, photo, GRID_POSTS, NEWSROOM_POSTS, postPath, type Block } from '../../lib/blogPosts'
 
 // Parse the tiny inline markup used in post bodies: **bold** and
 // [label](/internal/path). Returns an array of React nodes.
@@ -120,7 +120,14 @@ export function BlogArticle() {
   // Unknown slug -> send back to the blog index.
   if (!post) return <Navigate to="/blog" replace />
 
-  const related = GRID_POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
+  // Newsroom posts live under /about/media; blog posts under /blog. Back links,
+  // related articles and labels follow the post's own channel.
+  const isNews = !!post.newsroom
+  const backTo = isNews ? '/about/media' : '/blog'
+  const backLabel = isNews ? 'Newsroom' : 'All articles'
+  const relatedHeading = isNews ? 'More from the newsroom' : 'More from the blog'
+  const relatedSource = isNews ? NEWSROOM_POSTS : GRID_POSTS
+  const related = relatedSource.filter(p => p.slug !== post.slug).slice(0, 3)
 
   return (
     <PageLayout>
@@ -220,8 +227,8 @@ export function BlogArticle() {
 
       <article className="ba-wrap">
         <div className="ba-top">
-          <button className="ba-back" onClick={() => navigate('/blog')}>
-            <ArrowLeft size={16} /> All articles
+          <button className="ba-back" onClick={() => navigate(backTo)}>
+            <ArrowLeft size={16} /> {backLabel}
           </button>
         </div>
 
@@ -251,10 +258,10 @@ export function BlogArticle() {
 
       {related.length > 0 && (
         <section className="ba-rel">
-          <h2 className="ba-rel-h">More from the blog</h2>
+          <h2 className="ba-rel-h">{relatedHeading}</h2>
           <div className="ba-rel-grid">
             {related.map(p => (
-              <Link key={p.slug} to={`/blog/${p.slug}`} className="ba-rel-card">
+              <Link key={p.slug} to={postPath(p)} className="ba-rel-card">
                 <div className="ba-rel-imgwrap">
                   <img className="ba-rel-img" src={photo(p.img)} alt="" loading="lazy" decoding="async" width={640} height={400} />
                 </div>

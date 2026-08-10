@@ -33,6 +33,9 @@ export interface BlogPost {
   metaTitle: string
   metaDescription: string
   featured?: boolean
+  // When true, the post lives in the Newsroom (/about/media/<slug>) instead of
+  // the Blog. It is excluded from the /blog listing and gets a newsroom URL.
+  newsroom?: boolean
   body?: Block[]
 }
 
@@ -45,7 +48,67 @@ export const photo = (id: string, w = 640, h = 400) =>
     : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
 export const POSTS: BlogPost[] = [
-  // ── Featured / newest article (full body) ──────────────────────────────────
+  // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
+  {
+    slug: 'people-warming-up-to-ai-tools-trust-gap',
+    title: "People Are Warming Up to AI Tools, But They Still Don't Fully Trust Them, Here's Why That Matters",
+    h1: "People Are Warming Up to AI Tools, But They Still Don't Fully Trust Them, Here's Why That Matters",
+    excerpt:
+      "New data shows people are more open to AI tools like ChatGPT and Claude than ever, yet only 28% actually trust the answers they get back. Here's why that gap matters for how businesses build real visibility.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Aug 8, 2026',
+    img: '/images/newsroom/ai-tools-trust-hero.jpg',
+    metaTitle: "People Are Warming Up to AI Tools But Still Don't Trust Them | EG Digital",
+    metaDescription:
+      "Gen Z is more open to AI tools like ChatGPT and Claude, but only 28% of Americans trust the answers. Here's why that gap matters for your marketing in 2026.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "There's some interesting new data out this week about how people really feel about AI tools like Claude and ChatGPT. According to Search Engine Journal, a survey by YouGov found that young Americans (Gen Z) are now much more open to using Claude and OpenAI's tools than they were a few months ago, so much so that these AI companies landed in the same top 10 list as well known brands like Johnnie Walker and REI. But here's the catch: a separate survey found only 28% of Americans actually trust AI tools to give them a correct answer. So people are becoming more open to using AI, but that doesn't mean they trust what it tells them.",
+      },
+
+      { k: 'h2', text: "Being Open to Something Isn't the Same as Trusting It" },
+      {
+        k: 'p',
+        text: "Think about it like this. You might be happy to try a new restaurant because it looks good on Instagram, but that doesn't mean you'd trust everything the waiter tells you about the ingredients. It's a similar idea here. People are willing to give AI tools a go, but a lot of them still aren't convinced the answers they get back are accurate. If your business is hoping to get mentioned by AI tools like ChatGPT one day, this gap matters a lot.",
+      },
+
+      { k: 'h2', text: 'What Actually Worked This Quarter' },
+      {
+        k: 'p',
+        text: "It's worth looking at what actually helped brands climb this ranking, because none of it was some clever AI trick. Johnnie Walker did it with a straightforward ad campaign on streaming, social media and billboards. REI did it with a good old fashioned sale that got picked up by lifestyle websites. Even Google Assistant's numbers went up mostly because people were hearing about Google's other AI news, not because Assistant did anything new itself. The lesson here: normal marketing like ads, PR and good timing still works, and often works faster than trying to game AI search.",
+      },
+
+      { k: 'h2', text: 'So What Should You Actually Do With This?' },
+      {
+        k: 'ul',
+        items: [
+          "**Don't lump everything under \"AI visibility\".** Whether people are open to using an AI tool is one thing. Whether that AI tool actually trusts your website enough to mention it is a completely different thing. Keep an eye on both separately.",
+          "**Don't put all your eggs in the AI basket.** If your whole 2026 plan is built around getting quoted by ChatGPT, this data is a good reminder that regular marketing, ads, and press coverage still move the needle, sometimes faster than any content tweak will.",
+          '**Focus on being trustworthy, not just visible.** Real data, named experts, and being upfront about where your information comes from are what actually get you mentioned by AI tools. Just having a website out there isn\'t enough anymore.',
+        ],
+      },
+
+      { k: 'h2', text: 'How We Think About This at EG Digital' },
+      {
+        k: 'p',
+        text: "This is basically why we don't treat SEO and paid ads as two separate jobs. AI tools are quickly becoming another place people go to find businesses, alongside Google and social media, and getting picked up there comes down to the same basics that help you rank normally: clear information, real data, and content that's actually useful rather than just written to tick a box. Our [Google Ads management](/services/google-ads-management) service works hand in hand with organic strategy for exactly this reason, so you're not relying on just one channel to carry your visibility.",
+      },
+
+      { k: 'h2', text: 'The Bottom Line' },
+      {
+        k: 'p',
+        text: "Getting people to try AI tools is one thing, getting them to actually trust and rely on the answers is a whole different challenge, and it's still playing out. The businesses that win in the long run won't just be the ones chasing an AI mention. They'll be the ones building something worth trusting in the first place.",
+      },
+      {
+        k: 'p',
+        text: "**Want help building a strategy that covers both search and AI visibility?** [Get in touch with EG Digital](/contact).",
+      },
+    ],
+  },
+
   {
     slug: 'google-search-leadership-jeff-dean-exit-seo',
     title: "Google's Search Leadership Just Shifted: What Jeff Dean's Exit Means for SEO",
@@ -59,7 +122,7 @@ export const POSTS: BlogPost[] = [
     metaTitle: "Jeff Dean Leaves Google: What It Means for SEO | EG Digital",
     metaDescription:
       "Jeff Dean is leaving Google after 27 years and DeepMind's leadership is shifting. Here's what the search leadership shake-up could mean for your SEO strategy.",
-    featured: true,
+    newsroom: true,
     body: [
       {
         k: 'p',
@@ -1212,5 +1275,15 @@ export const POSTS: BlogPost[] = [
 export const getPost = (slug: string | undefined): BlogPost | undefined =>
   POSTS.find(p => p.slug === slug)
 
-export const FEATURED = POSTS.find(p => p.featured) ?? POSTS[0]
-export const GRID_POSTS = POSTS.filter(p => p !== FEATURED)
+// The public URL for a post depends on its channel: newsroom posts live under
+// /about/media, everything else under /blog.
+export const postPath = (p: BlogPost) =>
+  p.newsroom ? `/about/media/${p.slug}` : `/blog/${p.slug}`
+
+// Blog listing sources (newsroom posts are excluded from the Blog entirely).
+const BLOG_POSTS = POSTS.filter(p => !p.newsroom)
+export const FEATURED = BLOG_POSTS.find(p => p.featured) ?? BLOG_POSTS[0]
+export const GRID_POSTS = BLOG_POSTS.filter(p => p !== FEATURED)
+
+// Newsroom listing source (newest first, matching array order).
+export const NEWSROOM_POSTS = POSTS.filter(p => p.newsroom)

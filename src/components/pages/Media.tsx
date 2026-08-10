@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { photo } from '../../lib/blogPosts'
+import { photo, NEWSROOM_POSTS, postPath } from '../../lib/blogPosts'
 
 type Cat = 'Press' | 'Awards' | 'Articles'
 type Card =
@@ -100,6 +100,8 @@ export function Media() {
   )
   const [filter, setFilter] = useState<'All' | Cat>('All')
   const shown = CARDS.filter(c => filter === 'All' || c.cat === filter)
+  // Newsroom articles: the first is the featured lead, the rest sit beneath it.
+  const [lead, ...restNews] = NEWSROOM_POSTS
 
   return (
     <PageLayout>
@@ -109,6 +111,18 @@ export function Media() {
         @media (min-width: 1920px) { .md-masonry { max-width: 1900px; } }
         @media (max-width: 1000px) { .md-masonry { column-count: 2; } }
         @media (max-width: 600px)  { .md-masonry { column-count: 1; } }
+
+        /* Secondary newsroom articles under the featured lead */
+        .md-sub { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px,2vw,28px);
+          margin-top: clamp(20px,2.4vw,32px); }
+        @media (max-width: 720px) { .md-sub { grid-template-columns: 1fr; } }
+        .md-sub-card { display: grid; grid-template-columns: 40% 1fr; background: #fff;
+          border: 1px solid rgba(8,33,60,0.1); border-radius: 16px; overflow: hidden; text-decoration: none;
+          transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s; will-change: transform; }
+        .md-sub-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px -18px rgba(8,33,60,0.28); }
+        .md-sub-imgwrap { position: relative; min-height: 150px; background: ${NAVY}; overflow: hidden; }
+        .md-sub-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        .md-sub-body { padding: clamp(18px,1.8vw,26px); display: flex; flex-direction: column; justify-content: center; }
       `}</style>
 
       {/* ── Masthead ── */}
@@ -121,38 +135,66 @@ export function Media() {
         </Reveal>
       </section>
 
-      {/* ── Featured lead ── */}
-      <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px)' }}>
-        <Reveal>
-          <Link
-            to="/blog/google-search-leadership-jeff-dean-exit-seo"
-            className="md-lead"
-            style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(24px,3vw,52px)', alignItems: 'center', background: '#fff', border: '1px solid rgba(8,33,60,0.1)', borderRadius: 20, overflow: 'hidden', textDecoration: 'none' }}
-          >
-            <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: NAVY, position: 'relative', overflow: 'hidden' }}>
-              <img
-                src="/images/blog/google-search-leadership-hero.jpg"
-                alt="Google's AI search leadership shifting as Jeff Dean departs"
-                loading="lazy"
-                decoding="async"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-              <span style={{ position: 'absolute', top: 22, left: 22, zIndex: 1, background: GREEN, color: NAVY, fontSize: 11, fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '7px 13px', borderRadius: 99 }}>Featured</span>
-            </div>
-            <div style={{ padding: 'clamp(28px,3vw,56px) clamp(28px,3vw,56px) clamp(28px,3vw,56px) 0' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: GREEN }}>
-                EG Digital Blog<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />August 2026
+      {/* ── Featured lead + latest newsroom articles ── */}
+      {lead && (
+        <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px)' }}>
+          <Reveal>
+            <Link
+              to={postPath(lead)}
+              className="md-lead"
+              style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(24px,3vw,52px)', alignItems: 'center', background: '#fff', border: '1px solid rgba(8,33,60,0.1)', borderRadius: 20, overflow: 'hidden', textDecoration: 'none' }}
+            >
+              <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: NAVY, position: 'relative', overflow: 'hidden' }}>
+                <img
+                  src={photo(lead.img, 900, 560)}
+                  alt={lead.title}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <span style={{ position: 'absolute', top: 22, left: 22, zIndex: 1, background: GREEN, color: NAVY, fontSize: 11, fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '7px 13px', borderRadius: 99 }}>Featured</span>
               </div>
-              <h2 style={{ fontSize: 'clamp(26px,3.2vw,52px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.08, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase' }}>
-                Google's search leadership just shifted: what Jeff Dean's exit means for SEO
-              </h2>
-              <p style={{ fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: 0, maxWidth: 520 }}>
-                Jeff Dean is leaving Google after 27 years to launch his own AI venture, and DeepMind's leadership is being reshuffled at the same time. Here's what the shake-up at the top of Google Search could mean for your SEO.
-              </p>
+              <div style={{ padding: 'clamp(28px,3vw,56px) clamp(28px,3vw,56px) clamp(28px,3vw,56px) 0' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: GREEN }}>
+                  EG Digital Newsroom<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />{lead.date}
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px,2.9vw,44px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.12, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase', overflowWrap: 'anywhere' }}>
+                  {lead.title}
+                </h2>
+                <p style={{ fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.8, color: 'rgba(8,33,60,0.6)', margin: '0 0 20px', maxWidth: 520 }}>
+                  {lead.excerpt}
+                </p>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 12, fontWeight: 800, letterSpacing: '0.6px', textTransform: 'uppercase', color: GREEN }}>
+                  Read article
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={GREEN} strokeWidth="1.8" strokeLinecap="round" /></svg>
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+
+          {restNews.length > 0 && (
+            <div className="md-sub">
+              {restNews.map(p => (
+                <Reveal key={p.slug}>
+                  <Link to={postPath(p)} className="md-sub-card">
+                    <div className="md-sub-imgwrap">
+                      <img className="md-sub-img" src={photo(p.img, 500, 500)} alt={p.title} loading="lazy" decoding="async" />
+                    </div>
+                    <div className="md-sub-body">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 10.5, fontWeight: 800, letterSpacing: '1.3px', textTransform: 'uppercase', color: GREEN, marginBottom: 10 }}>
+                        Newsroom<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />{p.date}
+                      </div>
+                      <h3 style={{ fontSize: 'clamp(16px,1.4vw,21px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.28, color: NAVY, margin: 0, overflowWrap: 'anywhere' }}>
+                        {p.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
             </div>
-          </Link>
-        </Reveal>
-      </section>
+          )}
+        </section>
+      )}
 
       {/* ── Filter bar ── */}
       <div style={{ position: 'sticky', top: 76, zIndex: 50, background: `${CREAM}f2`, backdropFilter: 'blur(8px)', borderTop: '1px solid rgba(8,33,60,0.08)', borderBottom: '1px solid rgba(8,33,60,0.08)' }}>
