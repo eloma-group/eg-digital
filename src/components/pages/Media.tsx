@@ -3,126 +3,52 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { photo, NEWSROOM_POSTS, postPath } from '../../lib/blogPosts'
+import { photo, NEWSROOM_POSTS, postPath, type Category } from '../../lib/blogPosts'
 
-type Cat = 'Press' | 'Awards' | 'Articles'
-type Card =
-  | { type: 'cover'; cat: Cat; outlet: string; date: string; title: string; img: string }
-  | { type: 'quote'; cat: Cat; outlet: string; date: string; quote: string }
-  | { type: 'outlet'; cat: Cat; outlet: string; date: string; label: string }
-  | { type: 'text'; cat: Cat; outlet: string; date: string; title: string }
-
-const FILTERS: ('All' | Cat)[] = ['All', 'Press', 'Awards', 'Articles']
-
-const CARDS: Card[] = [
-  { type: 'cover', cat: 'Press', outlet: 'AusTech Daily', date: 'Mar 2026', title: 'EG Digital named one of Melbourne’s fastest-growing studios', img: 'photo-1545044846-351ba102b6d5' },
-  { type: 'quote', cat: 'Press', outlet: 'StartupSmart', date: 'Feb 2026', quote: '“A rare agency that ships enterprise-grade work at startup speed.”' },
-  { type: 'outlet', cat: 'Press', outlet: 'The Australian', date: 'Jan 2026', label: 'As featured in' },
-  { type: 'cover', cat: 'Awards', outlet: 'Awards', date: 'Dec 2025', title: 'Site of the Day for the Lumio SaaS platform', img: 'photo-1551288049-bebda4e38f71' },
-  { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Nov 2025', title: 'Why we quote honestly - and how fixed milestones keep us accountable' },
-  { type: 'quote', cat: 'Awards', outlet: 'CSS Design Awards', date: 'Oct 2025', quote: '“Best UI Design - a masterclass in editorial restraint.”' },
-  { type: 'cover', cat: 'Articles', outlet: 'EG Journal', date: 'Sep 2025', title: 'Shipping Dynamics 365 for SMEs without the six-month timeline', img: 'photo-1600880292203-757bb62b4baf' },
-  { type: 'outlet', cat: 'Press', outlet: 'SmartCompany', date: 'Aug 2025', label: 'As seen in' },
-  { type: 'text', cat: 'Articles', outlet: 'EG Journal', date: 'Jul 2025', title: 'The single-partner model: one team from first call to launch' },
-  { type: 'quote', cat: 'Awards', outlet: 'The Webby Awards', date: 'Jun 2025', quote: '“Honoree - Best Visual Design, Aesthetic.”' },
-]
-
-function PressCard({ c }: { c: Card }) {
-  const [hover, setHover] = useState(false)
-  const meta = (light: boolean) => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: light ? 'rgba(255,255,255,0.7)' : GREEN }}>
-      {c.outlet}<span style={{ width: 3, height: 3, borderRadius: '50%', background: 'currentColor' }} />{c.date}
-    </div>
-  )
-  const base: React.CSSProperties = {
-    breakInside: 'avoid', marginBottom: 'clamp(14px,1.4vw,22px)', borderRadius: 16, overflow: 'hidden',
-    transition: 'transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s',
-    transform: hover ? 'translateY(-5px)' : 'translateY(0)',
-    boxShadow: hover ? '0 24px 50px -18px rgba(8,33,60,0.28)' : '0 1px 2px rgba(8,33,60,0.05)',
-    cursor: 'pointer',
-  }
-
-  if (c.type === 'cover') {
-    return (
-      <div style={base} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div style={{ position: 'relative', overflow: 'hidden', height: 'clamp(180px,16vw,240px)', background: NAVY }}>
-          <img
-            src={photo(c.img, 800, 480)}
-            alt={c.title}
-            loading="lazy"
-            decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: hover ? 'scale(1.06)' : 'scale(1)', transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1)' }}
-          />
-        </div>
-        <div style={{ background: '#fff', padding: 'clamp(18px,1.8vw,26px)' }}>
-          {meta(false)}
-          <h3 style={{ fontSize: 'clamp(17px,1.5vw,22px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.25, color: NAVY, margin: '12px 0 0' }}>{c.title}</h3>
-        </div>
-      </div>
-    )
-  }
-  if (c.type === 'quote') {
-    return (
-      <div style={{ ...base, background: hover ? NAVY : '#fff', border: '1px solid rgba(8,33,60,0.1)', padding: 'clamp(24px,2.4vw,36px)' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div style={{ fontSize: 60, fontWeight: 900, lineHeight: 0.7, color: GREEN, marginBottom: 8 }}>“</div>
-        <p style={{ fontSize: 'clamp(18px,1.7vw,26px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.3, color: hover ? '#fff' : NAVY, margin: '0 0 18px', transition: 'color 0.3s' }}>{c.quote}</p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: hover ? 'rgba(255,255,255,0.7)' : GREEN, transition: 'color 0.3s' }}>
-          {c.outlet}<span style={{ width: 3, height: 3, borderRadius: '50%', background: 'currentColor' }} />{c.date}
-        </div>
-      </div>
-    )
-  }
-  if (c.type === 'outlet') {
-    return (
-      <div style={{ ...base, background: NAVY, padding: 'clamp(24px,2.4vw,36px)' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: GREEN, marginBottom: 14 }}>{c.label}</div>
-        <div style={{ fontSize: 'clamp(22px,2.4vw,34px)', fontWeight: 900, letterSpacing: '-0.03em', color: '#fff' }}>{c.outlet}</div>
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '1.4px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginTop: 12 }}>{c.date}</div>
-      </div>
-    )
-  }
-  return (
-    <div style={{ ...base, background: '#fff', border: '1px solid rgba(8,33,60,0.1)', padding: 'clamp(22px,2.2vw,32px)' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      {meta(false)}
-      <h3 style={{ fontSize: 'clamp(18px,1.7vw,26px)', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.25, color: NAVY, margin: '14px 0 0' }}>{c.title}</h3>
-      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, marginTop: 18, fontSize: 12, fontWeight: 800, color: GREEN }}>
-        Read article
-        <svg width="10" height="10" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={GREEN} strokeWidth="1.8" strokeLinecap="round" /></svg>
-      </div>
-    </div>
-  )
-}
+// Real category filters, derived from the newsroom posts themselves so new
+// categories appear automatically as articles are added.
+const CATS = Array.from(new Set(NEWSROOM_POSTS.map(p => p.category))) as Category[]
+const FILTERS: ('All' | Category)[] = ['All', ...CATS]
 
 export function Media() {
   usePageMeta(
     'EG Digital Media | News, Updates & Press',
     'Stay updated with EG Digital media coverage, announcements, insights, and press releases showcasing our innovation in digital transformation services.',
   )
-  const [filter, setFilter] = useState<'All' | Cat>('All')
-  const shown = CARDS.filter(c => filter === 'All' || c.cat === filter)
-  // Newsroom articles: the first is the featured lead, the rest sit beneath it.
+  const [filter, setFilter] = useState<'All' | Category>('All')
+  // Newsroom articles: the first is the featured lead, the rest fill the grid.
   const [lead, ...restNews] = NEWSROOM_POSTS
+  const shown = restNews.filter(p => filter === 'All' || p.category === filter)
 
   return (
     <PageLayout>
       <style>{`
-        .md-masonry { column-count: 3; column-gap: clamp(14px,1.4vw,22px); max-width: 1760px; margin: 0 auto;
-          padding: clamp(24px,3vw,40px) clamp(24px,4vw,72px) clamp(60px,9vw,130px); }
-        @media (min-width: 1920px) { .md-masonry { max-width: 1900px; } }
-        @media (max-width: 1000px) { .md-masonry { column-count: 2; } }
-        @media (max-width: 600px)  { .md-masonry { column-count: 1; } }
+        /* Featured lead + article grid share one shell */
+        .md-shell { max-width: 1760px; margin: 0 auto; padding: 0 clamp(24px,4vw,72px); }
+        @media (min-width: 1920px) { .md-shell { max-width: 1900px; } }
+        @media (min-width: 2560px) { .md-shell { max-width: 2400px; } }
 
-        /* Secondary newsroom articles under the featured lead */
-        .md-sub { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px,2vw,28px);
-          margin-top: clamp(20px,2.4vw,32px); }
-        @media (max-width: 720px) { .md-sub { grid-template-columns: 1fr; } }
-        .md-sub-card { display: grid; grid-template-columns: 40% 1fr; background: #fff;
-          border: 1px solid rgba(8,33,60,0.1); border-radius: 16px; overflow: hidden; text-decoration: none;
+        .md-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px,2vw,28px);
+          padding: clamp(20px,2.4vw,32px) 0 clamp(60px,9vw,130px); }
+        @media (max-width: 1000px) { .md-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px)  { .md-grid { grid-template-columns: 1fr; } }
+
+        .md-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(8,33,60,0.08);
+          border-radius: 20px; overflow: hidden; box-shadow: 0 4px 22px rgba(8,33,60,0.05); text-decoration: none;
           transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s; will-change: transform; }
-        .md-sub-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px -18px rgba(8,33,60,0.28); }
-        .md-sub-imgwrap { position: relative; min-height: 150px; background: ${NAVY}; overflow: hidden; }
-        .md-sub-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-        .md-sub-body { padding: clamp(18px,1.8vw,26px); display: flex; flex-direction: column; justify-content: center; }
+        .md-card:hover { transform: translateY(-6px); box-shadow: 0 22px 52px rgba(8,33,60,0.12); }
+        .md-card-imgwrap { aspect-ratio: 16/10; overflow: hidden; background: ${NAVY}; }
+        .md-card-img { width: 100%; height: 100%; object-fit: cover; display: block;
+          transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
+        .md-card:hover .md-card-img { transform: scale(1.05); }
+        .md-card-body { padding: clamp(20px,2vw,28px); display: flex; flex-direction: column; flex: 1; }
+        .md-card-cat { font-size: 11px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase;
+          word-spacing: 0.14em; color: ${GREEN}; margin-bottom: 12px; }
+        .md-card-title { font-size: clamp(17px,1.4vw,22px); font-weight: 800; letter-spacing: -0.02em;
+          line-height: 1.25; color: ${NAVY}; margin: 0 0 10px; overflow-wrap: anywhere; }
+        .md-card-ex { font-size: 14px; line-height: 1.7; color: rgba(8,33,60,0.55); margin: 0 0 18px; flex: 1; }
+        .md-card-foot { display: flex; align-items: center; justify-content: space-between;
+          font-size: 12px; font-weight: 700; color: rgba(8,33,60,0.4); }
       `}</style>
 
       {/* ── Masthead ── */}
@@ -135,9 +61,9 @@ export function Media() {
         </Reveal>
       </section>
 
-      {/* ── Featured lead + latest newsroom articles ── */}
+      {/* ── Featured lead ── */}
       {lead && (
-        <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px)' }}>
+        <section style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(28px,4vw,56px) clamp(24px,4vw,72px) clamp(20px,2.4vw,32px)' }}>
           <Reveal>
             <Link
               to={postPath(lead)}
@@ -156,7 +82,7 @@ export function Media() {
               </div>
               <div style={{ padding: 'clamp(28px,3vw,56px) clamp(28px,3vw,56px) clamp(28px,3vw,56px) 0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, fontWeight: 800, letterSpacing: '1.4px', textTransform: 'uppercase', color: GREEN }}>
-                  EG Digital Newsroom<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />{lead.date}
+                  {lead.category}<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />{lead.date}
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px,2.9vw,44px)', fontWeight: 900, letterSpacing: '0.01em', lineHeight: 1.12, color: NAVY, margin: '16px 0 18px', textTransform: 'uppercase', overflowWrap: 'anywhere' }}>
                   {lead.title}
@@ -171,32 +97,10 @@ export function Media() {
               </div>
             </Link>
           </Reveal>
-
-          {restNews.length > 0 && (
-            <div className="md-sub">
-              {restNews.map(p => (
-                <Reveal key={p.slug}>
-                  <Link to={postPath(p)} className="md-sub-card">
-                    <div className="md-sub-imgwrap">
-                      <img className="md-sub-img" src={photo(p.img, 500, 500)} alt={p.title} loading="lazy" decoding="async" />
-                    </div>
-                    <div className="md-sub-body">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 10.5, fontWeight: 800, letterSpacing: '1.3px', textTransform: 'uppercase', color: GREEN, marginBottom: 10 }}>
-                        Newsroom<span style={{ width: 3, height: 3, borderRadius: '50%', background: GREEN }} />{p.date}
-                      </div>
-                      <h3 style={{ fontSize: 'clamp(16px,1.4vw,21px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.28, color: NAVY, margin: 0, overflowWrap: 'anywhere' }}>
-                        {p.title}
-                      </h3>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          )}
         </section>
       )}
 
-      {/* ── Filter bar ── */}
+      {/* ── Filter bar (real categories) ── */}
       <div style={{ position: 'sticky', top: 76, zIndex: 50, background: `${CREAM}f2`, backdropFilter: 'blur(8px)', borderTop: '1px solid rgba(8,33,60,0.08)', borderBottom: '1px solid rgba(8,33,60,0.08)' }}>
         <div style={{ maxWidth: 1760, margin: '0 auto', padding: '14px clamp(24px,4vw,72px)', display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           {FILTERS.map(f => {
@@ -213,10 +117,35 @@ export function Media() {
         </div>
       </div>
 
-      {/* ── Masonry ── */}
-      <motion.div className="md-masonry" key={filter} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-        {shown.map((c, i) => <PressCard key={`${filter}-${i}`} c={c} />)}
-      </motion.div>
+      {/* ── Article grid ── */}
+      <div className="md-shell">
+        {shown.length > 0 ? (
+          <motion.div className="md-grid" key={filter} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+            {shown.map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+                <Link to={postPath(p)} className="md-card">
+                  <div className="md-card-imgwrap">
+                    <img className="md-card-img" src={photo(p.img, 640, 400)} alt={p.title} loading="lazy" decoding="async" width={640} height={400} />
+                  </div>
+                  <div className="md-card-body">
+                    <div className="md-card-cat">{p.category}</div>
+                    <h3 className="md-card-title">{p.title}</h3>
+                    <p className="md-card-ex">{p.excerpt}</p>
+                    <div className="md-card-foot">
+                      <span>{p.date} · {p.read}</span>
+                      <svg width="18" height="18" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5V7" stroke={GREEN} strokeWidth="1.8" strokeLinecap="round" /></svg>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </motion.div>
+        ) : (
+          <p style={{ maxWidth: 1760, margin: '0 auto', padding: 'clamp(40px,6vw,80px) 0', fontSize: 'clamp(15px,1.2vw,18px)', color: 'rgba(8,33,60,0.5)', textAlign: 'center' }}>
+            More {filter === 'All' ? 'newsroom articles' : filter.toLowerCase()} coming soon.
+          </p>
+        )}
+      </div>
 
       <style>{`@media (max-width: 820px){ .md-lead { grid-template-columns: 1fr !important; } .md-lead > div:last-child { padding: clamp(24px,5vw,40px) !important; } }`}</style>
     </PageLayout>
