@@ -363,11 +363,12 @@ export const POSTS: BlogPost[] = [
       "Google lets you search in much smarter ways using search operators - simple commands like site: and intitle: that save a surprising amount of time on SEO research, competitor checks and content ideas.",
     category: 'Latest Technologies',
     read: '4 min read',
-    date: 'Aug 10, 2026',
+    date: 'Aug 13, 2026',
     img: '/images/blog/google-search-operators-hero.jpg',
     metaTitle: 'Google Search Operators: Simple SEO Tricks Explained | EG Digital',
     metaDescription:
       'Learn the Google search operators worth knowing, from site: to intitle:, and how to use them for easy SEO research, competitor checks, and content ideas.',
+    featured: true,
     body: [
       {
         k: 'p',
