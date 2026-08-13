@@ -116,7 +116,16 @@ export function Blog() {
               <div className="bl-feat-cta">Read article <ArrowUpRight size={16} /></div>
               <div className="bl-feat-meta">{FEATURED.date} · {FEATURED.read}</div>
             </div>
-            <img className="bl-feat-art" src={photo(FEATURED.img, 800, 600)} alt="" loading="lazy" decoding="async" width={800} height={600} />
+            <img
+              className="bl-feat-art"
+              src={photo(FEATURED.img, 800, 600)}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={800}
+              height={600}
+              style={FEATURED.slug === 'google-search-operators-seo-tricks' ? { objectFit: 'contain', background: '#050608' } : undefined}
+            />
           </article>
         </Reveal>
 
