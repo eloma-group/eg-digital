@@ -354,6 +354,103 @@ export const POSTS: BlogPost[] = [
     ],
   },
 
+  // ── Google search operators guide ───────────────────────────────────────────
+  {
+    slug: 'google-search-operators-seo-tricks',
+    title: 'Google Search Operators: Simple SEO Tricks Explained',
+    h1: 'Google Search Operators: Simple SEO Tricks Explained',
+    excerpt:
+      "Google lets you search in much smarter ways using search operators - simple commands like site: and intitle: that save a surprising amount of time on SEO research, competitor checks and content ideas.",
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Aug 10, 2026',
+    img: '/images/blog/google-search-operators-hero.jpg',
+    metaTitle: 'Google Search Operators: Simple SEO Tricks Explained | EG Digital',
+    metaDescription:
+      'Learn the Google search operators worth knowing, from site: to intitle:, and how to use them for easy SEO research, competitor checks, and content ideas.',
+    body: [
+      {
+        k: 'p',
+        text: "Most people use Google the same simple way every single day. Type a question, hit enter, scroll through the results. But Google actually lets you search in much smarter ways using something called search operators. These are just special commands you type straight into the search box, and they help you find exactly what you're looking for instead of digging through pages of results that don't quite answer your question.",
+      },
+      {
+        k: 'p',
+        text: "A really detailed breakdown of these was put together by Search Engine Land, and it's worth knowing the basics even if you're not an SEO professional. Whether you're checking how your own website looks in Google, researching competitors, or just trying to find something specific online, these little tricks save a genuinely surprising amount of time once you get used to them.",
+      },
+
+      { k: 'h2', text: "The Operators You'll Actually Use All the Time" },
+      {
+        k: 'p',
+        text: "There are quite a few of these commands floating around, but a small handful cover most of what a business owner or marketer would ever realistically need. Here's how each one works and why it's useful.",
+      },
+      {
+        k: 'ul',
+        items: [
+          "**site:** This one shows you only results from a specific website. Type site:egdigital.com.au and Google will only show pages from our site. It's a quick way to see how many of your own pages are actually showing up in Google, or to check what a competitor has published on their site without having to click through their whole menu.",
+          "**intitle:** This finds pages that have a specific word in the page title. It's handy for seeing how competitive a topic is based on how many results come back, or for spotting websites that might be open to guest posts or collaborations, since a lot of sites put phrases like write for us right in their page titles.",
+          "**\"exact phrase\"** Putting quotation marks around a phrase tells Google to only show pages with that exact wording. This is genuinely useful if you want to check whether your website content has been copied somewhere else. Just paste a sentence from your own site in quotes and see what comes up. It's also handy for tracking down a quote or line you half remember but can't place.",
+          "**filetype:** This limits results to a certain type of file, like PDF or Word documents. It's a nice way to find in depth guides, reports or presentations on a topic instead of just blog posts, and it's a favourite trick for finding information that other websites on the topic haven't already covered.",
+          "**minus sign** Adding a minus sign in front of a word removes results with that word in them. Searching for jaguar speed minus car will give you results about the animal rather than the car brand. It's a simple fix whenever your search keeps returning results about the wrong meaning of a word.",
+          "**inurl:** This finds pages that have a certain word in the actual web address, not just the title or content. It's useful for spotting patterns, like finding every blog tag page on a site, or locating pages built around a specific topic such as inurl:guest post to find sites open to contributed articles.",
+          "**related:** This shows you websites Google considers similar to a site you already know, for example related:egdigital.com.au. It only works well on larger, well known websites, but it's a genuinely interesting way to see who Google thinks your digital competitors actually are, which isn't always the same as who you'd assume.",
+          "**OR** Typing OR in capitals between two words tells Google to show results matching either term, not just both together. It's useful when you're researching a topic that goes by more than one name, like seo audit OR site audit, so you don't miss relevant results just because of wording.",
+        ],
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/google-search-operators-typing.jpg',
+        alt: 'A person typing a search query into a laptop to run Google search operators',
+        caption: 'A handful of simple commands typed straight into the search box cover most of the research a business owner ever needs.',
+      },
+
+      { k: 'h2', text: 'Why This Actually Matters for Your Business' },
+      {
+        k: 'p',
+        text: "These commands aren't just fun tricks, they're genuinely practical for anyone running a website or thinking seriously about their online presence, even without any technical background.",
+      },
+      {
+        k: 'p',
+        text: "You can use the site: command to quickly check whether Google has actually indexed all your important pages. If a page you expect to see doesn't show up, that's usually a sign something needs fixing before it costs you traffic.",
+      },
+      {
+        k: 'p',
+        text: "You can use exact phrase searches to protect your content and catch anyone who has copied it word for word, which happens more often than most business owners realise.",
+      },
+      {
+        k: 'p',
+        text: "You can use intitle: and inurl: together to get a realistic feel for how many other businesses are chasing the same keywords you're targeting, which helps set expectations before you invest heavily in a content push.",
+      },
+      {
+        k: 'p',
+        text: "And you can use related: to sense check who Google actually sees as your competition online, which is sometimes a genuine surprise compared to who you compete with in the real world.",
+      },
+
+      {
+        k: 'img',
+        id: '/images/blog/google-search-operators-research.jpg',
+        alt: 'Someone researching competitors and keywords on a laptop at a tidy desk',
+        caption: 'Used together, these operators give you a fast, low-cost read on how your site and your competitors show up in search.',
+      },
+
+      { k: 'h2', text: 'A Word of Caution' },
+      {
+        k: 'p',
+        text: "Not every command that circulates online still works. Google quietly retires some of them over time, so it's worth double checking a command still functions before building a whole research process around it. If a search operator suddenly returns strange or unrelated results, that's often a sign it's been discontinued rather than a mistake on your end. It's also worth remembering these are aimed at getting a rough, directional sense of things, not perfectly exact data, since Google only samples a portion of its index for some of these commands.",
+      },
+
+      { k: 'h2', text: 'Want This Done Without the Trial and Error?' },
+      {
+        k: 'p',
+        text: "Search operators are a great starting point, but running a proper [SEO audit](/services/seo-services) involves a lot more than a handful of clever Google searches. Our team handles this kind of research every day as part of our [Google Ads management](/services/google-ads-management) and broader digital strategy work, so you get the insights without having to learn a whole new set of commands and second guess whether they still work.",
+      },
+      {
+        k: 'p',
+        text: "**Want a proper look at how your site is actually performing in search?** [Get in touch with EG Digital](/contact) and we'll walk you through it.",
+      },
+    ],
+  },
+
   // ── Choosing an SEO company guide ───────────────────────────────────────────
   {
     slug: 'how-to-choose-seo-company-australia',
