@@ -50,6 +50,74 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'google-removing-language-targeting-search-ads',
+    title: "Google Is Taking Away Language Targeting in Search Ads, Here's What That Means",
+    h1: "Google Is Taking Away Language Targeting in Search Ads, Here's What That Means",
+    excerpt:
+      "Google is removing the option to manually pick which languages your Search ads target. From late September, its own systems decide who sees your ad. Here's what's changing and what advertisers need to do.",
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Aug 14, 2026',
+    img: 'photo-1432888622747-4eb9a8efeb07',
+    metaTitle: 'Google Removing Language Targeting in Search Ads | EG Digital',
+    metaDescription:
+      "Google is removing manual language targeting from Search and AI Max campaigns from late September 2026. Here's what's changing and what advertisers need to do.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Google just announced a change to Search campaigns that's worth knowing about if you run any Google Ads at all. According to Search Engine Journal, Google is removing the option for advertisers to manually pick which languages their Search ads target. Starting late September, that setting simply won't exist anymore for Search and AI Max for Search campaigns. Instead, Google's own systems will decide which language ad to show someone, based on things like the language of the ad itself and what Google already knows about the languages that person understands.",
+      },
+
+      { k: 'h2', text: "What's Changing" },
+      {
+        k: 'p',
+        text: "Right now, if you run a Search campaign, you can go into your settings and tell Google exactly which languages you want your ads to show up for. Maybe you only want English, or maybe you're targeting both English and Mandarin speakers. Either way, you're the one choosing.",
+      },
+      {
+        k: 'p',
+        text: "Once this change rolls out, that manual choice disappears for Search campaigns. Google will look at the language your ad and landing page are written in, along with signals like someone's search history and browser settings, and decide for itself who should see your ad. So someone who searches in English but has their browser set to Spanish could still end up seeing your ad, or might not, depending on what Google's system decides they'll actually understand.",
+      },
+
+      { k: 'h2', text: 'What About Performance Max?' },
+      {
+        k: 'p',
+        text: "Not entirely. Search campaigns and AI Max for Search are the ones losing this setting completely. Performance Max is a bit of a mixed bag. For the part of Performance Max that shows ads on Google Search, the same automatic system takes over. But for YouTube, Display, Discover and Gmail within Performance Max, you can still choose your languages manually as normal. Shopping ads inside Performance Max aren't affected by this at all.",
+      },
+
+      { k: 'h2', text: 'What Advertisers Need to Do' },
+      {
+        k: 'p',
+        text: "Google says existing campaigns don't need any immediate action, and old language settings can just sit there doing nothing once the change kicks in. But that doesn't mean it's worth ignoring completely.",
+      },
+      {
+        k: 'p',
+        text: "If your business runs ads in more than one language, this is genuinely worth paying attention to. Since Google will now lean heavily on the language your ad copy and landing page are written in, it becomes much more important that those are clear and consistent. If an ad is in English but the landing page it sends people to is a mix of English and another language, that mismatch could confuse Google's system, not just your visitors.",
+      },
+
+      { k: 'h2', text: 'Practical Steps to Take' },
+      {
+        k: 'ul',
+        items: [
+          "**Match ad and landing page language.** Check that each ad's language matches its landing page language clearly, rather than mixing languages across the two.",
+          "**Watch multilingual campaigns closely.** If you run multilingual campaigns, keep a close eye on performance once the change goes live in late September, since delivery might shift in ways that are hard to predict beforehand.",
+          "**Update any API workflows.** If you use the Google Ads API to manage campaigns, note that you'll need to stop adding language settings to Search campaigns going forward, since Google will start returning an error if you try.",
+        ],
+      },
+
+      { k: 'h2', text: 'Why We Care' },
+      {
+        k: 'p',
+        text: "This fits a pattern we've been seeing across Google Ads for a while now. Manual controls keep getting handed over to Google's automated systems, and advertisers are left trusting the algorithm a little more each time. It's not necessarily a bad thing, automation often does a genuinely good job, but it does mean the quality of your ad copy and landing pages matters more than ever, since those are increasingly what Google's systems lean on to make decisions you used to make yourself.",
+      },
+      {
+        k: 'p',
+        text: "Not sure how this change might affect your own campaigns? That's exactly the kind of thing we keep across as part of our [Google Ads management](/services/google-ads-management) service, so you don't have to track every update yourself. [Get in touch with EG Digital](/contact) if you'd like us to take a look at your account.",
+      },
+    ],
+  },
+
+  {
     slug: 'people-warming-up-to-ai-tools-trust-gap',
     title: "People Are Warming Up to AI Tools, But They Still Don't Fully Trust Them, Here's Why That Matters",
     h1: "People Are Warming Up to AI Tools, But They Still Don't Fully Trust Them, Here's Why That Matters",
