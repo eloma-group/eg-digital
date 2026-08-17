@@ -1558,10 +1558,14 @@ export const getPost = (slug: string | undefined): BlogPost | undefined =>
 export const postPath = (p: BlogPost) =>
   p.newsroom ? `/about/media/${p.slug}` : `/blog/${p.slug}`
 
+// Newest-first ordering by the human-readable `date` (e.g. "Aug 17, 2026").
+const byDateDesc = (a: BlogPost, b: BlogPost) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+
 // Blog listing sources (newsroom posts are excluded from the Blog entirely).
-const BLOG_POSTS = POSTS.filter(p => !p.newsroom)
+const BLOG_POSTS = POSTS.filter(p => !p.newsroom).sort(byDateDesc)
 export const FEATURED = BLOG_POSTS.find(p => p.featured) ?? BLOG_POSTS[0]
 export const GRID_POSTS = BLOG_POSTS.filter(p => p !== FEATURED)
 
-// Newsroom listing source (newest first, matching array order).
-export const NEWSROOM_POSTS = POSTS.filter(p => p.newsroom)
+// Newsroom listing source (newest first).
+export const NEWSROOM_POSTS = POSTS.filter(p => p.newsroom).sort(byDateDesc)
