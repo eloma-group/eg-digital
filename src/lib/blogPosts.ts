@@ -311,6 +311,118 @@ export const POSTS: BlogPost[] = [
   },
 
   {
+    slug: 'customers-building-confidence-not-following-funnel',
+    title: "Your Customers Aren't Following a Funnel, They're Building Confidence",
+    h1: "Your Customers Aren't Following a Funnel, They're Building Confidence",
+    excerpt:
+      "New research shows people don't move neatly through a marketing funnel. They bounce between search engines, AI tools, communities and creators, gathering little bits of reassurance until they feel confident enough to buy. Here's what that means for how you plan marketing.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Aug 17, 2026',
+    img: '/images/blog/confidence-search-hero.jpg',
+    metaTitle: "Customers Build Confidence, They Don't Follow a Funnel | EG Digital",
+    metaDescription:
+      "New research shows customers gather reassurance across search, AI tools and communities before buying, not a linear funnel. Here's how to plan marketing around it.",
+    body: [
+      {
+        k: 'p',
+        text: "New research from Reflect Digital, covered by Search Engine Land, makes a point that's worth sitting with if you run any kind of digital marketing. Every week there's a new headline about search changing. Google losing ground, ChatGPT growing, Reddit becoming a place people trust more, TikTok pulling in younger audiences. It's easy to read all that and think search is just getting messier and harder to plan for. The research suggests something different is actually going on, and it's less about which platform wins and more about how people build confidence before they act.",
+      },
+
+      { k: 'h2', text: 'Why the Data Seems to Contradict Itself' },
+      {
+        k: 'p',
+        text: "Here's the confusing part on the surface. The study found that 56% of people now regularly use AI search tools, yet 57% still fall into what the researchers call the Traditional Searcher category. Those numbers only look contradictory until you realise people aren't picking one platform and sticking with it. They're moving between several, gathering little bits of reassurance from each one before they feel ready to make a decision. The fastest growing group in the research is what they call the multi platform searcher, someone who naturally bounces between search engines, AI tools, online communities, creators and brand websites before buying anything.",
+      },
+
+      { k: 'h2', text: "People Don't Actually Move Through a Funnel" },
+      {
+        k: 'p',
+        text: "Marketers have spent years mapping neat customer journeys, awareness, consideration, purchase. In reality, nobody sits there thinking now I'm in the consideration stage. People just keep resolving little bits of doubt until they feel confident enough to act. Every website visit, video watched, or forum post read is closing a different gap in their confidence, not ticking a box on a funnel diagram.",
+      },
+
+      { k: 'h2', text: 'Four Reasons People Actually Search' },
+      {
+        k: 'p',
+        text: "The research points to four consistent psychological reasons behind search behaviour, and they've probably always existed, AI just changed which platforms satisfy them.",
+      },
+      {
+        k: 'ul',
+        items: [
+          '**Fact finding** - wanting accurate, trustworthy information.',
+          '**Crowdsourcing** - wanting to know what people like them actually think.',
+          '**Taste tuning** - figuring out whether something genuinely feels right for them.',
+          '**Autopilot** - just wanting help getting something done quickly.',
+        ],
+      },
+
+      { k: 'h2', text: 'Different Platforms Are Getting Better at Different Jobs' },
+      {
+        k: 'p',
+        text: "YouTube isn't popular just because people enjoy watching videos, watching something removes a kind of doubt that text alone often can't. Reddit isn't valuable simply because it's another place to search, it works because communities offer reassurance through other people's real experiences. AI tools are good at quickly helping someone understand a topic. Google still plays a big role in double checking information. Brand websites reassure people they're buying from a legitimate, trustworthy business.",
+      },
+      {
+        k: 'p',
+        text: "Each platform is quietly becoming the go to place for a specific kind of reassurance, not just another channel competing for the same click.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/confidence-search-platforms.jpg',
+        alt: 'A smartphone home screen showing a folder of social and video apps including YouTube, Instagram, Facebook and X',
+        caption: 'Each platform is quietly becoming the go-to place for a specific kind of reassurance, not just another channel chasing the same click.',
+      },
+
+      { k: 'h2', text: 'What This Means for How You Plan Marketing' },
+      {
+        k: 'p',
+        text: "Most marketing teams are still organised around channels, SEO, paid search, social, PR, content, each running as its own lane. Customers don't think in those terms at all. They move between whatever builds their confidence until they're ready to buy. The real question isn't which channel deserves the biggest budget, it's which gaps in confidence your audience still has, and whether your marketing is actually helping close them.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/confidence-search-marketing-planning.jpg',
+        alt: 'A marketing team gathered around a strategy session discussing how they win customers',
+        caption: "The real question isn't which channel gets the biggest budget, it's which confidence gaps your audience still has.",
+      },
+
+      { k: 'h2', text: 'A Simple Way to Think It Through' },
+      {
+        k: 'p',
+        text: "Start by asking what confidence your audience actually needs before they'll buy. A first time customer needs different reassurance than someone who's bought from you before, and a big B2B purchase needs a lot more proof than a quick, low cost order.",
+      },
+      {
+        k: 'p',
+        text: "Next, look at what you already have that builds trust, reviews, case studies, original research, expert opinions, product demos, industry awards, and see which confidence gap each one is actually answering.",
+      },
+      {
+        k: 'p',
+        text: "Then think about where people will naturally come across that proof. The exact same review might reach someone through a Google search, an AI generated answer, your own site, or a direct visit to a review platform. The proof stays the same, it's just discovered in different places.",
+      },
+
+      { k: 'h2', text: "Some of This Won't Show Up in Your Analytics" },
+      {
+        k: 'p',
+        text: "This is the part that's genuinely tricky. Someone might read a Reddit thread about your industry, watch a YouTube comparison, or ask an AI tool to compare suppliers, all before they ever land on your site or convert. None of that shows up neatly in a dashboard, but it still shapes the decision. It means not every marketing activity should be judged purely on clicks and conversions. Some content exists to drive an obvious action, other content exists purely to chip away at uncertainty, and both genuinely contribute to growth even if only one of them is easy to measure.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/confidence-search-analytics.jpg',
+        alt: 'An analytics dashboard showing sessions, bounce rate and engagement trends over time',
+        caption: 'A lot of confidence gets built off-platform, in threads, videos and AI answers that never show up cleanly in a dashboard.',
+      },
+
+      { k: 'h2', text: 'How We Approach This at EG Digital' },
+      {
+        k: 'p',
+        text: "This is a big part of why we don't treat SEO and paid advertising as separate boxes to tick. If your customers are genuinely assembling confidence from multiple places before they buy, your business needs to show up credibly in more than one of them at once. Our [Google Ads management](/services/google-ads-management) is built to work alongside [organic strategy](/services/seo-services) for exactly this reason, so you're building trust across the places your customers are actually looking, not just the one channel that's easiest to report on.",
+      },
+      {
+        k: 'p',
+        text: "**Want help figuring out where your customers' confidence gaps actually are?** [Get in touch with EG Digital](/contact) and we'll walk you through it.",
+      },
+    ],
+  },
+
+  {
     slug: 'query-fan-out-google-ai-search-seo',
     title: "Query fan-out explained: why Google's AI search is rewriting the rules of SEO",
     h1: "Query Fan-Out Explained: Why Google's AI Search Is Rewriting the Rules of SEO",
