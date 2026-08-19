@@ -50,6 +50,67 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'google-august-2026-spam-update',
+    title: 'Google Releases August 2026 Spam Update',
+    h1: 'Google Releases August 2026 Spam Update',
+    excerpt:
+      "Google has rolled out its August 2026 spam update globally across all languages. It's the third spam update of the year. Here's what's changing, why it matters, and what you should do to keep your site aligned with Google's spam policies.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Aug 19, 2026',
+    img: '/images/newsroom/google-august-2026-spam-update-hero.png',
+    metaTitle: 'Google Releases August 2026 Spam Update | EG Digital',
+    metaDescription:
+      "Google has released the August 2026 spam update worldwide across all languages. Here's what it means, why it matters, and how to keep your website aligned with Google's spam policies.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: 'Google has released its latest algorithm update, the **August 2026 spam update**. According to the company, the rollout will take a few days to complete, and it applies globally across all languages.',
+      },
+
+      { k: 'h2', text: 'Update Details' },
+      {
+        k: 'p',
+        text: 'Google posted the announcement on its search status dashboard, confirming that the August 2026 spam update has been released worldwide across all languages, with the rollout expected to take a few days to finish.',
+      },
+      {
+        k: 'p',
+        text: "To learn more about spam updates and Google's spam policies, you can refer to [Google's official spam policies help document](https://developers.google.com/search/docs/essentials/spam-policies).",
+      },
+
+      { k: 'h2', text: 'Why This Update Matters' },
+      {
+        k: 'p',
+        text: 'This is the third spam update Google has announced in 2026, following the June 2026 spam update earlier this year. The main goal of spam updates is to remove low quality, manipulative, or spammy content from search results while improving visibility for genuine, high quality websites.',
+      },
+      {
+        k: 'p',
+        text: "If your website hasn't used any black hat SEO tactics, there's generally no need to worry. That said, history shows that occasionally clean, legitimate websites can be affected too, so it's important to keep monitoring your rankings.",
+      },
+
+      { k: 'h2', text: 'What You Should Do' },
+      {
+        k: 'ul',
+        items: [
+          "Regularly check your website's Google Search Console data.",
+          'Watch for any sudden drops in traffic or rankings.',
+          "Make sure your site follows Google's spam policies.",
+          'Avoid practices like low quality backlinks, keyword stuffing, or duplicate content.',
+        ],
+      },
+      {
+        k: 'p',
+        text: "If you think your website has been affected by this update, or you'd like to proactively strengthen your site's SEO health, get in touch with our team. EG Digital's [SEO services](/services/seo-services) can help keep your website aligned with Google's evolving algorithms.",
+      },
+      {
+        k: 'p',
+        text: "**Worried this update may have hit your rankings?** [Get in touch with EG Digital](/contact) and we'll take a look.",
+      },
+    ],
+  },
+
+  {
     slug: 'google-removing-language-targeting-search-ads',
     title: "Google Is Taking Away Language Targeting in Search Ads, Here's What That Means",
     h1: "Google Is Taking Away Language Targeting in Search Ads, Here's What That Means",
