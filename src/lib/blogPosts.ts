@@ -50,6 +50,62 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'google-view-counts-google-business-posts',
+    title: 'Google May Be Bringing Back View Counts on Google Business Posts',
+    h1: 'Google May Be Bringing Back View Counts on Google Business Posts',
+    excerpt:
+      "Google appears to be testing a return of view counts on Google Posts, showing a simple people viewed number under updates published on a Google Business Profile. Here's what's being tested, why it matters, and what it means for how you post.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Aug 20, 2026',
+    img: '/images/newsroom/google-business-posts-view-counts-hero.jpg',
+    metaTitle: 'Google May Bring Back View Counts on Google Business Posts | EG Digital',
+    metaDescription:
+      "Google appears to be testing a return of view counts on Google Business Posts. Here's what's being tested, why it matters, and what it means for your posting strategy.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Something small but genuinely useful might be making a comeback on Google Business Profiles. According to Search Engine Roundtable, Google appears to be testing a return of view counts on Google Posts, the updates business owners can publish directly on their Google Business Profile. It's showing up as a simple **people viewed** number under individual posts, and it's only appearing for a small number of accounts right now.",
+      },
+
+      { k: 'h2', text: 'A Bit of Background' },
+      {
+        k: 'p',
+        text: "Google actually had this feature years ago. Back in 2018, Google Posts came with proper insights, showing business owners how many views and clicks each post was getting. That data disappeared in January 2023 when Google quietly removed it, leaving business owners publishing posts with no real way to tell if anyone was actually seeing them.",
+      },
+
+      { k: 'h2', text: 'What Is Being Tested Now' },
+      {
+        k: 'p',
+        text: "A view count labelled people viewed has started showing up under some Google Posts, spotted and shared by a user on LinkedIn. It hasn't rolled out broadly, and Google hasn't made any official announcement about it, so this looks like an early, limited test rather than a confirmed feature. It's worth noting Google has also recently brought back view counts on photos and videos within Business Profiles, so there does seem to be a pattern of some of these older insights slowly making a return.",
+      },
+
+      { k: 'h2', text: 'Why This Actually Matters' },
+      {
+        k: 'p',
+        text: "Right now, posting on a Google Business Profile is largely a leap of faith. You write the post, publish it, and hope it's getting seen. Without any performance data, it's genuinely hard to tell whether your posting strategy is working or whether you're just adding content nobody looks at. Bringing back even a basic view count would give business owners a simple way to see which posts are landing and which ones are not, without needing to dig into more complex analytics tools.",
+      },
+
+      { k: 'h2', text: 'What This Means for Your Google Business Profile' },
+      {
+        k: 'p',
+        text: "There's nothing to change or set up right now, since this is still a limited test and not something you can turn on. But it's a good moment to think about your posting habits more broadly. If you haven't posted on your Google Business Profile in a while, this is a reasonable nudge to start again, since Google clearly still sees value in the feature.",
+      },
+      {
+        k: 'p',
+        text: "It's also worth keeping your posts genuinely useful rather than just filler. Photos, offers, updates and short announcements all tend to perform better than generic posts, and if view counts do roll out properly, that difference will finally be measurable.",
+      },
+
+      { k: 'h2', text: 'How EG Digital Can Help' },
+      {
+        k: 'p',
+        text: "Keeping a Google Business Profile active and genuinely useful is part of the bigger picture we look at alongside [Google Ads management](/services/google-ads-management) for our clients, since local visibility and paid visibility tend to work best together rather than in isolation. If you want a second opinion on how your business is showing up locally, [get in touch with EG Digital](/contact) and we'll take a look.",
+      },
+    ],
+  },
+
+  {
     slug: 'google-august-2026-spam-update',
     title: 'Google Releases August 2026 Spam Update',
     h1: 'Google Releases August 2026 Spam Update',
