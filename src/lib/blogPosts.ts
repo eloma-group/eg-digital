@@ -59,6 +59,7 @@ export const POSTS: BlogPost[] = [
     read: '3 min read',
     date: 'Aug 20, 2026',
     img: '/images/newsroom/google-business-posts-view-counts-hero.jpg',
+    heroFit: 'contain',
     metaTitle: 'Google May Bring Back View Counts on Google Business Posts | EG Digital',
     metaDescription:
       "Google appears to be testing a return of view counts on Google Business Posts. Here's what's being tested, why it matters, and what it means for your posting strategy.",
