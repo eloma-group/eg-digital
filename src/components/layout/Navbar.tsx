@@ -631,15 +631,15 @@ export function Navbar() {
         .nav-phone:hover { background: rgba(60,185,140,0.08); }
         .nav-login {
           display: flex; align-items: center;
-          background: transparent; color: ${NAVY};
-          border: 1.5px solid rgba(8,33,60,0.22);
+          background: ${NAVY}; color: #fff;
+          border: none;
           font-size: 15px; font-weight: 700;
           padding: 10px 20px; border-radius: 100px;
           cursor: pointer; transition: all 0.22s;
           font-family: inherit; white-space: nowrap; min-height: 44px;
           text-decoration: none;
         }
-        .nav-login:hover { border-color: ${GREEN}; color: ${GREEN}; }
+        .nav-login:hover { background: ${GREEN}; transform: translateY(-1px); }
         .nav-contact {
           display: flex; align-items: center;
           background: ${NAVY}; color: #fff; border: none;
@@ -979,8 +979,8 @@ export function Navbar() {
               </a>
               <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: 'transparent', color: NAVY,
-                border: '1.5px solid rgba(8,33,60,0.22)',
+                background: NAVY, color: '#fff',
+                border: 'none',
                 borderRadius: 100, padding: '14px 24px',
                 fontSize: 15, fontWeight: 700, cursor: 'pointer',
                 fontFamily: 'inherit', minHeight: 52, textDecoration: 'none',
