@@ -8,6 +8,8 @@ import { SOLUTION_ROUTES, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
 
+const LOGIN_URL = 'https://gentle-stone-08ed3fe00.7.azurestaticapps.net/'
+
 // ─────────────────────────────────────────────
 // DATA
 // ─────────────────────────────────────────────
@@ -627,6 +629,17 @@ export function Navbar() {
           transition: background 0.18s;
         }
         .nav-phone:hover { background: rgba(60,185,140,0.08); }
+        .nav-login {
+          display: flex; align-items: center;
+          background: transparent; color: ${NAVY};
+          border: 1.5px solid rgba(8,33,60,0.22);
+          font-size: 15px; font-weight: 700;
+          padding: 10px 20px; border-radius: 100px;
+          cursor: pointer; transition: all 0.22s;
+          font-family: inherit; white-space: nowrap; min-height: 44px;
+          text-decoration: none;
+        }
+        .nav-login:hover { border-color: ${GREEN}; color: ${GREEN}; }
         .nav-contact {
           display: flex; align-items: center;
           background: ${NAVY}; color: #fff; border: none;
@@ -872,6 +885,7 @@ export function Navbar() {
               <Phone size={14} />
               1800 054 555
             </a>
+            <a className="nav-login" href={LOGIN_URL} target="_blank" rel="noopener noreferrer">Login</a>
             <button className="nav-contact" onClick={() => navigate('/contact')}>Contact Us</button>
           </div>
 
@@ -962,6 +976,16 @@ export function Navbar() {
                 fontSize: 14, fontWeight: 600, color: 'rgba(8,33,60,0.55)', textDecoration: 'none',
               }}>
                 connect@egdigital.com.au
+              </a>
+              <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: 'transparent', color: NAVY,
+                border: '1.5px solid rgba(8,33,60,0.22)',
+                borderRadius: 100, padding: '14px 24px',
+                fontSize: 15, fontWeight: 700, cursor: 'pointer',
+                fontFamily: 'inherit', minHeight: 52, textDecoration: 'none',
+              }}>
+                Login
               </a>
               <button onClick={() => { setMobileOpen(false); navigate('/contact') }} style={{
                 background: NAVY, color: '#fff', border: 'none',
