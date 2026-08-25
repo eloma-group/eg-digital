@@ -8,7 +8,7 @@ import { SOLUTION_ROUTES, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 const NAVY  = '#08213C'
 const GREEN = '#3CB98C'
 
-const LOGIN_URL = 'https://gentle-stone-08ed3fe00.7.azurestaticapps.net/'
+const LOGIN_URL = 'https://teamegdigital.com'
 
 // ─────────────────────────────────────────────
 // DATA
