@@ -50,6 +50,66 @@ export const photo = (id: string, w = 640, h = 400) =>
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'reddit-vanished-from-chatgpt-overnight',
+    title: "Reddit Nearly Vanished From ChatGPT Overnight, Here's the Lesson for Every Business",
+    h1: "Reddit Nearly Vanished From ChatGPT Overnight, Here's the Lesson for Every Business",
+    excerpt:
+      "Reddit's share of ChatGPT Search citations dropped 86.4% in four days. Here's what happened, why it matters, and what businesses should learn from it.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Aug 21, 2026',
+    img: '/images/newsroom/reddit-chatgpt-visibility-hero.jpg',
+    metaTitle: "Reddit Vanished From ChatGPT Overnight | EG Digital",
+    metaDescription:
+      "Reddit's share of ChatGPT Search citations dropped 86.4% in just four days. Discover why it happened and the critical SEO lesson for every business.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Reddit has quietly been one of the most cited sources across AI tools like ChatGPT for a long time. Then, in the space of about four days, most of that visibility disappeared. According to Search Engine Land, data from the AI visibility platform Promptwatch shows Reddit's share of ChatGPT Search citations dropped 86.4% between August 14 and August 17, falling from an average of 3.83% down to just 0.52%. For a site that had been one of the most reliably cited sources on the internet, that is a huge and very sudden fall.",
+      },
+
+      { k: 'h2', text: 'What Actually Happened' },
+      {
+        k: 'p',
+        text: "Between July 18 and August 7, Reddit held a steady share of roughly 3.83% of all ChatGPT Search citations, a genuinely large slice for any single website. On August 14 that share suddenly fell below 1%, and it stayed low, averaging just 0.52% through August 17. An earlier, smaller dip had already started on August 8, the same day Promptwatch noticed ChatGPT Search change how it runs background searches while putting an answer together. But that first change only explains part of the story, since the bigger drop came six days later and Promptwatch itself says it cannot fully explain what caused it.",
+      },
+
+      { k: 'h2', text: 'It Was Not the Same Everywhere' },
+      {
+        k: 'p',
+        text: "This sharp, sudden drop only showed up in ChatGPT. Google's AI Overviews and AI Mode also showed Reddit citations declining over the same period, but much more gradually, moving down slowly over several weeks rather than falling off a cliff in a matter of days. That difference matters, because it shows this was not a case of AI in general deciding Reddit was less trustworthy. It looks specific to whatever changed inside ChatGPT itself.",
+      },
+
+      { k: 'h2', text: 'Why This Matters Even If You Have Never Heard of Promptwatch' },
+      {
+        k: 'p',
+        text: "Reddit is about as established and heavily cited as a website gets. If a change like this can happen to Reddit with no warning and no real explanation, it can happen to any business relying on AI tools to send them traffic or mention their brand. Visibility inside AI platforms is not something you can lock in once and forget about. These systems change how they pick and rank sources on their own schedule, and sometimes those changes are large, fast, and completely unannounced.",
+      },
+
+      { k: 'h2', text: 'What This Means for Your Own Business' },
+      {
+        k: 'p',
+        text: "Do not build your entire visibility strategy around one AI platform. If ChatGPT, Google AI Overviews, or any other tool becomes a major source of traffic or leads, treat that as a bonus on top of solid SEO fundamentals, not a replacement for them.",
+      },
+      {
+        k: 'p',
+        text: "Keep an eye on your own referral data. If you can see where your traffic is coming from, watch for sudden changes rather than assuming a slow decline is the only kind worth noticing.",
+      },
+      {
+        k: 'p',
+        text: "Remember that a drop like this does not necessarily mean anything about your content quality. Reddit did not suddenly become a worse source of information in four days, something changed in how ChatGPT was searching, which is largely out of any individual website's control.",
+      },
+
+      { k: 'h2', text: 'How EG Digital Approaches This' },
+      {
+        k: 'p',
+        text: "This is exactly why we build strategies around a mix of channels rather than betting everything on any single one, AI included. Alongside organic SEO, our [Google Ads management](/services/google-ads-management) gives businesses a channel they can rely on that is not subject to an unannounced change inside someone else's AI model. [Get in touch with EG Digital](/contact) if you would like a second opinion on how exposed your visibility currently is to a single channel.",
+      },
+    ],
+  },
+
+  {
     slug: 'google-view-counts-google-business-posts',
     title: 'Google May Be Bringing Back View Counts on Google Business Posts',
     h1: 'Google May Be Bringing Back View Counts on Google Business Posts',
