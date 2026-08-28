@@ -10,6 +10,7 @@ import App from './App.tsx'
 // everything it needs from this single compiled bundle.
 export { ROUTES, PAGE_META, DEFAULT_META, SITE_URL } from './lib/pageMeta.ts'
 export { buildServiceJsonLd } from './lib/serviceSchema.ts'
+export { buildFaqJsonLd } from './lib/faqData.ts'
 
 /**
  * Render a single route to an HTML string for the #root container.

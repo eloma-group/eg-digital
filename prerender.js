@@ -21,7 +21,7 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf-8')
 const serverEntry = url.pathToFileURL(
   path.resolve(process.cwd(), 'dist-server', 'entry-server.js'),
 ).href
-const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd } = await import(serverEntry)
+const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd, buildFaqJsonLd } = await import(serverEntry)
 
 const esc = (s) =>
   String(s)
@@ -61,8 +61,11 @@ function applyMeta(html, route) {
 // runtime useServiceJsonLd hook clears and re-adds these (matched by the same
 // data-page-jsonld attribute) once the SPA boots, so there is never a duplicate.
 function applyJsonLd(html, route) {
-  const objects = buildServiceJsonLd(route)
-  if (!objects || objects.length === 0) return html
+  const objects = [
+    ...(buildServiceJsonLd(route) || []),
+    ...(buildFaqJsonLd(route) || []),
+  ]
+  if (objects.length === 0) return html
 
   // Escape "<" as < so a stray "</script>" in any value can never break out
   // of the tag; the result is still valid JSON.

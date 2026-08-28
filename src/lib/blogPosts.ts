@@ -712,6 +712,124 @@ export const POSTS: BlogPost[] = [
     ],
   },
 
+  // ── Google vs Social vs AI discovery article ────────────────────────────────
+  {
+    slug: 'google-vs-social-media-vs-ai-brand-discovery-australia',
+    title: 'Google vs Social Media vs AI: Where Are Australians Actually Discovering Brands?',
+    h1: 'Google vs Social Media vs AI: Where Are Australians Actually Discovering Brands?',
+    excerpt:
+      "Google, social media, or AI - where do Australians really discover brands in 2026? The honest answer isn't a competition, it's a messy relay race. Here's how search, social and AI hand off to each other, and why brands now need to show up across all three.",
+    category: 'Latest Technologies',
+    read: '6 min read',
+    date: 'Aug 27, 2026',
+    img: 'photo-1522542550221-31fd19575a2d',
+    metaTitle: 'Google vs Social Media vs AI: Where Aussies Find Brands',
+    metaDescription:
+      'Discover where Australians really find brands in 2026 - Google, social media, or AI. See the trends and how EG Digital can boost your visibility.',
+    body: [
+      {
+        k: 'p',
+        text: "Picture this. You're scrolling through your phone late at night, half-watching a video, when a product flashes across the screen. Ten minutes later, you're not on that app anymore. You're on Google, typing the brand name, checking reviews, maybe even asking an AI chatbot if it's \"worth it.\" So... where did you actually discover that brand? Was it the app you were scrolling on? Or the search engine that closed the deal?",
+      },
+      {
+        k: 'p',
+        text: "This is the exact question keeping Australian marketers up at night in 2026. For years, the answer was simple: Google. Type a question, get ten blue links, click one, done. But that world has quietly cracked open. Social media apps have turned into search engines. AI chatbots are now a normal stop on the shopping journey. And somehow, all three are fighting for the same moment - the moment you decide a brand exists and matters to you.",
+      },
+      {
+        k: 'p',
+        text: "This shift is exactly why digital marketing in Australia looks so different today than it did even two years ago. Businesses that once relied purely on traditional [SEO services](/services/seo-services) are now having to think about search engine optimization, social media marketing, and AI visibility all at once - not as separate strategies, but as one connected system.",
+      },
+      {
+        k: 'p',
+        text: "So let's settle it. Where are Australians really discovering brands right now: Google, social media, or AI? The honest answer might surprise you, because it's not really a competition anymore. It's a messy, overlapping relay race - and understanding the handoffs is exactly what separates brands that grow from brands that quietly fade into the scroll.",
+      },
+
+      { k: 'h2', text: 'Google Still Wins the Popularity Contest - Just Not by as Much' },
+      {
+        k: 'p',
+        text: "Let's start with the obvious heavyweight. Google still holds a massive grip on Australian search, sitting somewhere around 88 to 91 percent of the search engine market. That's still enormous. If a brand is invisible on Google, it's invisible to most of the country, full stop.",
+      },
+      {
+        k: 'p',
+        text: "But here's the twist: the way people use Google has changed underneath everyone's feet. A big chunk of Google searches today never end in a click at all. AI-generated summaries now appear on roughly half of tracked searches, answering the question right there on the results page. People get their answer and move on - no website visit, no \"discovery\" in the traditional sense. Google is still the finish line for a lot of purchase decisions, but it's increasingly not where the story begins anymore.",
+      },
+      {
+        k: 'p',
+        text: "Roughly a third of Australians say they discover brands directly through search, which is still the single biggest slice of the pie. But notice that word: \"slice.\" It's no longer the whole pie. Not even close.",
+      },
+      {
+        k: 'p',
+        text: "This is also why search engine optimization on its own isn't enough anymore. Smart brands are now investing in AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) alongside classic SEO - making sure their content is structured well enough to be picked up not just by Google's rankings, but by the AI summaries sitting on top of them.",
+      },
+
+      { k: 'h2', text: 'Social Media Has Quietly Become a Search Engine' },
+      {
+        k: 'p',
+        text: "Here's where it gets interesting. If you asked someone in 2015 whether they'd search for a product on Instagram or TikTok, they'd have laughed. In 2026, it's just normal behavior.",
+      },
+      {
+        k: 'p',
+        text: "Around six in ten Australians now use social media every month specifically to research brands. Younger Australians have gone even further - many Gen Z shoppers now say social platforms are their first stop, ahead of Google entirely. TikTok in particular is treated less like an entertainment app and more like a genuine search bar, with users typing product questions directly into it the same way their parents type into Google.",
+      },
+      {
+        k: 'p',
+        text: "And the habit doesn't stop at browsing. A striking number of Australians who see a product on social media then go and search for it on Google to double-check it's legitimate before buying. In other words, social media is often where the spark happens - the \"wait, what is that?\" moment - while Google becomes the verification step right after.",
+      },
+      {
+        k: 'img',
+        id: 'photo-1611926653458-09294b3142bf',
+        alt: 'A person browsing social media apps on a smartphone',
+        caption: 'Social platforms like TikTok, Instagram and Reddit are now genuine search bars - often where brand discovery actually starts.',
+      },
+      {
+        k: 'p',
+        text: "This is exactly why [social media marketing](/services/social-media-marketing) in Australia has grown from an afterthought into a core part of any serious online marketing strategy. Platforms like Reddit, Instagram, and TikTok have also become places where people go to read honest opinions before trusting a brand, almost like a modern word-of-mouth network. People don't just want to see a product anymore - they want to see real humans reacting to it, unfiltered, before they believe the hype. Interestingly, as more feeds fill up with obviously AI-made content, Australians are pushing back and gravitating toward raw, human, behind-the-scenes posts instead. Authenticity has become the new currency of discovery.",
+      },
+
+      { k: 'h2', text: "AI Is the New Guest at the Table - And It's Growing Fast" },
+      {
+        k: 'p',
+        text: "Now for the newest player. Roughly three in ten Australians use AI tools like ChatGPT on a monthly basis, and close to half say they've used generative AI at some point in the past year. That's not a niche habit anymore - that's a real, measurable slice of how people explore the internet.",
+      },
+      {
+        k: 'p',
+        text: "What's fascinating is how AI tools are being used differently than Google or social media. People aren't necessarily discovering brand new brands through a chatbot the way they'd stumble on one through a video. Instead, AI is being used more like a smart, slightly skeptical friend - someone you ask to compare two products, summarize reviews, or confirm whether a brand's claims actually hold up. It's a filtering tool as much as a discovery tool.",
+      },
+      {
+        k: 'p',
+        text: "That said, trust is still catching up to usage. Australians consistently say they trust a well-known search engine noticeably more than they trust AI chatbots or social platforms when it comes to serious purchase decisions - by a significant margin. So while AI is absolutely part of the journey now, it hasn't replaced the credibility that Google and, to a lesser extent, established brand websites still carry.",
+      },
+
+      { k: 'h2', text: 'So... Who Actually Wins?' },
+      {
+        k: 'p',
+        text: "Here's the real, slightly unsatisfying truth: none of them win alone anymore. The Australian brand discovery journey in 2026 looks less like a straight line and more like a triangle, with people bouncing between all three constantly.",
+      },
+      {
+        k: 'p',
+        text: "A typical path might look like this: someone sees a product on TikTok or Instagram (the spark), searches it on Google to check reviews and pricing (the verification), and maybe asks an AI tool to compare it against a competitor (the sense-check) all before ever visiting the brand's actual website. Miss any one of those three touchpoints, and the whole chain can break.",
+      },
+      {
+        k: 'p',
+        text: "For everyday Australians, this isn't something to overthink. It just means trusting your instincts a little more: if something looks too polished or too perfect on social media, it's completely normal and smart to double-check it elsewhere before buying. For brands, the lesson is even simpler: showing up in only one of these three places is no longer enough. The brands winning attention in Australia right now are the ones treating Google, social media, and AI not as competitors, but as three doors into the exact same house.",
+      },
+      {
+        k: 'p',
+        text: "The real question isn't \"Google vs social vs AI\" anymore. It's whether a brand can be found, trusted, and confirmed across all three because today's Australian shopper is checking every single one before they believe you're worth their money.",
+      },
+
+      { k: 'h2', text: 'Need Help Being Found Everywhere That Matters?' },
+      {
+        k: 'p',
+        text: "This is precisely the gap EG Digital helps Australian businesses close. As an SEO and digital marketing agency, EG Digital focuses on making sure brands aren't just ranking on Google, but are genuinely visible across the full discovery journey - from [search engine optimization](/services/seo-services) and [content strategy](/services/content-creation) to keeping pace with how AI-driven search is reshaping online visibility. If your brand is only winning in one of these three arenas, you're leaving the other two on the table. That's where a dedicated SEO services partner like EG Digital comes in, turning scattered visibility into a consistent, connected presence across the channels Australians actually use to discover and trust brands today.",
+      },
+      {
+        k: 'p',
+        text: "**Want to be found everywhere your customers are actually looking?** [Get in touch with EG Digital](/contact) and we'll map out where your brand shows up across search, social and AI.",
+      },
+    ],
+  },
+
   // ── Google search operators guide ───────────────────────────────────────────
   {
     slug: 'google-search-operators-seo-tricks',
