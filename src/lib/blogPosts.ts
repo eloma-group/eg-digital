@@ -793,7 +793,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         k: 'p',
-        text: "What's fascinating is how AI tools are being used differently than Google or social media. People aren't necessarily discovering brand new brands through a chatbot the way they'd stumble on one through a video. Instead, AI is being used more like a smart, slightly skeptical friend - someone you ask to compare two products, summarize reviews, or confirm whether a brand's claims actually hold up. It's a filtering tool as much as a discovery tool.",
+        text: "What's fascinating is how AI tools are being used differently than Google or [social media](https://learn.meltwater.com/apac-en-report-2026_australia_digital_report_Download-Report.html). People aren't necessarily discovering brand new brands through a chatbot the way they'd stumble on one through a video. Instead, AI is being used more like a smart, slightly skeptical friend - someone you ask to compare two products, summarize reviews, or confirm whether a brand's claims actually hold up. It's a filtering tool as much as a discovery tool.",
       },
       {
         k: 'p',
@@ -811,7 +811,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         k: 'p',
-        text: "For everyday Australians, this isn't something to overthink. It just means trusting your instincts a little more: if something looks too polished or too perfect on social media, it's completely normal and smart to double-check it elsewhere before buying. For brands, the lesson is even simpler: showing up in only one of these three places is no longer enough. The brands winning attention in Australia right now are the ones treating Google, social media, and AI not as competitors, but as three doors into the exact same house.",
+        text: "For everyday Australians, this isn't something to overthink. It just means trusting your instincts a little more: if something looks too polished or too perfect on social media, it's completely normal and smart to double-check it elsewhere before buying. For brands, the lesson is even simpler: showing up in only one of these three places is no longer enough. The brands winning attention in Australia right now are the ones treating Google, [social media](https://learn.meltwater.com/apac-en-report-2026_australia_digital_report_Download-Report.html), and AI not as competitors, but as three doors into the exact same house.",
       },
       {
         k: 'p',
