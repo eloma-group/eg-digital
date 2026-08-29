@@ -769,7 +769,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         k: 'p',
-        text: "Around six in ten Australians now use social media every month specifically to research brands. Younger Australians have gone even further - many Gen Z shoppers now say social platforms are their first stop, ahead of Google entirely. TikTok in particular is treated less like an entertainment app and more like a genuine search bar, with users typing product questions directly into it the same way their parents type into Google.",
+        text: "Around six in ten Australians now use [social media](https://learn.meltwater.com/apac-en-report-2026_australia_digital_report_Download-Report.html) every month specifically to research brands. Younger Australians have gone even further - many Gen Z shoppers now say social platforms are their first stop, ahead of Google entirely. TikTok in particular is treated less like an entertainment app and more like a genuine search bar, with users typing product questions directly into it the same way their parents type into Google.",
       },
       {
         k: 'p',
