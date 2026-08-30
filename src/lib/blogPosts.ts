@@ -47,6 +47,10 @@ export const photo = (id: string, w = 640, h = 400) =>
     ? id
     : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
+// Alt text for a post's card / hero image. One source of truth so every
+// instance of the same image is labelled identically across the site.
+export const photoAlt = (p: Pick<BlogPost, 'title'>) => `${p.title} - EG Digital`
+
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
@@ -1266,7 +1270,7 @@ export const POSTS: BlogPost[] = [
       {
         k: 'img',
         id: 'photo-1432888622747-4eb9a8efeb07',
-        alt: 'Google Search open on a laptop screen',
+        alt: 'Google Search open on a laptop screen - EG Digital',
         caption: 'Platform properties bring off-site social and video performance into the Search Console dashboard.',
       },
 

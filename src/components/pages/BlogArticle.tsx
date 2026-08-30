@@ -4,7 +4,7 @@ import { useParams, Navigate, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { PageLayout, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { getPost, photo, GRID_POSTS, NEWSROOM_POSTS, postPath, type Block } from '../../lib/blogPosts'
+import { getPost, photo, photoAlt, GRID_POSTS, NEWSROOM_POSTS, postPath, type Block } from '../../lib/blogPosts'
 
 // Parse the tiny inline markup used in post bodies: **bold** and
 // [label](/internal/path). Returns an array of React nodes.
@@ -242,7 +242,7 @@ export function BlogArticle() {
           <img
             className={`ba-hero-img${post.heroFit === 'contain' ? ' ba-hero-img--contain' : ''}`}
             src={photo(post.img, 1600, 700)}
-            alt={post.title}
+            alt={photoAlt(post)}
             decoding="async"
             width={1600}
             height={700}
@@ -263,7 +263,7 @@ export function BlogArticle() {
             {related.map(p => (
               <Link key={p.slug} to={postPath(p)} className="ba-rel-card">
                 <div className="ba-rel-imgwrap">
-                  <img className="ba-rel-img" src={photo(p.img)} alt="" loading="lazy" decoding="async" width={640} height={400} />
+                  <img className="ba-rel-img" src={photo(p.img)} alt={photoAlt(p)} loading="lazy" decoding="async" width={640} height={400} />
                 </div>
                 <div className="ba-rel-body">
                   <div className="ba-rel-cat">{p.category}</div>

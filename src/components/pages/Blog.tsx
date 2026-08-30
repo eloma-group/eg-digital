@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { FEATURED, GRID_POSTS, photo } from '../../lib/blogPosts'
+import { FEATURED, GRID_POSTS, photo, photoAlt } from '../../lib/blogPosts'
 
 const FILTERS = ['All', 'Case Studies', 'Latest Technologies'] as const
 
@@ -119,7 +119,7 @@ export function Blog() {
             <img
               className="bl-feat-art"
               src={photo(FEATURED.img, 800, 600)}
-              alt=""
+              alt={photoAlt(FEATURED)}
               loading="lazy"
               decoding="async"
               width={800}
@@ -152,7 +152,7 @@ export function Blog() {
                 onKeyDown={e => { if (e.key === 'Enter') navigate(`/blog/${p.slug}`) }}
               >
                 <div className="bl-card-imgwrap">
-                  <img className="bl-card-img" src={photo(p.img)} alt="" loading="lazy" decoding="async" width={640} height={400} />
+                  <img className="bl-card-img" src={photo(p.img)} alt={photoAlt(p)} loading="lazy" decoding="async" width={640} height={400} />
                 </div>
                 <div className="bl-card-body">
                   <div className="bl-card-cat">{p.category}</div>

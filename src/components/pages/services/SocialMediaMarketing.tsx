@@ -425,7 +425,7 @@ export function SocialMediaMarketing() {
             <div className="smm-heroimg">
               <img
                 src={img('photo-1460925895917-afdab827c52f', 900, 780)}
-                alt="Social media marketing services in Australia - social media marketing company in Australia"
+                alt="Social media marketing services in Australia - social media marketing company in Australia - EG Digital"
                 width={900} height={780} loading="eager" decoding="async"
               />
             </div>

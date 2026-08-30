@@ -10,7 +10,7 @@ const Q = '?auto=format&fit=crop&w=620&h=760&q=70'
 const IMAGES: { src: string; alt: string }[] = [
   { src: `https://images.unsplash.com/photo-1551434678-e076c223a692${Q}`, alt: 'Team collaborating on laptops' },
   { src: `https://images.unsplash.com/photo-1498050108023-c5249f4df085${Q}`, alt: 'Code on a screen' },
-  { src: `https://images.unsplash.com/photo-1460925895917-afdab827c52f${Q}`, alt: 'Analytics dashboard' },
+  { src: `https://images.unsplash.com/photo-1460925895917-afdab827c52f${Q}`, alt: 'Analytics dashboard - EG Digital' },
   { src: `https://images.unsplash.com/photo-1556761175-5973dc0f32e7${Q}`, alt: 'Team in a planning meeting' },
   { src: `https://images.unsplash.com/photo-1531297484001-80022131f5a1${Q}`, alt: 'Modern device interface' },
   { src: `https://images.unsplash.com/photo-1555066931-4365d14bab8c${Q}`, alt: 'Developer writing code' },

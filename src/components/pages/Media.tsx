@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PageLayout, Eyebrow, Reveal, NAVY, GREEN, CREAM, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { photo, NEWSROOM_POSTS, postPath, type Category } from '../../lib/blogPosts'
+import { photo, photoAlt, NEWSROOM_POSTS, postPath, type Category } from '../../lib/blogPosts'
 
 // Real category filters, derived from the newsroom posts themselves so new
 // categories appear automatically as articles are added.
@@ -73,7 +73,7 @@ export function Media() {
               <div style={{ minHeight: 'clamp(260px,28vw,420px)', background: NAVY, position: 'relative', overflow: 'hidden' }}>
                 <img
                   src={photo(lead.img, 900, 560)}
-                  alt={lead.title}
+                  alt={photoAlt(lead)}
                   loading="lazy"
                   decoding="async"
                   style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
@@ -125,7 +125,7 @@ export function Media() {
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
                 <Link to={postPath(p)} className="md-card">
                   <div className="md-card-imgwrap">
-                    <img className="md-card-img" src={photo(p.img, 640, 400)} alt={p.title} loading="lazy" decoding="async" width={640} height={400} />
+                    <img className="md-card-img" src={photo(p.img, 640, 400)} alt={photoAlt(p)} loading="lazy" decoding="async" width={640} height={400} />
                   </div>
                   <div className="md-card-body">
                     <div className="md-card-cat">{p.category}</div>
