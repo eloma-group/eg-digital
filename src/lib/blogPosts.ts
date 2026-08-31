@@ -811,7 +811,7 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '6 min read',
     date: 'Aug 27, 2026',
-    img: 'photo-1522542550221-31fd19575a2d',
+    img: '/images/blog/brand-discovery-channels.png',
     metaTitle: 'Google vs Social Media vs AI: Where Aussies Find Brands',
     metaDescription:
       'Discover where Australians really find brands in 2026 - Google, social media, or AI. See the trends and how EG Digital can boost your visibility.',
