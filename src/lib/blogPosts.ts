@@ -400,6 +400,91 @@ export const POSTS: BlogPost[] = [
   },
 
   {
+    slug: 'more-leads-or-better-leads-google-ads',
+    title: 'More Leads or Better Leads? Why Your Google Ads Account Needs to Pick One',
+    h1: 'More Leads or Better Leads? Why Your Google Ads Account Needs to Pick One',
+    excerpt:
+      "\"We need more leads.\" A few weeks later: \"The leads we're getting aren't good enough.\" Sound familiar? Lead volume and lead quality are not competing strategies, they are two different objectives, and each one needs a different setup in your Google Ads account to actually work.",
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Aug 30, 2026',
+    img: '/images/blog/leads-volume-quality-hero.jpg',
+    metaTitle: 'More Leads or Better Leads? What Your Ads Should Target',
+    metaDescription:
+      'Chasing more leads and better leads at the same time rarely works. Learn how to tell Google Ads which one your business actually needs right now.',
+    body: [
+      {
+        k: 'p',
+        text: "\"We need more leads.\" A few weeks later: \"The leads we're getting aren't good enough.\" Sound familiar?",
+      },
+      {
+        k: 'p',
+        text: "It is one of the most common cycles in paid advertising, and according to Search Engine Land, the root problem is usually a false assumption: that lead volume and lead quality are competing strategies. They are not. They are two different objectives, and each one needs a different setup in your Google Ads or Meta account to actually work.",
+      },
+
+      { k: 'h2', text: 'Start With the Business Goal, Not the Ad Metric' },
+      {
+        k: 'p',
+        text: "The first mistake most businesses make is jumping straight to cost per lead. If the real goal is more revenue, chasing a lower cost per lead can actually make things worse. A thirty dollar lead that never buys anything is not better than a hundred dollar lead that closes reliably every time. Before touching any campaign settings, it is worth asking what the business genuinely needs right now: more people entering the funnel, or a better quality of person entering it.",
+      },
+
+      { k: 'h2', text: 'When Volume Is Actually the Right Call' },
+      {
+        k: 'p',
+        text: "Chasing more leads makes sense when your sales team has spare capacity, you are launching in a new market and need to build demand, or you simply do not have enough data yet to know what a good lead even looks like. In this case the goal is to remove friction. That can mean broadening keyword match types, testing new geographic markets, shortening lead forms, cutting unnecessary qualifying questions, or expanding into Display, YouTube and other Google inventory beyond plain Search.",
+      },
+
+      { k: 'h2', text: 'When Quality Is What the Business Actually Needs' },
+      {
+        k: 'p',
+        text: "Quality becomes the priority when sales is drowning in poor fit enquiries, close rates are sliding, or customer acquisition costs keep climbing even though lead volume looks healthy. The fix here is not tighter targeting alone, it is giving the ad platform better information. Google Ads supports optimising toward qualified lead and converted lead goals rather than the raw form fill, and Meta's Conversions API works the same way, feeding real CRM outcomes back into the algorithm so it learns what a genuinely good lead looks like, not just who filled in a form.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/leads-business-goal-target.jpg',
+        alt: 'A dart landing in the centre bullseye of a dartboard',
+        caption: 'Quality is about hitting the right target: telling the ad platform what a genuinely good lead looks like, not just who filled in a form.',
+      },
+
+      { k: 'h2', text: 'The Form Fill Was Never the Real Goal' },
+      {
+        k: 'p',
+        text: "Here is the part most accounts get wrong. If Google only ever sees a form submission, it has no way of knowing that only a small fraction of those submissions turned into paying customers. The platform is optimising toward an incomplete definition of success. Closing that gap means feeding deeper funnel data back in, whether that is a qualified lead, a sales opportunity, or an actual closed deal, so the algorithm is chasing the outcome that actually matters rather than the easiest metric to collect.",
+      },
+
+      { k: 'h2', text: 'Even Your Ad Creative Can Filter Lead Quality' },
+      {
+        k: 'p',
+        text: "It is easy to overlook, but the wording of an ad does real work here too. A generic \"get started today\" pulls in a broad audience, some of whom were never a genuine fit. Being specific about who the offer is for, what problem it solves, and what the next step actually involves naturally filters out people who were unlikely to convert anyway. Click through rate might dip slightly, and that is fine if the people who remain are far more likely to become customers.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/leads-ad-creative-copy.jpg',
+        alt: 'A person writing ad copy on a laptop at a desk',
+        caption: 'The wording of an ad does real work: being specific about who the offer is for naturally filters out people who were never a genuine fit.',
+      },
+
+      { k: 'h2', text: 'The Metric That Looks Good in Isolation Is the Dangerous One' },
+      {
+        k: 'p',
+        text: "A twenty five dollar cost per lead looks fantastic until those leads convert at one percent. A hundred dollar cost per lead looks expensive until those leads convert at twenty percent. This is exactly why cost per lead should never be judged on its own. Tracking it alongside qualified lead rate, cost per qualified lead, and eventual return on ad spend gives a far more honest picture of whether a campaign is actually working.",
+      },
+      {
+        k: 'img',
+        id: '/images/blog/leads-cost-per-lead-metrics.jpg',
+        alt: 'A Google Ads dashboard showing CTR, cost per conversion and quality score metrics',
+        caption: 'Cost per lead should never be judged on its own - track it alongside qualified lead rate, cost per qualified lead and return on ad spend.',
+      },
+
+      { k: 'h2', text: 'What This Means for Your Own Campaigns' },
+      {
+        k: 'p',
+        text: "If your business genuinely needs both more leads and better ones, the answer is not picking a side, it is setting a quality floor and a volume ceiling, then scaling within that boundary while watching what happens to lead quality as you go. This is exactly the kind of setup we build into [Google Ads management](/services/google-ads-management) for clients, connecting real business outcomes back into the campaign rather than optimising blindly toward form fills. [Get in touch with EG Digital](/contact) if you are not sure whether your current campaigns are actually chasing the right goal.",
+      },
+    ],
+  },
+
+  {
     slug: 'content-marketing-quality-over-quantity-australia',
     title: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
     h1: 'Quality Over Quantity: Rethinking Content Marketing for Australian Brands in 2026',
