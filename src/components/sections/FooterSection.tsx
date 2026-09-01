@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { AsdPartnershipStrip } from './AsdPartnershipStrip'
+import { LifebloodStrip } from './LifebloodStrip'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 import { solutionsHref, servicesHref } from '../../lib/sectionRoutes'
 import { industryHref } from '../../lib/industryRoutes'
@@ -134,6 +135,8 @@ export function FooterSection() {
     <>
     {/* Government partnership strip - rendered on every page, directly above the footer. */}
     <AsdPartnershipStrip />
+    {/* Blood-donation CTA - rendered on every page, directly above the footer. */}
+    <LifebloodStrip />
     <footer style={{ background: NAVY, position: 'relative', overflow: 'hidden' }}>
 
       {/* Subtle inner glow top-center */}
