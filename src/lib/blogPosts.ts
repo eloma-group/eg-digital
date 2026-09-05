@@ -54,6 +54,62 @@ export const photoAlt = (p: Pick<BlogPost, 'title'>) => `${p.title} - EG Digital
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'google-personalised-alcohol-ads-youtube',
+    title: 'Google Is Letting Alcohol Brands Run Personalised Ads on YouTube, Here Is What Changes',
+    h1: 'Google Is Letting Alcohol Brands Run Personalised Ads on YouTube, Here Is What Changes',
+    excerpt:
+      "Alcohol advertisers on YouTube have been advertising with one of the platform's core strengths switched off. From October 30, 2026, Google will allow personalised alcohol advertising across YouTube inventory where local law permits. Here's what's changing, where it applies, and how to prepare.",
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Sep 5, 2026',
+    img: '/images/newsroom/youtube-alcohol-ads-personalisation-hero.jpg',
+    metaTitle: 'Google Allows Personalised Alcohol Ads on YouTube From Oct 30',
+    metaDescription:
+      "Google is opening personalised YouTube ad targeting to alcohol brands from October 30, 2026. See what's changing, where it applies, and how to prepare.",
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Alcohol advertisers on YouTube have been working with one hand tied behind their back for a while now. Personalised targeting, the kind most advertisers take for granted, simply was not an option for this category. According to Google's own advertising policy update, that changes from October 30, 2026, when Google will allow personalised alcohol advertising across YouTube inventory, in markets where local law permits it.",
+      },
+
+      { k: 'h2', text: "What's Actually Changing" },
+      {
+        k: 'p',
+        text: "Up until this update, alcohol brands could still advertise on YouTube, but they were limited to non personalised placements, meaning ads were shown broadly rather than targeted to specific audiences the way most other product categories can be. From October 30, eligible advertisers can use personalisation for alcohol, alcohol related products, and alcohol alternative beverages, bringing this category closer to how the rest of YouTube's ad inventory already works.",
+      },
+
+      { k: 'h2', text: 'It Is Not Rolling Out Everywhere' },
+      {
+        k: 'p',
+        text: "This is a market by market change, not a global switch. Personalised alcohol advertising will not be available in Egypt, India, Indonesia or Poland under this update, and availability elsewhere still depends on local laws and regulations. For Australian advertisers, this is one to keep an eye on, since Google has said it will share more detail as additional markets and surfaces become eligible.",
+      },
+
+      { k: 'h2', text: 'The Guardrails Are Staying in Place' },
+      {
+        k: 'p',
+        text: "Google has been fairly clear that this is not a loosening of its broader sensitive advertising rules. Targeting based on health information related to alcohol remains prohibited under Google's Health sensitive interest category. Age restrictions still apply, sensitive categories remain restricted, and Google says it will continue to avoid personalising ads for minors altogether. People can also still manage what they see through My Ad Center, including asking for fewer ads on specific topics or from specific brands.",
+      },
+
+      { k: 'h2', text: 'Why This Is Worth Paying Attention To' },
+      {
+        k: 'p',
+        text: "If you work in or around alcohol, hospitality, or alcohol alternative brands, this is a genuinely useful shift. Personalised targeting tends to perform better than broad placements because it reaches people more likely to actually be interested, rather than paying to show an ad to everyone. Brands in this category have effectively been advertising on YouTube with one of the platform's core strengths switched off, and that is changing from the end of October.",
+      },
+
+      { k: 'h2', text: 'What to Do Between Now and October 30' },
+      {
+        k: 'p',
+        text: "If this applies to your business, it is worth using the time before the update lands to get campaign structure and audience data in order, rather than waiting until the policy switches on to start planning. Confirm whether your specific market is included in the initial rollout, review what first party audience data you already have that could be used once personalisation is available, and make sure your creative and landing pages are ready to make the most of more targeted reach rather than broad awareness alone.",
+      },
+      {
+        k: 'p',
+        text: "Policy changes like this are exactly the sort of thing we track as part of managing [Google Ads](/services/google-ads-management) for clients, so campaigns are ready to take advantage the moment new options become available rather than catching up after the fact. [Get in touch with EG Digital](/contact) if you want a hand preparing your YouTube campaigns for this change.",
+      },
+    ],
+  },
+
+  {
     slug: 'reddit-vanished-from-chatgpt-overnight',
     title: "Reddit Nearly Vanished From ChatGPT Overnight, Here's the Lesson for Every Business",
     h1: "Reddit Nearly Vanished From ChatGPT Overnight, Here's the Lesson for Every Business",
