@@ -456,6 +456,120 @@ export const POSTS: BlogPost[] = [
   },
 
   {
+    slug: 'black-friday-email-sms-marketing-2026-planning-guide',
+    title: 'Black Friday Email and SMS Marketing: Your 2026 Planning Guide',
+    h1: 'Black Friday Email and SMS Marketing: Your 2026 Planning Guide',
+    excerpt:
+      "Black Friday 2026 falls on Friday, 27 November, and it is closer than it feels. The brands that win the sale will be the ones who used the months before to build an engaged list, clean their data and test what their customers actually respond to. Here is what Australian businesses should be doing now.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Sep 6, 2026',
+    img: '/images/blog/black-friday-email-sms-hero.jpg',
+    metaTitle: 'Black Friday Email & SMS Marketing 2026 Guide | EG Digital',
+    metaDescription:
+      'Get your Black Friday email and SMS marketing ready early. Build your list, clean your data, test your campaigns and prepare your Australian brand for BFCM 2026.',
+    body: [
+      {
+        k: 'p',
+        text: 'Black Friday 2026 falls on Friday, 27 November, and it is closer than it feels. The brands that win the sale will not be the ones sending the most messages or offering the deepest discount. They will be the ones who used the months before to build an engaged list, clean their data and test what their customers actually respond to. This guide breaks down what Australian businesses should be doing now to get their email and SMS marketing ready for peak season.',
+      },
+
+      { k: 'h2', text: 'Build Your List Before You Build Your Campaigns' },
+      {
+        k: 'p',
+        text: 'Before deciding what to send, decide who you are sending it to. The audience available to you in November is being built right now. Review your current pop ups and signup forms. If the same generic discount offer has been running all year, test messaging that gives people a reason to subscribe ahead of the sale, such as early access, VIP perks or first notice when the sale goes live.',
+      },
+      {
+        k: 'p',
+        text: 'You do not need to reveal your offer yet. The goal is simply to turn people already interested in your brand into subscribers you can keep engaging with between now and November. If SMS is part of your strategy, start growing that list alongside email rather than trying to build it at the last minute.',
+      },
+
+      { k: 'h2', text: 'Clean and Segment Your Data' },
+      {
+        k: 'p',
+        text: 'A bigger list is only useful if it is a healthy one. Review bounces, unsubscribes, spam complaints and contacts who have not engaged in a long time, and run a re engagement campaign before peak season rather than sending to everyone by default.',
+      },
+      {
+        k: 'p',
+        text: 'Segmentation matters more than list size. A few purposeful segments, such as previous Black Friday buyers, high intent browsers and lapsed customers, will do more for your results than a dozen segments that all receive the same message.',
+      },
+
+      { k: 'h2', text: 'Audit Your Automations' },
+      {
+        k: 'p',
+        text: 'Your welcome, cart abandonment, browse abandonment and win back flows keep running during the sale unless you turn them off or update them. Check whether your welcome flow discount still makes sense next to your Black Friday offer, and confirm someone who purchases through early access will not keep receiving emails telling them the sale has not started yet.',
+      },
+      {
+        k: 'p',
+        text: "Automated flows carry more weight than most brands expect. Industry data from Omnisend's Australian ecommerce benchmarks shows automated emails generated 32.8 percent of total email revenue while making up just 2.3 percent of total sends in 2025, which makes getting the automation logic right well worth the time.",
+      },
+
+      { k: 'h2', text: 'Know the Rules for Australian SMS' },
+      {
+        k: 'p',
+        text: "From 1 July 2026, Australia's SMS Sender ID Register is in effect. If your business sends SMS using a branded name rather than a phone number, that sender ID needs to be registered with the Australian Communications and Media Authority. Unregistered sender IDs are now shown as Unverified, which can reduce trust right when you need it most. Consent also matters. Having a customer's mobile number is not the same as having permission to send marketing SMS, so make sure opt ins are recorded properly if SMS is part of your Black Friday pop ups.",
+      },
+
+      { k: 'h2', text: 'Test Before Peak, Not During It' },
+      {
+        k: 'p',
+        text: 'Black Friday should not be the first time you test your approach. Use the months before to learn what your audience responds to, one variable at a time. Test subject lines, offer led versus product led creative, and SMS message length and timing. Judge results by clicks, conversions and revenue per recipient rather than open rate alone, since open rate alone can be misleading.',
+      },
+
+      { k: 'h2', text: 'Plan Email and SMS as One Journey' },
+      {
+        k: 'p',
+        text: 'Email and SMS should not run as two separate calendars, and they should not repeat each other either. Email gives you room for detail, imagery and product recommendations. SMS is best used for genuine urgency and time sensitive moments, such as early access going live or a closing deadline. If a customer gets an SMS five minutes after an identical email, the second message is not adding value.',
+      },
+      {
+        k: 'p',
+        text: 'A simple journey could look like this: a teaser email to build anticipation, a VIP email for early access, an early access SMS once it goes live, a launch email when the sale opens, a behavioural follow up based on what someone has browsed, and an urgency SMS reserved for a real deadline.',
+      },
+
+      { k: 'h2', text: 'Your 2026 Timeline' },
+      {
+        k: 'ul',
+        items: [
+          '**August:** build and clean your list, test signup offers and confirm your SMS sender ID registration.',
+          '**September:** build the segments you will actually use and audit existing automations.',
+          '**October:** build the full campaign journey and test links, forms and send logic.',
+          '**November:** launch and adjust based on real customer behaviour as the sale runs.',
+          '**December:** move new customers into the right post purchase journey instead of letting the relationship go quiet.',
+        ],
+      },
+
+      { k: 'h2', text: 'Frequently Asked Questions' },
+      {
+        k: 'faq',
+        items: [
+          {
+            q: 'When should we start Black Friday planning?',
+            a: 'Now, if you want your list and data ready in time. Campaigns themselves can be built in October, but the audience you send them to needs to be grown and cleaned in the months before. Brands that start in November are stuck working with whatever list they already have.',
+          },
+          {
+            q: 'Should we send more emails than usual during Black Friday?',
+            a: 'Slightly more frequency is normal during peak season, but it should be based on engagement, not a fixed schedule. Prioritise subscribers who already open and click, and be cautious about suddenly emailing large groups of inactive contacts, since that can hurt deliverability right when it matters most.',
+          },
+          {
+            q: 'Do we need SMS as well as email?',
+            a: 'Not every business needs SMS, but it works well for genuine urgency, such as early access going live or a sale closing soon. If you do use SMS, make sure consent is recorded properly and, from 1 July 2026, that any branded sender ID is registered with the ACMA.',
+          },
+          {
+            q: 'What should we measure after the sale?',
+            a: 'Look beyond open rate. Clicks, conversion rate, revenue per recipient and unsubscribe behaviour give a much clearer picture of what worked. Compare automation performance against campaign performance too, since automated flows often carry a disproportionate share of revenue.',
+          },
+        ],
+      },
+
+      { k: 'h2', text: 'How EG Digital Can Help' },
+      {
+        k: 'p',
+        text: 'Getting Black Friday right takes more than a campaign put together in November. Our team helps Australian brands with [email marketing strategy](/services/email-marketing), list growth and campaign planning ahead of peak season, so your data, automations and messaging are ready well before the sale starts. If you want a second set of eyes on your current setup, [get in touch with EG Digital](/contact) and we can walk through what is worth fixing first.',
+      },
+    ],
+  },
+
+  {
     slug: 'more-leads-or-better-leads-google-ads',
     title: 'More Leads or Better Leads? Why Your Google Ads Account Needs to Pick One',
     h1: 'More Leads or Better Leads? Why Your Google Ads Account Needs to Pick One',
