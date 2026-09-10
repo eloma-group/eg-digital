@@ -54,6 +54,52 @@ export const photoAlt = (p: Pick<BlogPost, 'title'>) => `${p.title} - EG Digital
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'australia-my-feed-my-way-social-media-law',
+    title: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
+    h1: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
+    excerpt:
+      "Australia has unveiled draft legislation, dubbed \"My Feed, My Way,\" that would require major social media platforms including Facebook, Instagram and TikTok to give users a direct choice between an algorithm driven feed and a chronological one. Here is what the new legislation means.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Sep 10, 2026',
+    img: '/images/newsroom/australia-feed-choice-law-hero.png',
+    metaTitle: 'Australia Proposes New Social Media Feed Choice Law | 2026',
+    metaDescription:
+      'Australia has proposed the "My Feed, My Way" law, giving social media users control over algorithm based feeds. Here is what the new legislation means.',
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Australia has unveiled draft legislation that would require major social media platforms, including Facebook, Instagram and TikTok, to give users a direct choice over how their content feed works.",
+      },
+      {
+        k: 'p',
+        text: "The proposed law, dubbed \"My Feed, My Way,\" would compel platforms to notify users and let them choose between an algorithm driven personalised feed or a chronological feed showing only content from accounts they actively follow.",
+      },
+      {
+        k: 'p',
+        text: "Prime Minister Anthony Albanese called the move \"sensible, pragmatic, practical reform,\" saying it puts control in the hands of users rather than tech companies. The proposal builds on Australia's earlier world first ban on social media accounts for under 16s and reflects growing global scrutiny of engagement driven algorithms.",
+      },
+      {
+        k: 'p',
+        text: "The country's online safety regulator, the eSafety Commissioner, will oversee compliance. Platforms that fail to meet the new requirements could face penalties of up to AUD 109.2 million.",
+      },
+      {
+        k: 'p',
+        text: "Australia's approach mirrors the European Union's Digital Services Act, which has mandated similar opt out choices since 2024, though regulators there flagged that some platforms made the process difficult to find.",
+      },
+      {
+        k: 'p',
+        text: "Meta and Google did not immediately respond to requests for comment. The bill will go through industry and public consultation before being introduced to Parliament later this year.",
+      },
+      {
+        k: 'p',
+        text: "If a shift toward chronological feeds changes how your audience discovers content, it is worth making sure your visibility does not rest on the algorithm alone. [Get in touch with EG Digital](/contact) if you'd like to talk through what this could mean for your social and paid strategy.",
+      },
+    ],
+  },
+
+  {
     slug: 'google-personalised-alcohol-ads-youtube',
     title: 'Google Is Letting Alcohol Brands Run Personalised Ads on YouTube, Here Is What Changes',
     h1: 'Google Is Letting Alcohol Brands Run Personalised Ads on YouTube, Here Is What Changes',
@@ -451,6 +497,87 @@ export const POSTS: BlogPost[] = [
       {
         k: 'p',
         text: "**Want a second set of eyes on your search strategy?** [Get in touch with EG Digital](/contact).",
+      },
+    ],
+  },
+
+  {
+    slug: 'are-people-leaving-google-for-ai-what-the-data-shows',
+    title: 'Are People Leaving Google for AI? What the Latest Data Actually Shows',
+    h1: 'Are People Leaving Google for AI? What the Latest Data Actually Shows',
+    excerpt:
+      "Every few months a new headline claims Google is losing ground to ChatGPT. The reality, based on the latest independent research, is more nuanced. People are not abandoning Google - they are using Google and AI tools side by side. Here is what Australian businesses need to know for their SEO strategy.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Sep 7, 2026',
+    img: '/images/blog/ai-search-vs-google-hero.jpg',
+    metaTitle: 'Are Users Leaving Google for AI? What the Data Shows in 2026',
+    metaDescription:
+      'New research on ChatGPT, AI Mode and Google reveals how search behaviour is actually changing. Here is what Australian businesses need to know for their SEO strategy.',
+    body: [
+      {
+        k: 'p',
+        text: "Every few months a new headline claims Google is losing ground to ChatGPT and other AI tools. The reality, based on the latest independent research, is more nuanced than that. People are not abandoning Google. They are using Google and AI tools side by side, and the effect on search behaviour depends heavily on what you actually measure. For Australian businesses relying on organic traffic, understanding this distinction matters more than reacting to a single statistic.",
+      },
+
+      { k: 'h2', text: 'The Overlap Number Everyone Quotes' },
+      {
+        k: 'p',
+        text: "A widely shared figure from Similarweb shows that 95 percent of ChatGPT users also use Google, and that this overlap has held steady since 2025 even as visits to AI platforms grew significantly year over year. On the surface, this looks like reassuring news. It suggests AI is being added on top of search rather than replacing it.",
+      },
+      {
+        k: 'p',
+        text: "The catch is that this overlap measures whether the same people show up in both audiences during a given period, not how often they search or what they search for. Someone who has shifted most of their research to ChatGPT but still uses Google occasionally for maps or store hours still counts as a Google user. This is a genuinely low bar, and it is one of the reasons the 95 percent figure gets repeated so often without much scrutiny.",
+      },
+
+      { k: 'h2', text: 'Same Users, Noticeably Fewer Searches' },
+      {
+        k: 'p',
+        text: "A separate study from Bocconi University tells a more specific story. Researchers compared households that gained access to ChatGPT Search with similar households that had none, using desktop clickstream data. Households with access ran roughly 9.4 percent fewer traditional search queries on average, and that gap widened to 17 percent after 20 weeks of use.",
+      },
+      {
+        k: 'p',
+        text: "The drop was not evenly spread. Referrals to academic and reference sites fell sharply, while referrals to marketplaces and entertainment sites barely moved. This pattern is worth paying attention to if your business or content sits in an informational category, since that is where the biggest declines showed up.",
+      },
+
+      { k: 'h2', text: 'Clicks Can Fall Even When Search Volume Holds' },
+      {
+        k: 'p',
+        text: "A more recent field experiment offers a third angle. Researchers assigned a group of Chrome users to run all of their searches through Google's AI Mode for a week. Click through to external websites dropped by close to 19 percentage points compared with standard Google search, and clicks to news sites, Reddit and Wikipedia fell noticeably as well.",
+      },
+      {
+        k: 'p',
+        text: "This is the piece that matters most for anyone measuring organic performance. A page can hold its ranking, keep appearing in Google's data, and still lose the click, because the answer is increasingly being delivered directly inside the AI generated result rather than requiring a visit to the source page.",
+      },
+
+      { k: 'h2', text: 'Why This Matters for Australian Businesses' },
+      {
+        k: 'p',
+        text: "Google itself has said the opposite is true from its side, with executives stating that people who use AI features in Search end up using Search more overall. That may well be accurate at a platform level. It does not change what an individual business sees in its own analytics, where impressions can stay flat while click through rate quietly declines.",
+      },
+      {
+        k: 'p',
+        text: "The practical takeaway is not to panic or to assume AI search is replacing Google. It is to stop relying on a single metric to judge visibility. Rankings, impressions, click through rate and branded search volume each tell a different part of the story, and increasingly, some of the value your content generates in an AI answer will never show up as a session in your analytics at all.",
+      },
+
+      { k: 'h2', text: 'What to Do About It' },
+      {
+        k: 'p',
+        text: "Rather than chasing every new AI platform individually, focus on the fundamentals that make content easy for both traditional search and AI systems to understand and cite. Clear structure, direct answers early in the page, and well supported claims all help regardless of where the query ends up being answered. This is the same foundation our team focuses on as part of our [SEO services](/services/seo-services), since strong on page fundamentals tend to perform well across both channels rather than requiring a separate strategy for each.",
+      },
+      {
+        k: 'p',
+        text: "It is also worth tracking branded search volume alongside organic clicks. If someone asks an AI tool for a recommendation and then searches your brand name on Google, that shows up as a normal organic visit with no obvious link back to the AI interaction. A rise in branded search without a matching rise in generic keyword traffic can be an early signal that AI referrals are contributing more than your standard reports suggest.",
+      },
+
+      { k: 'h2', text: 'Final Thoughts' },
+      {
+        k: 'p',
+        text: "The honest answer to whether people are leaving Google for AI is that it depends on what you count. Audiences are not leaving. Query volume is softening in some categories. Clicks can fall even when rankings hold. None of the current research tracks the same individual across Google, AI Mode, ChatGPT and Gemini over time, so treat any single statistic, including the ones in this article, as one piece of a larger and still developing picture.",
+      },
+      {
+        k: 'p',
+        text: "**Want a clearer read on how your own site's visibility is trending across search and AI?** [Get in touch with EG Digital](/contact) and we'll walk through what your data is actually showing.",
       },
     ],
   },
