@@ -54,73 +54,6 @@ export const photoAlt = (p: Pick<BlogPost, 'title'>) => `${p.title} - EG Digital
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
-    slug: 'gsc-indexing-report-missing-june-data',
-    title: 'Google Search Console Indexing Report Missing June 2026 Data: What Site Owners Need to Know',
-    h1: 'Google Search Console Indexing Report Missing June 2026 Data: What Site Owners Need to Know',
-    excerpt:
-      "If you logged into Google Search Console this week and noticed a gap in your Page Indexing report, you're not alone. Google has confirmed several days of June 2026 data are missing across all properties, and that the data is not coming back. Here's what happened, what John Mueller said, and why you shouldn't panic.",
-    category: 'Latest Technologies',
-    read: '3 min read',
-    date: 'Sep 11, 2026',
-    img: '/images/newsroom/gsc-indexing-report-missing-june-data-hero.jpg',
-    metaTitle: 'GSC Indexing Report Missing June 2026 Data: What It Means',
-    metaDescription:
-      "Google Search Console's Page Indexing report is missing several days of June 2026 data. Here's why it happened, what Google's John Mueller said, and why site owners shouldn't panic.",
-    newsroom: true,
-    body: [
-      {
-        k: 'p',
-        text: "If you logged into Google Search Console this week and noticed a gap in your Page Indexing report, you're not alone. Webmasters and SEOs across the board are reporting missing data for several days in June 2026, and Google has now confirmed it's a widespread issue, not something specific to your site.",
-      },
-
-      { k: 'h2', text: "What's Happening" },
-      {
-        k: 'p',
-        text: "Starting this week, the Page Indexing report inside Google Search Console is showing blank stretches on the left side of the indexing graph, corresponding to certain days in June 2026. The gap appears consistently across different sites and properties, which is the main reason this looks like a platform-wide reporting problem rather than an indexing penalty or crawl issue tied to any individual domain.",
-      },
-      {
-        k: 'p',
-        text: "If your own [indexing performance dashboard](/services/technical-seo) has started tracking dips or irregular patterns recently, it's worth cross-checking whether the anomaly lines up with this known gap before assuming something changed on your end.",
-      },
-
-      { k: 'h2', text: "Google's Official Response" },
-      {
-        k: 'p',
-        text: "John Mueller from Google addressed the reports directly, explaining that the missing days trace back to a delay in data processing that occurred back in June. According to Mueller, the indexing report simply was never updated for that window, and, notably, Google does not backfill historical indexing data once it's missed. He added that the team would double check internally once relevant staff returned from holiday, but the expectation is that this data gap is permanent.",
-      },
-
-      { k: 'h2', text: "Why This Matters (And Why You Shouldn't Panic)" },
-      {
-        k: 'p',
-        text: "For any single site owner, a sudden dip in an indexing graph can trigger alarm bells: has something changed in how Google is crawling or indexing pages? In this case, the answer is no. Because the missing data is showing up identically across unrelated properties, this is a **reporting artifact**, not a signal about your site's actual visibility or indexing health in Google Search.",
-      },
-      { k: 'p', text: 'A few practical takeaways:' },
-      {
-        k: 'ul',
-        items: [
-          "**Don't treat the gap as a ranking or crawling signal.** It reflects a break in Google's own reporting pipeline, not a change in how your pages are being indexed.",
-          "**The June data isn't coming back.** Google has been clear that indexing data isn't backfilled retroactively, so this gap will likely remain a permanent blank spot in historical GSC records.",
-          "**Cross-check with other signals** like server logs, crawl stats, or third-party rank tracking if you want to verify indexing health during that period. GSC alone won't fill in the picture for those specific days.",
-        ],
-      },
-
-      { k: 'h2', text: 'The Bigger Pattern' },
-      {
-        k: 'p',
-        text: "This isn't the first time Search Console's reporting has hiccuped independently of actual search performance, and it's a good reminder that GSC, while indispensable, is still a reporting layer sitting on top of Google's infrastructure, and reporting layers can break even when the underlying system doesn't. For teams that rely heavily on GSC data for [technical SEO reporting](/services/technical-seo), it's worth building in occasional sanity checks against other data sources so a one-off glitch like this doesn't get misread as a real performance issue.",
-      },
-      {
-        k: 'p',
-        text: "If you'd like a second set of eyes on your indexing health beyond what Search Console shows, [get in touch with EG Digital](/contact) and our [SEO team](/services/seo-services) can run a proper audit.",
-      },
-      {
-        k: 'p',
-        text: 'Source: [Search Engine Land - "Google Search Console Indexing report missing June data"](https://searchengineland.com), reported by Barry Schwartz, September 11, 2026.',
-      },
-    ],
-  },
-
-  {
     slug: 'australia-my-feed-my-way-social-media-law',
     title: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
     h1: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
@@ -564,6 +497,73 @@ export const POSTS: BlogPost[] = [
       {
         k: 'p',
         text: "**Want a second set of eyes on your search strategy?** [Get in touch with EG Digital](/contact).",
+      },
+    ],
+  },
+
+  // ── Blog articles (live at /blog/<slug>) ─────────────────────────────────────
+  {
+    slug: 'gsc-indexing-report-missing-june-data',
+    title: 'Google Search Console Indexing Report Missing June 2026 Data: What Site Owners Need to Know',
+    h1: 'Google Search Console Indexing Report Missing June 2026 Data: What Site Owners Need to Know',
+    excerpt:
+      "If you logged into Google Search Console this week and noticed a gap in your Page Indexing report, you're not alone. Google has confirmed several days of June 2026 data are missing across all properties, and that the data is not coming back. Here's what happened, what John Mueller said, and why you shouldn't panic.",
+    category: 'Latest Technologies',
+    read: '3 min read',
+    date: 'Sep 11, 2026',
+    img: '/images/blog/gsc-indexing-report-missing-june-data-hero.jpg',
+    metaTitle: 'GSC Indexing Report Missing June 2026 Data: What It Means',
+    metaDescription:
+      "Google Search Console's Page Indexing report is missing several days of June 2026 data. Here's why it happened, what Google's John Mueller said, and why site owners shouldn't panic.",
+    body: [
+      {
+        k: 'p',
+        text: "If you logged into Google Search Console this week and noticed a gap in your Page Indexing report, you're not alone. Webmasters and SEOs across the board are reporting missing data for several days in June 2026, and Google has now confirmed it's a widespread issue, not something specific to your site.",
+      },
+
+      { k: 'h2', text: "What's Happening" },
+      {
+        k: 'p',
+        text: "Starting this week, the Page Indexing report inside Google Search Console is showing blank stretches on the left side of the indexing graph, corresponding to certain days in June 2026. The gap appears consistently across different sites and properties, which is the main reason this looks like a platform-wide reporting problem rather than an indexing penalty or crawl issue tied to any individual domain.",
+      },
+      {
+        k: 'p',
+        text: "If your own [indexing performance dashboard](/services/technical-seo) has started tracking dips or irregular patterns recently, it's worth cross-checking whether the anomaly lines up with this known gap before assuming something changed on your end.",
+      },
+
+      { k: 'h2', text: "Google's Official Response" },
+      {
+        k: 'p',
+        text: "John Mueller from Google addressed the reports directly, explaining that the missing days trace back to a delay in data processing that occurred back in June. According to Mueller, the indexing report simply was never updated for that window, and, notably, Google does not backfill historical indexing data once it's missed. He added that the team would double check internally once relevant staff returned from holiday, but the expectation is that this data gap is permanent.",
+      },
+
+      { k: 'h2', text: "Why This Matters (And Why You Shouldn't Panic)" },
+      {
+        k: 'p',
+        text: "For any single site owner, a sudden dip in an indexing graph can trigger alarm bells: has something changed in how Google is crawling or indexing pages? In this case, the answer is no. Because the missing data is showing up identically across unrelated properties, this is a **reporting artifact**, not a signal about your site's actual visibility or indexing health in Google Search.",
+      },
+      { k: 'p', text: 'A few practical takeaways:' },
+      {
+        k: 'ul',
+        items: [
+          "**Don't treat the gap as a ranking or crawling signal.** It reflects a break in Google's own reporting pipeline, not a change in how your pages are being indexed.",
+          "**The June data isn't coming back.** Google has been clear that indexing data isn't backfilled retroactively, so this gap will likely remain a permanent blank spot in historical GSC records.",
+          "**Cross-check with other signals** like server logs, crawl stats, or third-party rank tracking if you want to verify indexing health during that period. GSC alone won't fill in the picture for those specific days.",
+        ],
+      },
+
+      { k: 'h2', text: 'The Bigger Pattern' },
+      {
+        k: 'p',
+        text: "This isn't the first time Search Console's reporting has hiccuped independently of actual search performance, and it's a good reminder that GSC, while indispensable, is still a reporting layer sitting on top of Google's infrastructure, and reporting layers can break even when the underlying system doesn't. For teams that rely heavily on GSC data for [technical SEO reporting](/services/technical-seo), it's worth building in occasional sanity checks against other data sources so a one-off glitch like this doesn't get misread as a real performance issue.",
+      },
+      {
+        k: 'p',
+        text: "If you'd like a second set of eyes on your indexing health beyond what Search Console shows, [get in touch with EG Digital](/contact) and our [SEO team](/services/seo-services) can run a proper audit.",
+      },
+      {
+        k: 'p',
+        text: 'Source: [Search Engine Land - "Google Search Console Indexing report missing June data"](https://searchengineland.com), reported by Barry Schwartz, September 11, 2026.',
       },
     ],
   },
