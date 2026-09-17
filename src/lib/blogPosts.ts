@@ -54,6 +54,68 @@ export const photoAlt = (p: Pick<BlogPost, 'title'>) => `${p.title} - EG Digital
 export const POSTS: BlogPost[] = [
   // ── Newsroom articles (live at /about/media/<slug>, not in the Blog) ─────────
   {
+    slug: 'seoquake-free-chrome-extension-on-page-seo-checks',
+    title: 'SEOquake: A Free Chrome Extension for Quick On-Page SEO Checks',
+    h1: 'SEOquake: A Free Chrome Extension for Quick On-Page SEO Checks',
+    excerpt:
+      "Not every SEO question needs a full audit platform. SEOquake is a free Chrome extension, rebuilt to work alongside AI-powered search, that checks a page's SEO fundamentals without leaving the browser. Here is what it checks, how to use it, and when you need a full platform instead.",
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Sep 14, 2026',
+    img: '/images/newsroom/seoquake-chrome-extension-hero.jpg',
+    metaTitle: 'SEOquake Guide: Free Chrome Extension for On-Page SEO Checks',
+    metaDescription:
+      'SEOquake is a free Chrome extension for fast on-page SEO audits. Here is what it checks, how to use it, and when you need a full SEO platform instead.',
+    newsroom: true,
+    body: [
+      {
+        k: 'p',
+        text: "Not every SEO question needs a full audit platform. Sometimes you are simply browsing a competitor's landing page, or looking at an article that is outranking yours for no obvious reason, and all you actually want to know is what is going on with that page. That is the exact gap SEOquake fills, and it recently got rebuilt from the ground up to work better alongside AI-powered search results.",
+      },
+      { k: 'h2', text: 'What SEOquake Actually Is' },
+      {
+        k: 'p',
+        text: "SEOquake is a free Chrome extension, built and maintained by Semrush, that checks a page's SEO fundamentals without leaving the browser. Roughly 1.16 million users run it in Chrome every week, which makes it one of the most widely installed SEO tools available. It is worth being clear about what it is not, too. SEOquake analyses the single page you are currently viewing. It is not a full site crawler, and it does not try to be one.",
+      },
+      {
+        k: 'p',
+        text: "Core on-page analysis works without creating a Semrush account. Connecting one simply extends the workflow with deeper backlink and traffic data where available, rather than gating the basic features behind a paywall.",
+      },
+      { k: 'h2', text: 'What It Checks' },
+      {
+        k: 'p',
+        text: "Clicking the toolbar icon opens a Quick View with five tabs covering the fundamentals: page info, content structure, a 28-point audit, schema and social metadata, and public Semrush metrics.",
+      },
+      {
+        k: 'p',
+        text: "The Page Info tab alone tends to answer most \"why isn't this page ranking\" questions, since it surfaces title and meta description length, heading and link counts, canonical URL, and robots.txt status in one view. The Content tab breaks down the heading structure and keyword density, which is genuinely useful when reviewing how a competitor has structured a page around specific search intents rather than just one broad keyword.",
+      },
+      {
+        k: 'p',
+        text: "The rebuilt Audit tab runs 28 checks across page, mobile, technical and social signals, each flagged as Passed, Warning, Failed or Informational, and the results can be exported as a PDF for client reporting. For anything that needs a closer look, the Full Report expands into six panels covering keyword density tables, a complete links report with anchor text and HTTP status, schema and social previews, and a side-by-side Compare tool for benchmarking a handful of URLs or domains.",
+      },
+      { k: 'h2', text: 'Why This Matters for Australian Businesses' },
+      {
+        k: 'p',
+        text: "For a business without a full-time SEO team, a tool like this offers a fast way to sanity check a page before assuming something bigger is wrong. A missing meta description, an accidental noindex tag, or a broken internal link can quietly hurt a page's performance for months before anyone notices, and SEOquake surfaces these in a few clicks rather than requiring a dive into the page source.",
+      },
+      {
+        k: 'p',
+        text: "It is also a genuinely useful first pass before commissioning a full audit. Running it across a handful of key pages gives a rough sense of whether a site needs light optimisation or has enough recurring issues to warrant a larger engagement, without committing to that scope upfront.",
+      },
+      { k: 'h2', text: 'Where It Falls Short' },
+      {
+        k: 'p',
+        text: "SEOquake checks one page at a time, so it is the wrong tool when the job requires a full site crawl, ongoing technical monitoring, deep backlink analysis across an entire domain, or tracking multiple competitor domains over time. Those tasks need a full platform such as Semrush's Site Audit. The practical way to think about it is that SEOquake is the quick check that tells you something might be wrong, while a full platform is what you reach for once you know it is worth investigating properly.",
+      },
+      {
+        k: 'p',
+        text: "Tools like SEOquake are useful for a fast read on a page, but turning those findings into a working strategy, and knowing which warnings actually matter, is where professional SEO support makes the difference. [Get in touch with EG Digital](/contact) and we can help you work out what is actually worth fixing.",
+      },
+    ],
+  },
+
+  {
     slug: 'australia-my-feed-my-way-social-media-law',
     title: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
     h1: 'Australia Proposes New Law Giving Social Media Users Control Over Algorithm Feeds',
@@ -564,6 +626,103 @@ export const POSTS: BlogPost[] = [
       {
         k: 'p',
         text: 'Source: [Search Engine Land - "Google Search Console Indexing report missing June data"](https://searchengineland.com), reported by Barry Schwartz, September 11, 2026.',
+      },
+    ],
+  },
+
+  {
+    slug: 'what-is-query-fan-out-seo-2026',
+    title: 'What Is Query Fan-Out and Why It Matters for Your SEO in 2026',
+    h1: 'What Is Query Fan-Out and Why It Matters for Your SEO in 2026',
+    excerpt:
+      "When someone asks ChatGPT, Google AI Mode or Perplexity a detailed question, the system breaks it into smaller sub-questions, searches for each separately, then combines everything into one answer. This process is called query fan-out, and it is quietly changing which pages get cited in AI-generated answers and which get skipped.",
+    category: 'Latest Technologies',
+    read: '5 min read',
+    date: 'Sep 13, 2026',
+    img: '/images/blog/query-fanout-2026-hero.jpg',
+    metaTitle: 'What Is Query Fan-Out and How It Changes AI Search SEO',
+    metaDescription:
+      'Query fan-out is reshaping how AI search engines choose what to cite. Learn how it works and what it means for your SEO strategy in 2026.',
+    body: [
+      {
+        k: 'p',
+        text: "When someone asks ChatGPT, Google AI Mode or Perplexity a detailed question, the system does not simply search for that exact sentence. It breaks the question into several smaller sub-questions, searches for each one separately, and then combines everything into a single answer. This process is called query fan-out, and it is quietly changing which pages get cited in AI-generated answers and which ones get skipped entirely.",
+      },
+
+      { k: 'h2', text: 'What Query Fan-Out Actually Means' },
+      {
+        k: 'p',
+        text: "Query fan-out is the process AI search systems use to split one user question into multiple parallel sub-queries before generating a response. Google's Head of Search, Elizabeth Reid, introduced the term at Google I/O 2025 while explaining how AI Mode works internally.",
+      },
+      {
+        k: 'p',
+        text: "Here is a simple example. If someone asks \"best accounting software for a small business in Australia,\" the AI does not search for that exact phrase. It might generate sub-queries such as \"top accounting software 2026,\" \"cloud accounting pricing comparison Australia,\" \"accounting software for sole traders,\" and \"software with BAS integration.\" Each sub-query pulls results from different sources, and the AI stitches the best answers together into one response.",
+      },
+      {
+        k: 'p',
+        text: "This matters because your content is now competing at the level of these smaller sub-questions, not just the original broad search term.",
+      },
+
+      { k: 'h2', text: 'Why Ranking First Is No Longer Enough' },
+      {
+        k: 'p',
+        text: "A widely cited Surfer SEO study, which analysed more than 173,000 URLs, found that 68 percent of pages cited in AI Overviews did not rank in the top 10 organic results for the original query. Query fan-out explains why. The AI is not necessarily pulling from the page ranked first for the broad topic. It is pulling from whichever page gives the clearest, most specific answer to each individual sub-question it generated.",
+      },
+      {
+        k: 'p',
+        text: "In practice, this means a page ranked seventh that directly and precisely answers one narrow sub-question can earn an AI citation over a page ranked first that only covers the topic in general terms.",
+      },
+
+      { k: 'h2', text: 'How the Big Three Handle Fan-Out Differently' },
+      {
+        k: 'p',
+        text: "Google AI Mode uses a version of Gemini to break down complex questions, drawing on Google's extensive search index, which gives it the largest retrieval pool of any AI search system. ChatGPT tends to generate fewer sub-queries but pulls from a wider mix of source types, including forums and niche publications that Google sometimes ranks lower. Perplexity is the most transparent of the three, showing users the exact sub-queries it generated, and it leans more heavily on recently published content than the other platforms.",
+      },
+      {
+        k: 'p',
+        text: "The common thread across all three is the same: content needs to satisfy the sub-questions behind a search, not just the headline query.",
+      },
+
+      { k: 'h2', text: 'What This Means for Your Content Strategy' },
+      {
+        k: 'p',
+        text: "Three shifts matter most here.",
+      },
+      {
+        k: 'p',
+        text: "Topical depth now carries more weight than a single well-optimised page. A website with one article on a subject sends a weaker signal than a website covering the same subject from multiple angles, such as pricing, comparisons, common mistakes and implementation guides, all linked together internally. AI systems appear to favour sites that demonstrate this kind of coverage when deciding what to cite.",
+      },
+      {
+        k: 'p',
+        text: "Writing needs to shift from exact-match keywords toward natural, conversational language. Sub-queries generated during fan-out use everyday phrasing rather than rigid keyword syntax, so content built purely around exact-match terms can miss the semantic variations AI systems actually search for.",
+      },
+      {
+        k: 'p',
+        text: "Freshness plays a bigger role than many businesses assume, particularly for Perplexity and Google AI Mode. Pages that have not been updated in over a year tend to lose ground to newer competing content answering the same sub-questions.",
+      },
+
+      { k: 'h2', text: 'Practical Steps to Optimise for Query Fan-Out' },
+      {
+        k: 'p',
+        text: "Start by mapping the sub-questions behind your main topics rather than relying on a flat list of keywords. Typing your target question into ChatGPT, Perplexity and Google AI Mode and studying which sub-questions and sources appear is a useful way to reverse-engineer what these systems are actually looking for.",
+      },
+      {
+        k: 'p',
+        text: "From there, structure content around question-based headings that mirror likely sub-queries, cover the realistic follow-up questions either on the same page or across a connected cluster of pages, and add structured data such as FAQ or HowTo schema to help AI systems map your content to specific questions more accurately.",
+      },
+
+      { k: 'h2', text: 'The Bigger Shift Behind This' },
+      {
+        k: 'p',
+        text: "Query fan-out is one of the main reasons Generative Engine Optimisation has become a distinct discipline rather than an extension of traditional SEO. A brand that ranks well for one broad term but has no supporting content around the related sub-topics will increasingly lose visibility to competitors with deeper, more connected coverage, even if that competitor's overall domain authority is lower.",
+      },
+      {
+        k: 'p',
+        text: "For Australian businesses, this means the traditional approach of targeting one keyword per page is becoming less effective on its own. The websites earning consistent AI citations tend to be the ones treating a topic as an ecosystem of related questions rather than a single search term to rank for.",
+      },
+      {
+        k: 'p',
+        text: "**Want to see how your content holds up under query fan-out?** Our team builds SEO and content strategies around topical depth, mapping the sub-questions your audience is actually asking rather than optimising for a single keyword in isolation. [Get in touch with EG Digital](/contact) and we'll walk you through where the gaps are.",
       },
     ],
   },
