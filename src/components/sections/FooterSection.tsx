@@ -9,7 +9,7 @@ import { ElomaLink } from '../../lib/elomaLink'
 
 // Blog category links land on the Blog page with that filter pre-applied.
 const BLOG_CATEGORY_HREF: Record<string, string> = {
-  'Latest Technologies': '/blog?category=latest-technologies',
+  'Latest Technologies': '/blog#latest-technologies',
 }
 
 // Resolve a footer link's destination from its column heading.

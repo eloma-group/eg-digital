@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
@@ -7,24 +7,27 @@ import { FEATURED, GRID_POSTS, photo, photoAlt } from '../../lib/blogPosts'
 
 const FILTERS = ['All', 'Case Studies', 'Latest Technologies'] as const
 
-// Footer links use ?category=<slug> to open the Blog with that filter applied.
+// Footer links use #<slug> (e.g. /blog#latest-technologies) to open the Blog with
+// that filter applied. A hash keeps the URL canonical - no crawlable ?category
+// duplicates of /blog. Legacy ?category=<slug> links are still honoured.
 const CATEGORY_SLUGS: Record<string, (typeof FILTERS)[number]> = {
   'case-studies': 'Case Studies',
   'latest-technologies': 'Latest Technologies',
 }
-const filterFromSearch = (search: string): (typeof FILTERS)[number] =>
-  CATEGORY_SLUGS[new URLSearchParams(search).get('category') ?? ''] ?? 'All'
+const filterFromLocation = (search: string, hash: string): (typeof FILTERS)[number] =>
+  CATEGORY_SLUGS[hash.replace(/^#/, '')] ??
+  CATEGORY_SLUGS[new URLSearchParams(search).get('category') ?? ''] ??
+  'All'
 
 export function Blog() {
   usePageMeta(
     'EG Digital Blog | Insights on Tech & Innovation',
     'Read EG Digital blog for insights on web development, AI, cloud computing, SEO strategies, and digital transformation trends shaping modern businesses.',
   )
-  const { search } = useLocation()
-  const navigate = useNavigate()
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]>(() => filterFromSearch(search))
+  const { search, hash } = useLocation()
+  const [filter, setFilter] = useState<(typeof FILTERS)[number]>(() => filterFromLocation(search, hash))
   // Keep the active filter in sync when arriving via a footer category link.
-  useEffect(() => { setFilter(filterFromSearch(search)) }, [search])
+  useEffect(() => { setFilter(filterFromLocation(search, hash)) }, [search, hash])
   const visible = filter === 'All' ? GRID_POSTS : GRID_POSTS.filter(p => p.category === filter)
 
   return (
@@ -41,6 +44,7 @@ export function Blog() {
         .bl-h1 span { color: ${GREEN}; }
         .bl-intro { max-width: 640px; font-size: clamp(15px,1.25vw,19px); line-height: 1.8; color: rgba(8,33,60,0.58); margin: 22px 0 0; }
 
+        .bl-feat, .bl-card { text-decoration: none; color: inherit; }
         .bl-feat { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px,3vw,48px);
           background: ${NAVY}; border-radius: 26px; padding: clamp(28px,4vw,64px); align-items: center;
           margin: clamp(24px,3vw,40px) 0 clamp(36px,4vw,64px); overflow: hidden; position: relative; }
@@ -101,14 +105,7 @@ export function Blog() {
 
       <div className="bl-shell">
         <Reveal>
-          <article
-            className="bl-feat"
-            role="link"
-            tabIndex={0}
-            style={{ cursor: 'pointer' }}
-            onClick={() => navigate(`/blog/${FEATURED.slug}`)}
-            onKeyDown={e => { if (e.key === 'Enter') navigate(`/blog/${FEATURED.slug}`) }}
-          >
+          <Link className="bl-feat" to={`/blog/${FEATURED.slug}`}>
             <div>
               <div className="bl-feat-cat"><span style={{ width: 8, height: 8, borderRadius: 99, background: GREEN }} />{FEATURED.category}</div>
               <h2 className="bl-feat-title">{FEATURED.title}</h2>
@@ -126,7 +123,7 @@ export function Blog() {
               height={600}
               style={FEATURED.slug === 'google-search-operators-seo-tricks' ? { objectFit: 'contain', background: '#050608' } : undefined}
             />
-          </article>
+          </Link>
         </Reveal>
 
         <div id="work" className="bl-filters" style={{ scrollMarginTop: 96 }}>
@@ -144,13 +141,7 @@ export function Blog() {
         <div className="bl-grid">
           {visible.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 3) * 0.06}>
-              <article
-                className="bl-card"
-                role="link"
-                tabIndex={0}
-                onClick={() => navigate(`/blog/${p.slug}`)}
-                onKeyDown={e => { if (e.key === 'Enter') navigate(`/blog/${p.slug}`) }}
-              >
+              <Link className="bl-card" to={`/blog/${p.slug}`}>
                 <div className="bl-card-imgwrap">
                   <img className="bl-card-img" src={photo(p.img)} alt={photoAlt(p)} loading="lazy" decoding="async" width={640} height={400} />
                 </div>
@@ -163,7 +154,7 @@ export function Blog() {
                     <ArrowUpRight className="bl-card-ar" size={18} />
                   </div>
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>

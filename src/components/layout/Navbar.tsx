@@ -1,7 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ABOUT_ROUTES } from '../../lib/aboutRoutes'
 import { SOLUTION_ROUTES, SERVICE_SECTIONS } from '../../lib/sectionRoutes'
 
@@ -613,7 +613,7 @@ export function Navbar() {
           border-radius: 9px;
           display: flex; align-items: center; gap: 3px;
           transition: color 0.18s, background 0.18s;
-          white-space: nowrap;
+          white-space: nowrap; text-decoration: none;
         }
         .nav-link:hover { color: ${NAVY}; background: rgba(8,33,60,0.04); }
 
@@ -647,6 +647,7 @@ export function Navbar() {
           padding: 10px 20px; border-radius: 100px;
           cursor: pointer; transition: all 0.22s;
           font-family: inherit; white-space: nowrap; min-height: 44px;
+          text-decoration: none;
         }
         .nav-contact:hover { background: ${GREEN}; transform: translateY(-1px); }
 
@@ -711,13 +712,13 @@ export function Navbar() {
         <div className="nav-inner">
 
           {/* Logo */}
-          <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+          <Link className="nav-logo" to="/" aria-label="EG Digital home">
             <img
               src="/images/Egdigital-logo-eg.png"
               alt="EG Digital"
               style={{ width: 'auto', display: 'block' }}
             />
-          </div>
+          </Link>
 
           {/* Desktop links - centred */}
           <nav className="nav-links" aria-label="Main navigation">
@@ -765,11 +766,12 @@ export function Navbar() {
               onMouseLeave={scheduleClose}
               style={{ position: 'relative' }}
             >
-              <button
+              <Link
                 className="nav-link"
+                to="/solutions"
                 style={{ color: activeMenu === 'solutions' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'solutions'}
-                onClick={() => { navigate('/solutions'); closeAll() }}
+                onClick={closeAll}
               >
                 Solutions
                 <motion.span
@@ -779,7 +781,7 @@ export function Navbar() {
                 >
                   <ChevronDown size={13} />
                 </motion.span>
-              </button>
+              </Link>
               <AnimatePresence>
                 {activeMenu === 'solutions' && (
                   <MegaMenu
@@ -797,11 +799,12 @@ export function Navbar() {
               onMouseLeave={scheduleClose}
               style={{ position: 'relative' }}
             >
-              <button
+              <Link
                 className="nav-link"
+                to="/services"
                 style={{ color: activeMenu === 'services' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'services'}
-                onClick={() => { navigate('/services'); closeAll() }}
+                onClick={closeAll}
               >
                 Services
                 <motion.span
@@ -811,7 +814,7 @@ export function Navbar() {
                 >
                   <ChevronDown size={13} />
                 </motion.span>
-              </button>
+              </Link>
               <AnimatePresence>
                 {activeMenu === 'services' && (
                   <PanelDropdown
@@ -836,11 +839,12 @@ export function Navbar() {
               onMouseLeave={scheduleClose}
               style={{ position: 'relative' }}
             >
-              <button
+              <Link
                 className="nav-link"
+                to="/industries"
                 style={{ color: activeMenu === 'industries' ? NAVY : undefined }}
                 aria-expanded={activeMenu === 'industries'}
-                onClick={() => { navigate('/industries'); closeAll() }}
+                onClick={closeAll}
               >
                 Industries
                 <motion.span
@@ -850,7 +854,7 @@ export function Navbar() {
                 >
                   <ChevronDown size={13} />
                 </motion.span>
-              </button>
+              </Link>
               <AnimatePresence>
                 {activeMenu === 'industries' && (
                   <PanelDropdown
@@ -872,10 +876,10 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            <button className="nav-link" onClick={() => { navigate('/career'); closeAll() }}>Career</button>
+            <Link className="nav-link" to="/career" onClick={closeAll}>Career</Link>
 
             {/* Blog - direct link */}
-            <button className="nav-link" onClick={() => { navigate('/blog'); closeAll() }}>Blog</button>
+            <Link className="nav-link" to="/blog" onClick={closeAll}>Blog</Link>
 
           </nav>
 
@@ -886,7 +890,7 @@ export function Navbar() {
               1800 054 555
             </a>
             <a className="nav-login" href={LOGIN_URL} target="_blank" rel="noopener noreferrer">Login</a>
-            <button className="nav-contact" onClick={() => navigate('/contact')}>Contact Us</button>
+            <Link className="nav-contact" to="/contact">Contact Us</Link>
           </div>
 
           {/* Hamburger */}
