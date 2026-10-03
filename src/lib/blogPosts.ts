@@ -631,6 +631,83 @@ export const POSTS: BlogPost[] = [
   },
 
   {
+    slug: 'visual-search-image-seo-ai-2027',
+    title: 'Visual Content and SEO: How to Optimise Images and Videos for AI Search in 2027',
+    h1: 'Visual Content and SEO: How to Optimise Images and Videos for AI Search in 2027',
+    excerpt:
+      'Images and videos have always mattered for SEO, but the job has changed. AI systems no longer just index a picture, they interpret the scene, identify what is in it, and connect it to a real-world entity. For businesses that have treated image SEO as an afterthought, that gap is starting to show.',
+    category: 'Latest Technologies',
+    read: '4 min read',
+    date: 'Sep 24, 2026',
+    img: '/images/blog/visual-search-image-seo-2027-hero.jpg',
+    metaTitle: 'Visual Search & Image SEO for AI in 2027: What Actually Matters',
+    metaDescription:
+      'AI systems now interpret images, not just index them. Here is how to optimise visual content for Google Lens, AI Overviews and multimodal search in 2027.',
+    body: [
+      {
+        k: 'p',
+        text: 'Images and videos have always mattered for SEO, but the job has changed. AI systems no longer just index a picture, they interpret the scene, identify what is in it, connect it to a real-world entity, and use that understanding to help people move from noticing a brand to actually choosing it. For businesses that have treated image SEO as an afterthought, that gap is starting to show.',
+      },
+
+      { k: 'h2', text: 'Visual Search Has Become a Discovery Layer, Not Just an Index' },
+      {
+        k: 'p',
+        text: 'Google reports that [Google Lens](https://lens.google/) now powers more than 25 billion visual searches every month, with roughly one in five carrying commercial intent. That scale alone makes visual content a genuine discovery channel, not a supporting asset.',
+      },
+      {
+        k: 'p',
+        text: 'What has changed is depth. Modern visual search systems can identify multiple objects and attributes within a single image, understand how those elements relate to each other, and run [several searches behind the scenes](/blog/what-is-query-fan-out-seo-2026) to interpret what the image actually represents before forming an answer. A product photo can now communicate colour, material and features. A hotel photo can communicate room type, amenities and setting. A restaurant photo can communicate cuisine and dining experience, all without a word of surrounding text.',
+      },
+
+      { k: 'h2', text: 'Why Good Images Can Still Get Misread' },
+      {
+        k: 'p',
+        text: 'The core challenge is no longer whether an image is technically visible to a crawler. It is whether an AI system can correctly connect that image to the right entity, context, and current information. An image can be well optimised in the traditional sense and still be ambiguous to an AI system if the surrounding data does not clearly reinforce what it represents.',
+      },
+      {
+        k: 'p',
+        text: 'This matters most where entities can be confused with each other, such as multiple hotel room types, several product variants, or a business with more than one location. If the visual, the page content, and the structured data around it do not all describe the same thing consistently, the AI system is left to resolve that conflict on its own, and the outcome is no longer something a brand controls.',
+      },
+
+      { k: 'h2', text: 'Five Things Worth Getting Right' },
+      {
+        k: 'p',
+        text: '**Entity consistency matters more than adding extra schema.** Every image should connect clearly to the correct entity it represents, whether that is a specific product, property, or location. Using relevant [structured data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data) types such as Product, Hotel, or [ImageObject](https://schema.org/ImageObject) helps, but only if that markup stays aligned with current feeds, inventory, and listings rather than becoming another source of contradictory information.',
+      },
+      {
+        k: 'p',
+        text: '**Image and attribute depth is about specificity, not just attractive photography.** Original images that clearly show the details customers actually care about, such as colour, room type, or dish ingredients, give both people and AI systems more to work with than generic stock-style imagery. This is where [custom graphic design](/services/graphic-design) and original photography start to pay off.',
+      },
+      {
+        k: 'p',
+        text: "**Content alignment ties the image to its surrounding context.** Descriptive filenames, alt text, captions, and nearby copy still matter, but their real job now is reinforcing what the image represents as part of a broader semantic picture, not just ticking an accessibility checkbox. [Google's image SEO best practices](https://developers.google.com/search/docs/appearance/google-images) and well-planned [content creation](/services/content-creation) both point in the same direction here.",
+      },
+      {
+        k: 'p',
+        text: '**Freshness and consistency across locations** prevent outdated signals from undermining an otherwise well-optimised asset. A price, availability, or amenity that has changed but is not reflected in the image and its metadata creates the same kind of ambiguity that confuses AI systems trying to interpret intent.',
+      },
+      {
+        k: 'p',
+        text: '**Clear governance over assets**, particularly for businesses managing images across multiple locations or platforms, ensures there is one authoritative version of each image rather than several slightly different ones circulating across a website, social channels, and third-party listings.',
+      },
+
+      { k: 'h2', text: 'What This Means for Australian Businesses' },
+      {
+        k: 'p',
+        text: 'For local and multi-location businesses in particular, such as real estate agencies, hospitality venues, and retailers with several stores, inconsistent imagery across [Google Business Profile](/services/local-seo) listings, the website, and social platforms is an easy way to quietly lose visibility in visual and AI search. The fix is not necessarily more images. It is making sure the images that exist consistently point to the same entity, the same details, and the same current information everywhere they appear.',
+      },
+      {
+        k: 'p',
+        text: '**Not sure if your images are sending consistent signals to AI systems?** Visual search readiness sits at the intersection of [SEO](/services/seo-services), content strategy, and local search, and it is an area most Australian businesses have not audited yet. [Get in touch with EG Digital](/contact) and we can walk through what needs tightening up.',
+      },
+      {
+        k: 'p',
+        text: 'Sources: [Search Engine Land](https://searchengineland.com), [Wikipedia: Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_Graph_%28Google%29), [Schema.org](https://schema.org).',
+      },
+    ],
+  },
+
+  {
     slug: 'what-is-query-fan-out-seo-2026',
     title: 'What Is Query Fan-Out and Why It Matters for Your SEO in 2026',
     h1: 'What Is Query Fan-Out and Why It Matters for Your SEO in 2026',
