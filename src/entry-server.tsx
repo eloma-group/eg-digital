@@ -11,6 +11,7 @@ import App from './App.tsx'
 export { ROUTES, PAGE_META, DEFAULT_META, SITE_URL } from './lib/pageMeta.ts'
 export { buildServiceJsonLd } from './lib/serviceSchema.ts'
 export { buildFaqJsonLd } from './lib/faqData.ts'
+export { buildBlogJsonLd } from './lib/blogSchema.ts'
 
 /**
  * Render a single route to an HTML string for the #root container.

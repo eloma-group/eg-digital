@@ -21,7 +21,7 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf-8')
 const serverEntry = url.pathToFileURL(
   path.resolve(process.cwd(), 'dist-server', 'entry-server.js'),
 ).href
-const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd, buildFaqJsonLd } = await import(serverEntry)
+const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd, buildFaqJsonLd, buildBlogJsonLd } = await import(serverEntry)
 
 const esc = (s) =>
   String(s)
@@ -64,6 +64,7 @@ function applyJsonLd(html, route) {
   const objects = [
     ...(buildServiceJsonLd(route) || []),
     ...(buildFaqJsonLd(route) || []),
+    ...(buildBlogJsonLd(route) || []),
   ]
   if (objects.length === 0) return html
 

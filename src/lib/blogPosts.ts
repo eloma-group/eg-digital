@@ -30,6 +30,8 @@ export interface BlogPost {
   date: string
   img: string              // Unsplash photo id, shown on the card + as the hero
   heroFit?: 'cover' | 'contain'  // 'contain' shows the full hero uncropped (for diagrams/graphics)
+  modified?: string        // last-updated date for BlogPosting schema (defaults to `date`)
+  schemaImage?: string     // photo id for BlogPosting schema image (defaults to `img`)
   metaTitle: string
   metaDescription: string
   featured?: boolean
@@ -2302,7 +2304,9 @@ export const POSTS: BlogPost[] = [
     category: 'Latest Technologies',
     read: '9 min read',
     date: 'Jul 14, 2026',
+    modified: 'Oct 8, 2026',
     img: 'photo-1604357209793-fca5dca89f97',
+    schemaImage: 'photo-1512428559087-560fa5ceab42',
     metaTitle: 'How to Rank in the Google Maps Three-Pack in Australia | EG Digital',
     metaDescription:
       'Learn how Australian businesses rank in the Google Maps three-pack, from Google Business Profile optimisation to reviews, citations, and local links.',
