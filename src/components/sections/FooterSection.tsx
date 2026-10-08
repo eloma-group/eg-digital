@@ -103,7 +103,7 @@ function IconThreads() {
 const socials = [
   { Icon: IconLinkedIn,  href: 'https://www.linkedin.com/company/eg-digital43/',        label: 'LinkedIn',  bg: '#0A66C2', color: '#fff' },
   { Icon: IconTwitterX,  href: 'https://x.com/EgDigital2026',                            label: 'Twitter/X', bg: '#000000', color: '#fff' },
-  { Icon: IconFacebook,  href: 'https://www.facebook.com/profile.php?id=61573375184046', label: 'Facebook',  bg: '#1877F2', color: '#fff' },
+  { Icon: IconFacebook,  href: 'https://www.facebook.com/p/Eg-digital-61573375184046/', label: 'Facebook',  bg: '#1877F2', color: '#fff' },
   { Icon: IconInstagram, href: 'https://www.instagram.com/eg_digital_australia/',        label: 'Instagram', bg: 'linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', color: '#fff' },
   { Icon: IconTikTok,    href: 'https://www.tiktok.com/@egdigital6',                      label: 'TikTok',    bg: '#000000', color: '#fff' },
   { Icon: IconThreads,   href: 'https://www.threads.com/@eg_digital_australia',          label: 'Threads',   bg: '#000000', color: '#fff' },
