@@ -170,7 +170,7 @@ export function buildServiceJsonLd(route: string): object[] | null {
     description: s.serviceDescription,
     url,
     inLanguage: 'en-AU',
-    isPartOf: { '@type': 'WebSite', name: 'EG Digital', url: SITE_URL },
+    isPartOf: { '@type': 'WebSite', '@id': `${SITE_URL}/#website`, name: 'EG Digital', url: `${SITE_URL}/` },
     breadcrumb: { '@id': breadcrumbId },
     // Reference the single Service node by @id - never inline a second copy,
     // or validators read two separate Service entities on the page.

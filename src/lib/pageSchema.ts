@@ -1,6 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // PAGE STRUCTURED DATA (JSON-LD) - single entry point for every route's
 // page-level schema:
+//   - WebSite on the homepage
 //   - BreadcrumbList on every page except the homepage
 //   - Service + WebPage (+ FAQPage) on service pages     (serviceSchema.ts)
 //   - FAQPage on /about/faq                               (faqData.ts)
@@ -75,11 +76,28 @@ export function buildBreadcrumbJsonLd(route: string): object | null {
   }
 }
 
+/** WebSite schema for the homepage. The publisher is the Organization in index.html. */
+function buildWebsiteJsonLd(route: string): object | null {
+  if (route !== '/') return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: 'EG Digital',
+    alternateName: ['EG Digital Australia', 'EG Digital by Eloma Group'],
+    url: `${SITE_URL}/`,
+    inLanguage: 'en-AU',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  }
+}
+
 /** Every page-level JSON-LD object for a route, in a stable order. */
 export function buildPageJsonLd(rawRoute: string): object[] {
   const route = normaliseRoute(rawRoute)
   const breadcrumb = buildBreadcrumbJsonLd(route)
+  const website = buildWebsiteJsonLd(route)
   return [
+    ...(website ? [website] : []),
     ...(buildServiceJsonLd(route) || []),
     ...(buildFaqJsonLd(route) || []),
     ...(buildBlogJsonLd(route) || []),
