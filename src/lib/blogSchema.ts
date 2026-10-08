@@ -1,16 +1,16 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// BLOG STRUCTURED DATA (JSON-LD) - the BlogPosting schema for each /blog/<slug>
-// article page.
+// BLOG STRUCTURED DATA (JSON-LD) - the BlogPosting schema for every article
+// page, blog (/blog/<slug>) and newsroom (/about/media/<slug>) alike.
 //
 // Used in two places, both reading from this one builder:
 //   1. BUILD TIME - prerender.js bakes the <script type="application/ld+json">
-//      tag into the static <body> of each blog route so no-JS crawlers read it.
-//   2. RUNTIME - BlogArticle injects/refreshes the same tag on the client so
+//      tag into the static <body> of each article so no-JS crawlers read it.
+//   2. RUNTIME - <PageJsonLd /> injects/refreshes the same tag on the client so
 //      SPA navigation keeps the schema correct for the route.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { SITE_URL } from './pageMeta'
-import { POSTS, photo } from './blogPosts'
+import { POSTS, photo, postPath } from './blogPosts'
 
 const IMAGE_W = 1400
 const IMAGE_H = 780
@@ -23,16 +23,14 @@ const isoDate = (human: string) => {
 }
 
 /**
- * Build the BlogPosting JSON-LD for a /blog/<slug> route. Returns null for any
- * other route (including newsroom posts), so callers can no-op safely.
+ * Build the BlogPosting JSON-LD for an article route. Returns null for any
+ * other route, so callers can no-op safely.
  */
 export function buildBlogJsonLd(route: string): object[] | null {
-  const m = route.match(/^\/blog\/([^/]+)$/)
-  if (!m) return null
-  const post = POSTS.find(p => p.slug === m[1] && !p.newsroom)
+  const post = POSTS.find(p => postPath(p) === route)
   if (!post) return null
 
-  const url = `${SITE_URL}/blog/${post.slug}`
+  const url = SITE_URL + route
 
   // Unsplash ids are cropped to a known size; locally hosted images keep their
   // own dimensions, so only the absolute URL is emitted for those.

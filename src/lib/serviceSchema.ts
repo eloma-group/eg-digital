@@ -1,11 +1,12 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // SERVICE STRUCTURED DATA (JSON-LD) - single source of truth for the Service +
-// BreadcrumbList schema emitted on each service landing page.
+// WebPage schema emitted on each service landing page. The BreadcrumbList that
+// the WebPage points at (#breadcrumb) is built for every route in pageSchema.ts.
 //
 // Used in two places, both reading from this one map:
 //   1. BUILD TIME - prerender.js bakes the <script type="application/ld+json">
 //      tags into the static <body> of each route so no-JS crawlers read them.
-//   2. RUNTIME - the useServiceJsonLd hook injects/refreshes the same tags on
+//   2. RUNTIME - <PageJsonLd /> injects/refreshes the same tags on
 //      the client so SPA navigation keeps the schema correct for the route.
 //
 // Add a service page's entry here and it is picked up by both automatically.
@@ -150,7 +151,7 @@ const PROVIDER = {
 }
 
 /**
- * Build the WebPage + Service + BreadcrumbList + FAQPage JSON-LD objects for a
+ * Build the WebPage + Service + FAQPage JSON-LD objects for a
  * service route (FAQPage only when that page has FAQs). Returns null for any
  * route without an entry, so callers can no-op safely.
  */
@@ -161,17 +162,6 @@ export function buildServiceJsonLd(route: string): object[] | null {
   const url = SITE_URL + route
   const breadcrumbId = `${url}#breadcrumb`
   const serviceId = `${url}#service`
-
-  const breadcrumb = {
-    '@context': 'https://schema.org/',
-    '@type': 'BreadcrumbList',
-    '@id': breadcrumbId,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Homepage', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
-      { '@type': 'ListItem', position: 3, name: s.breadcrumbName, item: url },
-    ],
-  }
 
   const webPage = {
     '@context': 'https://schema.org',
@@ -198,7 +188,7 @@ export function buildServiceJsonLd(route: string): object[] | null {
     provider: PROVIDER,
   }
 
-  const objects: object[] = [webPage, service, breadcrumb]
+  const objects: object[] = [webPage, service]
 
   const faqs = SERVICE_FAQS[route]
   if (faqs && faqs.length) {

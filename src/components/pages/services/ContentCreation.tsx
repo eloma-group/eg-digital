@@ -8,7 +8,6 @@ import { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink } from '../../../lib/elomaLink'
 import { photo } from '../../../lib/blogPosts'
 
@@ -193,7 +192,6 @@ const PRICES: { v: string; l: string }[] = [
 
 export function ContentCreation() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/content-creation')
 
   usePageMeta(
     'Content Creation Services Australia | EG Digital',

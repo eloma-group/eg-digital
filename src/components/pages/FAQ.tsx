@@ -3,34 +3,13 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PageLayout, Eyebrow, NAVY, GREEN, EASE } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { FAQ_GROUPS as GROUPS, buildFaqJsonLd } from '../../lib/faqData'
-
-const JSONLD_MARKER = 'data-page-jsonld'
+import { FAQ_GROUPS as GROUPS } from '../../lib/faqData'
 
 export function FAQ() {
   usePageMeta(
     'EG Digital FAQ | Frequently Asked Questions',
     'Find answers to common questions about EG Digital services, pricing, contracts, results timelines, reporting, and how we help Australian businesses grow.',
   )
-
-  // Inject the FAQPage JSON-LD while this page is mounted. The static build
-  // (prerender.js) bakes the same tags for no-JS crawlers; here we clear those
-  // first, then re-add fresh ones, so there is never a duplicate. Mirrors
-  // useServiceJsonLd.
-  useEffect(() => {
-    const objects = buildFaqJsonLd('/about/faq')
-    if (!objects) return
-    document.querySelectorAll(`script[${JSONLD_MARKER}]`).forEach(el => el.remove())
-    const added = objects.map(obj => {
-      const el = document.createElement('script')
-      el.type = 'application/ld+json'
-      el.setAttribute(JSONLD_MARKER, '')
-      el.textContent = JSON.stringify(obj)
-      document.body.appendChild(el)
-      return el
-    })
-    return () => added.forEach(el => el.remove())
-  }, [])
 
   const [open, setOpen] = useState<string | null>('services-0')
   const [active, setActive] = useState(GROUPS[0].id)

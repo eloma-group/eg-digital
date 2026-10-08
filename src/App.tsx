@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { PageJsonLd } from './components/PageJsonLd'
 import { IntroSplash } from './components/IntroSplash'
 import { ContentProtection } from './components/ContentProtection'
 import { useCanonical } from './hooks/useCanonical'
@@ -111,6 +112,7 @@ function App() {
       <IntroSplash />
       <ContentProtection />
       <ScrollToTop />
+      <PageJsonLd />
       <CanonicalTag />
       <Suspense fallback={null}>
       <Routes>

@@ -7,7 +7,6 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -205,7 +204,6 @@ const PRICES: { v: string; l: string }[] = [
 
 export function FacebookAdsManagement() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/facebook-ads-management')
 
   usePageMeta(
     'Facebook Ads Management Services Australia | EG Digital',

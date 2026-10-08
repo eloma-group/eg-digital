@@ -7,7 +7,6 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -194,7 +193,6 @@ const PRICES: { v: string; l: string }[] = [
 
 export function LinkedInAdsManagement() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/linkedin-ads-management')
 
   usePageMeta(
     'LinkedIn Ads Management Agency Australia | EG Digital',

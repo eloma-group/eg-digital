@@ -7,7 +7,6 @@ import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -178,7 +177,6 @@ const PRICES: { v: string; l: string }[] = [
 
 export function EmailMarketing() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/email-marketing')
 
   usePageMeta(
     'Email Marketing Services in Australia | EG Digital',

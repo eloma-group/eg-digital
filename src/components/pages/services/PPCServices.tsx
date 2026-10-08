@@ -7,7 +7,6 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink, linkEloma } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -178,7 +177,6 @@ const FAQS: { q: string; a: string }[] = [
 
 export function PPCServices() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/ppc-services')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.

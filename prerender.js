@@ -21,7 +21,7 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf-8')
 const serverEntry = url.pathToFileURL(
   path.resolve(process.cwd(), 'dist-server', 'entry-server.js'),
 ).href
-const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildServiceJsonLd, buildFaqJsonLd, buildBlogJsonLd } = await import(serverEntry)
+const { render, ROUTES, PAGE_META, DEFAULT_META, SITE_URL, buildPageJsonLd } = await import(serverEntry)
 
 const esc = (s) =>
   String(s)
@@ -56,16 +56,12 @@ function applyMeta(html, route) {
   return html
 }
 
-// Bake the Service + BreadcrumbList JSON-LD for a service route into the <body>
-// so crawlers that do not run JavaScript still read the structured data. The
-// runtime useServiceJsonLd hook clears and re-adds these (matched by the same
+// Bake the page-level JSON-LD (breadcrumb, service, FAQ, article) for a route
+// into the <body> so crawlers that do not run JavaScript still read the
+// structured data. The runtime <PageJsonLd /> component clears and re-adds these (matched by the same
 // data-page-jsonld attribute) once the SPA boots, so there is never a duplicate.
 function applyJsonLd(html, route) {
-  const objects = [
-    ...(buildServiceJsonLd(route) || []),
-    ...(buildFaqJsonLd(route) || []),
-    ...(buildBlogJsonLd(route) || []),
-  ]
+  const objects = buildPageJsonLd(route)
   if (objects.length === 0) return html
 
   // Escape "<" as < so a stray "</script>" in any value can never break out

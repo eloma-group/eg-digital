@@ -7,7 +7,6 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { ElomaLink } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -213,7 +212,6 @@ function CreativeLottie() {
 
 export function SocialMediaMarketing() {
   const navigate = useNavigate()
-  useServiceJsonLd('/services/social-media-marketing')
 
   // No global per-route meta helper exists, so set the document title here to
   // match the approved META TITLE for this page.

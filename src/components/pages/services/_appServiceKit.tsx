@@ -5,7 +5,6 @@ import type { LucideIcon } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PageLayout, Eyebrow, Reveal, PageCTA, NAVY, GREEN } from '../_kit'
 import { usePageMeta } from '../../../hooks/usePageMeta'
-import { useServiceJsonLd } from '../../../hooks/useServiceJsonLd'
 import { linkEloma } from '../../../lib/elomaLink'
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -90,7 +89,6 @@ const Arrow = ({ stroke }: { stroke: string }) => (
 
 export function AppServicePage({ data }: { data: ServicePageData }) {
   const navigate = useNavigate()
-  useServiceJsonLd(data.route)
   usePageMeta(data.metaTitle, data.metaDescription)
 
   return (

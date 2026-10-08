@@ -4,7 +4,6 @@ import { useParams, Navigate, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { PageLayout, PageCTA, NAVY, GREEN } from './_kit'
 import { usePageMeta } from '../../hooks/usePageMeta'
-import { buildBlogJsonLd } from '../../lib/blogSchema'
 import { getPost, photo, photoAlt, GRID_POSTS, NEWSROOM_POSTS, postPath, type Block } from '../../lib/blogPosts'
 
 // Parse the tiny inline markup used in post bodies: **bold** and
@@ -116,24 +115,6 @@ export function BlogArticle() {
     })
     document.head.appendChild(el)
     return () => { el.remove() }
-  }, [post])
-
-  // BlogPosting JSON-LD. The static build bakes the same tag (marked
-  // data-page-jsonld) into the HTML, so clear those first to avoid a duplicate.
-  useEffect(() => {
-    if (!post) return
-    const objects = buildBlogJsonLd(postPath(post))
-    if (!objects) return
-    document.querySelectorAll('script[data-page-jsonld]').forEach(el => el.remove())
-    const added = objects.map(obj => {
-      const el = document.createElement('script')
-      el.type = 'application/ld+json'
-      el.setAttribute('data-page-jsonld', '')
-      el.textContent = JSON.stringify(obj)
-      document.body.appendChild(el)
-      return el
-    })
-    return () => added.forEach(el => el.remove())
   }, [post])
 
   // Unknown slug -> send back to the blog index.
